@@ -1,0 +1,36 @@
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+env/
+venv/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# VS Code / IDEs
+.vscode/
+.idea/
+
+# Project specific data & checkpoints
+# Chỉ giữ lại thư mục, bỏ qua tất cả nội dung bên trong
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Model weights
+models_checkpoints/
+*.pt
+*.pth
+*.ckpt
+
+# Logs
+logs/
+runs/
+
+# OS generated files
+.DS_Store
+Thumbs.db
