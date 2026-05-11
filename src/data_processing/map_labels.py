@@ -48,7 +48,25 @@ def process_shopee_data(input_path, output_path):
 
 if __name__ == "__main__":
     # Đường dẫn tương đối từ thư mục root của dự án
-    INPUT_FILE = "data/raw/ShopeeReviewsSentiment/shopee_reviews_dataset.jsonl"
+    # Hỗ trợ nhiều vị trí nếu cấu trúc thư mục khác nhau
+    possible_inputs = [
+        "data/raw/shopee/shopee_reviews_dataset.jsonl",
+        "data/raw/ShopeeReviewsSentiment/shopee_reviews_dataset.jsonl",
+        "data/raw/shopee/aug_unaccented_reviews.jsonl",
+        "data/raw/ShopeeReviewsSentiment/aug_unaccented_reviews.jsonl",
+    ]
+    INPUT_FILE = None
+    for p in possible_inputs:
+        try:
+            with open(p, 'r', encoding='utf-8'):
+                INPUT_FILE = p
+                break
+        except Exception:
+            continue
+
+    if INPUT_FILE is None:
+        print("[ERROR] Khong tim thay file input. Hãy đảm bảo file JSONL tồn tại trong data/raw/")
+        raise SystemExit(1)
+
     OUTPUT_FILE = "data/processed/shopee_mapped.csv"
-    
     process_shopee_data(INPUT_FILE, OUTPUT_FILE)
