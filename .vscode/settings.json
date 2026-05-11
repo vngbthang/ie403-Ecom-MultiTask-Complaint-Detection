@@ -1,6 +1,0 @@
-{
-    "chat.tools.terminal.autoApprove": {
-        "label_studio_env\\Scripts\\activate.bat": true,
-        "pip": true
-    }
-}
