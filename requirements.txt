@@ -1,7 +1,20 @@
-pandas>=1.5.0
-scikit-learn>=1.0.2
-torch>=2.0.0
-transformers>=4.30.0
+# === Data Processing ===
+pandas>=2.0.0
+tqdm>=4.65.0
+
+# === Machine Learning / Deep Learning ===
+torch>=2.1.0
+transformers>=4.38.0
+scikit-learn>=1.3.0
+
+# === Vietnamese NLP ===
 pyvi>=0.1.1
+
+# === Sequence Labeling Evaluation ===
 seqeval>=1.2.2
+
+# === Jupyter Notebook ===
 jupyter>=1.0.0
+notebook>=7.0.0
+ipykernel>=6.20.0
+

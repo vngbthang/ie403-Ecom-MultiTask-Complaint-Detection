@@ -1,56 +1,69 @@
-# Hướng dẫn Gán nhãn BIO: Trích xuất Cụm từ Khiếu nại (Complaint Span Extraction)
+# Hướng dẫn gán nhãn BIO cho Task Span Extraction
 
-## 1. Mục tiêu và Hệ nhãn
-Nhiệm vụ của team là tìm và trích xuất các cụm từ thể hiện sự khiếu nại, chê bai, hoặc phản ánh lỗi sản phẩm/dịch vụ từ bình luận e-commerce. 
-Chúng ta sử dụng quy tắc gán nhãn **BIO** cho từng từ đơn (token):
+Trong bài toán trích xuất cụm từ khiếu nại (Complaint Span Extraction), chúng ta sử dụng hệ nhãn **BIO** (Begin - Inside - Outside) để đánh dấu chính xác vị trí và độ dài của cụm từ thể hiện sự phàn nàn/khiếu nại từ bình luận của khách hàng.
 
-- **B-COMP (Begin - Complaint):** Từ BẮT ĐẦU của một cụm từ khiếu nại.
-- **I-COMP (Inside - Complaint):** Các từ BÊN TRONG (tiếp nối ngay sau B-COMP) của cụm khiếu nại.
-- **O (Outside):** Các từ nằm NGOÀI cụm khiếu nại, không mang ý nghĩa chê bai.
+## 1. Định nghĩa hệ nhãn
+- **B-COMP (Begin - Complaint)**: Từ **ĐẦU TIÊN** của một cụm từ khiếu nại.
+- **I-COMP (Inside - Complaint)**: Các từ **TIẾP THEO** nằm bên trong cụm từ khiếu nại đó.
+- **O (Outside)**: Các từ **KHÔNG** thuộc bất kỳ cụm khiếu nại nào (những từ bình thường).
 
-## 2. Nguyên tắc Gán nhãn Cốt lõi
-1. **Bao trọn ý nghĩa lõi:** Gán sao cho khi rút trích đoạn text ra, người đọc hiểu chính xác lỗi là gì mà không cần đọc cả câu.
-2. **Gộp chung Trạng từ chỉ mức độ / Từ phủ định:** Các từ như "rất", "quá", "không", "chẳng" **PHẢI** được gộp vào cụm khiếu nại (gán B/I-COMP) vì chúng làm rõ bản chất và sắc thái của lỗi.
-3. **Loại trừ Liên từ / Từ nối:** Các từ như "nhưng", "tuy nhiên", "mà" KHÔNG thuộc về cụm khiếu nại (gán nhãn O).
+## 2. Nguyên tắc gán nhãn
+- Cụm từ khiếu nại cần bao gồm cả các từ chỉ mức độ (ví dụ: *rất, quá, cực kỳ*) nếu chúng bổ nghĩa trực tiếp cho trạng thái lỗi/khiếu nại.
+- Các từ phủ định (ví dụ: *không, chả, chưa*) đi kèm với tính từ/động từ kỳ vọng cũng phải được gộp vào cụm khiếu nại.
+- Chỉ gán nhãn phần cốt lõi mang ý nghĩa phàn nàn, tránh gán dư thừa các từ nối không cần thiết (ví dụ: *nhưng, mà*).
 
-## 3. Các Ví dụ Dễ Gây Tranh Cãi (Cần lưu ý kỹ)
+## 3. Ví dụ minh họa chi tiết
 
-### Ví dụ 1: Xử lý Trạng từ chỉ mức độ ("quá", "rất", "cực kỳ")
-**Bình luận:** "Shop giao hàng quá chậm"
-**Quy tắc:** Không chỉ gán chữ "chậm" hay "quá chậm". Phải gán toàn bộ sự việc "giao hàng quá chậm" để xác định rõ đối tượng bị khiếu nại.
+### Ví dụ 1: Tính từ chỉ mức độ kết hợp với lỗi
+**Bình luận:** "Giao hàng quá chậm, sản phẩm bị móp méo"
+- Việc khách hàng phàn nàn là tốc độ giao hàng và tình trạng sản phẩm. Từ "quá" nhấn mạnh mức độ chậm nên cần đưa vào cụm.
 
-| Từ | Nhãn |
+| Token | Nhãn |
 |---|---|
-| Shop | O |
-| giao | B-COMP |
-| hàng | I-COMP |
-| quá | I-COMP |
-| chậm | I-COMP |
-
-### Ví dụ 2: Xử lý Từ phủ định ("không", "chưa")
-**Bình luận:** "Sản phẩm này không giống hình quảng cáo"
-**Quy tắc:** "không giống hình" là cốt lõi của sự khiếu nại. Cụm "Sản phẩm này" chỉ là chủ ngữ chung chung, lược bỏ đi vẫn hiểu được lỗi. Từ "không" đóng vai trò bắt đầu cụm khiếu nại.
-
-| Từ | Nhãn |
-|---|---|
-| Sản | O |
+| Giao | O |
+| hàng | O |
+| quá | **B-COMP** |
+| chậm | **I-COMP** |
+| , | O |
+| sản | O |
 | phẩm | O |
-| này | O |
-| không | B-COMP |
-| giống | I-COMP |
-| hình | I-COMP |
-| quảng | I-COMP |
-| cáo | I-COMP |
+| bị | **B-COMP** |
+| móp | **I-COMP** |
+| méo | **I-COMP** |
 
-### Ví dụ 3: Xử lý Liên từ chuyển ý ("nhưng")
-**Bình luận:** "Giày êm nhưng form rất nhỏ"
-**Quy tắc:** "Giày êm" là lời khen (O). Chữ "nhưng" là từ nối (O). Phần khiếu nại bắt đầu từ "form rất nhỏ", lưu ý phải giữ lại trạng từ "rất".
+### Ví dụ 2: Từ phủ định đi kèm từ kỳ vọng
+**Bình luận:** "Giày đẹp nhưng mang không vừa chân"
+- Từ "nhưng" là từ nối, không mang nghĩa khiếu nại -> nhãn O.
+- Cụm phàn nàn chính là việc mang không vừa, cần bao gồm cả từ phủ định "không".
 
-| Từ | Nhãn |
+| Token | Nhãn |
 |---|---|
 | Giày | O |
-| êm | O |
+| đẹp | O |
 | nhưng | O |
-| form | B-COMP |
-| rất | I-COMP |
-| nhỏ | I-COMP |
+| mang | O |
+| không | **B-COMP** |
+| vừa | **I-COMP** |
+| chân | **I-COMP** |
+
+### Ví dụ 3: Lỗi do chất lượng hoặc dịch vụ rõ ràng
+**Bình luận:** "Shop phục vụ rất tệ, nhắn tin chả ai thèm rep"
+
+| Token | Nhãn |
+|---|---|
+| Shop | O |
+| phục | O |
+| vụ | O |
+| rất | **B-COMP** |
+| tệ | **I-COMP** |
+| , | O |
+| nhắn | O |
+| tin | O |
+| chả | **B-COMP** |
+| ai | **I-COMP** |
+| thèm | **I-COMP** |
+| rep | **I-COMP** |
+
+## 4. Các trường hợp cần lưu ý (Edge Cases)
+- **Cụm từ đứt gãy:** Nếu bình luận là "áo thì rách, quần thì tuột chỉ", gán "rách" (B-COMP) và "tuột chỉ" (B-COMP, I-COMP). Không gán các từ "thì".
+- **Lỗi chính tả:** Giữ nguyên lỗi chính tả của người dùng khi gán nhãn, không tự ý sửa đổi token.
