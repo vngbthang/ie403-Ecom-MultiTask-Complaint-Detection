@@ -68,6 +68,9 @@ class PhobertCRFMultiTask(nn.Module):
             # 1. Tạo mặt nạ: Bắt CRF BỎ QUA các vị trí đệm và các vị trí bị gán -100
             crf_mask = (ner_labels != -100) & attention_mask.bool()
 
+            # Ép token đầu tiên (<s>) luôn là True để chiều ý pytorch-crf
+            crf_mask[:, 0] = True
+
             # 2. Làm giả nhãn: Đổi -100 thành 0 để CRF không văng lỗi Index Out Of Bounds
             safe_ner_labels = torch.where(
                 ner_labels == -100,
