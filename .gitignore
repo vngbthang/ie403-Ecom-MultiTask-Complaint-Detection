@@ -1,11 +1,29 @@
-.agents
+# Byte-compiled / optimized
 __pycache__
-.vscode
-.venv
-.idea
-# Bỏ qua các thư mục checkpoint (nằm ở bất kỳ đâu)
-**/checkpoint-*/
+*.pyc
+*.pyo
+*.pyd
 
-# Bỏ qua file trọng số nặng nằm trong thư mục model
-**/model.safetensors
+# Virtual environments
+.venv
+venv/
+env/
+.idea/
+.vscode/
+
+# Agents / Cursor artifacts
+.agents
+
+# Model weights & checkpoints
+models/
+checkpoints/
+**/checkpoint-*/
+*.pt
+*.pth
+*.safetensors
 **/training_args.bin
+
+# Results & logs
+results/
+logs/
+*.log
