@@ -65,8 +65,18 @@ class PhobertCRFMultiTask(nn.Module):
         # Tinh loss khi co nhan
         ner_loss = None
         if ner_labels is not None:
-            # CRF nhan tensor (batch, seq_len)
-            ner_loss = -self.crf(ner_emissions, ner_labels, mask=crf_mask, reduction="mean")
+            # 1. Tạo mặt nạ: Bắt CRF BỎ QUA các vị trí đệm và các vị trí bị gán -100
+            crf_mask = (ner_labels != -100) & attention_mask.bool()
+
+            # 2. Làm giả nhãn: Đổi -100 thành 0 để CRF không văng lỗi Index Out Of Bounds
+            safe_ner_labels = torch.where(
+                ner_labels == -100,
+                torch.tensor(0, device=ner_labels.device),
+                ner_labels
+            )
+
+            # 3. Tính Loss an toàn
+            ner_loss = -self.crf(ner_emissions, safe_ner_labels, mask=crf_mask, reduction="mean")
 
         return classification_logits, ner_predictions, ner_loss
 
