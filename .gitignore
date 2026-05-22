@@ -1,3 +1,9 @@
 .agents
 __pycache__
 .vscode
+# Bỏ qua các thư mục checkpoint (nằm ở bất kỳ đâu)
+**/checkpoint-*/
+
+# Bỏ qua file trọng số nặng nằm trong thư mục model
+**/model.safetensors
+**/training_args.bin
