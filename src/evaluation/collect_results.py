@@ -78,7 +78,7 @@ def parse_classical_baselines_csv(csv_path: Path) -> List[Dict[str, Any]]:
             "num_samples": _safe_int(row.get("num_samples")),
             "entity_f1": None,
             "token_f1": None,
-            "source_file": str(csv_path.relative_to(PROJECT_ROOT)),
+            "source_file": str(csv_path.resolve().relative_to(PROJECT_ROOT)),
         })
 
     return rows
@@ -109,7 +109,7 @@ def parse_multitask_metrics_json(json_path: Path) -> List[Dict[str, Any]]:
             "entity_f1": None,
             "token_f1": None,
             "num_samples": cls_metrics.get("num_samples"),
-            "source_file": str(json_path.relative_to(PROJECT_ROOT)),
+            "source_file": str(json_path.resolve().relative_to(PROJECT_ROOT)),
         })
 
     # NER part
@@ -128,7 +128,7 @@ def parse_multitask_metrics_json(json_path: Path) -> List[Dict[str, Any]]:
             "entity_precision": ner_metrics.get("entity_precision"),
             "entity_recall": ner_metrics.get("entity_recall"),
             "num_samples": ner_metrics.get("num_samples"),
-            "source_file": str(json_path.relative_to(PROJECT_ROOT)),
+            "source_file": str(json_path.resolve().relative_to(PROJECT_ROOT)),
         })
 
     return rows
@@ -160,7 +160,7 @@ def parse_ner_metrics_json(json_path: Path) -> List[Dict[str, Any]]:
         "entity_precision": _safe_float(data.get("entity_precision")),
         "entity_recall": _safe_float(data.get("entity_recall")),
         "num_samples": _safe_int(data.get("num_samples")),
-        "source_file": str(json_path.relative_to(PROJECT_ROOT)),
+        "source_file": str(json_path.resolve().relative_to(PROJECT_ROOT)),
     })
 
     return rows
@@ -191,7 +191,7 @@ def parse_ner_epoch_json(json_path: Path) -> Optional[Dict[str, Any]]:
         "entity_precision": _safe_float(data.get("entity_precision")),
         "entity_recall": _safe_float(data.get("entity_recall")),
         "num_samples": _safe_int(data.get("num_samples")),
-        "source_file": str(json_path.relative_to(PROJECT_ROOT)),
+        "source_file": str(json_path.resolve().relative_to(PROJECT_ROOT)),
     }
 
 
@@ -227,7 +227,7 @@ def parse_ablation_json(json_path: Path) -> Optional[Dict[str, Any]]:
         "entity_precision": ner_metrics.get("entity_precision") if ner_metrics else None,
         "entity_recall": ner_metrics.get("entity_recall") if ner_metrics else None,
         "num_samples": ner_metrics.get("num_samples") if ner_metrics else None,
-        "source_file": str(json_path.relative_to(PROJECT_ROOT)),
+        "source_file": str(json_path.resolve().relative_to(PROJECT_ROOT)),
     }
 
 

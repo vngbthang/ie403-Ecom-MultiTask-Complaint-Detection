@@ -36,6 +36,8 @@ from src.evaluation.evaluate_classification import (
     plot_f1_comparison_bar,
 )
 
+sys.stdout.reconfigure(encoding="utf-8")
+
 OUTPUT_ROOT = PROJECT_ROOT / "outputs"
 OUTPUT_METRICS = OUTPUT_ROOT / "metrics"
 OUTPUT_FIGURES = OUTPUT_ROOT / "figures"
@@ -99,14 +101,18 @@ def load_dataset(path: str, label_col: str = None) -> pd.DataFrame:
         elif "label" in df.columns:
             label_col = "label"
         else:
-            raise ValueError(f"Không tìm thấy cột nhãn trong {path}. Các cột: {df.columns.tolist()}")
+            raise ValueError(
+                f"Khong tim thay cot nhan trong {path}. Cac cot: {df.columns.tolist()}"
+            )
 
     if "review" in df.columns:
         text_col = "review"
     elif "review_tokenize" in df.columns:
         text_col = "review_tokenize"
     else:
-        raise ValueError(f"Không tìm thấy cột text trong {path}. Các cột: {df.columns.tolist()}")
+        raise ValueError(
+            f"Khong tim thay cot text trong {path}. Cac cot: {df.columns.tolist()}"
+        )
 
     df = df.dropna(subset=[text_col]).reset_index(drop=True)
     label_series = df[label_col].astype(float).astype(int)
@@ -135,13 +141,13 @@ def train_and_evaluate(
     if tfidf_kwargs is None:
         tfidf_kwargs = {}
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print(f"Dataset: {dataset_name} | Train: {len(train_df)} | Test: {len(test_df)}")
     print(f"Label dist (train): {dict(train_df['label'].value_counts().sort_index())}")
     print(f"Label dist (test) : {dict(test_df['label'].value_counts().sort_index())}")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
 
-    # Tiền xử lý
+    # Tien xu ly
     print("\n[PREPROCESS] Applying clean_vietnamese_text...")
     X_train_text = preprocess_texts(train_df["text"])
     X_test_text = preprocess_texts(test_df["text"])
@@ -151,8 +157,6 @@ def train_and_evaluate(
     # TF-IDF
     print("[TF-IDF] Fitting vectorizer...")
     vectorizer = TfidfVectorizer(
-        ngram_range=(1, 2),
-        max_features=10000,
         lowercase=True,
         min_df=2,
         max_df=0.8,
@@ -169,11 +173,11 @@ def train_and_evaluate(
         print(f"\n[MODEL] {model_key}")
         model = model_factory()
 
-        # Huấn luyện
+        # Huan luyen
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
 
-        # Lấy xác suất nếu có
+        # Lay xac suat neu co
         y_prob = None
         if hasattr(model, "predict_proba"):
             try:
@@ -181,7 +185,7 @@ def train_and_evaluate(
             except Exception:
                 pass
 
-        # Tính metrics
+        # Tinh metrics
         metrics = compute_classification_metrics(y_test, y_pred, y_prob)
         metrics["model"] = model_key
         metrics["dataset"] = dataset_name
@@ -191,7 +195,7 @@ def train_and_evaluate(
         print(f"  F1-Macro      : {metrics['f1_macro']:.4f}")
         print(f"  F1-Complaint  : {metrics['f1_complaint']:.4f}")
 
-        # Lưu kết quả chi tiết
+        # Luu ket qua chi tiet
         model_output_dir = OUTPUT_METRICS / dataset_name / model_key
         saved = save_all_results(
             metrics=metrics,
@@ -222,56 +226,56 @@ def parse_args():
         "--train",
         type=str,
         default="data/processed/shopee_mapped.csv",
-        help="Đường dẫn file train (mặc định: data/processed/shopee_mapped.csv)",
+        help="Duong dan file train (mac dinh: data/processed/shopee_mapped.csv)",
     )
     parser.add_argument(
         "--test",
         type=str,
         default=None,
-        help="Đường dẫn file test. Nếu không truyền, tự chia train/val từ train (80/20).",
+        help="Duong dan file test. Neu khong truyen, tu dong chia train/val tu train (80/20).",
     )
     parser.add_argument(
         "--val",
         type=str,
         default=None,
-        help="Đường dẫn file validation.",
+        help="Duong dan file validation.",
     )
     parser.add_argument(
         "--label-col",
         type=str,
         default=None,
-        help="Tên cột nhãn (mặc định: tự nhận diện)",
+        help="Ten cot nhan (mac dinh: tu dong nhan dien)",
     )
     parser.add_argument(
         "--test-size",
         type=float,
         default=0.2,
-        help="Tỷ lệ test split nếu không truyền --test (mặc định: 0.2)",
+        help="Ty le test split neu khong truyen --test (mac dinh: 0.2)",
     )
     parser.add_argument(
         "--random-state",
         type=int,
         default=42,
-        help="Random seed cho reproducibility (mặc định: 42)",
+        help="Random seed cho reproducibility (mac dinh: 42)",
     )
     parser.add_argument(
         "--max-features",
         type=int,
         default=10000,
-        help="max_features cho TF-IDF (mặc định: 10000)",
+        help="max_features cho TF-IDF (mac dinh: 10000)",
     )
     parser.add_argument(
         "--ngram-range",
         type=str,
         default="1,2",
-        help="N-gram range, ví dụ '1,2' (mặc định: '1,2')",
+        help="N-gram range, vi du '1,2' (mac dinh: '1,2')",
     )
     parser.add_argument(
         "--output-csv",
         type=str,
         default=None,
-        help="Đường dẫn lưu bảng metrics tổng hợp CSV. "
-             "Mặc định: outputs/metrics/classical_baselines.csv",
+        help="Duong dan luu bang metrics tong hop CSV. "
+             "Mac dinh: outputs/metrics/classical_baselines.csv",
     )
     return parser.parse_args()
 
@@ -286,7 +290,7 @@ def main():
     ngram_parts = args.ngram_range.split(",")
     ngram_range = (int(ngram_parts[0]), int(ngram_parts[1]))
 
-    # Đặt tên dataset từ đường dẫn
+    # Dat ten dataset tu duong dan
     train_path = Path(args.train)
     if train_path.stem == "shopee_mapped":
         dataset_name = "Shopee"
@@ -295,24 +299,27 @@ def main():
     else:
         dataset_name = train_path.stem
 
-    print(f"\n{'='*60}")
+    print(f"\n{'=' * 60}")
     print("Classical Baselines Training")
     print(f"Train path : {args.train}")
     print(f"Test path  : {args.test}")
     print(f"Dataset    : {dataset_name}")
     print(f"Seed       : {args.random_state}")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
 
     # Load train data
     train_df = load_dataset(args.train, label_col=args.label_col)
 
-    # Load test data hoặc chia từ train
+    # Load test data hoac chia tu train
     if args.test:
         test_df = load_dataset(args.test, label_col=args.label_col)
     elif args.val:
         test_df = load_dataset(args.val, label_col=args.label_col)
     else:
-        print(f"\n[SPLIT] Chia train/test với test_size={args.test_size}, seed={args.random_state}")
+        print(
+            f"\n[SPLIT] Chia train/test voi test_size={args.test_size}, "
+            f"seed={args.random_state}"
+        )
         train_df, test_df = train_test_split(
             train_df,
             test_size=args.test_size,
@@ -337,21 +344,24 @@ def main():
         tfidf_kwargs=tfidf_kwargs,
     )
 
-    # Lưu bảng tổng hợp
-    output_csv = Path(args.output_csv) if args.output_csv else OUTPUT_METRICS / "classical_baselines.csv"
+    # Luu bang tong hop
+    output_csv = (
+        Path(args.output_csv) if args.output_csv
+        else OUTPUT_METRICS / "classical_baselines.csv"
+    )
     output_csv.parent.mkdir(parents=True, exist_ok=True)
     save_summary_csv(all_results, str(output_csv))
 
-    # Bar chart so sánh F1
+    # Bar chart so sanh F1
     chart_path = OUTPUT_FIGURES / f"f1_comparison_{dataset_name}.png"
     plot_f1_comparison_bar(all_results, str(chart_path), dataset_name)
 
-    print(f"\n{'='*60}")
-    print("HOÀN TẤT!")
+    print(f"\n{'=' * 60}")
+    print("HOAN TAT!")
     print(f"Summary CSV : {output_csv}")
     print(f"F1 Chart    : {chart_path}")
     print(f"Details     : {OUTPUT_METRICS / dataset_name}")
-    print(f"{'='*60}")
+    print(f"{'=' * 60}")
 
 
 if __name__ == "__main__":
