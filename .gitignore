@@ -1,6 +1,8 @@
 .agents
 __pycache__
 .vscode
+.venv
+.idea
 # Bỏ qua các thư mục checkpoint (nằm ở bất kỳ đâu)
 **/checkpoint-*/
 
