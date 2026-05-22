@@ -1,6 +1,5 @@
 import csv
 import json
-import argparse
 import os
 import sys
 import torch
@@ -149,27 +148,39 @@ class MultiTaskDataset(Dataset):
 if __name__ == "__main__":
     from transformers import AutoTokenizer
 
-    parser = argparse.ArgumentParser(description="Diagnose alignment from MultiTaskDataset")
-    parser.add_argument("--cls-path", default="data/processed/shopee_mapped.csv")
-    parser.add_argument("--ner-path", default="data/processed/ner_train.json")
-    parser.add_argument("--max-len", type=int, default=256)
-    args = parser.parse_args()
-
     tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base-v2", use_fast=False)
     dataset = MultiTaskDataset(
-        classification_data_path=args.cls_path,
-        ner_data_path=args.ner_path,
+        classification_data_path="data/processed/shopee_mapped.csv",
+        ner_data_path="data/processed/ner_train.json",
         tokenizer=tokenizer,
-        max_len=args.max_len,
+        max_len=128,
     )
-    report = dataset.get_alignment_report()
 
     print("=" * 60)
-    print("MULTITASK DATASET ALIGNMENT REPORT")
+    print(f"Tong so mau trong dataset: {len(dataset)}")
     print("=" * 60)
-    print(f"Classification samples : {report['total_classification_samples']}")
-    print(f"Matched NER samples    : {report['matched_samples']}")
-    print(f"Missing NER samples    : {report['missing_samples']}")
-    print(f"Matched ratio          : {report['matched_ratio'] * 100:.2f}%")
-    print(f"Matched with complaint : {report['matched_with_complaint']}")
+
+    # Lay danh sach index cua cac mau thuoc tap co nhan NER
+    ner_indices = [i for i in range(len(dataset)) if dataset[i]["ner_has_labels"].item() == 1]
+    print(f"So mau thuoc tap co nhan NER: {len(ner_indices)}")
+
+    # Phan tu thu 0 TRONG TAP CO NHAN NER
+    print(f"\n--- Phan tu thu 0 (thuoc tap co nhan NER, global index={ner_indices[0]}) ---")
+    s0 = dataset[ner_indices[0]]
+    print(f"  input_ids shape      : {s0['input_ids'].shape}")
+    print(f"  attention_mask[:10]  : {s0['attention_mask'][:10].tolist()} ...")
+    print(f"  class_labels         : {s0['class_labels'].item()}")
+    print(f"  ner_labels (full)    : {s0['ner_labels'].tolist()}")
+    unique_vals = sorted(set(s0['ner_labels'].tolist()))
+    print(f"  ner_labels unique    : {unique_vals}")
+    print(f"  Co nhan NER that su  : {(s0['ner_labels'] != -100).any().item()}")
+
+    # Phan tu thu 5000 TRONG TOAN BO DATASET (khong co nhan NER)
+    print(f"\n--- Phan tu thu 5000 (thuoc tap KHONG co nhan NER) ---")
+    s5000 = dataset[5000]
+    print(f"  input_ids shape      : {s5000['input_ids'].shape}")
+    print(f"  class_labels         : {s5000['class_labels'].item()}")
+    print(f"  ner_labels (full)    : {s5000['ner_labels'].tolist()}")
+    print(f"  ner_labels unique    : {sorted(set(s5000['ner_labels'].tolist()))}")
+    print(f"  Toan bo ner_labels la -100: {(s5000['ner_labels'] == -100).all().item()}")
     print("=" * 60)
