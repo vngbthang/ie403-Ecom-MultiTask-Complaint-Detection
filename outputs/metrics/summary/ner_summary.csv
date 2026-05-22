@@ -1,0 +1,8 @@
+﻿model,dataset,epoch,entity_f1,entity_precision,entity_recall,token_f1,num_samples,source_file
+Multi-task PhoBERT + CRF (smoke test),NER,1,0.0248,0.0615,0.0155,0.3335,100,outputs/metrics/multitask_smoke_test/ner_metrics_epoch1.json
+"Multi-task PhoBERT + CRF (alpha=2.0, NER-matched)",NER,1,0.0,0.0,0.0,0.2898,100,outputs/metrics/multitask_alpha2_ner_matched/ner_metrics_epoch1.json
+"Multi-task PhoBERT + CRF (alpha=1.0, NER-matched)",NER,1,0.0352,0.0723,0.0233,0.3425,100,outputs/metrics/multitask_alpha1_ner_matched/ner_metrics_epoch1.json
+"Multi-task PhoBERT + CRF (alpha=2.0, NER-matched)",NER,2,0.2435,0.2208,0.2713,0.5674,100,outputs/metrics/multitask_alpha2_ner_matched/ner_metrics_epoch2.json
+"Multi-task PhoBERT + CRF (alpha=1.0, NER-matched)",NER,2,0.2377,0.2249,0.2519,0.4826,100,outputs/metrics/multitask_alpha1_ner_matched/ner_metrics_epoch2.json
+"Multi-task PhoBERT + CRF (alpha=2.0, NER-matched)",NER,3,0.3244,0.3003,0.3527,0.6627,100,outputs/metrics/multitask_alpha2_ner_matched/ner_metrics_epoch3.json
+"Multi-task PhoBERT + CRF (alpha=1.0, NER-matched)",NER,3,0.3279,0.2841,0.3876,0.6445,100,outputs/metrics/multitask_alpha1_ner_matched/ner_metrics_epoch3.json

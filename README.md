@@ -34,8 +34,8 @@
 
 | File | Mẫu | Mô tả |
 |------|------|--------|
-| `data/processed/ner_train.json` | ~800+ | Gán nhãn BIO tay từ review khiếu nại |
-| `data/processed/ner_test.json` | ~200+ | Tập test NER |
+| `data/processed/ner_train.json` | 400 | Gán nhãn BIO tay từ review khiếu nại |
+| `data/processed/ner_test.json` | 100 | Tập test NER |
 
 **Định dạng NER JSON:**
 
@@ -68,8 +68,8 @@ ie403-Ecom-MultiTask-Complaint-Detection/
 │   │   └── UIT-ViOCD/               # Dữ liệu tiêu chuẩn ViOCD
 │   ├── processed/
 │   │   ├── shopee_mapped.csv        # Shopee đã gán nhãn
-│   │   ├── ner_train.json           # NER training set
-│   │   └── ner_test.json            # NER test set
+│   │   ├── ner_train.json           # NER training set (400 mẫu)
+│   │   └── ner_test.json            # NER test set (100 mẫu)
 │   └── splits/                      # Chia train/test cho Shopee
 │
 ├── docs/
@@ -103,13 +103,14 @@ ie403-Ecom-MultiTask-Complaint-Detection/
 │   │   ├── evaluate_classification.py  # Classification metrics
 │   │   ├── evaluate_ner.py             # NER metrics (entity + token)
 │   │   ├── error_analysis.py           # Phân tích lỗi
+│   │   ├── collect_results.py          # Tổng hợp metrics từ nhiều experiments
 │   │   └── metrics.py                  # Shared utilities
 │   │
 │   └── utils/
 │       └── utils.py                    # clean_vietnamese_text, helpers
 │
 ├── outputs/
-│   ├── metrics/                       # Metrics JSON/SV từ experiments
+│   ├── metrics/                       # Metrics JSON/CSV từ experiments
 │   ├── figures/                       # Confusion matrix, bar charts
 │   └── error_samples/                 # Error analysis CSVs
 │
@@ -143,8 +144,8 @@ Total_Loss = CrossEntropy(cls_logits, class_labels) + α × NER_Loss(CRF)
 | TF-IDF + Logistic Regression | Bag-of-n-grams (1,2), max 10,000 features |
 | TF-IDF + Linear SVM | LinearSVC + CalibratedClassifierCV |
 | TF-IDF + Naive Bayes | MultinomialNB, alpha=0.1 |
-| PhoBERT + Linear | PhoBERT + Linear token classifier |
-| PhoBERT + CRF | PhoBERT + Linear + CRF (single-task) |
+| PhoBERT + Linear NER | PhoBERT + Linear token classifier (single-task) |
+| PhoBERT + CRF NER | PhoBERT + Linear + CRF (single-task) |
 
 ---
 
@@ -160,7 +161,7 @@ Total_Loss = CrossEntropy(cls_logits, class_labels) + α × NER_Loss(CRF)
 
 ```bash
 # 1. Clone repo
-git clone https://github.com/your-repo/ie403-Ecom-MultiTask-Complaint-Detection.git
+git clone https://github.com/vngbthang/ie403-Ecom-MultiTask-Complaint-Detection.git
 cd ie403-Ecom-MultiTask-Complaint-Detection
 
 # 2. Tạo virtual environment
@@ -202,7 +203,7 @@ python src/training/train_classical_baselines.py \
 
 Output: `outputs/metrics/classical_baselines.csv`, `outputs/figures/`
 
-### PhoBERT + Linear NER (Single-task, no CRF)
+### PhoBERT + Linear NER (Single-task)
 
 ```bash
 python src/training/train_phobert_ner.py \
@@ -213,9 +214,9 @@ python src/training/train_phobert_ner.py \
     --lr 2e-5
 ```
 
-Output: `outputs/metrics/phobert_ner_single_task.json`
+Output: `outputs/metrics/phobert_ner_single_task_full/metrics/phobert_ner_single_task.json` (hoặc tương tự trong thư mục con của `outputs/metrics/`)
 
-### PhoBERT + CRF NER (Single-task, có CRF)
+### PhoBERT + CRF NER (Single-task)
 
 ```bash
 python src/training/train_phobert_crf_ner.py \
@@ -226,11 +227,12 @@ python src/training/train_phobert_crf_ner.py \
     --lr 2e-5
 ```
 
-Output: `outputs/metrics/phobert_crf_ner_single_task.json`
+Output: `outputs/metrics/phobert_crf_ner_full/metrics/phobert_crf_ner_single_task.json` (hoặc tương tự trong thư mục con của `outputs/metrics/`)
 
 ### PhoBERT Multi-task (Classification + NER)
 
 ```bash
+# alpha = 1.0, only_ner_matched
 python src/training/train_multitask.py \
     --cls-path data/processed/shopee_mapped.csv \
     --ner-train-path data/processed/ner_train.json \
@@ -239,7 +241,20 @@ python src/training/train_multitask.py \
     --epochs 5 \
     --batch-size 8 \
     --lr 2e-5 \
-    --alpha 1.0
+    --alpha 1.0 \
+    --only-ner-matched
+
+# alpha = 2.0, only_ner_matched
+python src/training/train_multitask.py \
+    --cls-path data/processed/shopee_mapped.csv \
+    --ner-train-path data/processed/ner_train.json \
+    --ner-test-path data/processed/ner_test.json \
+    --output-dir checkpoints \
+    --epochs 5 \
+    --batch-size 8 \
+    --lr 2e-5 \
+    --alpha 2.0 \
+    --only-ner-matched
 ```
 
 Các tham số quan trọng:
@@ -247,6 +262,7 @@ Các tham số quan trọng:
 | Tham số | Ý nghĩa | Mặc định |
 |---------|---------|-----------|
 | `--alpha` | Hệ số nhân NER loss | 1.0 |
+| `--only-ner-matched` | Chỉ train trên samples khớp NER | false |
 | `--use-weighted-sampler` | Ưu tiên mẫu có complaint | true |
 | `--max-len` | Độ dài tối đa chuỗi | 256 |
 
@@ -281,6 +297,16 @@ python -m src.evaluation.evaluate_ner \
     --predictions outputs/figures/phobert_crf_ner_single_task_predictions.csv \
     --output-dir outputs/evaluation/ner
 ```
+
+### Tổng hợp kết quả
+
+```bash
+python src/evaluation/collect_results.py \
+    --metrics-dir outputs/metrics \
+    --output-dir outputs/metrics
+```
+
+Output: `outputs/metrics/classification_summary.csv`, `outputs/metrics/ner_summary.csv`
 
 ### Error Analysis (Multi-task model)
 
@@ -322,59 +348,73 @@ App cho phép:
 
 ---
 
-## Kết quả
+## Kết quả thực nghiệm
 
-> **Chưa có kết quả huấn luyện.** Bảng dưới là placeholder chờ chạy experiments thực tế trên GPU.
+> Kết quả được chạy trên tập **Shopee** (7,817 mẫu, split 80/20) và tập **NER test** (`ner_test.json`, 100 mẫu). Model checkpoint không có trong repo.
 
-### Classification (UIT-ViOCD Test Set)
+### Classification (Shopee Test Set, 1,564 mẫu)
 
 | Model | Accuracy | Precision (Macro) | Recall (Macro) | F1 (Macro) | F1 (Complaint) |
-|-------|----------|-------------------|----------------|------------|----------------|
-| TF-IDF + Logistic Regression | — | — | — | — | — |
-| TF-IDF + Linear SVM | — | — | — | — | — |
-| TF-IDF + Naive Bayes | — | — | — | — | — |
-| PhoBERT Classification | — | — | — | — | — |
-| **PhoBERT Multi-task** | — | — | — | — | — |
+|-------|----------|-------------------|----------------|------------|-----------------|
+| TF-IDF + **LinearSVM** | **0.9431** | **0.9427** | **0.9429** | **0.9428** | **0.9470** |
+| TF-IDF + Logistic Regression | 0.9393 | 0.9386 | 0.9394 | 0.9390 | 0.9431 |
+| TF-IDF + Naive Bayes | 0.9341 | 0.9334 | 0.9346 | 0.9339 | 0.9381 |
 
-### NER (ner_test.json)
+### NER (ner_test.json, 100 mẫu)
 
-| Model | Entity Precision | Entity Recall | Entity F1 | Token F1 (Macro) |
-|-------|-----------------|---------------|-----------|------------------|
-| PhoBERT + Linear | — | — | — | — |
-| PhoBERT + CRF | — | — | — | — |
-| **PhoBERT Multi-task** | — | — | — | — |
+> Chỉ **189/7,817** classification samples khớp được với NER dataset qua `normalize_for_match()`. Multi-task model huấn luyện với `--only-ner-matched`.
 
-### Ablation Study (Multi-task)
+| Model | Alpha | Entity Precision | Entity Recall | Entity F1 | Token F1 (Macro) |
+|-------|-------|-----------------|---------------|-----------|------------------|
+| PhoBERT + Linear NER (single-task) | — | — | — | 0.0194 | 0.4231 |
+| PhoBERT + CRF NER (single-task) | — | — | — | 0.0170 | 0.4172 |
+| **Multi-task PhoBERT + CRF** | 1.0 | 0.2841 | **0.3876** | **0.3279** | 0.6445 |
+| **Multi-task PhoBERT + CRF** | 2.0 | **0.3003** | 0.3527 | 0.3244 | **0.6627** |
 
-| Alpha | NER Loss Weight | Entity F1 | F1 (Macro) |
-|-------|----------------|-----------|------------|
-| 0.5 | 0.5× | — | — |
-| 1.0 | 1.0× | — | — |
-| 1.5 | 1.5× | — | — |
-| 2.0 | 2.0× | — | — |
+> Baseline single-task chưa ghi precision/recall — bảng chủ yếu nhấn mạnh Entity F1 và Token F1 để thể hiện sự khác biệt với multi-task.
+
+### Ablation Study
+
+> Chỉ thử 2 cấu hình `alpha=1.0` và `alpha=2.0` với `--only-ner-matched`. Chưa chạy trên UIT-ViOCD test set.
+
+---
+
+## Key Findings
+
+1. **LinearSVM là classical baseline tốt nhất** cho bài toán classification trên Shopee (F1-Macro 0.9428, F1-Complaint 0.9470). TF-IDF n-grams (1,2) đủ hiệu quả với dữ liệu complaint detection trong thương mại điện tử.
+
+2. **Multi-task PhoBERT + CRF cải thiện rõ rệt so với single-task baseline**: PhoBERT Linear NER và PhoBERT + CRF NER single-task đạt Entity-F1 chỉ ~0.02 (gần như không có khả năng trích xuất span). Trong khi multi-task đạt Entity-F1 ~0.33 và Token-F1 ~0.66. Điều này cho thấy multi-task learning có lợi khi dataset NER nhỏ.
+
+3. **Alpha ảnh hưởng khác nhau lên entity và token level**:
+   - `alpha=1.0` nhỉnh hơn về **Entity-F1** (0.3279 vs 0.3244) và **Entity Recall** (0.3876 vs 0.3527)
+   - `alpha=2.0` nhỉnh hơn về **Entity Precision** (0.3003 vs 0.2841) và **Token-F1** (0.6627 vs 0.6445)
+   - Kết quả gợi ý rằng alpha lớn hơn có thể giúp model tăng precision và Token-F1, tuy nhiên cần thêm ablation với nhiều giá trị alpha để kết luận chắc chắn.
+
+4. **Dataset alignment là bottleneck lớn**: Chỉ 189/7,817 samples (~2.4%) được khớp giữa classification và NER, giới hạn hiệu quả của multi-task learning.
 
 ---
 
 ## Hạn chế và hướng cải thiện
 
-### Hạn chế hiện tại
+1. **NER dataset nhỏ**: Chỉ 400 mẫu train và 100 mẫu test — không đủ để PhoBERT học đầy đủ các complaint patterns đa dạng. PhoBERT single-task NER baseline đạt Entity-F1 chỉ ~0.02, cho thấy model gần như không thể trích xuất span khi thiếu dữ liệu.
 
-1. **Chưa huấn luyện thực tế**: Toàn bộ code đã sẵn sàng nhưng chưa chạy experiments trên GPU.
-2. **NER dataset nhỏ**: Dữ liệu gán nhãn BIO còn hạn chế (~1,000 mẫu), có thể gây overfitting.
-3. **Alignment độ chính xác chưa cao**: Việc khớp classification samples với NER samples qua `normalize_for_match()` có thể miss hoặc sai một số cases.
-4. **Không có cross-validation**: Chỉ dùng fixed train/val/test split.
-5. **Shopee labels từ rating**: Có thể không chính xác hoàn toàn (rating thấp không phải lúc nào cũng là complaint thực sự).
-6. **Không dùng data augmentation**.
+2. **Alignment bottleneck**: Chỉ 189/7,817 (~2.4%) classification samples khớp được với NER dataset qua `normalize_for_match()`. Phần lớn samples chỉ được train classification, không train NER — giảm hiệu quả của shared encoder.
+
+3. **Entity boundary khó xác định**: Complaint spans trong review thương mại điện tử thường ngắn, mơ hồ, hoặc phụ thuộc ngữ cảnh. Labeling thủ công theo BIO rất tốn công và có thể không nhất quán giữa các annotators.
+
+4. **Classification labels từ rating**: Shopee labels được gán tự động từ rating (1-2★ = complaint, 4-5★ = normal). Không chính xác hoàn toàn vì rating thấp có thể do nhiều lý do khác ngoài complaint thực sự.
+
+5. **Không có cross-validation**: Chỉ dùng fixed train/test split. Kết quả có thể biến đổi tùy split.
 
 ### Hướng cải thiện
 
-1. **Huấn luyện đầy đủ experiments** trên GPU với nhiều epoch và hyperparameter tuning.
-2. **Tăng NER dataset**: Sử dụng semi-automatic labeling hoặc active learning.
+1. **Mở rộng NER dataset**: Semi-automatic labeling hoặc active learning để tăng số mẫu BIO.
+2. **Cải thiện alignment**: Dùng fuzzy matching hoặc sentence embedding để tăng tỷ lệ khớp classification-NER.
 3. **Cross-validation** (5-fold) để đánh giá ổn định hơn.
 4. **Thử PhoBERT-large** thay vì phobert-base-v2.
-5. **Cải thiện alignment** bằng sentence-level matching thay vì word-normalized matching.
+5. **Chạy ablation đầy đủ**: Nhiều giá trị alpha hơn (0.5, 1.5, 3.0), nhiều epoch hơn.
 6. **Error analysis chi tiết** trên từng loại lỗi (boundary, missed, spurious).
-7. **Thêm domain adaptation** nếu muốn model hoạt động tốt trên domain Shopee khác nhau.
+7. **Domain adaptation** nếu muốn model hoạt động tốt trên domain Shopee khác nhau.
 
 ---
 

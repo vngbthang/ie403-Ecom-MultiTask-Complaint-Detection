@@ -1,0 +1,22 @@
+{
+  "entity_precision": 0.2840909090909091,
+  "entity_recall": 0.3875968992248062,
+  "entity_f1": 0.32786885245901637,
+  "token_precision_macro": 0.7387153813247918,
+  "token_recall_macro": 0.6229325088781423,
+  "token_f1_macro": 0.6445085449534704,
+  "num_samples": 100,
+  "total_tokens": 3810,
+  "token_O_precision": 0.8886925795053003,
+  "token_O_recall": 0.8877515001764914,
+  "token_O_f1": 0.8882217905703691,
+  "token_O_support": 2833,
+  "token_B-COMP_precision": 0.7722772277227723,
+  "token_B-COMP_recall": 0.3023255813953488,
+  "token_B-COMP_f1": 0.43454038997214484,
+  "token_B-COMP_support": 258,
+  "token_I-COMP_precision": 0.5551763367463026,
+  "token_I-COMP_recall": 0.6787204450625869,
+  "token_I-COMP_f1": 0.6107634543178974,
+  "token_I-COMP_support": 719
+}

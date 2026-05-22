@@ -95,11 +95,17 @@ def parse_multitask_metrics_json(json_path: Path) -> List[Dict[str, Any]]:
 
     dataset = _infer_dataset_from_path(json_path)
 
+    # Infer model name: data["model"] > path-based
+    if "model" in data and data["model"]:
+        base_model = str(data["model"])
+    else:
+        base_model = "PhoBERT-MultiTask"
+
     # Classification part
     cls_metrics = _extract_classification_metrics(data)
     if cls_metrics:
         rows.append({
-            "model": "PhoBERT-MultiTask",
+            "model": base_model,
             "dataset": dataset,
             "accuracy": cls_metrics.get("accuracy"),
             "macro_f1": cls_metrics.get("f1_macro"),
@@ -115,8 +121,9 @@ def parse_multitask_metrics_json(json_path: Path) -> List[Dict[str, Any]]:
     # NER part
     ner_metrics = _extract_ner_metrics(data)
     if ner_metrics:
+        ner_model = base_model + "-NER" if base_model else "PhoBERT-MultiTask-NER"
         rows.append({
-            "model": "PhoBERT-MultiTask-NER",
+            "model": ner_model,
             "dataset": dataset,
             "accuracy": None,
             "macro_f1": None,
@@ -145,7 +152,12 @@ def parse_ner_metrics_json(json_path: Path) -> List[Dict[str, Any]]:
         data = json.load(f)
 
     dataset = _infer_dataset_from_path(json_path)
-    model = _infer_ner_model_name(json_path)
+
+    # Uu tien: data["model"] > path-based inference
+    if "model" in data and data["model"]:
+        model = str(data["model"])
+    else:
+        model = _infer_ner_model_name(json_path)
 
     rows.append({
         "model": model,
@@ -177,8 +189,14 @@ def parse_ner_epoch_json(json_path: Path) -> Optional[Dict[str, Any]]:
     dataset = _infer_dataset_from_path(json_path)
     epoch = _extract_epoch_number(json_path)
 
+    # Uu tien: data["model"] > path-based inference
+    if "model" in data and data["model"]:
+        model = str(data["model"])
+    else:
+        model = _infer_ner_model_name(json_path)
+
     return {
-        "model": _infer_ner_model_name(json_path),
+        "model": model,
         "dataset": dataset,
         "epoch": epoch,
         "accuracy": None,
@@ -209,11 +227,17 @@ def parse_ablation_json(json_path: Path) -> Optional[Dict[str, Any]]:
     # Extract alpha from filename
     alpha = _extract_alpha_from_path(json_path)
 
+    # Uu tien: data["model"] > path-based inference
+    if "model" in data and data["model"]:
+        model = str(data["model"])
+    else:
+        model = "PhoBERT-MultiTask"
+
     # Extract NER metrics
     ner_metrics = _extract_ner_metrics(data)
 
     return {
-        "model": "PhoBERT-MultiTask",
+        "model": model,
         "dataset": dataset,
         "alpha": alpha,
         "epoch": epoch,
@@ -302,12 +326,20 @@ def _infer_dataset_from_path(path: Path) -> str:
 
 
 def _infer_ner_model_name(path: Path) -> str:
-    """Infer model name from file path for NER files."""
-    name = path.stem.lower()
-    if "crf" in name:
+    """
+    Infer model name from file path for NER files.
+    Fallback khi JSON khong co key 'model'.
+    """
+    path_str = str(path).lower()
+
+    if "multitask" in path_str:
+        return "Multi-task PhoBERT + CRF"
+    elif "phobert_crf_ner" in path_str:
+        return "PhoBERT + CRF NER"
+    elif "phobert_ner_single_task" in path_str:
+        return "PhoBERT Linear NER"
+    elif "crf" in path_str:
         return "PhoBERT-CRF-NER"
-    elif "multitask" in name:
-        return "PhoBERT-MultiTask-NER"
     else:
         return "PhoBERT-Linear-NER"
 
