@@ -6,7 +6,6 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader, WeightedRandomSampler, Subset
 from tqdm import tqdm
-from seqeval.metrics import precision_score, recall_score, f1_score, classification_report
 from transformers import AutoTokenizer
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.."))
@@ -15,6 +14,11 @@ if PROJECT_ROOT not in sys.path:
 
 from src.models.multitask_model import PhobertCRFMultiTask
 from src.data_processing.multitask_dataset import MultiTaskDataset
+from src.evaluation.evaluate_ner import (
+    compute_ner_metrics,
+    save_ner_metrics_json,
+    save_ner_reports,
+)
 
 
 ID2LABEL = {0: "O", 1: "B-COMP", 2: "I-COMP"}
@@ -42,12 +46,72 @@ def build_weighted_sampler(dataset: MultiTaskDataset):
     )
 
 
-def evaluate_ner(model, ner_data_path, tokenizer, max_len=256, device="cpu"):
+def encode_and_align(texts, tokenizer, max_len=256):
+    """
+    Encode va align tokens voi PhoBERT sub-word.
+    Tra ve list of (input_ids, attention_mask, label_ids, tokens) tuples.
+    """
+    results = []
+    for tokens in texts:
+        input_ids = [tokenizer.cls_token_id]
+        label_ids = [-100]
+
+        for word in tokens:
+            word_tokens = tokenizer.tokenize(word)
+            if not word_tokens:
+                continue
+            w_ids = tokenizer.convert_tokens_to_ids(word_tokens)
+            input_ids.extend(w_ids)
+            label_ids.append(0)  # placeholder, will be replaced
+            label_ids.extend([-100] * (len(w_ids) - 1))
+
+        input_ids.append(tokenizer.sep_token_id)
+        label_ids.append(-100)
+
+        # Cap chuoi
+        if len(input_ids) > max_len:
+            input_ids = input_ids[: max_len - 1] + [tokenizer.sep_token_id]
+            label_ids = label_ids[: max_len - 1] + [-100]
+
+        # Padding
+        attention_mask = [1] * len(input_ids)
+        pad_len = max_len - len(input_ids)
+        if pad_len > 0:
+            input_ids.extend([tokenizer.pad_token_id] * pad_len)
+            attention_mask.extend([0] * pad_len)
+            label_ids.extend([-100] * pad_len)
+
+        results.append({
+            "input_ids": input_ids,
+            "attention_mask": attention_mask,
+            "label_ids": label_ids,
+        })
+    return results
+
+
+def evaluate_ner(
+    model,
+    ner_data_path: str,
+    tokenizer,
+    max_len: int = 256,
+    device: str = "cpu",
+    output_dir: str = None,
+    epoch: int = None,
+):
+    """
+    Danh gia NER tren ner_data_path.
+    Su dung compute_ner_metrics tu evaluate_ner module.
+
+    Sau khi danh gia, luu:
+        - output_dir/ner_metrics.json (neu output_dir duoc truyen)
+        - output_dir/ner_entity_report.txt
+        - output_dir/ner_token_report.txt
+    """
     with open(ner_data_path, encoding="utf-8-sig") as f:
         eval_records = json.load(f)
 
-    y_true = []
-    y_pred = []
+    y_true_str = []
+    y_pred_str = []
     model.eval()
 
     with torch.no_grad():
@@ -57,6 +121,7 @@ def evaluate_ner(model, ner_data_path, tokenizer, max_len=256, device="cpu"):
             if not tokens or len(tokens) != len(tags):
                 continue
 
+            # Encode like training dataset
             input_ids = [tokenizer.cls_token_id]
             label_ids = [-100]
 
@@ -64,7 +129,6 @@ def evaluate_ner(model, ner_data_path, tokenizer, max_len=256, device="cpu"):
                 word_tokens = tokenizer.tokenize(word)
                 if not word_tokens:
                     continue
-
                 w_ids = tokenizer.convert_tokens_to_ids(word_tokens)
                 input_ids.extend(w_ids)
                 mapped = {"O": 0, "B-COMP": 1, "I-COMP": 2}.get(tag, 0)
@@ -103,23 +167,51 @@ def evaluate_ner(model, ner_data_path, tokenizer, max_len=256, device="cpu"):
                 pred_seq.append(ID2LABEL.get(pred, "O"))
 
             if true_seq:
-                y_true.append(true_seq)
-                y_pred.append(pred_seq)
+                y_true_str.append(true_seq)
+                y_pred_str.append(pred_seq)
 
-    if not y_true:
+    if not y_true_str:
         return {
-            "precision": 0.0,
-            "recall": 0.0,
-            "f1": 0.0,
+            "entity_precision": 0.0,
+            "entity_recall": 0.0,
+            "entity_f1": 0.0,
+            "token_precision_macro": 0.0,
+            "token_recall_macro": 0.0,
+            "token_f1_macro": 0.0,
             "report": "No valid NER labels found for evaluation.",
         }
 
-    return {
-        "precision": precision_score(y_true, y_pred),
-        "recall": recall_score(y_true, y_pred),
-        "f1": f1_score(y_true, y_pred),
-        "report": classification_report(y_true, y_pred, digits=4),
-    }
+    # Tinh metrics bang module moi
+    metrics = compute_ner_metrics(y_true_str, y_pred_str)
+
+    # Luu ket qua ra file
+    if output_dir:
+        output_dir = Path(output_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+
+        epoch_str = f"_epoch{epoch}" if epoch is not None else ""
+
+        # Lưu metrics JSON
+        save_ner_metrics_json(metrics, str(output_dir))
+        metrics_json_path = output_dir / "ner_metrics.json"
+
+        # Neu co epoch, doi ten file
+        if epoch is not None:
+            metrics_json_path.rename(output_dir / f"ner_metrics{epoch_str}.json")
+
+        # Lưu reports
+        save_ner_reports(metrics, str(output_dir))
+
+        # Neu co epoch, doi ten reports
+        if epoch is not None:
+            for fname in ("ner_entity_report.txt", "ner_token_report.txt"):
+                fpath = output_dir / fname
+                if fpath.exists():
+                    fpath.rename(output_dir / f"{fname.replace('.txt', '')}{epoch_str}.txt")
+
+        print(f"  [SAVE] NER metrics to {output_dir}")
+
+    return metrics
 
 
 def train_multitask(
@@ -148,21 +240,16 @@ def train_multitask(
         Total_Loss = CrossEntropy(classification_logits, class_labels)
                     + alpha * NER_Loss(CRF)
 
-    Args:
-        classification_data_path: Duong dan file phan loai (CSV/JSONL)
-        ner_data_path: Duong dan file NER (JSON)
-        tokenizer: PhoBERT tokenizer
-        output_dir: Thu muc luu checkpoint (khong luu vao Git)
-        num_epochs: So epoch huan luyen
-        batch_size: Kich thuoc batch
-        learning_rate: Toc do hoc
-        alpha: He so nhan cho NER loss
-        weight_decay: He so giam toc do hoc
-        max_len: Do dai toi da chuoi dau vao
-        device: 'cuda' hoac 'cpu'
+    Sau moi epoch, luu:
+        - checkpoint_epoch_{N}.pt
+        - output_dir/ner_metrics.json
+        - output_dir/ner_entity_report.txt
+        - output_dir/ner_token_report.txt
     """
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    from pathlib import Path
 
     # Khoi tao dataset va dataloader
     train_dataset = MultiTaskDataset(
@@ -290,7 +377,7 @@ def train_multitask(
 
             # Backward pass
             loss.backward()
-            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+            torch.nn.utils.clip_grad_norm_(model.state_dict().values(), max_norm=1.0)
             optimizer.step()
 
             total_cls_loss += cls_loss.item()
@@ -320,19 +407,25 @@ def train_multitask(
 
         ner_metrics = None
         if ner_eval_path:
+            # Danh gia NER va luu metrics ra output_dir
             ner_metrics = evaluate_ner(
                 model=model,
                 ner_data_path=ner_eval_path,
                 tokenizer=tokenizer,
                 max_len=max_len,
                 device=device,
+                output_dir=output_dir,
+                epoch=epoch + 1,
             )
             print("  NER Eval:")
-            print(f"    Precision: {ner_metrics['precision']:.4f}")
-            print(f"    Recall   : {ner_metrics['recall']:.4f}")
-            print(f"    F1       : {ner_metrics['f1']:.4f}")
-            print("  NER Report:")
-            print(ner_metrics["report"])
+            print(f"    Entity Precision: {ner_metrics['entity_precision']:.4f}")
+            print(f"    Entity Recall   : {ner_metrics['entity_recall']:.4f}")
+            print(f"    Entity F1       : {ner_metrics['entity_f1']:.4f}")
+            print(f"    Token F1 (macro): {ner_metrics['token_f1_macro']:.4f}")
+            print("  Token Classification Report:")
+            print(ner_metrics["token_classification_report"])
+            print("  Entity Classification Report (seqeval):")
+            print(ner_metrics["entity_classification_report"])
 
         # Luu checkpoint moi epoch
         os.makedirs(output_dir, exist_ok=True)
@@ -343,6 +436,8 @@ def train_multitask(
                 "model_state_dict": model.state_dict(),
                 "optimizer_state_dict": optimizer.state_dict(),
                 "avg_loss": avg_total_loss,
+                "avg_cls_loss": avg_cls_loss,
+                "avg_ner_loss": avg_ner_loss,
                 "ner_metrics": ner_metrics,
                 "alignment_report": alignment_report,
             },

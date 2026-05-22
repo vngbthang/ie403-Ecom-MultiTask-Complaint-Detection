@@ -3,6 +3,7 @@ __pycache__
 *.pyc
 *.pyo
 *.pyd
+.ipynb_checkpoints/
 
 # Virtual environments
 .venv
@@ -23,7 +24,10 @@ checkpoints/
 *.safetensors
 **/training_args.bin
 
-# Results & logs
+# Results, outputs & logs
 results/
+outputs/
 logs/
 *.log
+wandb/
+tensorboard/
