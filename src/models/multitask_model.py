@@ -65,21 +65,24 @@ class PhobertCRFMultiTask(nn.Module):
         # Tinh loss khi co nhan
         ner_loss = None
         if ner_labels is not None:
-            # 1. Tạo mặt nạ: Bắt CRF BỎ QUA các vị trí đệm và các vị trí bị gán -100
-            crf_mask = (ner_labels != -100) & attention_mask.bool()
+            # Chi tinh CRF loss tren cac mau co it nhat 1 token NER hop le,
+            # tranh truong hop mau khong co nhan day model ve toan O.
+            has_valid_ner = (ner_labels != -100).any(dim=1)
+            if has_valid_ner.any():
+                sub_emissions = ner_emissions[has_valid_ner]
+                sub_labels = ner_labels[has_valid_ner]
+                sub_attn = attention_mask[has_valid_ner]
 
-            # Ép token đầu tiên (<s>) luôn là True để chiều ý pytorch-crf
-            crf_mask[:, 0] = True
+                crf_mask = (sub_labels != -100) & sub_attn.bool()
+                crf_mask[:, 0] = True
 
-            # 2. Làm giả nhãn: Đổi -100 thành 0 để CRF không văng lỗi Index Out Of Bounds
-            safe_ner_labels = torch.where(
-                ner_labels == -100,
-                torch.tensor(0, device=ner_labels.device),
-                ner_labels
-            )
+                safe_ner_labels = torch.where(
+                    sub_labels == -100,
+                    torch.tensor(0, device=sub_labels.device),
+                    sub_labels,
+                )
 
-            # 3. Tính Loss an toàn
-            ner_loss = -self.crf(ner_emissions, safe_ner_labels, mask=crf_mask, reduction="mean")
+                ner_loss = -self.crf(sub_emissions, safe_ner_labels, mask=crf_mask, reduction="mean")
 
         return classification_logits, ner_predictions, ner_loss
 
