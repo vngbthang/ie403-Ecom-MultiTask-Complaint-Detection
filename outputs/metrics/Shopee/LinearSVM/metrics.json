@@ -1,0 +1,27 @@
+{
+  "accuracy": 0.9430946291560103,
+  "precision_macro": 0.9426632346463113,
+  "recall_macro": 0.9429143991461131,
+  "f1_macro": 0.9427852935893437,
+  "precision_complaint": 0.9486873508353222,
+  "recall_complaint": 0.9453032104637337,
+  "f1_complaint": 0.9469922572960096,
+  "tn": 680,
+  "fp": 43,
+  "fn": 46,
+  "tp": 795,
+  "confusion_matrix": [
+    [
+      680,
+      43
+    ],
+    [
+      46,
+      795
+    ]
+  ],
+  "num_samples": 1564,
+  "auc": 0.9811937642568042,
+  "model": "LinearSVM",
+  "dataset": "Shopee"
+}

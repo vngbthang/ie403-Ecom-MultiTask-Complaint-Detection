@@ -1,0 +1,27 @@
+{
+  "accuracy": 0.9392583120204604,
+  "precision_macro": 0.9385952529463905,
+  "recall_macro": 0.9394442498310152,
+  "f1_macro": 0.9389726724243802,
+  "precision_complaint": 0.9493975903614458,
+  "recall_complaint": 0.9369797859690844,
+  "f1_complaint": 0.943147815679234,
+  "tn": 681,
+  "fp": 42,
+  "fn": 53,
+  "tp": 788,
+  "confusion_matrix": [
+    [
+      681,
+      42
+    ],
+    [
+      53,
+      788
+    ]
+  ],
+  "num_samples": 1564,
+  "auc": 0.9792646243768944,
+  "model": "LogisticRegression",
+  "dataset": "Shopee"
+}

@@ -1,0 +1,27 @@
+{
+  "accuracy": 0.9341432225063938,
+  "precision_macro": 0.9333672264497508,
+  "recall_macro": 0.9345909746514638,
+  "f1_macro": 0.9338674286042707,
+  "precision_complaint": 0.9478155339805825,
+  "recall_complaint": 0.9286563614744352,
+  "f1_complaint": 0.9381381381381382,
+  "tn": 680,
+  "fp": 43,
+  "fn": 60,
+  "tp": 781,
+  "confusion_matrix": [
+    [
+      680,
+      43
+    ],
+    [
+      60,
+      781
+    ]
+  ],
+  "num_samples": 1564,
+  "auc": 0.9780656960116307,
+  "model": "NaiveBayes",
+  "dataset": "Shopee"
+}
