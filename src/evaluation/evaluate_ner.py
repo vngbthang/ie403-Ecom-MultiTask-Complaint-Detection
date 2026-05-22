@@ -79,17 +79,17 @@ def compute_ner_metrics(
     all_true_flat = [tag for seq in y_true for tag in seq]
     all_pred_flat = [tag for seq in y_pred for tag in seq]
 
-    # Overall token metrics (macro average)
+    # Overall token metrics (macro average) — truyen 1D arrays, khong wrap trong list
     token_precision_macro = precision_score(
-        [all_true_flat], [all_pred_flat],
+        all_true_flat, all_pred_flat,
         average="macro", zero_division=0,
     )
     token_recall_macro = recall_score(
-        [all_true_flat], [all_pred_flat],
+        all_true_flat, all_pred_flat,
         average="macro", zero_division=0,
     )
     token_f1_macro = f1_score(
-        [all_true_flat], [all_pred_flat],
+        all_true_flat, all_pred_flat,
         average="macro", zero_division=0,
     )
 
@@ -118,8 +118,8 @@ def compute_ner_metrics(
 
     # Classification report cho token-level (O, B-COMP, I-COMP)
     token_report = sklearn_classification_report(
-        [all_true_flat],
-        [all_pred_flat],
+        all_true_flat,
+        all_pred_flat,
         labels=LABEL_LIST,
         target_names=LABEL_LIST,
         digits=digits,

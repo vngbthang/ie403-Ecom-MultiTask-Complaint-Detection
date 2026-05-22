@@ -278,15 +278,15 @@ def compute_ner_metrics(
     all_pred_flat = [tag for seq in y_pred for tag in seq]
 
     token_precision = precision_score(
-        [all_true_flat], [all_pred_flat],
+        all_true_flat, all_pred_flat,
         average="macro", zero_division=0,
     )
     token_recall = recall_score(
-        [all_true_flat], [all_pred_flat],
+        all_true_flat, all_pred_flat,
         average="macro", zero_division=0,
     )
     token_f1 = f1_score(
-        [all_true_flat], [all_pred_flat],
+        all_true_flat, all_pred_flat,
         average="macro", zero_division=0,
     )
 
