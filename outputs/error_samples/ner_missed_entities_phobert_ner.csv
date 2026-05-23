@@ -1,0 +1,4 @@
+﻿index,gold_tags,pred_tags,gold_spans,pred_spans,error_type
+5,O O O O O O B-COMP I-COMP I-COMP,O O O O O O O O O,"[(6, 8, 'COMP')]",[],missed_entity
+8,O O O O O O O O O O O O O O O O O O O O O O O O O B-COMP I-COMP I-COMP,O O O O O O O O O O O O O O O O O O O O O O I-COMP O O O O O,"[(25, 27, 'COMP')]",[],missed_entity
+96,B-COMP I-COMP I-COMP I-COMP O O O O,I-COMP O I-COMP I-COMP O O O I-COMP,"[(0, 3, 'COMP')]",[],missed_entity

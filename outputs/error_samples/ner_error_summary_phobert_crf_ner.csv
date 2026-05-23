@@ -1,0 +1,6 @@
+﻿metric,value
+Total NER Samples,100
+Boundary Errors,5
+Missed Entities,94
+Spurious Entities,0
+Correct (exact match),1
