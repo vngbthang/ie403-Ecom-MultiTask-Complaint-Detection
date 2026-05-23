@@ -16,18 +16,9 @@ env/
 .agents
 
 # Model weights & checkpoints
-models/
 checkpoints/
 **/checkpoint-*/
 *.pt
 *.pth
 *.safetensors
 **/training_args.bin
-
-# Results, outputs & logs
-results/
-outputs/
-logs/
-*.log
-wandb/
-tensorboard/
