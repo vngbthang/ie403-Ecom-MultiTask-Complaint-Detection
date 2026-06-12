@@ -46,12 +46,14 @@ class PhobertTokenClassifier(nn.Module):
         input_ids: torch.Tensor,
         attention_mask: torch.Tensor,
         ner_labels: torch.Tensor = None,
+        class_weights: torch.Tensor = None,
     ):
         """
         Args:
             input_ids: (batch_size, seq_len)
             attention_mask: (batch_size, seq_len)
             ner_labels: (batch_size, seq_len), gia tri -100 bi bo qua trong loss
+            class_weights: Optional tensor (num_tags,) for weighted CrossEntropy
 
         Returns:
             Neu co ner_labels:
@@ -87,6 +89,7 @@ class PhobertTokenClassifier(nn.Module):
         loss = nn.functional.cross_entropy(
             emissions.view(-1, emissions.size(-1)),
             ner_labels.view(-1),
+            weight=class_weights,
             ignore_index=-100,
             reduction="mean",
         )

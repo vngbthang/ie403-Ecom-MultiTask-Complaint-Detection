@@ -261,6 +261,32 @@ def count_label_distribution(sequences):
     }
 
 
+def compute_class_weights_from_records(records, scheme="balanced"):
+    """
+    Tinh class weights tu ner_tags trong train records.
+
+    balanced: weight_c = total_labeled_tokens / (num_classes * count_c)
+    """
+    if scheme != "balanced":
+        raise ValueError(f"Unsupported class weight scheme: {scheme}")
+
+    counts = {label: 0 for label in LABEL_LIST}
+    for record in records:
+        for tag in record.get("ner_tags", []):
+            if tag in counts:
+                counts[tag] += 1
+
+    total = sum(counts.values())
+    num_classes = len(LABEL_LIST)
+    weights = []
+    for label in LABEL_LIST:
+        count = counts[label]
+        weight = total / (num_classes * count) if count > 0 else 0.0
+        weights.append(weight)
+
+    return counts, weights
+
+
 # =============================================================================
 # Training
 # =============================================================================
@@ -281,6 +307,8 @@ def train(
     eval_every: int = 1,
     model_name: str = "vinai/phobert-base-v2",
     no_save_checkpoint: bool = False,
+    use_class_weights: bool = False,
+    class_weight_scheme: str = "balanced",
 ):
     """
     Huan luyen PhoBERT Token Classifier cho NER single-task.
@@ -300,6 +328,8 @@ def train(
         max_steps_per_epoch: Gioi han so step moi epoch (debug)
         eval_every: Danh gia sau moi eval_every epochs (mac dinh 1)
         no_save_checkpoint: Neu True thi khong luu checkpoint nang .pt
+        use_class_weights: Neu True thi dung weighted CrossEntropy
+        class_weight_scheme: Cach tinh class weights, hien tai ho tro balanced
     """
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -321,6 +351,17 @@ def train(
     test_dataset = NERDataset(test_json, tokenizer, max_len=max_len)
     print(f"  Train samples: {len(train_dataset)}")
     print(f"  Test samples : {len(test_dataset)}")
+
+    class_weights_tensor = None
+    if use_class_weights:
+        label_counts, class_weights = compute_class_weights_from_records(
+            train_dataset.records,
+            scheme=class_weight_scheme,
+        )
+        class_weights_tensor = torch.tensor(class_weights, dtype=torch.float, device=device)
+        print(f"\n[INFO] Using class weights: scheme={class_weight_scheme}")
+        for label, weight in zip(LABEL_LIST, class_weights):
+            print(f"  {label}: count={label_counts[label]} weight={weight:.6f}")
 
     train_loader = DataLoader(
         train_dataset,
@@ -346,8 +387,6 @@ def train(
         lr=learning_rate,
         weight_decay=weight_decay,
     )
-
-    criterion = nn.CrossEntropyLoss(ignore_index=-100)
 
     start_epoch = 0
     best_f1 = 0.0
@@ -388,7 +427,12 @@ def train(
             ner_labels = batch["ner_labels"].to(device)
 
             optimizer.zero_grad()
-            loss = model(input_ids, attention_mask, ner_labels)[0]
+            loss = model(
+                input_ids,
+                attention_mask,
+                ner_labels,
+                class_weights=class_weights_tensor,
+            )[0]
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
             optimizer.step()
@@ -582,6 +626,17 @@ if __name__ == "__main__":
         action="store_true",
         help="Disable saving heavy model/optimizer checkpoint files.",
     )
+    parser.add_argument(
+        "--use-class-weights",
+        action="store_true",
+        help="Use class-weighted CrossEntropyLoss for NER labels.",
+    )
+    parser.add_argument(
+        "--class-weight-scheme",
+        choices=["balanced"],
+        default="balanced",
+        help="Class weight computation scheme.",
+    )
     args = parser.parse_args()
 
     os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -594,6 +649,7 @@ if __name__ == "__main__":
     print(f"Test JSON  : {args.test_json}")
     print(f"Output Dir : {args.output_dir}")
     print(f"Model Name : {args.model_name}")
+    print(f"Class Weights: {args.use_class_weights} ({args.class_weight_scheme})")
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     train(
@@ -612,4 +668,6 @@ if __name__ == "__main__":
         eval_every=args.eval_every,
         model_name=args.model_name,
         no_save_checkpoint=args.no_save_checkpoint,
+        use_class_weights=args.use_class_weights,
+        class_weight_scheme=args.class_weight_scheme,
     )
