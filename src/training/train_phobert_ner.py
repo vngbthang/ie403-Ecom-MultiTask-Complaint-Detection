@@ -280,6 +280,7 @@ def train(
     max_steps_per_epoch: int = None,
     eval_every: int = 1,
     model_name: str = "vinai/phobert-base-v2",
+    no_save_checkpoint: bool = False,
 ):
     """
     Huan luyen PhoBERT Token Classifier cho NER single-task.
@@ -298,11 +299,14 @@ def train(
         disable_tqdm: Tat tqdm
         max_steps_per_epoch: Gioi han so step moi epoch (debug)
         eval_every: Danh gia sau moi eval_every epochs (mac dinh 1)
+        no_save_checkpoint: Neu True thi khong luu checkpoint nang .pt
     """
     if device is None:
         device = "cuda" if torch.cuda.is_available() else "cpu"
 
     print(f"Device: {device}")
+    if no_save_checkpoint:
+        print("[INFO] Checkpoint saving disabled by --no-save-checkpoint")
 
     # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(
@@ -512,13 +516,16 @@ def train(
 
         # Luu checkpoint
         ckpt_path = output_dir / "checkpoints" / f"ner_single_task_epoch_{epoch+1}.pt"
-        ckpt_path.parent.mkdir(parents=True, exist_ok=True)
-        torch.save({
-            "epoch": epoch + 1,
-            "model_state_dict": model.state_dict(),
-            "optimizer_state_dict": optimizer.state_dict(),
-            "best_entity_f1": best_f1,
-        }, ckpt_path)
+        if not no_save_checkpoint:
+            ckpt_path.parent.mkdir(parents=True, exist_ok=True)
+            torch.save({
+                "epoch": epoch + 1,
+                "model_state_dict": model.state_dict(),
+                "optimizer_state_dict": optimizer.state_dict(),
+                "best_entity_f1": best_f1,
+            }, ckpt_path)
+        else:
+            print(f"[INFO] Skipped checkpoint save: {ckpt_path}")
 
     # Luu history
     history_path = metrics_dir / "phobert_ner_single_task_history.json"
@@ -570,6 +577,11 @@ if __name__ == "__main__":
     parser.add_argument("--max-steps-per-epoch", type=int, default=None)
     parser.add_argument("--eval-every", type=int, default=1)
     parser.add_argument("--model-name", default="vinai/phobert-base-v2")
+    parser.add_argument(
+        "--no-save-checkpoint",
+        action="store_true",
+        help="Disable saving heavy model/optimizer checkpoint files.",
+    )
     args = parser.parse_args()
 
     os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -599,4 +611,5 @@ if __name__ == "__main__":
         max_steps_per_epoch=args.max_steps_per_epoch,
         eval_every=args.eval_every,
         model_name=args.model_name,
+        no_save_checkpoint=args.no_save_checkpoint,
     )
