@@ -1,0 +1,150 @@
+{
+  "inputs": {
+    "train_json": "data\\processed\\uit_viocd_pilot_100_ner_train.json",
+    "val_json": "data\\processed\\uit_viocd_pilot_100_ner_val.json",
+    "test_json": "data\\processed\\uit_viocd_pilot_100_ner_test.json",
+    "predictions_csv": "outputs\\metrics\\uit_viocd_pilot_100_phobert_ner_3epoch\\figures\\phobert_ner_single_task_predictions.csv"
+  },
+  "dataset_label_distribution": {
+    "train": {
+      "records": 80,
+      "total_tokens": 2661,
+      "count_O": 1995,
+      "count_B-COMP": 136,
+      "count_I-COMP": 530,
+      "percent_O": 74.9718,
+      "percent_COMP": 25.0282,
+      "records_with_comp": 76,
+      "records_without_comp": 4,
+      "entity_spans": 136,
+      "avg_span_length": 4.8971,
+      "max_span_length": 14,
+      "unique_labels": [
+        "B-COMP",
+        "I-COMP",
+        "O"
+      ],
+      "labels_outside_schema": [],
+      "all_token_tag_lengths_match": true,
+      "invalid_records": []
+    },
+    "val": {
+      "records": 9,
+      "total_tokens": 301,
+      "count_O": 210,
+      "count_B-COMP": 16,
+      "count_I-COMP": 75,
+      "percent_O": 69.7674,
+      "percent_COMP": 30.2326,
+      "records_with_comp": 9,
+      "records_without_comp": 0,
+      "entity_spans": 16,
+      "avg_span_length": 5.6875,
+      "max_span_length": 13,
+      "unique_labels": [
+        "B-COMP",
+        "I-COMP",
+        "O"
+      ],
+      "labels_outside_schema": [],
+      "all_token_tag_lengths_match": true,
+      "invalid_records": []
+    },
+    "test": {
+      "records": 11,
+      "total_tokens": 437,
+      "count_O": 358,
+      "count_B-COMP": 17,
+      "count_I-COMP": 62,
+      "percent_O": 81.9222,
+      "percent_COMP": 18.0778,
+      "records_with_comp": 10,
+      "records_without_comp": 1,
+      "entity_spans": 17,
+      "avg_span_length": 4.6471,
+      "max_span_length": 11,
+      "unique_labels": [
+        "B-COMP",
+        "I-COMP",
+        "O"
+      ],
+      "labels_outside_schema": [],
+      "all_token_tag_lengths_match": true,
+      "invalid_records": []
+    }
+  },
+  "entity_span_distribution": {
+    "train": {
+      "entity_spans": 136,
+      "avg_span_length": 4.8971,
+      "max_span_length": 14
+    },
+    "val": {
+      "entity_spans": 16,
+      "avg_span_length": 5.6875,
+      "max_span_length": 13
+    },
+    "test": {
+      "entity_spans": 17,
+      "avg_span_length": 4.6471,
+      "max_span_length": 11
+    }
+  },
+  "label_schema_check": {
+    "unique_labels": [
+      "B-COMP",
+      "I-COMP",
+      "O"
+    ],
+    "labels_outside_schema": [],
+    "all_token_tag_lengths_match": true
+  },
+  "prediction_distribution": {
+    "path": "outputs\\metrics\\uit_viocd_pilot_100_phobert_ner_3epoch\\figures\\phobert_ner_single_task_predictions.csv",
+    "exists": false,
+    "error": "Predictions CSV not found",
+    "pred_label_counts": {
+      "O": 0,
+      "B-COMP": 0,
+      "I-COMP": 0
+    },
+    "gold_label_counts": {
+      "O": 0,
+      "B-COMP": 0,
+      "I-COMP": 0
+    },
+    "rows_with_pred_comp": 0,
+    "rows_with_gold_comp": 0,
+    "examples_gold_comp_pred_all_o": []
+  },
+  "train_script_check": {
+    "train_path": "src\\training\\train_phobert_ner.py",
+    "model_path": "src\\models\\phobert_token_classifier.py",
+    "label2id": {
+      "O": 0,
+      "B-COMP": 1,
+      "I-COMP": 2
+    },
+    "id2label_source": "src.evaluation.evaluate_ner.ID2LABEL",
+    "loss_ignore_index_minus_100": true,
+    "class_weight_detected": false,
+    "subword_alignment": "first_subword_only",
+    "model_num_labels_default": 3,
+    "model_classifier_uses_num_labels": true,
+    "evaluate_uses_model_predict": true,
+    "predict_filters_by_attention_mask_only": true,
+    "possible_prediction_decode_misalignment": true
+  },
+  "possible_causes": [
+    "Train split imbalanced: COMP tokens only 25.03% of labeled tokens; unweighted CE can favor O.",
+    "Evaluation decode is likely misaligned: train labels only first subword, but model.predict returns special tokens and all subwords using attention_mask only.",
+    "No class weights detected in the NER loss; minority B/I-COMP labels are not upweighted."
+  ],
+  "recommended_next_actions": [
+    "Sync the Kaggle predictions CSV to the expected path, or rerun this script with --predictions-csv.",
+    "Fix/evaluate prediction decoding so predicted tags are selected at the same positions as non -100 gold labels.",
+    "Run a tiny overfit test on 5-10 records after decode fix to verify the model can learn B-COMP/I-COMP.",
+    "Consider weighted CrossEntropy or focal loss if predictions remain all O after decode is corrected.",
+    "Log train-time per-label prediction counts after each epoch before changing architecture."
+  ]
+}

@@ -163,22 +163,30 @@ def evaluate(model, dataloader, device="cpu"):
             attention_mask = batch["attention_mask"].to(device)
             ner_labels = batch["ner_labels"].to(device)
 
-            # Inference
-            predictions = model.predict(input_ids, attention_mask)
+            # Inference aligned with training labels.
+            # Do not use attention_mask for final tag decoding because it also
+            # includes special tokens and non-first subwords. The correct mask
+            # for metric positions is exactly the labels mask used by the loss.
+            outputs = model.phobert(input_ids=input_ids, attention_mask=attention_mask)
+            sequence_output = model.dropout(outputs.last_hidden_state)
+            logits = model.ner_classifier(sequence_output)
+            pred_ids = logits.argmax(dim=-1)
 
-            # Chuan bi true sequences (bo -100)
-            for b in range(len(predictions)):
+            for b in range(input_ids.size(0)):
                 gold_seq = []
                 pred_seq = []
-                seq_len = min(len(predictions[b]), ner_labels.size(1))
 
-                pos_in_word = 0
-                for pos in range(seq_len):
+                for pos in range(ner_labels.size(1)):
                     gold_id = ner_labels[b, pos].item()
                     if gold_id != -100:
                         gold_seq.append(ID2LABEL.get(gold_id, "O"))
-                        pred_seq.append(ID2LABEL.get(predictions[b][pos_in_word], "O"))
-                        pos_in_word += 1
+                        pred_seq.append(ID2LABEL.get(pred_ids[b, pos].item(), "O"))
+
+                if len(gold_seq) != len(pred_seq):
+                    raise ValueError(
+                        "NER decode length mismatch in evaluate(): "
+                        f"gold={len(gold_seq)} pred={len(pred_seq)}"
+                    )
 
                 if gold_seq:
                     y_true_str.append(gold_seq)
@@ -198,35 +206,59 @@ def evaluate(model, dataloader, device="cpu"):
     return y_true_str, y_pred_str, metrics
 
 
-def decode_predictions_from_batch(predictions, ner_labels, batch_size):
+def decode_predictions_from_logits(logits, ner_labels):
     """
-    Decode predictions va ground truth tu batch.
-    predictions: List[List[int]] (tu model.predict)
+    Decode predictions va ground truth tu logits bang mask labels != -100.
+
+    logits: Tensor (batch_size, seq_len, num_labels)
     ner_labels: Tensor (batch_size, seq_len)
     Tra ve (y_true_str, y_pred_str)
     """
     y_true_str = []
     y_pred_str = []
+    pred_ids = logits.argmax(dim=-1)
+    batch_size = ner_labels.size(0)
 
     for b in range(batch_size):
         gold_seq = []
         pred_seq = []
-        pos_in_pred = 0
         seq_len = ner_labels.size(1)
 
         for pos in range(seq_len):
             gold_id = ner_labels[b, pos].item()
             if gold_id != -100:
                 gold_seq.append(ID2LABEL.get(gold_id, "O"))
-                if pos_in_pred < len(predictions[b]):
-                    pred_seq.append(ID2LABEL.get(predictions[b][pos_in_pred], "O"))
-                    pos_in_pred += 1
+                pred_seq.append(ID2LABEL.get(pred_ids[b, pos].item(), "O"))
+
+        if len(gold_seq) != len(pred_seq):
+            raise ValueError(
+                "NER decode length mismatch in decode_predictions_from_logits(): "
+                f"gold={len(gold_seq)} pred={len(pred_seq)}"
+            )
 
         if gold_seq:
             y_true_str.append(gold_seq)
             y_pred_str.append(pred_seq)
 
     return y_true_str, y_pred_str
+
+
+def count_label_distribution(sequences):
+    """Dem label va so sequence co COMP trong list tag sequences."""
+    counts = {label: 0 for label in LABEL_LIST}
+    samples_with_comp = 0
+    for seq in sequences:
+        has_comp = False
+        for tag in seq:
+            counts[tag] = counts.get(tag, 0) + 1
+            if tag in {"B-COMP", "I-COMP"}:
+                has_comp = True
+        samples_with_comp += int(has_comp)
+    return {
+        "counts": counts,
+        "samples_with_comp": samples_with_comp,
+        "samples_total": len(sequences),
+    }
 
 
 # =============================================================================
@@ -379,8 +411,25 @@ def train(
                   f"F1: {test_metrics['entity_f1']:.4f}")
             print(f"  Test - Token F1 (macro): {test_metrics['token_f1_macro']:.4f}")
 
+            gold_dist = count_label_distribution(y_true)
+            pred_dist = count_label_distribution(y_pred)
+            print("  Test - Gold label distribution:")
+            print(
+                "    "
+                + " | ".join(f"{label}: {gold_dist['counts'].get(label, 0)}" for label in LABEL_LIST)
+                + f" | samples_with_COMP: {gold_dist['samples_with_comp']}/{gold_dist['samples_total']}"
+            )
+            print("  Test - Pred label distribution:")
+            print(
+                "    "
+                + " | ".join(f"{label}: {pred_dist['counts'].get(label, 0)}" for label in LABEL_LIST)
+                + f" | samples_with_COMP: {pred_dist['samples_with_comp']}/{pred_dist['samples_total']}"
+            )
+
             test_metrics["epoch"] = epoch + 1
             test_metrics["avg_loss"] = avg_loss
+            test_metrics["gold_label_distribution"] = gold_dist
+            test_metrics["pred_label_distribution"] = pred_dist
             all_epoch_metrics.append(test_metrics)
 
             # Luu metrics JSON cho epoch nay
@@ -426,10 +475,21 @@ def train(
                 import pandas as pd
                 records = []
                 for i in range(min(len(y_true), len(y_pred))):
+                    n_gold_tags = len(y_true[i])
+                    n_pred_tags = len(y_pred[i])
+                    has_length_mismatch = n_gold_tags != n_pred_tags
+                    if has_length_mismatch:
+                        raise ValueError(
+                            "Cannot save NER predictions with length mismatch: "
+                            f"index={i}, gold={n_gold_tags}, pred={n_pred_tags}"
+                        )
                     records.append({
                         "index": i,
                         "gold_tags": " ".join(y_true[i]),
                         "pred_tags": " ".join(y_pred[i]),
+                        "n_gold_tags": n_gold_tags,
+                        "n_pred_tags": n_pred_tags,
+                        "has_length_mismatch": has_length_mismatch,
                         "correct": (y_true[i] == y_pred[i]),
                     })
                 pd.DataFrame(records).to_csv(predictions_path, index=False, encoding="utf-8-sig")
