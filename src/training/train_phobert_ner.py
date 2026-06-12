@@ -247,6 +247,7 @@ def train(
     disable_tqdm: bool = False,
     max_steps_per_epoch: int = None,
     eval_every: int = 1,
+    model_name: str = "vinai/phobert-base-v2",
 ):
     """
     Huan luyen PhoBERT Token Classifier cho NER single-task.
@@ -273,7 +274,7 @@ def train(
 
     # Load tokenizer
     tokenizer = AutoTokenizer.from_pretrained(
-        "vinai/phobert-base-v2",
+        model_name,
         use_fast=False,
     )
 
@@ -301,7 +302,7 @@ def train(
     )
 
     # Model
-    model = PhobertTokenClassifier(num_ner_tags=3)
+    model = PhobertTokenClassifier(num_ner_tags=3, model_name=model_name)
     model.to(device)
 
     optimizer = torch.optim.AdamW(
@@ -490,19 +491,25 @@ if __name__ == "__main__":
         help="Duong dan ner_test.json",
     )
     parser.add_argument(
+        "--val-json",
+        default=None,
+        help="Optional validation JSON path. Accepted for runner compatibility; current training evaluates on --test-json.",
+    )
+    parser.add_argument(
         "--output-dir",
         default="outputs",
         help="Thu muc goc luu ket qua (mac dinh: outputs)",
     )
     parser.add_argument("--epochs", type=int, default=5)
     parser.add_argument("--batch-size", type=int, default=8)
-    parser.add_argument("--lr", type=float, default=2e-5)
+    parser.add_argument("--lr", "--learning-rate", dest="lr", type=float, default=2e-5)
     parser.add_argument("--weight-decay", type=float, default=0.01)
     parser.add_argument("--max-len", type=int, default=256)
     parser.add_argument("--resume-checkpoint", default=None)
     parser.add_argument("--disable-tqdm", action="store_true")
     parser.add_argument("--max-steps-per-epoch", type=int, default=None)
     parser.add_argument("--eval-every", type=int, default=1)
+    parser.add_argument("--model-name", default="vinai/phobert-base-v2")
     args = parser.parse_args()
 
     os.environ["TOKENIZERS_PARALLELISM"] = "false"
@@ -511,8 +518,10 @@ if __name__ == "__main__":
     print("PhoBERT NER Single-Task Training")
     print("=" * 60)
     print(f"Train JSON : {args.train_json}")
+    print(f"Val JSON   : {args.val_json}")
     print(f"Test JSON  : {args.test_json}")
     print(f"Output Dir : {args.output_dir}")
+    print(f"Model Name : {args.model_name}")
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     train(
@@ -529,4 +538,5 @@ if __name__ == "__main__":
         disable_tqdm=args.disable_tqdm,
         max_steps_per_epoch=args.max_steps_per_epoch,
         eval_every=args.eval_every,
+        model_name=args.model_name,
     )

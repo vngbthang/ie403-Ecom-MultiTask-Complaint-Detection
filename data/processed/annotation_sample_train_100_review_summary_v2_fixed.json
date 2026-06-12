@@ -1,0 +1,604 @@
+{
+  "summary": {
+    "total_records": 100,
+    "warning_records": 24,
+    "likely_ok": 23,
+    "needs_review": 1,
+    "needs_review_ids": [
+      "train_000054"
+    ]
+  },
+  "likely_ok": [
+    {
+      "id": "train_000589",
+      "token_count": 4,
+      "comp_token_count": 3,
+      "comp_ratio": 0.75,
+      "span_count": 1,
+      "max_span_token_length": 3,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (75.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "hàng không đúng mẫu",
+      "spans": [
+        {
+          "start": 5,
+          "end": 19,
+          "text": "không đúng mẫu",
+          "label": "COMP",
+          "token_length": 3
+        }
+      ]
+    },
+    {
+      "id": "train_000645",
+      "token_count": 71,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "hãy cho tính năng chưa mở là phần cho mọi người dùng những bộ đồ mình có để ghép thành những bộ đồ mới theo ý mọi người muốn đi , và trong ngôi nhà nhỏ có phố đi dạo để đến nhà những người bạn , có quán cà phê , quán ăn ,... và có thể thay đồ cho con chưa nhắn tin i trong ngôi nhà nhỏ nữa",
+      "spans": []
+    },
+    {
+      "id": "train_000709",
+      "token_count": 74,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "game rất hay và vui. có thể kết bạn được. có thể chơi trò chuyện và nhắn tin với nhau. nhưng tôi muốn có nhiều skin mua bằng đậu mini hoặc từ các mảnh họp lại được bộ bộ để cho hững người không nạp được tiền vẫn có skin đẹp để mặc cho nhìn nó phong cách một xíu. chứ tôi thấy lâu lâu tự nhiên có ngườ... bài đánh giá đầy đủ",
+      "spans": []
+    },
+    {
+      "id": "train_000828",
+      "token_count": 10,
+      "comp_token_count": 9,
+      "comp_ratio": 0.9,
+      "span_count": 2,
+      "max_span_token_length": 5,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (90.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "màu trắng không gửi gửi màu xanh quá nhỏ luôn",
+      "spans": [
+        {
+          "start": 0,
+          "end": 19,
+          "text": "màu trắng không gửi",
+          "label": "COMP",
+          "token_length": 4
+        },
+        {
+          "start": 24,
+          "end": 45,
+          "text": "màu xanh quá nhỏ luôn",
+          "label": "COMP",
+          "token_length": 5
+        }
+      ]
+    },
+    {
+      "id": "train_001184",
+      "token_count": 7,
+      "comp_token_count": 6,
+      "comp_ratio": 0.8571428571428571,
+      "span_count": 2,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (85.7%)"
+      ],
+      "classification": "likely_ok",
+      "text": "lưng rộng mà ống lại hơi ngắn",
+      "spans": [
+        {
+          "start": 0,
+          "end": 9,
+          "text": "lưng rộng",
+          "label": "COMP",
+          "token_length": 2
+        },
+        {
+          "start": 13,
+          "end": 29,
+          "text": "ống lại hơi ngắn",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_001698",
+      "token_count": 8,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "nên bổ xung thêm tiếng việt nam vào.",
+      "spans": []
+    },
+    {
+      "id": "train_001731",
+      "token_count": 3,
+      "comp_token_count": 2,
+      "comp_ratio": 0.6666666666666666,
+      "span_count": 1,
+      "max_span_token_length": 2,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (66.7%)"
+      ],
+      "classification": "likely_ok",
+      "text": "quần hơi ngắn",
+      "spans": [
+        {
+          "start": 5,
+          "end": 13,
+          "text": "hơi ngắn",
+          "label": "COMP",
+          "token_length": 2
+        }
+      ]
+    },
+    {
+      "id": "train_001735",
+      "token_count": 4,
+      "comp_token_count": 4,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "giao hàng quá lâu",
+      "spans": [
+        {
+          "start": 0,
+          "end": 17,
+          "text": "giao hàng quá lâu",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_001836",
+      "token_count": 7,
+      "comp_token_count": 7,
+      "comp_ratio": 1.0,
+      "span_count": 2,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "vải không đẹp nút gài quá lỏng",
+      "spans": [
+        {
+          "start": 0,
+          "end": 13,
+          "text": "vải không đẹp",
+          "label": "COMP",
+          "token_length": 3
+        },
+        {
+          "start": 14,
+          "end": 30,
+          "text": "nút gài quá lỏng",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_002070",
+      "token_count": 82,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "ứng dụng hay, có thư mục từ của bạn để nhắc nhỉ từ mới rất hay. nếu có thể thêm chức năng nhắc một từ theo thời gian như: 5 phút, 2 giờ, 24 giờ, một tuần, một tháng thì hay. vì nhắc kiểu này sẽ làm cho từ đó ăn vào trí nhớ dài hạn của bạn và sẽ khó mà quên được từ đó. bình chọn 5 star  ủng hộ, mình cũng đã mua l... bài đánh giá đầy đủ",
+      "spans": []
+    },
+    {
+      "id": "train_002107",
+      "token_count": 4,
+      "comp_token_count": 4,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "dich sai hoan toan",
+      "spans": [
+        {
+          "start": 0,
+          "end": 18,
+          "text": "dich sai hoan toan",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_002774",
+      "token_count": 17,
+      "comp_token_count": 13,
+      "comp_ratio": 0.7647058823529411,
+      "span_count": 1,
+      "max_span_token_length": 13,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (76.5%)"
+      ],
+      "classification": "likely_ok",
+      "text": "đã nhận hàng nhưng không thấy có hàng tặng kèm như viết trong chương trình khuyến mại",
+      "spans": [
+        {
+          "start": 19,
+          "end": 85,
+          "text": "không thấy có hàng tặng kèm như viết trong chương trình khuyến mại",
+          "label": "COMP",
+          "token_length": 13
+        }
+      ]
+    },
+    {
+      "id": "train_002798",
+      "token_count": 13,
+      "comp_token_count": 8,
+      "comp_ratio": 0.6153846153846154,
+      "span_count": 2,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (61.5%)"
+      ],
+      "classification": "likely_ok",
+      "text": "em không vào aP  được  ạ. bấm vào cứ out ra thôi ạ",
+      "spans": [
+        {
+          "start": 3,
+          "end": 21,
+          "text": "không vào aP  được",
+          "label": "COMP",
+          "token_length": 4
+        },
+        {
+          "start": 34,
+          "end": 48,
+          "text": "cứ out ra thôi",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_002814",
+      "token_count": 8,
+      "comp_token_count": 7,
+      "comp_ratio": 0.875,
+      "span_count": 2,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (87.5%)"
+      ],
+      "classification": "likely_ok",
+      "text": "vải quá xấu . giao  không đúng màu",
+      "spans": [
+        {
+          "start": 0,
+          "end": 11,
+          "text": "vải quá xấu",
+          "label": "COMP",
+          "token_length": 3
+        },
+        {
+          "start": 14,
+          "end": 34,
+          "text": "giao  không đúng màu",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_002844",
+      "token_count": 6,
+      "comp_token_count": 4,
+      "comp_ratio": 0.6666666666666666,
+      "span_count": 1,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (66.7%)"
+      ],
+      "classification": "likely_ok",
+      "text": "hàng có mùi cồn rất nặng.",
+      "spans": [
+        {
+          "start": 8,
+          "end": 24,
+          "text": "mùi cồn rất nặng",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_002940",
+      "token_count": 17,
+      "comp_token_count": 11,
+      "comp_ratio": 0.6470588235294118,
+      "span_count": 1,
+      "max_span_token_length": 11,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (64.7%)"
+      ],
+      "classification": "likely_ok",
+      "text": " cửa hàng  làm ăn kỳ vậy? lúc mua là có tặng son giờ lại nói không có.",
+      "spans": [
+        {
+          "start": 26,
+          "end": 69,
+          "text": "lúc mua là có tặng son giờ lại nói không có",
+          "label": "COMP",
+          "token_length": 11
+        }
+      ]
+    },
+    {
+      "id": "train_003263",
+      "token_count": 4,
+      "comp_token_count": 4,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "vay bong đường chỉ",
+      "spans": [
+        {
+          "start": 0,
+          "end": 18,
+          "text": "vay bong đường chỉ",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_003285",
+      "token_count": 18,
+      "comp_token_count": 14,
+      "comp_ratio": 0.7777777777777778,
+      "span_count": 1,
+      "max_span_token_length": 14,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (77.8%)"
+      ],
+      "classification": "likely_ok",
+      "text": "admin ơi. sao không thấy thông kê các thông số dịch bệnh liên quan đến nước anh vậy",
+      "spans": [
+        {
+          "start": 14,
+          "end": 79,
+          "text": "không thấy thông kê các thông số dịch bệnh liên quan đến nước anh",
+          "label": "COMP",
+          "token_length": 14
+        }
+      ]
+    },
+    {
+      "id": "train_003334",
+      "token_count": 7,
+      "comp_token_count": 7,
+      "comp_ratio": 1.0,
+      "span_count": 2,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "dép hơi cứng. đi đau mũi chân",
+      "spans": [
+        {
+          "start": 0,
+          "end": 12,
+          "text": "dép hơi cứng",
+          "label": "COMP",
+          "token_length": 3
+        },
+        {
+          "start": 14,
+          "end": 29,
+          "text": "đi đau mũi chân",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_003497",
+      "token_count": 22,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "nói chung là  được  cơ mà đọc hơi nhanh và có thêm phần viết chữ cái để ghi nhớ sẽ tốt hơn",
+      "spans": []
+    },
+    {
+      "id": "train_003566",
+      "token_count": 10,
+      "comp_token_count": 7,
+      "comp_ratio": 0.7,
+      "span_count": 2,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (70.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "giao không đúng mẫu,lần này mua quá thất vọng .",
+      "spans": [
+        {
+          "start": 0,
+          "end": 19,
+          "text": "giao không đúng mẫu",
+          "label": "COMP",
+          "token_length": 4
+        },
+        {
+          "start": 32,
+          "end": 45,
+          "text": "quá thất vọng",
+          "label": "COMP",
+          "token_length": 3
+        }
+      ]
+    },
+    {
+      "id": "train_004184",
+      "token_count": 5,
+      "comp_token_count": 5,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 5,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "giao hàng hơi lâu á",
+      "spans": [
+        {
+          "start": 0,
+          "end": 19,
+          "text": "giao hàng hơi lâu á",
+          "label": "COMP",
+          "token_length": 5
+        }
+      ]
+    },
+    {
+      "id": "train_004263",
+      "token_count": 6,
+      "comp_token_count": 5,
+      "comp_ratio": 0.8333333333333334,
+      "span_count": 1,
+      "max_span_token_length": 5,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (83.3%)"
+      ],
+      "classification": "likely_ok",
+      "text": " không  quay ngang duoc dien thoai.",
+      "spans": [
+        {
+          "start": 8,
+          "end": 34,
+          "text": "quay ngang duoc dien thoai",
+          "label": "COMP",
+          "token_length": 5
+        }
+      ]
+    }
+  ],
+  "needs_review": [
+    {
+      "id": "train_000054",
+      "token_count": 73,
+      "comp_token_count": 23,
+      "comp_ratio": 0.3150684931506849,
+      "span_count": 5,
+      "max_span_token_length": 7,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "nhiều hơn 4 spans (5)"
+      ],
+      "classification": "needs_review",
+      "text": "tôi rất thích game này nhưng càng lúc cấu hình game càng nặng, thật sự rất lag luôn, máy bên tôi lúc nào cũng trễ hơn bên đồng đội vài giây, có khi còn bị đứng hình hay cứ bị chạy giật lùi do kết nối mạng nữa. mong game có cách khắc phục chứ game càng lúc càng nặng thì người không có điều kiện đổi m... bài đánh giá đầy đủ",
+      "spans": [
+        {
+          "start": 29,
+          "end": 61,
+          "text": "càng lúc cấu hình game càng nặng",
+          "label": "COMP",
+          "token_length": 7
+        },
+        {
+          "start": 71,
+          "end": 83,
+          "text": "rất lag luôn",
+          "label": "COMP",
+          "token_length": 3
+        },
+        {
+          "start": 110,
+          "end": 139,
+          "text": "trễ hơn bên đồng đội vài giây",
+          "label": "COMP",
+          "token_length": 7
+        },
+        {
+          "start": 152,
+          "end": 164,
+          "text": "bị đứng hình",
+          "label": "COMP",
+          "token_length": 3
+        },
+        {
+          "start": 175,
+          "end": 188,
+          "text": "chạy giật lùi",
+          "label": "COMP",
+          "token_length": 3
+        }
+      ]
+    }
+  ]
+}

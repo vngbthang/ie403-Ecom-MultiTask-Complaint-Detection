@@ -1,0 +1,217 @@
+# AI-assisted Complaint Span Annotation Prompt
+
+## Mục tiêu annotation
+
+Gán nhãn các cụm từ thể hiện nội dung khiếu nại/phàn nàn trong review tiếng Việt từ UIT-ViOCD. Kết quả annotation sẽ được chuyển sang BIO labels để huấn luyện bài toán complaint span extraction với nhãn `O`, `B-COMP`, `I-COMP`.
+
+## Định nghĩa complaint span
+
+Complaint span là cụm từ ngắn nhất nhưng đủ nghĩa trong review thể hiện nội dung khiếu nại/phàn nàn của người dùng.
+
+Ví dụ: trong câu `áo đẹp nhưng giao hàng quá chậm`, complaint span là `giao hàng quá chậm`, không phải toàn bộ câu.
+
+## Nhãn cần gán
+
+Hiện tại chỉ có một nhãn span:
+
+- `COMP`: cụm từ thể hiện vấn đề, lỗi, sự không hài lòng, phàn nàn, yêu cầu khắc phục, hoặc trải nghiệm tiêu cực của người dùng.
+
+## Quy tắc chọn span
+
+1. Chỉ chọn cụm thể hiện vấn đề/khiếu nại.
+2. Không chọn toàn câu nếu có thể chọn cụm ngắn hơn.
+3. Không chọn phần khen, phần trung tính, hoặc thông tin nền không trực tiếp là khiếu nại.
+4. Không chọn emoji riêng lẻ làm complaint span.
+5. Nếu review có nhiều lỗi/khiếu nại, trả về nhiều span.
+6. Nếu complaint là gián tiếp hoặc nói bóng gió, chọn cụm thể hiện ý không hài lòng rõ nhất.
+7. Nếu không tìm được span rõ ràng, trả về `spans = []` và ghi lý do trong `reason`.
+8. Span phải là substring xuất hiện nguyên văn trong `text`.
+9. `start` và `end` là character offset theo Python slicing: `text[start:end] == span_text`.
+10. Giữ nguyên chính tả, teencode, viết tắt và dấu câu như trong text gốc.
+
+## Ví dụ đúng/sai
+
+### Ví dụ 1
+
+Input:
+
+```json
+{"id":"ex_001","text":"áo đẹp nhưng giao hàng quá chậm","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"fashion","cls_label":1}}
+```
+
+Output đúng:
+
+```json
+{
+  "id": "ex_001",
+  "text": "áo đẹp nhưng giao hàng quá chậm",
+  "spans": [
+    {"start": 13, "end": 31, "text": "giao hàng quá chậm", "label": "COMP"}
+  ],
+  "reason": "Cụm này nêu trực tiếp vấn đề giao hàng chậm; phần 'áo đẹp' là khen nên không chọn."
+}
+```
+
+Sai:
+
+- Chọn `áo đẹp nhưng giao hàng quá chậm`: quá dài, chứa phần khen.
+- Chọn `chậm`: quá ngắn, thiếu ngữ cảnh vấn đề.
+
+### Ví dụ 2
+
+Input:
+
+```json
+{"id":"ex_002","text":"mua 2 chai mà giao thiếu 1 chai, nhắn tin không ai trả lời","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"cosmetic","cls_label":1}}
+```
+
+Output đúng:
+
+```json
+{
+  "id": "ex_002",
+  "text": "mua 2 chai mà giao thiếu 1 chai, nhắn tin không ai trả lời",
+  "spans": [
+    {"start": 15, "end": 31, "text": "giao thiếu 1 chai", "label": "COMP"},
+    {"start": 33, "end": 58, "text": "nhắn tin không ai trả lời", "label": "COMP"}
+  ],
+  "reason": "Review có hai khiếu nại riêng: giao thiếu hàng và không được phản hồi."
+}
+```
+
+Sai:
+
+- Chọn toàn câu: quá dài.
+- Chỉ chọn một span: bỏ sót khiếu nại còn lại.
+
+### Ví dụ 3
+
+Input:
+
+```json
+{"id":"ex_003","text":"sản phẩm cũng tạm, mua một lần cho biết","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"fashion","cls_label":1}}
+```
+
+Output đúng:
+
+```json
+{
+  "id": "ex_003",
+  "text": "sản phẩm cũng tạm, mua một lần cho biết",
+  "spans": [
+    {"start": 19, "end": 41, "text": "mua một lần cho biết", "label": "COMP"}
+  ],
+  "reason": "Cụm này thể hiện ý không hài lòng gián tiếp, hàm ý sẽ không mua lại."
+}
+```
+
+### Ví dụ 4
+
+Input:
+
+```json
+{"id":"ex_004","text":"mình chưa dùng nên chưa biết chất lượng thế nào","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"cosmetic","cls_label":1}}
+```
+
+Output đúng:
+
+```json
+{
+  "id": "ex_004",
+  "text": "mình chưa dùng nên chưa biết chất lượng thế nào",
+  "spans": [],
+  "reason": "Không có cụm khiếu nại rõ ràng; người dùng chỉ nói chưa sử dụng."
+}
+```
+
+## Output JSON schema bắt buộc
+
+Mỗi input record phải trả về đúng một JSON object:
+
+```json
+{
+  "id": "<id>",
+  "text": "<original text>",
+  "spans": [
+    {
+      "start": 0,
+      "end": 10,
+      "text": "<exact substring>",
+      "label": "COMP"
+    }
+  ],
+  "reason": "<short Vietnamese explanation>"
+}
+```
+
+Ràng buộc bắt buộc:
+
+- Không thêm markdown trong output cuối cùng nếu tool yêu cầu JSONL.
+- Mỗi dòng là một JSON object hợp lệ.
+- Không đổi `id`.
+- Không sửa `text`.
+- `span.text` phải khớp chính xác `text[start:end]`.
+- Chỉ dùng label `COMP`.
+
+## Prompt hoàn chỉnh để copy vào AI tool
+
+Bạn là annotator cho bài toán complaint span extraction trong review tiếng Việt.
+
+Nhiệm vụ: Với mỗi input JSON object, hãy tìm các complaint spans. Complaint span là cụm từ ngắn nhất nhưng đủ nghĩa trong review thể hiện nội dung khiếu nại/phàn nàn của người dùng.
+
+Chỉ dùng nhãn `COMP`.
+
+Quy tắc:
+
+1. Chỉ chọn cụm thể hiện vấn đề/khiếu nại.
+2. Không chọn toàn câu nếu có thể chọn cụm ngắn hơn.
+3. Không chọn phần khen, phần trung tính, hoặc thông tin nền không trực tiếp là khiếu nại.
+4. Không chọn emoji riêng lẻ làm complaint span.
+5. Nếu review có nhiều lỗi/khiếu nại, trả về nhiều span.
+6. Nếu complaint là gián tiếp hoặc nói bóng gió, chọn cụm thể hiện ý không hài lòng rõ nhất.
+7. Nếu không tìm được span rõ ràng, trả về `spans = []` và ghi lý do trong `reason`.
+8. Span phải là substring xuất hiện nguyên văn trong `text`.
+9. `start` và `end` là character offset theo Python slicing: `text[start:end] == span_text`.
+10. Giữ nguyên chính tả, teencode, viết tắt và dấu câu như trong text gốc.
+
+Output bắt buộc cho mỗi input:
+
+```json
+{
+  "id": "<id>",
+  "text": "<original text>",
+  "spans": [
+    {
+      "start": 0,
+      "end": 10,
+      "text": "<exact substring>",
+      "label": "COMP"
+    }
+  ],
+  "reason": "<giải thích ngắn bằng tiếng Việt>"
+}
+```
+
+Hãy trả về JSONL: mỗi dòng là một JSON object hợp lệ, không bọc trong markdown, không thêm giải thích ngoài trường `reason`.
+
+INPUT JSONL TO ANNOTATE:
+{"id": "train_000193", "text": "đầm thun hơi mỏng nhưng mặc vào mát  cám ơn   cửa hàng ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "fashion", "cls_label": 1}}
+{"id": "train_000203", "text": "game hay. ít nhiệm vụ lấy đồ để cày hơn.. thực tiễn hơn.. không như mấy game khác nhiệm vụ cho đồ khác thì theo một khuôn khổ chán quá trời ra..", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "app", "cls_label": 1}}
+{"id": "train_000221", "text": "thấy trả lời bình luận 1m5x 55 60 không vẫn vừa  cỡ  l, mình có 51 không mặc  cỡ  lồn vẫn chật! chán chả buồn nói 😒😒😒", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "fashion", "cls_label": 1}}
+{"id": "train_000249", "text": "facebOk làm ăn kiểu gì vậy, tài khoản cá nhân của tôi không vi phạm tiêu chuẩn cộng đồng gì cả, mà tại sao các ông lại vô hiệu hoá tài khoảng của tôi, tôi thấy facebOk làm ăn quá tệ!!, tài khoản của tôi là chính chủ tên thật có cả cmnd mà facebOk lại vô hiệu hoá tài khoản của tôi không có lý do g... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "app", "cls_label": 1}}
+{"id": "train_000645", "text": "hãy cho tính năng chưa mở là phần cho mọi người dùng những bộ đồ mình có để ghép thành những bộ đồ mới theo ý mọi người muốn đi , và trong ngôi nhà nhỏ có phố đi dạo để đến nhà những người bạn , có quán cà phê , quán ăn ,... và có thể thay đồ cho con chưa nhắn tin i trong ngôi nhà nhỏ nữa", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "app", "cls_label": 1}}
+{"id": "train_000686", "text": "son muùi cực kì kinh khủng. mình xem mfg ngày apr2019. mình không biết dòng son này màu nào cũng mùi này hay chỉ có màu đỏ đất- thriLer nude là hôi rình. để xem mấy hôm nữa mùi có tản bớt không, chứ mùi nghe xong là ngất luôn.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_000748", "text": "mình mua hàng đã xem rất rõ là có tặng kèm quà hay không mà vẫn không có. mua rất nhiều lần và lần đầu tiên mình thất vọng đến vậy 😔", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_000828", "text": "màu trắng không gửi gửi màu xanh quá nhỏ luôn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "fashion", "cls_label": 1}}
+{"id": "train_001059", "text": "mỗi lần cập nhật lại tốn mấy trăm mình dung lượng. lần này cũng vậy chả lẻ mỗi điện thoại chỉ tải  được  một game như thế này thôi sao? iG nên xem xét lại mà giảm bớt dung lượng game lại đi, còn không có thể iG sẽ giảm bớt nhiều người chơi đấy nhé! mỗi lần cập nhật đa phần không có tính năng nào hay ho ngoại... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "app", "cls_label": 1}}
+{"id": "train_001547", "text": "cứ nói to là được nhưng nó bảo là bạn nhắn tin o không nghe rõ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "app", "cls_label": 1}}
+{"id": "train_001727", "text": "anh chị xem khắc phục lại lỗi hộ em với ạ, em tải xong vào thì bảo tải dữ liệu, vừa hiện tải xong lỗi, thử lại thì lại hiện tải xong lại lỗi tiếp,cứ như vậy dù em đã xoá đi tải lại 3 lần rồi ạ, em nghe nói aP này tốt nên tải dùng, mong ac fix nhanh để em trải nghiệm thử ạ, em xin cảm ơn ạ.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "app", "cls_label": 1}}
+{"id": "train_001758", "text": "kem nền thì ổn rồi mà quà thì quá tệ tặng cũng có tâm chút đi để màu này tặng cây son hồng bé rồi sao xài, thiệt hết nói nỗi 😑😑😑😑", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001836", "text": "vải không đẹp nút gài quá lỏng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "fashion", "cls_label": 1}}
+{"id": "train_001926", "text": "aP có một số nhược điểm: thứ một là nhiều bài hạn chế, tìm không thấy. thứ 2 là việc aP tự động đăng nhập tài khoản zalo mỗi lần truy cập là rất phiền. cuối cùng là khi tôi dùng các ứng dụng chỉnh video như kinemaster, inshot, viva video ... muốn chèn bài hát đã tải ở zing về nhưng tìm không có, chỉ có ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "app", "cls_label": 1}}
+{"id": "train_002144", "text": "game không hề cân bằng, nạp và không nạp quá khác biệt, hệ thống tìm trận không cân xứng lực chiến 5k gặp 10k 3 ván liền thì chơi gì? và ngoài việc nạp thẻ thì đá cường hoá lấy ở đâu ra??? hay là vng không quan tâm đến người chơi mà chỉ quan tâm đến tiền thu từ nạp thẻ? game hút máu à?", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "app", "cls_label": 1}}
+{"id": "train_003263", "text": "vay bong đường chỉ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "fashion", "cls_label": 1}}
+{"id": "train_003285", "text": "admin ơi. sao không thấy thông kê các thông số dịch bệnh liên quan đến nước anh vậy", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "app", "cls_label": 1}}
+{"id": "train_003930", "text": "game chơi hay. mình xin góp ý một số ý kiến. game nên tách biệt giữa 2 nhóm người chơi đó là chơi giả lập trên pc chơi với nhau và chơi trên điện thoại với nhau để tránh tình trạng thao tác xử lí trên pc tốt hơn. và game nên bỏ hoàn toàn tự ngắm. như thế giúp game thật hơn. cảm ơn game...", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "app", "cls_label": 1}}
+{"id": "train_004260", "text": "quần chất đẹp, nhưng bị chật. mà  cửa hàng  có mỗi chuyện gửi địa chỉ để khách đổi hàng cũng không làm được.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "fashion", "cls_label": 1}}
+{"id": "train_004263", "text": " không  quay ngang duoc dien thoai.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "app", "cls_label": 1}}

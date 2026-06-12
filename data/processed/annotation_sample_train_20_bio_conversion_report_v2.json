@@ -1,0 +1,11 @@
+{
+  "summary": {
+    "records": 20,
+    "tokens_total": 765,
+    "comp_tokens": 249,
+    "records_with_spans": 19,
+    "records_without_spans": 1,
+    "warnings": 0
+  },
+  "warnings": []
+}

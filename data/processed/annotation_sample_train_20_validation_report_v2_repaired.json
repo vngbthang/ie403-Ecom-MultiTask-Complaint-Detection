@@ -1,0 +1,22 @@
+{
+  "summary": {
+    "total_input_candidates": 20,
+    "total_annotation_records": 20,
+    "valid_records": 19,
+    "invalid_records": 1,
+    "missing_ids": 0,
+    "duplicate_ids": 0,
+    "allow_missing": false,
+    "error_counts": {
+      "span_text_mismatch": 1
+    }
+  },
+  "errors": [
+    {
+      "line": 6,
+      "id": "train_000686",
+      "error_type": "span_text_mismatch",
+      "message": "Span #0 text mismatch: expected 'muùi cực kì kinh khủng', got 'mùi cực kì kinh khủng'."
+    }
+  ]
+}

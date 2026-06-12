@@ -1,0 +1,31 @@
+{
+  "total": 100,
+  "train": 80,
+  "val": 9,
+  "test": 11,
+  "seed": 42,
+  "overlap_ids": [],
+  "splits": {
+    "train": {
+      "records": 80,
+      "has_comp": 76,
+      "no_comp": 4,
+      "tokens": 2661,
+      "comp_tokens": 666
+    },
+    "val": {
+      "records": 9,
+      "has_comp": 9,
+      "no_comp": 0,
+      "tokens": 301,
+      "comp_tokens": 91
+    },
+    "test": {
+      "records": 11,
+      "has_comp": 10,
+      "no_comp": 1,
+      "tokens": 437,
+      "comp_tokens": 79
+    }
+  }
+}

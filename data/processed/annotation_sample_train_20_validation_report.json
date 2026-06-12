@@ -1,0 +1,203 @@
+{
+  "summary": {
+    "total_input_candidates": 20,
+    "total_annotation_records": 20,
+    "valid_records": 4,
+    "invalid_records": 16,
+    "missing_ids": 0,
+    "duplicate_ids": 0,
+    "allow_missing": false,
+    "error_counts": {
+      "invalid_offset_range": 6,
+      "span_text_mismatch": 25
+    }
+  },
+  "errors": [
+    {
+      "line": 1,
+      "id": "train_000193",
+      "error_type": "span_text_mismatch",
+      "message": "Span #0 text mismatch: expected 'đầm thun hơi mỏng ', got 'đầm thun hơi mỏng'."
+    },
+    {
+      "line": 2,
+      "id": "train_000203",
+      "error_type": "span_text_mismatch",
+      "message": "Span #0 text mismatch: expected 'ít nhiệm vụ lấy đồ để cày hơn.', got 'ít nhiệm vụ lấy đồ để cày hơn..'."
+    },
+    {
+      "line": 2,
+      "id": "train_000203",
+      "error_type": "span_text_mismatch",
+      "message": "Span #1 text mismatch: expected 'uôn khổ chán quá trời ra..', got 'theo một khuôn khổ chán quá trời ra..'."
+    },
+    {
+      "line": 3,
+      "id": "train_000221",
+      "error_type": "span_text_mismatch",
+      "message": "Span #0 text mismatch: expected 'ẫn chật! chá', got 'vẫn chật!'."
+    },
+    {
+      "line": 3,
+      "id": "train_000221",
+      "error_type": "invalid_offset_range",
+      "message": "Span #1 offsets out of range: start=100, end=119, len=117."
+    },
+    {
+      "line": 4,
+      "id": "train_000249",
+      "error_type": "span_text_mismatch",
+      "message": "Span #0 text mismatch: expected 'facebOk làm ăn kiểu gì vậy, ', got 'facebOk làm ăn kiểu gì vậy'."
+    },
+    {
+      "line": 4,
+      "id": "train_000249",
+      "error_type": "span_text_mismatch",
+      "message": "Span #1 text mismatch: expected 'ại sao các ông lại vô hiệu hoá tài khoảng của tô', got 'tại sao các ông lại vô hiệu hoá tài khoảng của tôi'."
+    },
+    {
+      "line": 4,
+      "id": "train_000249",
+      "error_type": "span_text_mismatch",
+      "message": "Span #2 text mismatch: expected 'tôi thấy facebOk làm ăn quá tệ!!, t', got 'tôi thấy facebOk làm ăn quá tệ!!'."
+    },
+    {
+      "line": 4,
+      "id": "train_000249",
+      "error_type": "span_text_mismatch",
+      "message": "Span #3 text mismatch: expected ' khoản của tôi là chính chủ tên thật có cả cmnd mà facebOk lại vô hiệu hoá tài ', got 'facebOk lại vô hiệu hoá tài khoản của tôi không có lý do g'."
+    },
+    {
+      "line": 6,
+      "id": "train_000686",
+      "error_type": "span_text_mismatch",
+      "message": "Span #1 text mismatch: expected 'à hôi rình. để x', got 'thriLer nude là hôi rình'."
+    },
+    {
+      "line": 6,
+      "id": "train_000686",
+      "error_type": "invalid_offset_range",
+      "message": "Span #2 offsets out of range: start=205, end=230, len=226."
+    },
+    {
+      "line": 7,
+      "id": "train_000748",
+      "error_type": "span_text_mismatch",
+      "message": "Span #0 text mismatch: expected 'vẫn không có.', got 'vẫn không có'."
+    },
+    {
+      "line": 7,
+      "id": "train_000748",
+      "error_type": "span_text_mismatch",
+      "message": "Span #1 text mismatch: expected ' mình thất vọng đến vậy 😔', got 'mình thất vọng đến vậy'."
+    },
+    {
+      "line": 8,
+      "id": "train_000828",
+      "error_type": "span_text_mismatch",
+      "message": "Span #0 text mismatch: expected 'màu trắng không gửi ', got 'màu trắng không gửi'."
+    },
+    {
+      "line": 8,
+      "id": "train_000828",
+      "error_type": "invalid_offset_range",
+      "message": "Span #1 offsets out of range: start=21, end=46, len=45."
+    },
+    {
+      "line": 9,
+      "id": "train_001059",
+      "error_type": "span_text_mismatch",
+      "message": "Span #0 text mismatch: expected 'mỗi lần cập nhật lại tốn mấy trăm mình dung lượng.', got 'mỗi lần cập nhật lại tốn mấy trăm mình dung lượng'."
+    },
+    {
+      "line": 9,
+      "id": "train_001059",
+      "error_type": "span_text_mismatch",
+      "message": "Span #1 text mismatch: expected 'lần cập nhật đa phần không có tính năng nào hay ho ngo', got 'mỗi lần cập nhật đa phần không có tính năng nào hay ho'."
+    },
+    {
+      "line": 11,
+      "id": "train_001727",
+      "error_type": "span_text_mismatch",
+      "message": "Span #0 text mismatch: expected 'm tải xong vào thì bảo tải dữ liệu, vừa hiện tải xong lỗi, thử lại thì lại hiện tải xong lại lỗi tiếp,cứ', got 'em tải xong vào thì bảo tải dữ liệu, vừa hiện tải xong lỗi, thử lại thì lại hiện tải xong lại lỗi tiếp,cứ như vậy dù em đã xoá đi tải lại 3 lần rồi ạ'."
+    },
+    {
+      "line": 12,
+      "id": "train_001758",
+      "error_type": "span_text_mismatch",
+      "message": "Span #0 text mismatch: expected 'à quà thì quá tệ ', got 'quà thì quá tệ'."
+    },
+    {
+      "line": 12,
+      "id": "train_001758",
+      "error_type": "span_text_mismatch",
+      "message": "Span #1 text mismatch: expected 'ể màu này tặng cây son hồng bé rồi sao xài, th', got 'để màu này tặng cây son hồng bé rồi sao xài'."
+    },
+    {
+      "line": 13,
+      "id": "train_001836",
+      "error_type": "invalid_offset_range",
+      "message": "Span #1 offsets out of range: start=14, end=31, len=30."
+    },
+    {
+      "line": 14,
+      "id": "train_001926",
+      "error_type": "span_text_mismatch",
+      "message": "Span #1 text mismatch: expected ' tự động đăng nhập tài khoản zalo mỗi lần truy cập là rất phiền', got 'aP tự động đăng nhập tài khoản zalo mỗi lần truy cập là rất phiền'."
+    },
+    {
+      "line": 14,
+      "id": "train_001926",
+      "error_type": "span_text_mismatch",
+      "message": "Span #2 text mismatch: expected 'chèn bài hát đã tải ở zing về nhưng tìm không có,', got 'muốn chèn bài hát đã tải ở zing về nhưng tìm không có'."
+    },
+    {
+      "line": 15,
+      "id": "train_002144",
+      "error_type": "span_text_mismatch",
+      "message": "Span #1 text mismatch: expected 'nạp và không nạp quá khác biệt,', got 'nạp và không nạp quá khác biệt'."
+    },
+    {
+      "line": 15,
+      "id": "train_002144",
+      "error_type": "span_text_mismatch",
+      "message": "Span #2 text mismatch: expected 'ệ thống tìm trận không cân xứng lực chiến 5k gặp 10k 3 ván liền thì chơ', got 'hệ thống tìm trận không cân xứng lực chiến 5k gặp 10k 3 ván liền thì chơi gì?'."
+    },
+    {
+      "line": 15,
+      "id": "train_002144",
+      "error_type": "span_text_mismatch",
+      "message": "Span #3 text mismatch: expected ' không quan tâm đến người chơi mà chỉ quan tâm đến tiền thu từ', got 'vng không quan tâm đến người chơi mà chỉ quan tâm đến tiền thu từ nạp thẻ?'."
+    },
+    {
+      "line": 15,
+      "id": "train_002144",
+      "error_type": "span_text_mismatch",
+      "message": "Span #4 text mismatch: expected 'ạp thẻ? game h', got 'game hút máu à?'."
+    },
+    {
+      "line": 17,
+      "id": "train_003285",
+      "error_type": "invalid_offset_range",
+      "message": "Span #0 offsets out of range: start=10, end=84, len=83."
+    },
+    {
+      "line": 18,
+      "id": "train_003930",
+      "error_type": "span_text_mismatch",
+      "message": "Span #0 text mismatch: expected ' thao tác xử lí trên pc tốt hơn. ', got 'thao tác xử lí trên pc tốt hơn'."
+    },
+    {
+      "line": 19,
+      "id": "train_004260",
+      "error_type": "span_text_mismatch",
+      "message": "Span #0 text mismatch: expected 'ị chật.', got 'bị chật'."
+    },
+    {
+      "line": 19,
+      "id": "train_004260",
+      "error_type": "invalid_offset_range",
+      "message": "Span #1 offsets out of range: start=35, end=110, len=108."
+    }
+  ]
+}

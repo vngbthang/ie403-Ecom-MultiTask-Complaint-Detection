@@ -1,0 +1,22 @@
+{
+  "dataset": "UIT-ViOCD",
+  "subset": "pilot_100_train_complaint_reviews",
+  "annotation_method": "AI-assisted span annotation with human review",
+  "prompt_version": "v2",
+  "records": 100,
+  "tokens_total": 3399,
+  "comp_tokens": 836,
+  "records_with_spans": 95,
+  "records_without_spans": 5,
+  "spans_total": 169,
+  "validator_pass": true,
+  "conversion_warnings": 0,
+  "human_review_decisions": {
+    "train_000054": "KEEP"
+  },
+  "notes": [
+    "Only UIT-ViOCD data is used.",
+    "Shopee/rating mapping is not used.",
+    "This is a pilot annotated dataset for validating the AI-assisted BIO span annotation pipeline."
+  ]
+}

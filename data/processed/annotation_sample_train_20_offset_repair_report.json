@@ -1,0 +1,392 @@
+{
+  "summary": {
+    "records": 20,
+    "spans_total": 38,
+    "spans_already_valid": 7,
+    "spans_repaired": 31,
+    "spans_unresolved": 0,
+    "ambiguous_matches": 0
+  },
+  "details": [
+    {
+      "id": "train_000193",
+      "span_text": "đầm thun hơi mỏng",
+      "old_start": 0,
+      "old_end": 18,
+      "new_start": 0,
+      "new_end": 17,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_000203",
+      "span_text": "ít nhiệm vụ lấy đồ để cày hơn..",
+      "old_start": 10,
+      "old_end": 40,
+      "new_start": 10,
+      "new_end": 41,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_000203",
+      "span_text": "theo một khuôn khổ chán quá trời ra..",
+      "old_start": 118,
+      "old_end": 144,
+      "new_start": 107,
+      "new_end": 144,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_000221",
+      "span_text": "vẫn chật!",
+      "old_start": 87,
+      "old_end": 99,
+      "new_start": 86,
+      "new_end": 95,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_000221",
+      "span_text": "chán chả buồn nói",
+      "old_start": 100,
+      "old_end": 119,
+      "new_start": 96,
+      "new_end": 113,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_000249",
+      "span_text": "facebOk làm ăn kiểu gì vậy",
+      "old_start": 0,
+      "old_end": 28,
+      "new_start": 0,
+      "new_end": 26,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_000249",
+      "span_text": "tại sao các ông lại vô hiệu hoá tài khoảng của tôi",
+      "old_start": 100,
+      "old_end": 148,
+      "new_start": 99,
+      "new_end": 149,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_000249",
+      "span_text": "tôi thấy facebOk làm ăn quá tệ!!",
+      "old_start": 151,
+      "old_end": 186,
+      "new_start": 151,
+      "new_end": 183,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_000249",
+      "span_text": "facebOk lại vô hiệu hoá tài khoản của tôi không có lý do g",
+      "old_start": 188,
+      "old_end": 267,
+      "new_start": 239,
+      "new_end": 297,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_000686",
+      "span_text": "son muùi cực kì kinh khủng",
+      "old_start": 0,
+      "old_end": 26,
+      "new_start": 0,
+      "new_end": 26,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000686",
+      "span_text": "thriLer nude là hôi rình",
+      "old_start": 142,
+      "old_end": 158,
+      "new_start": 128,
+      "new_end": 152,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_000686",
+      "span_text": "mùi nghe xong là ngất luôn",
+      "old_start": 205,
+      "old_end": 230,
+      "new_start": 199,
+      "new_end": 225,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_000748",
+      "span_text": "vẫn không có",
+      "old_start": 60,
+      "old_end": 73,
+      "new_start": 60,
+      "new_end": 72,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_000748",
+      "span_text": "mình thất vọng đến vậy",
+      "old_start": 107,
+      "old_end": 132,
+      "new_start": 108,
+      "new_end": 130,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_000828",
+      "span_text": "màu trắng không gửi",
+      "old_start": 0,
+      "old_end": 20,
+      "new_start": 0,
+      "new_end": 19,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_000828",
+      "span_text": "gửi màu xanh quá nhỏ luôn",
+      "old_start": 21,
+      "old_end": 46,
+      "new_start": 20,
+      "new_end": 45,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_001059",
+      "span_text": "mỗi lần cập nhật lại tốn mấy trăm mình dung lượng",
+      "old_start": 0,
+      "old_end": 50,
+      "new_start": 0,
+      "new_end": 49,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_001059",
+      "span_text": "mỗi lần cập nhật đa phần không có tính năng nào hay ho",
+      "old_start": 253,
+      "old_end": 307,
+      "new_start": 249,
+      "new_end": 303,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_001547",
+      "span_text": "bạn nhắn tin o không nghe rõ",
+      "old_start": 34,
+      "old_end": 62,
+      "new_start": 34,
+      "new_end": 62,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001727",
+      "span_text": "em tải xong vào thì bảo tải dữ liệu, vừa hiện tải xong lỗi, thử lại thì lại hiện tải xong lại lỗi tiếp,cứ như vậy dù em đã xoá đi tải lại 3 lần rồi ạ",
+      "old_start": 44,
+      "old_end": 148,
+      "new_start": 43,
+      "new_end": 192,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_001758",
+      "span_text": "quà thì quá tệ",
+      "old_start": 20,
+      "old_end": 37,
+      "new_start": 22,
+      "new_end": 36,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_001758",
+      "span_text": "để màu này tặng cây son hồng bé rồi sao xài",
+      "old_start": 63,
+      "old_end": 109,
+      "new_start": 62,
+      "new_end": 105,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_001836",
+      "span_text": "vải không đẹp",
+      "old_start": 0,
+      "old_end": 13,
+      "new_start": 0,
+      "new_end": 13,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001836",
+      "span_text": "nút gài quá lỏng",
+      "old_start": 14,
+      "old_end": 31,
+      "new_start": 14,
+      "new_end": 30,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_001926",
+      "span_text": "nhiều bài hạn chế, tìm không thấy",
+      "old_start": 36,
+      "old_end": 69,
+      "new_start": 36,
+      "new_end": 69,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001926",
+      "span_text": "aP tự động đăng nhập tài khoản zalo mỗi lần truy cập là rất phiền",
+      "old_start": 87,
+      "old_end": 150,
+      "new_start": 85,
+      "new_end": 150,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_001926",
+      "span_text": "muốn chèn bài hát đã tải ở zing về nhưng tìm không có",
+      "old_start": 247,
+      "old_end": 296,
+      "new_start": 242,
+      "new_end": 295,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_002144",
+      "span_text": "game không hề cân bằng",
+      "old_start": 0,
+      "old_end": 22,
+      "new_start": 0,
+      "new_end": 22,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002144",
+      "span_text": "nạp và không nạp quá khác biệt",
+      "old_start": 24,
+      "old_end": 55,
+      "new_start": 24,
+      "new_end": 54,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_002144",
+      "span_text": "hệ thống tìm trận không cân xứng lực chiến 5k gặp 10k 3 ván liền thì chơi gì?",
+      "old_start": 57,
+      "old_end": 128,
+      "new_start": 56,
+      "new_end": 133,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_002144",
+      "span_text": "vng không quan tâm đến người chơi mà chỉ quan tâm đến tiền thu từ nạp thẻ?",
+      "old_start": 199,
+      "old_end": 261,
+      "new_start": 196,
+      "new_end": 270,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_002144",
+      "span_text": "game hút máu à?",
+      "old_start": 263,
+      "old_end": 277,
+      "new_start": 271,
+      "new_end": 286,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_003263",
+      "span_text": "vay bong đường chỉ",
+      "old_start": 0,
+      "old_end": 18,
+      "new_start": 0,
+      "new_end": 18,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003285",
+      "span_text": "sao không thấy thông kê các thông số dịch bệnh liên quan đến nước anh vậy",
+      "old_start": 10,
+      "old_end": 84,
+      "new_start": 10,
+      "new_end": 83,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_003930",
+      "span_text": "thao tác xử lí trên pc tốt hơn",
+      "old_start": 180,
+      "old_end": 213,
+      "new_start": 181,
+      "new_end": 211,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_004260",
+      "span_text": "bị chật",
+      "old_start": 22,
+      "old_end": 29,
+      "new_start": 21,
+      "new_end": 28,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_004260",
+      "span_text": "cửa hàng  có mỗi chuyện gửi địa chỉ để khách đổi hàng cũng không làm được",
+      "old_start": 35,
+      "old_end": 110,
+      "new_start": 34,
+      "new_end": 107,
+      "status": "repaired",
+      "message": "Offsets repaired from substring search."
+    },
+    {
+      "id": "train_004263",
+      "span_text": "không  quay ngang duoc dien thoai",
+      "old_start": 1,
+      "old_end": 34,
+      "new_start": 1,
+      "new_end": 34,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    }
+  ]
+}

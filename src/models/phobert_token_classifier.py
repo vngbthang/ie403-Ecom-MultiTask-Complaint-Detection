@@ -22,14 +22,20 @@ class PhobertTokenClassifier(nn.Module):
     bo qua vi tri -100.
     """
 
-    def __init__(self, num_ner_tags: int = 3, dropout: float = 0.1):
+    def __init__(
+        self,
+        num_ner_tags: int = 3,
+        dropout: float = 0.1,
+        model_name: str = "vinai/phobert-base-v2",
+    ):
         """
         Args:
             num_ner_tags: So luong nhan NER (mac dinh 3: O, B-COMP, I-COMP)
             dropout: Dropout rate truoc token classifier
+            model_name: HuggingFace model name/path for the encoder
         """
         super(PhobertTokenClassifier, self).__init__()
-        self.phobert = AutoModel.from_pretrained("vinai/phobert-base-v2")
+        self.phobert = AutoModel.from_pretrained(model_name)
         hidden_size = self.phobert.config.hidden_size
 
         self.dropout = nn.Dropout(dropout)
