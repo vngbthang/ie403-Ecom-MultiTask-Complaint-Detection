@@ -1,0 +1,10 @@
+{
+  "epoch": 5,
+  "entity_precision": 0.8171953255425709,
+  "entity_recall": 0.898989898989899,
+  "entity_f1": 0.8561434193266289,
+  "token_precision_macro": 0.8824194461111631,
+  "token_recall_macro": 0.8686010771264475,
+  "token_f1_macro": 0.8732200110011391,
+  "avg_loss": 0.21887451744262587
+}

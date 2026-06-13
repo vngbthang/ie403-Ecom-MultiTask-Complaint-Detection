@@ -35,24 +35,32 @@ Split for model training:
 
 | experiment_name | dataset | train_records | test_records | loss_type | epochs | entity_precision | entity_recall | entity_f1 | token_f1_macro | avg_loss | note |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Pilot100 Unweighted PhoBERT NER | UIT-ViOCD pilot 100 | 100 |  | CrossEntropy | 3 | 0.0000 | 0.0000 | 0.0000 | 0.3002 | 0.6437 | model biased to O on small pilot data |
-| Pilot100 Weighted PhoBERT NER | UIT-ViOCD pilot 100 | 100 |  | Weighted CrossEntropy | 7 | 0.0893 | 0.2941 | 0.1370 | 0.5845 | 0.3660 | class weights helped the model predict COMP labels but data size remained small |
-| Full Complaint Weighted PhoBERT NER | UIT-ViOCD full AI-assisted complaint span dataset | 2280 | 291 | Weighted CrossEntropy | 5 | 0.7937 | 0.9045 | 0.8455 | 0.8620 | 0.2486 | best result after expanding annotation to all complaint reviews |
+| Rule-based Keyword Span Extractor | UIT-ViOCD full AI-assisted test split | 0 | 291 | None | 0 | 0.0135 | 0.0018 | 0.0032 | 0.1472 |  | simple keyword matching baseline with very low exact-span recall |
+| Pilot100 Unweighted PhoBERT NER | UIT-ViOCD pilot 100 | 100 |  | CrossEntropy | 3 | 0.0000 | 0.0000 | 0.0000 | 0.3002 | 0.6437 | model biased to O on small pilot data; train_records shows pilot dataset size |
+| Pilot100 Weighted PhoBERT NER | UIT-ViOCD pilot 100 | 100 |  | Weighted CrossEntropy | 7 | 0.0893 | 0.2941 | 0.1370 | 0.5845 | 0.3660 | class weights improved COMP prediction on pilot data but performance remained limited |
+| Full Complaint Weighted PhoBERT NER | UIT-ViOCD full AI-assisted complaint span dataset | 2280 | 291 | Weighted CrossEntropy | 5 | 0.7937 | 0.9045 | 0.8455 | 0.8620 | 0.2486 | strong full-data result, but not the best among full-data settings |
+| Full Complaint Unweighted PhoBERT NER | UIT-ViOCD full AI-assisted complaint span dataset | 2280 | 291 | CrossEntropy | 5 | 0.8172 | 0.8990 | 0.8561 | 0.8732 | 0.2189 | best result; full data reduced the need for class weighting |
 
 Loaded metrics files:
+- `outputs\metrics\rule_based_keyword_ner_baseline\metrics\rule_based_ner_metrics.json`
 - `outputs\metrics\uit_viocd_pilot_100_phobert_ner_3epoch_clean\metrics\phobert_ner_single_task.json`
 - `outputs\metrics\uit_viocd_pilot_100_phobert_ner_weighted_10epoch\metrics\phobert_ner_single_task.json`
 - `outputs\metrics\uit_viocd_full_complaint_phobert_ner_weighted_5epoch\metrics\phobert_ner_single_task.json`
+- `outputs\metrics\uit_viocd_full_complaint_phobert_ner_unweighted_5epoch\metrics\phobert_ner_single_task.json`
 
 ## Key Findings
 
-- Best available Entity F1: `0.8455` from `Full Complaint Weighted PhoBERT NER`.
-- Expanding from pilot annotations to the full complaint span dataset substantially improved NER performance.
-- Weighted CrossEntropy was used to reduce bias toward the O label.
+- Best available Entity F1: `0.8561` from `Full Complaint Unweighted PhoBERT NER`.
+- Rule-based baseline performs poorly, showing that keyword matching is insufficient for exact complaint span extraction.
+- Pilot100 unweighted collapses to O predictions in the low-data setting.
+- Weighted loss helps in the low-data pilot setting.
+- Expanding AI-assisted span annotation to the full complaint set leads to the largest improvement.
+- Full unweighted PhoBERT NER achieves the best result: Entity-F1 0.8561 and Token-F1 0.8732.
+- Weighted loss is useful for pilot data but not the best full-data setting.
 
 ## Limitations To Mention In Report
 
 - Full span labels are AI-assisted annotations, not fully human gold-standard labels.
 - Automatic validation, offset repair, overlap resolving and partial manual review were used to improve consistency.
 - Results should be interpreted as evaluation on the constructed AI-assisted span dataset.
-- Some pilot metrics may be absent locally if Kaggle outputs were not copied back.
+- The proposed contribution should be described as an AI-assisted complaint span annotation pipeline combined with PhoBERT NER, not as weighted loss alone.

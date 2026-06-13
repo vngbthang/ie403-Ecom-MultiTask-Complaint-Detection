@@ -1,0 +1,262 @@
+[
+  {
+    "entity_precision": 0.7357555739058629,
+    "entity_recall": 0.8181818181818182,
+    "entity_f1": 0.7747826086956523,
+    "token_precision_macro": 0.8472415515551185,
+    "token_recall_macro": 0.8271403505701311,
+    "token_f1_macro": 0.8366602301779577,
+    "per_label": {
+      "O": {
+        "precision": 0.7622710622710622,
+        "recall": 0.7099965881951552,
+        "f1": 0.7352057940293234,
+        "support": 2931
+      },
+      "B-COMP": {
+        "precision": 0.8800383877159309,
+        "recall": 0.8420569329660239,
+        "f1": 0.8606288127639606,
+        "support": 1089
+      },
+      "I-COMP": {
+        "precision": 0.8994152046783626,
+        "recall": 0.9293675305492144,
+        "f1": 0.914146083740589,
+        "support": 7447
+      }
+    },
+    "token_classification_report": "              precision    recall  f1-score   support\n\n           O     0.7623    0.7100    0.7352      2931\n      B-COMP     0.8800    0.8421    0.8606      1089\n      I-COMP     0.8994    0.9294    0.9141      7447\n\n    accuracy                         0.8650     11467\n   macro avg     0.8472    0.8271    0.8367     11467\nweighted avg     0.8625    0.8650    0.8633     11467\n",
+    "entity_classification_report": "              precision    recall  f1-score   support\n\n        COMP     0.7358    0.8182    0.7748      1089\n\n   micro avg     0.7358    0.8182    0.7748      1089\n   macro avg     0.7358    0.8182    0.7748      1089\nweighted avg     0.7358    0.8182    0.7748      1089\n",
+    "num_samples": 291,
+    "total_tokens": 11467,
+    "epoch": 1,
+    "avg_loss": 0.5335902310777129,
+    "gold_label_distribution": {
+      "counts": {
+        "O": 2931,
+        "B-COMP": 1089,
+        "I-COMP": 7447
+      },
+      "samples_with_comp": 280,
+      "samples_total": 291
+    },
+    "pred_label_distribution": {
+      "counts": {
+        "O": 2730,
+        "B-COMP": 1042,
+        "I-COMP": 7695
+      },
+      "samples_with_comp": 288,
+      "samples_total": 291
+    }
+  },
+  {
+    "entity_precision": 0.8218243819266837,
+    "entity_recall": 0.8852157943067034,
+    "entity_f1": 0.852343059239611,
+    "token_precision_macro": 0.8677891088833247,
+    "token_recall_macro": 0.8618627869692954,
+    "token_f1_macro": 0.8641703215775234,
+    "per_label": {
+      "O": {
+        "precision": 0.8098617855808741,
+        "recall": 0.7396792903445923,
+        "f1": 0.7731811697574893,
+        "support": 2931
+      },
+      "B-COMP": {
+        "precision": 0.88125,
+        "recall": 0.90633608815427,
+        "f1": 0.8936170212765958,
+        "support": 1089
+      },
+      "I-COMP": {
+        "precision": 0.9122555410691003,
+        "recall": 0.9395729824090238,
+        "f1": 0.925712773698485,
+        "support": 7447
+      }
+    },
+    "token_classification_report": "              precision    recall  f1-score   support\n\n           O     0.8099    0.7397    0.7732      2931\n      B-COMP     0.8812    0.9063    0.8936      1089\n      I-COMP     0.9123    0.9396    0.9257      7447\n\n    accuracy                         0.8853     11467\n   macro avg     0.8678    0.8619    0.8642     11467\nweighted avg     0.8831    0.8853    0.8837     11467\n",
+    "entity_classification_report": "              precision    recall  f1-score   support\n\n        COMP     0.8218    0.8852    0.8523      1089\n\n   micro avg     0.8218    0.8852    0.8523      1089\n   macro avg     0.8218    0.8852    0.8523      1089\nweighted avg     0.8218    0.8852    0.8523      1089\n",
+    "num_samples": 291,
+    "total_tokens": 11467,
+    "epoch": 2,
+    "avg_loss": 0.344564250725926,
+    "gold_label_distribution": {
+      "counts": {
+        "O": 2931,
+        "B-COMP": 1089,
+        "I-COMP": 7447
+      },
+      "samples_with_comp": 280,
+      "samples_total": 291
+    },
+    "pred_label_distribution": {
+      "counts": {
+        "O": 2677,
+        "B-COMP": 1120,
+        "I-COMP": 7670
+      },
+      "samples_with_comp": 289,
+      "samples_total": 291
+    }
+  },
+  {
+    "entity_precision": 0.7705479452054794,
+    "entity_recall": 0.8264462809917356,
+    "entity_f1": 0.7975188303057155,
+    "token_precision_macro": 0.8546277965559442,
+    "token_recall_macro": 0.8402502562576638,
+    "token_f1_macro": 0.847151042651515,
+    "per_label": {
+      "O": {
+        "precision": 0.7832973362131029,
+        "recall": 0.7424087342204025,
+        "f1": 0.7623051322473288,
+        "support": 2931
+      },
+      "B-COMP": {
+        "precision": 0.8695652173913043,
+        "recall": 0.8448117539026629,
+        "f1": 0.8570097810898929,
+        "support": 1089
+      },
+      "I-COMP": {
+        "precision": 0.9110208360634255,
+        "recall": 0.9335302806499262,
+        "f1": 0.9221382146173233,
+        "support": 7447
+      }
+    },
+    "token_classification_report": "              precision    recall  f1-score   support\n\n           O     0.7833    0.7424    0.7623      2931\n      B-COMP     0.8696    0.8448    0.8570      1089\n      I-COMP     0.9110    0.9335    0.9221      7447\n\n    accuracy                         0.8763     11467\n   macro avg     0.8546    0.8403    0.8472     11467\nweighted avg     0.8744    0.8763    0.8751     11467\n",
+    "entity_classification_report": "              precision    recall  f1-score   support\n\n        COMP     0.7705    0.8264    0.7975      1089\n\n   micro avg     0.7705    0.8264    0.7975      1089\n   macro avg     0.7705    0.8264    0.7975      1089\nweighted avg     0.7705    0.8264    0.7975      1089\n",
+    "num_samples": 291,
+    "total_tokens": 11467,
+    "epoch": 3,
+    "avg_loss": 0.29143133413111955,
+    "gold_label_distribution": {
+      "counts": {
+        "O": 2931,
+        "B-COMP": 1089,
+        "I-COMP": 7447
+      },
+      "samples_with_comp": 280,
+      "samples_total": 291
+    },
+    "pred_label_distribution": {
+      "counts": {
+        "O": 2778,
+        "B-COMP": 1058,
+        "I-COMP": 7631
+      },
+      "samples_with_comp": 286,
+      "samples_total": 291
+    }
+  },
+  {
+    "entity_precision": 0.8140531276778064,
+    "entity_recall": 0.8723599632690542,
+    "entity_f1": 0.8421985815602836,
+    "token_precision_macro": 0.86280655407131,
+    "token_recall_macro": 0.8541392470143704,
+    "token_f1_macro": 0.8580896269517796,
+    "per_label": {
+      "O": {
+        "precision": 0.7936217008797654,
+        "recall": 0.7386557488911635,
+        "f1": 0.7651528538611062,
+        "support": 2931
+      },
+      "B-COMP": {
+        "precision": 0.8840182648401826,
+        "recall": 0.8888888888888888,
+        "f1": 0.8864468864468864,
+        "support": 1089
+      },
+      "I-COMP": {
+        "precision": 0.9107796964939822,
+        "recall": 0.934873103263059,
+        "f1": 0.9226691405473461,
+        "support": 7447
+      }
+    },
+    "token_classification_report": "              precision    recall  f1-score   support\n\n           O     0.7936    0.7387    0.7652      2931\n      B-COMP     0.8840    0.8889    0.8864      1089\n      I-COMP     0.9108    0.9349    0.9227      7447\n\n    accuracy                         0.8804     11467\n   macro avg     0.8628    0.8541    0.8581     11467\nweighted avg     0.8783    0.8804    0.8790     11467\n",
+    "entity_classification_report": "              precision    recall  f1-score   support\n\n        COMP     0.8141    0.8724    0.8422      1089\n\n   micro avg     0.8141    0.8724    0.8422      1089\n   macro avg     0.8141    0.8724    0.8422      1089\nweighted avg     0.8141    0.8724    0.8422      1089\n",
+    "num_samples": 291,
+    "total_tokens": 11467,
+    "epoch": 4,
+    "avg_loss": 0.24182260746887901,
+    "gold_label_distribution": {
+      "counts": {
+        "O": 2931,
+        "B-COMP": 1089,
+        "I-COMP": 7447
+      },
+      "samples_with_comp": 280,
+      "samples_total": 291
+    },
+    "pred_label_distribution": {
+      "counts": {
+        "O": 2728,
+        "B-COMP": 1095,
+        "I-COMP": 7644
+      },
+      "samples_with_comp": 286,
+      "samples_total": 291
+    }
+  },
+  {
+    "entity_precision": 0.8171953255425709,
+    "entity_recall": 0.898989898989899,
+    "entity_f1": 0.8561434193266289,
+    "token_precision_macro": 0.8824194461111631,
+    "token_recall_macro": 0.8686010771264475,
+    "token_f1_macro": 0.8732200110011391,
+    "per_label": {
+      "O": {
+        "precision": 0.8596845936109988,
+        "recall": 0.7253497099965882,
+        "f1": 0.7868245743893413,
+        "support": 2931
+      },
+      "B-COMP": {
+        "precision": 0.8783902012248469,
+        "recall": 0.9219467401285583,
+        "f1": 0.8996415770609318,
+        "support": 1089
+      },
+      "I-COMP": {
+        "precision": 0.9091835434976436,
+        "recall": 0.9585067812541963,
+        "f1": 0.9331938815531442,
+        "support": 7447
+      }
+    },
+    "token_classification_report": "              precision    recall  f1-score   support\n\n           O     0.8597    0.7253    0.7868      2931\n      B-COMP     0.8784    0.9219    0.8996      1089\n      I-COMP     0.9092    0.9585    0.9332      7447\n\n    accuracy                         0.8954     11467\n   macro avg     0.8824    0.8686    0.8732     11467\nweighted avg     0.8936    0.8954    0.8926     11467\n",
+    "entity_classification_report": "              precision    recall  f1-score   support\n\n        COMP     0.8172    0.8990    0.8561      1089\n\n   micro avg     0.8172    0.8990    0.8561      1089\n   macro avg     0.8172    0.8990    0.8561      1089\nweighted avg     0.8172    0.8990    0.8561      1089\n",
+    "num_samples": 291,
+    "total_tokens": 11467,
+    "epoch": 5,
+    "avg_loss": 0.21887451744262587,
+    "gold_label_distribution": {
+      "counts": {
+        "O": 2931,
+        "B-COMP": 1089,
+        "I-COMP": 7447
+      },
+      "samples_with_comp": 280,
+      "samples_total": 291
+    },
+    "pred_label_distribution": {
+      "counts": {
+        "O": 2473,
+        "B-COMP": 1143,
+        "I-COMP": 7851
+      },
+      "samples_with_comp": 288,
+      "samples_total": 291
+    }
+  }
+]

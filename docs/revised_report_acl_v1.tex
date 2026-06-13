@@ -1,15 +1,17 @@
 \documentclass[11pt]{article}
 
 % Change "review" to "final" for final version.
-\usepackage[preprint]{acl}
+\usepackage[final]{acl}
 
 % Standard packages
-\usepackage{times}
+\usepackage{fontspec}
 \usepackage{latexsym}
-\usepackage[T1]{fontenc}
+
+\setmainfont{TeX Gyre Termes}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{Latin Modern Mono}
 
 \usepackage{microtype}
-\usepackage{inconsolata}
 
 % Additional packages
 \usepackage{graphicx}
@@ -20,7 +22,7 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, positioning, shapes.geometric}
 
-\title{A PhoBERT-based Approach for Vietnamese Complaint Span Extraction with AI-assisted Annotation on UIT-ViOCD}
+\title{A PhoBERT-based Approach for Vietnamese Complaint Span Extraction with AI-assisted Annotation}
 
 \author{
 \begin{tabular}{c}
@@ -41,7 +43,8 @@ Vietnamese online complaint detection is commonly formulated as a review-level c
 
 In this work, we extend UIT-ViOCD from review-level complaint detection to complaint span extraction. We construct an AI-assisted complaint span annotation pipeline that annotates complaint expressions, validates character offsets, repairs incorrect offsets when possible, resolves overlapping spans, and converts validated spans into BIO labels with three tags: O, B-COMP, and I-COMP. The resulting data is used to train PhoBERT-based named entity recognition models for extracting complaint spans from Vietnamese e-commerce reviews.
 
-Our experiments show that training on a small pilot set is insufficient for reliable span extraction. A PhoBERT NER model trained on the pilot 100 records without class weights obtains Entity-F1 of 0.0000, while using class-weighted CrossEntropyLoss improves Entity-F1 to 0.1370. After expanding annotation to the full AI-assisted complaint span dataset, the weighted PhoBERT NER model achieves Entity-F1 of 0.8455 and Token-F1 of 0.8620. These results should be interpreted as evaluation on the constructed AI-assisted span dataset: the full span labels are AI-assisted annotations, not fully human gold-standard labels.
+Our experiments show that training on a small pilot set is insufficient for reliable span extraction. A PhoBERT NER model trained on the pilot 100 records without class weights obtains Entity-F1 of 0.0000, while using class-weighted CrossEntropyLoss improves Entity-F1 to 0.1370.
+After expanding annotation to the full AI-assisted complaint span dataset, the strongest result is obtained by the unweighted PhoBERT NER model, with Entity-F1 of 0.8561 and Token-F1 of 0.8732. These results should be interpreted as evaluation on the constructed AI-assisted span dataset: the full span labels are AI-assisted annotations, not fully human gold-standard labels.
 \end{abstract}
 
 \section{Introduction}
@@ -56,27 +59,45 @@ This study focuses on complaint span extraction for Vietnamese e-commerce review
 
 To build span-level supervision, we design an AI-assisted annotation pipeline for UIT-ViOCD complaint reviews. The pipeline uses a guideline-driven annotation prompt to identify complaint spans and then applies several quality-control steps before training. First, a validator checks JSONL format, record identity, text consistency, span offsets, and label validity. Second, an offset repair step corrects wrong start and end positions when the annotated span text is an exact substring of the source review. Third, overlapping spans are resolved before converting the data into BIO labels. This process produces a full AI-assisted complaint span dataset of 2,854 complaint reviews from UIT-ViOCD.
 
-For modeling, we train PhoBERT-based NER models on the constructed BIO dataset \citep{phobert2020}. Since token classification can be biased toward frequent labels, especially in small-data settings, we evaluate class-weighted CrossEntropyLoss to encourage the model to learn complaint labels more effectively. The experiments compare three stages of the pipeline: a pilot 100-record setting without class weights, a pilot 100-record setting with class weights, and the full AI-assisted complaint span dataset with class-weighted loss.
+For modeling, we train PhoBERT-based NER models on the constructed BIO dataset \citep{phobert2020}. We compare a rule-based keyword extractor, PhoBERT NER in a small pilot setting, and PhoBERT NER on the full AI-assisted complaint span dataset. Since token classification can be biased toward frequent labels in small-data settings, we also evaluate class-weighted CrossEntropyLoss as a training variant. The main contribution is the AI-assisted complaint span annotation pipeline combined with PhoBERT NER evaluation, rather than class weighting alone.
 
 The main contributions of this work are as follows:
 \begin{itemize}
     \item We analyze the limitation of review-level complaint detection in UIT-ViOCD and motivate the need for complaint span extraction.
     \item We construct an AI-assisted complaint span annotation pipeline for Vietnamese e-commerce reviews.
     \item We convert complaint spans into BIO labels using validation, offset repair, and overlap resolving to improve annotation consistency.
-    \item We train and evaluate PhoBERT NER models with class-weighted loss on both pilot and full AI-assisted complaint span datasets.
+    \item We train and evaluate multiple complaint span extraction methods, including a rule-based keyword baseline and PhoBERT NER variants, and show that full-data PhoBERT NER provides the strongest result on the constructed AI-assisted span dataset.
 \end{itemize}
 
 \section{Related Work}
 
-Vietnamese online complaint detection has been studied as a text classification problem in user-generated content. The UIT-ViOCD dataset introduced a benchmark for Vietnamese online complaint detection, where each review is labeled as complaint or non-complaint \citep{viocd2021}. This formulation is useful for review-level filtering and monitoring, but it only provides a coarse label for the entire review. It does not identify the exact phrase or region that expresses the user's dissatisfaction. As a result, review-level complaint detection cannot directly explain what the user complains about.
+\subsection{Vietnamese Online Complaint Detection}
 
-Complaint span extraction addresses this limitation by moving from document-level prediction to token-level or span-level prediction. Instead of predicting only whether a complaint exists, a span extraction model identifies the textual segment that contains the complaint. This is important in Vietnamese e-commerce reviews because a review may contain multiple aspects, mixed sentiment, or both positive and negative comments. In such cases, a binary review label is insufficient for fine-grained analysis.
+Vietnamese online complaint detection has been studied mainly as a text classification problem in user-generated content. The UIT-ViOCD dataset introduced a benchmark for Vietnamese online complaint detection, where each review is labeled as complaint or non-complaint \citep{viocd2021}. This formulation is useful for review-level filtering and monitoring, but it only provides a coarse label for the entire review. It does not identify the exact phrase or region that expresses the user's dissatisfaction. As a result, review-level complaint detection cannot directly explain what the user complains about.
 
-Pre-trained language models have become a standard approach for Vietnamese NLP. PhoBERT is a RoBERTa-style model pre-trained on large-scale Vietnamese corpora and has been widely used for Vietnamese text classification and sequence labeling tasks \citep{phobert2020}. Since complaint span extraction requires contextual understanding of informal and noisy Vietnamese reviews, PhoBERT is a suitable backbone for token-level complaint extraction.
+Vietnamese user-generated reviews are challenging because word segmentation, spelling variation, informal language, and domain-specific expressions can affect downstream models. Vietnamese NLP toolkits have supported tasks such as word segmentation, part-of-speech tagging, parsing, and named entity recognition \citep{vncorenlp2018}. However, complaint span extraction in noisy e-commerce reviews remains less explored than general review-level classification.
 
-Sequence labeling is commonly used for span extraction tasks such as named entity recognition. In the BIO tagging scheme, each token is labeled as outside a target span, at the beginning of a target span, or inside a target span. We adapt this formulation to complaint span extraction using three labels: O, B-COMP, and I-COMP. This representation allows a model to recover complaint spans from token-level predictions.
+\subsection{Vietnamese Pre-trained Language Models}
 
-Low-resource span annotation is expensive because it requires annotators to decide exact boundaries, not only class labels. AI-assisted annotation can help accelerate this process, but it must be used carefully. Automatically produced annotations may contain invalid offsets, overly long spans, overlapping spans, or non-exact text matches. Therefore, this work treats AI annotation as an assisted data construction process rather than a source of fully human gold-standard labels. Validation, offset repair, overlap resolving, and partial manual review are used to improve consistency before model training.
+Pre-trained language models have become a standard approach for many NLP tasks. BERT introduced deep bidirectional Transformer pre-training for language understanding \citep{bert2019}, while RoBERTa showed that robustly optimized pre-training can further improve downstream performance \citep{roberta2019}. For Vietnamese, PhoBERT is a RoBERTa-style model pre-trained on large-scale Vietnamese corpora and has been widely used for Vietnamese text classification and sequence labeling tasks \citep{phobert2020}. Since complaint span extraction requires contextual understanding of informal and noisy Vietnamese reviews, PhoBERT is a suitable backbone for token-level complaint extraction.
+
+\subsection{Complaint Span Extraction as Sequence Labeling}
+
+Complaint span extraction addresses the limitation of review-level labels by moving from document-level prediction to token-level or span-level prediction. Instead of predicting only whether a complaint exists, a span extraction model identifies the textual segment that contains the complaint. This is important in Vietnamese e-commerce reviews because a review may contain multiple aspects, mixed sentiment, or both positive and negative comments. In such cases, a binary review label is insufficient for fine-grained analysis.
+
+Sequence labeling is commonly used for span extraction tasks such as named entity recognition. Traditional and neural sequence labeling methods include Conditional Random Fields \citep{crf2001}, BiLSTM-CRF models \citep{huang2015bilstmcrf,lample2016neural,ma2016endtoend}, and Transformer-based token classifiers. NER evaluation commonly relies on exact entity matching, where both entity type and span boundary must be correct \citep{conll2003ner,nadeau2007survey}. This strict boundary requirement is also important for complaint span extraction because a model should identify not only the complaint topic but also the correct phrase boundary.
+
+\subsection{BIO Tagging and NER}
+
+The BIO tagging scheme represents spans by labeling each token as outside a target span, at the beginning of a target span, or inside a target span. This formulation is widely used in NER shared tasks and sequence labeling benchmarks \citep{conll2003ner,ratinov2009design}. We adapt this formulation to complaint span extraction using three labels: O, B-COMP, and I-COMP. This representation allows a model to recover complaint spans from token-level predictions and supports both token-level and entity-level evaluation.
+
+\subsection{Weak Supervision and AI-assisted Annotation}
+
+Low-resource span annotation is expensive because annotators must decide exact boundaries, not only class labels. Weak supervision and data programming frameworks aim to reduce manual labeling cost by combining noisy labeling signals into training data \citep{ratner2016data,ratner2017snorkel}. Crowdsourcing and assisted labeling can also accelerate annotation, but annotation quality must be checked carefully \citep{snow2008cheap,settles2009activelearning}. In this work, AI-assisted annotation is treated as a practical data construction strategy rather than a replacement for human gold-standard annotation.
+
+\subsection{Low-resource Annotation and Evaluation Limitations}
+
+Automatically assisted annotations may contain invalid offsets, overly long spans, overlapping spans, or non-exact text matches. Even if annotations are technically valid, semantic boundaries may remain debatable. Inter-annotator agreement studies show that annotation reliability is an important issue when labels require human judgment \citep{cohen1960kappa,artstein2008agreement}. Therefore, this work treats AI annotation as an assisted data construction process. Validation, offset repair, overlap resolving, and partial manual review are used to improve consistency before model training, while the limitations section explicitly avoids treating the resulting labels as fully human gold-standard labels.
 
 \section{Dataset}
 
@@ -87,18 +108,18 @@ For the revised task, we keep the original review-level labels but use them to s
 \begin{table}[t]
 \centering
 \small
-\begin{tabular}{llrrl}
+\begin{tabular}{llrrp{1.3cm}}
 \toprule
-Dataset & Split & Records & Complaint candidates & Notes \\
+Dataset & Split & Records & Comp. cand. & Notes \\
 \midrule
-UIT-ViOCD & Train & 4,387 & 2,292 & Original split \\
-UIT-ViOCD & Val & 548 & 283 & Original split \\
-UIT-ViOCD & Test & 549 & 279 & Original split \\
+UIT-ViOCD & Train & 4,387 & 2,292 & Original \\
+UIT-ViOCD & Val & 548 & 283 & Original \\
+UIT-ViOCD & Test & 549 & 279 & Original \\
 \midrule
-UIT-ViOCD & Total & 5,484 & 2,854 & Complaint reviews annotated \\
+UIT-ViOCD & Total & 5,484 & 2,854 & Annotated complaints \\
 \bottomrule
 \end{tabular}
-\caption{Dataset statistics for UIT-ViOCD and complaint candidates used for span annotation.}
+\caption{UIT-ViOCD dataset statistics.}
 \label{tab:dataset-statistics}
 \end{table}
 
@@ -125,6 +146,13 @@ COMP token ratio & 75.15\% \\
 \label{tab:span-dataset-statistics}
 \end{table}
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/dataset_span_statistics.png}
+\caption{Statistics of the constructed AI-assisted complaint span dataset.}
+\label{fig:dataset-span-statistics}
+\end{figure}
+
 \subsection{Data Annotation and Label Construction}
 
 A complaint span is defined as the shortest phrase that still preserves the meaning of a user's complaint or dissatisfaction. The goal is not to select the entire review, but to identify the core issue phrase. For example, if a review contains both a product description and a delivery complaint, only the delivery complaint phrase should be annotated as a complaint span.
@@ -138,6 +166,30 @@ When a span text is correct but its offsets are wrong, an offset repair step att
 Some AI-generated annotations contain overlapping complaint spans. Before BIO conversion, overlapping spans are resolved by merging overlapping COMP spans into a single span that covers the union of their character offsets. This step prevents one token from receiving conflicting labels during BIO conversion. After validation, repair, and overlap resolving, all accepted spans are converted into BIO labels. Tokens outside complaint spans are labeled O, the first token overlapping a complaint span is labeled B-COMP, and subsequent tokens in the same span are labeled I-COMP.
 
 The resulting labels are AI-assisted annotations, not fully human gold-standard labels. Automatic validation, offset repair, overlap resolving, and partial manual review are used to improve consistency, but the dataset should be interpreted as a constructed AI-assisted span dataset.
+
+\subsection{Example of BIO Label Construction}
+
+Table~\ref{tab:bio-example} gives a simplified example of BIO label construction. Consider the review ``áo đẹp nhưng giao hàng chậm quá''. The complaint span is ``giao hàng chậm quá'', because it expresses the delivery problem. Tokens before the complaint are labeled O, the first token of the complaint span is labeled B-COMP, and the remaining complaint tokens are labeled I-COMP.
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+Index & Token & BIO label \\
+\midrule
+1 & áo & O \\
+2 & đẹp & O \\
+3 & nhưng & O \\
+4 & giao & B-COMP \\
+5 & hàng & I-COMP \\
+6 & chậm & I-COMP \\
+7 & quá & I-COMP \\
+\bottomrule
+\end{tabular}
+\caption{Example of BIO label construction for a Vietnamese complaint span.}
+\label{tab:bio-example}
+\end{table}
 
 \section{Methodology}
 
@@ -153,6 +205,16 @@ The proposed data construction pipeline starts from the complaint reviews in UIT
 
 The raw AI annotation output is then processed by a quality-control pipeline. A validator checks the JSONL schema, record identifiers, text consistency, span labels, and exact character offsets. When a span text is correct but the offset is wrong, an offset repair step searches for the exact span text in the original review and updates the start and end positions when this can be done safely. After that, overlapping spans are resolved so that each token receives at most one BIO label. Finally, validated character-level spans are converted into token-level BIO labels and exported as NER JSON files for training and evaluation.
 
+\paragraph{Quality Control in Annotation.}
+Quality control is necessary because AI-assisted span labels can be useful but noisy. The pipeline checks the annotation schema, verifies that each span is attached to the correct review identifier, enforces exact substring matching with character offsets, repairs offset mismatches only when the span text can be found safely, merges overlapping COMP spans before BIO conversion, and checks that each output NER record has the same number of tokens and BIO labels. These steps do not guarantee perfect semantic boundaries, but they prevent technical inconsistencies that would otherwise corrupt loss computation and evaluation.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/annotation_pipeline.png}
+\caption{AI-assisted complaint span annotation pipeline built on UIT-ViOCD.}
+\label{fig:annotation-pipeline}
+\end{figure}
+
 \subsection{BIO Label Construction}
 
 The BIO label set contains three labels. The O label is assigned to tokens outside complaint spans. The B-COMP label is assigned to the first token of each complaint span. The I-COMP label is assigned to the remaining tokens inside the same complaint span. If a review contains multiple complaint spans, each span starts with its own B-COMP tag.
@@ -167,23 +229,8 @@ The span extraction model uses \texttt{vinai/phobert-base-v2} as the backbone. E
 
 \begin{figure}[t]
 \centering
-\begin{tikzpicture}[
-    node distance=0.85cm,
-    box/.style={rectangle, draw, rounded corners, align=center, minimum width=3.6cm, minimum height=0.72cm},
-    arrow/.style={-Latex, thick}
-]
-\node[box] (input) {Input Review};
-\node[box, below=of input] (tok) {PhoBERT Tokenizer};
-\node[box, below=of tok] (enc) {PhoBERT-base-v2};
-\node[box, below=of enc] (head) {Linear Token Labeling Layer};
-\node[box, below=of head] (out) {BIO Tags\\O / B-COMP / I-COMP};
-
-\draw[arrow] (input) -- (tok);
-\draw[arrow] (tok) -- (enc);
-\draw[arrow] (enc) -- (head);
-\draw[arrow] (head) -- (out);
-\end{tikzpicture}
-\caption{PhoBERT NER architecture for complaint span extraction.}
+\includegraphics[width=\columnwidth]{figures/phobert_ner_architecture.png}
+\caption{PhoBERT NER architecture for Vietnamese complaint span extraction.}
 \label{fig:phobert-ner-architecture}
 \end{figure}
 
@@ -207,23 +254,25 @@ where \(N\) is the total number of labeled tokens in the training split, \(K\) i
 
 \subsection{Implementation Details}
 
-The model is implemented using PyTorch and Hugging Face Transformers. All experiments use \texttt{vinai/phobert-base-v2} as the encoder backbone. The batch size is 8 and the learning rate is \(2 \times 10^{-5}\). The pilot 100 setting without class weights is trained for 3 epochs, the pilot 100 weighted setting is trained for 10 epochs, and the full weighted setting is trained for 5 epochs. Experiments are conducted on a Kaggle GPU environment.
+The model is implemented using PyTorch and Hugging Face Transformers. All PhoBERT experiments use \texttt{vinai/phobert-base-v2} as the encoder backbone. The batch size is 8 and the learning rate is \(2 \times 10^{-5}\). The pilot 100 setting without class weights is trained for 3 epochs, the pilot 100 weighted setting is trained for 10 epochs, and both full-data PhoBERT settings are trained for 5 epochs. We also evaluate a rule-based keyword extractor as a no-training baseline. Experiments are conducted on a Kaggle GPU environment.
 
 The evaluation reports Entity Precision, Entity Recall, Entity-F1, and Token-F1 macro. Entity-level metrics evaluate exact complaint span extraction, while token-level metrics evaluate BIO tagging quality. In the final full-data run, checkpoint saving is disabled to reduce storage usage; metrics and prediction files are still saved for analysis.
 
 \section{Experiments}
 
-We evaluate complaint span extraction as a PhoBERT-based NER task on the AI-assisted BIO datasets constructed from UIT-ViOCD. The experiments are designed to answer three questions. First, whether a small pilot annotation set is sufficient for training a span extraction model. Second, whether class-weighted loss helps reduce label bias. Third, whether expanding annotation to all complaint reviews improves span extraction performance.
+We evaluate complaint span extraction on the AI-assisted BIO datasets constructed from UIT-ViOCD. The experiments are designed to answer four questions. First, whether a simple keyword-based extractor is sufficient for exact complaint span extraction. Second, whether a small pilot annotation set is sufficient for training a PhoBERT span extraction model. Third, whether class-weighted loss helps reduce label bias in low-data settings. Fourth, whether expanding annotation to all complaint reviews improves span extraction performance.
 
 \subsection{Experimental Setup}
 
-All experiments use \texttt{vinai/phobert-base-v2} as the backbone and a linear token labeling layer for BIO prediction. The label scheme contains O, B-COMP, and I-COMP. We compare standard CrossEntropyLoss with class-weighted CrossEntropyLoss. For the full weighted experiment, class weights are computed from the training split using the balanced scheme described in Section~4.5. The resulting class counts and weights are: O count = 21,780 with weight 1.342608, B-COMP count = 8,085 with weight 3.616821, and I-COMP count = 57,861 with weight 0.505384.
+The rule-based baseline uses manually defined Vietnamese complaint keywords and does not require training. PhoBERT experiments use \texttt{vinai/phobert-base-v2} as the backbone and a linear token labeling layer for BIO prediction. The label scheme contains O, B-COMP, and I-COMP. We compare standard CrossEntropyLoss with class-weighted CrossEntropyLoss. For the full weighted experiment, class weights are computed from the training split using the balanced scheme described in Section~4.5. The resulting class counts and weights are: O count = 21,780 with weight 1.342608, B-COMP count = 8,085 with weight 3.616821, and I-COMP count = 57,861 with weight 0.505384.
 
 The batch size is 8 and the learning rate is \(2 \times 10^{-5}\). Experiments are conducted on a Kaggle GPU environment. In the final full-data run, checkpoint saving is disabled to reduce storage usage, while metrics and prediction outputs are still saved for analysis. Table~\ref{tab:experimental-setup} summarizes the experimental setup.
 
 \begin{table}[t]
 \centering
 \small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{0.95}
 \begin{tabular}{ll}
 \toprule
 Setting & Value \\
@@ -234,19 +283,21 @@ Label scheme & O, B-COMP, I-COMP \\
 Batch size & 8 \\
 Learning rate & \(2 \times 10^{-5}\) \\
 Pilot100 unweighted epochs & 3 \\
-Pilot100 weighted best epoch & 7 \\
+Pilot100 weighted epoch & 7 \\
 Full weighted epochs & 5 \\
+Full unweighted epochs & 5 \\
+Rule baseline & Keyword, no training \\
 Environment & Kaggle GPU \\
 Main metric & Entity-F1 \\
 \bottomrule
 \end{tabular}
-\caption{Experimental setup for PhoBERT NER complaint span extraction.}
+\caption{Experimental setup for complaint span extraction.}
 \label{tab:experimental-setup}
 \end{table}
 
 \subsection{Dataset Splits}
 
-We evaluate two data settings. The first setting uses the pilot 100 AI-assisted annotations, which were created to validate the annotation and BIO conversion workflow. The second setting uses the full AI-assisted complaint span dataset constructed from all 2,854 UIT-ViOCD complaint reviews.
+We build multiple experimental annotation settings from the same UIT-ViOCD source dataset for the same complaint span extraction task. The pilot 100 setting is used to validate the AI-assisted annotation and BIO conversion workflow. The pilot 300 setting extends this process as a larger quality-check setting by merging the pilot 100 annotations with 200 additional reviewed complaint annotations. The full setting uses the complete AI-assisted complaint span dataset constructed from all 2,854 UIT-ViOCD complaint reviews. This design keeps the study UIT-ViOCD-only while allowing comparison across different annotation scales.
 
 For the full dataset, the NER split contains 2,280 training records, 283 validation records, and 291 test records. The training split contains 87,726 tokens and 65,946 COMP tokens. The validation split contains 10,569 tokens and 8,015 COMP tokens. The test split contains 11,488 tokens and 8,536 COMP tokens. There are no overlapping record identifiers across the train, validation, and test splits.
 
@@ -258,40 +309,61 @@ We report Entity Precision, Entity Recall, Entity-F1, Token-F1 macro, and averag
 
 \subsection{Overall NER Results}
 
-Table~\ref{tab:ner-results-new} shows the main NER results. The pilot 100 unweighted model fails to extract complete complaint spans, obtaining Entity-F1 of 0.0000 and Token-F1 macro of 0.3002. Adding class-weighted loss improves the pilot setting to Entity-F1 of 0.1370 and Token-F1 macro of 0.5845, but the dataset remains too small for reliable span extraction. The best result is obtained by training on the full AI-assisted complaint span dataset with class-weighted loss, reaching Entity-F1 of 0.8455 and Token-F1 macro of 0.8620.
+Table~\ref{tab:ner-results-new} shows the main NER results. The rule-based keyword extractor obtains very low Entity-F1 of 0.0032, showing that keyword matching is insufficient for exact complaint span extraction. The pilot 100 unweighted model fails to extract complete complaint spans, obtaining Entity-F1 of 0.0000 and Token-F1 macro of 0.3002. Adding class-weighted loss improves the pilot setting to Entity-F1 of 0.1370 and Token-F1 macro of 0.5845, but the dataset remains too small for reliable span extraction.
+On the full AI-assisted dataset, both PhoBERT settings perform strongly, and the best result is obtained by the full unweighted PhoBERT NER model with Entity-F1 of 0.8561 and Token-F1 macro of 0.8732.
 
 \begin{table*}[t]
 \centering
 \small
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lllrrrrr}
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lllrrrrrr}
 \toprule
-Experiment & Dataset & Loss & Epoch & Entity-P & Entity-R & Entity-F1 & Token-F1 / Loss \\
+Method & Data & Loss & Epoch & Ent-P & Ent-R & Ent-F1 & Tok-F1 & Loss \\
 \midrule
-Pilot100 Unweighted PhoBERT NER & Pilot100 & CE & 3 & -- & -- & 0.0000 & 0.3002 / 0.6437 \\
-Pilot100 Weighted PhoBERT NER & Pilot100 & Weighted CE & 7 & 0.0893 & 0.2941 & 0.1370 & 0.5845 / 0.3660 \\
-Full Complaint Weighted PhoBERT NER & Full AI-assisted & Weighted CE & 5 & 0.7937 & 0.9045 & 0.8455 & 0.8620 / 0.2486 \\
+Rule-based & Full test & None & 0 & 0.0135 & 0.0018 & 0.0032 & 0.1472 & -- \\
+Pilot100 CE & Pilot100 & CE & 3 & -- & -- & 0.0000 & 0.3002 & 0.6437 \\
+Pilot100 Weighted & Pilot100 & Weighted CE & 7 & 0.0893 & 0.2941 & 0.1370 & 0.5845 & 0.3660 \\
+Full Weighted & Full & Weighted CE & 5 & 0.7937 & 0.9045 & 0.8455 & 0.8620 & 0.2486 \\
+Full CE & Full & CE & 5 & 0.8172 & 0.8990 & \textbf{0.8561} & \textbf{0.8732} & 0.2189 \\
 \bottomrule
 \end{tabular}
-\caption{NER results for complaint span extraction. The last column reports Token-F1 macro and average loss.}
+\caption{NER comparison on complaint span extraction.}
 \label{tab:ner-results-new}
 \end{table*}
+
+The visual comparisons below summarize the Entity-F1 and Token-F1 trends from Table~\ref{tab:ner-results-new}.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/ner_method_comparison.png}
+\caption{Entity-F1 comparison across methods.}
+\label{fig:ner-entity-f1-comparison}
+\end{figure}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\columnwidth]{figures/ner_token_f1_comparison.png}
+\caption{Token-F1 comparison across methods.}
+\label{fig:ner-token-f1-comparison}
+\end{figure}
 
 \subsection{Effect of Class-weighted Loss}
 
 The pilot 100 unweighted experiment shows a strong bias toward the O label. Although the model is trained on annotated complaint reviews, the small number of training examples is not enough for the model to learn reliable B-COMP and I-COMP boundaries. As a result, exact complaint spans are not recovered, leading to Entity-F1 of 0.0000.
 
-Class-weighted CrossEntropyLoss improves this behavior. In the pilot 100 weighted experiment, Entity-F1 increases from 0.0000 to 0.1370 and Token-F1 macro increases from 0.3002 to 0.5845. This suggests that class weighting helps the model start predicting complaint-related labels. However, the result remains limited because the pilot set is small and does not cover enough variation in complaint expressions.
+Class-weighted CrossEntropyLoss improves this behavior. In the pilot 100 weighted experiment, Entity-F1 increases from 0.0000 to 0.1370 and Token-F1 macro increases from 0.3002 to 0.5845. This suggests that class weighting helps the model start predicting complaint-related labels in a low-data setting. However, the result remains limited because the pilot set is small and does not cover enough variation in complaint expressions.
+
+On the full AI-assisted dataset, class weighting is no longer the strongest setting. The full weighted model obtains Entity-F1 of 0.8455, while the full unweighted model obtains a higher Entity-F1 of 0.8561 and Token-F1 macro of 0.8732. This suggests that class weighting is useful for the small pilot setting, but with substantially more span-level supervision, standard CrossEntropyLoss is sufficient and can slightly outperform the weighted variant.
 
 \subsection{Effect of Expanding AI-assisted Span Data}
 
-Expanding annotation from the pilot set to the full AI-assisted complaint span dataset substantially improves performance. The full weighted model reaches Entity Precision of 0.7937, Entity Recall of 0.9045, Entity-F1 of 0.8455, and Token-F1 macro of 0.8620. This improvement indicates that data coverage is critical for complaint span extraction. The full dataset contains more domains, more complaint patterns, and more boundary examples than the pilot set.
+Expanding annotation from the pilot set to the full AI-assisted complaint span dataset substantially improves performance. The full weighted model reaches Entity-F1 of 0.8455, while the full unweighted model further improves to Entity Precision of 0.8172, Entity Recall of 0.8990, Entity-F1 of 0.8561, and Token-F1 macro of 0.8732. This improvement indicates that data coverage is critical for complaint span extraction. The full dataset contains more domains, more complaint patterns, and more boundary examples than the pilot set.
 
-The result should be interpreted carefully. The full test set is evaluated against the constructed AI-assisted labels, not against a fully human gold-standard benchmark. Therefore, Entity-F1 of 0.8455 demonstrates strong consistency with the constructed annotation pipeline, but it should not be presented as an official benchmark result for the original UIT-ViOCD dataset.
+The result should be interpreted carefully. The full test set is evaluated against the constructed AI-assisted labels, not against a fully human gold-standard benchmark. Therefore, Entity-F1 of 0.8561 demonstrates strong consistency with the constructed annotation pipeline, but it should not be presented as an official benchmark result for the original UIT-ViOCD dataset.
 
 \subsection{Prediction Distribution Analysis}
 
-Table~\ref{tab:test-label-distribution} compares the gold and predicted label distributions on the full test split at the best epoch. The full test gold labels contain 2,931 O tokens, 1,089 B-COMP tokens, and 7,447 I-COMP tokens. The model predicts 2,392 O tokens, 1,205 B-COMP tokens, and 7,870 I-COMP tokens. It predicts at least one COMP label for 287 out of 291 test samples, while the gold labels contain at least one COMP label for 280 out of 291 samples.
+Table~\ref{tab:test-label-distribution} and Figure~\ref{fig:full-test-label-distribution} compare the gold and predicted label distributions on the full test split using the best full unweighted PhoBERT NER model. The full test gold labels contain 2,931 O tokens, 1,089 B-COMP tokens, and 7,447 I-COMP tokens. The model predicts 2,473 O tokens, 1,143 B-COMP tokens, and 7,851 I-COMP tokens.
 
 \begin{table}[t]
 \centering
@@ -300,24 +372,46 @@ Table~\ref{tab:test-label-distribution} compares the gold and predicted label di
 \toprule
 Label & Gold count & Predicted count \\
 \midrule
-O & 2,931 & 2,392 \\
-B-COMP & 1,089 & 1,205 \\
-I-COMP & 7,447 & 7,870 \\
+O & 2,931 & 2,473 \\
+B-COMP & 1,089 & 1,143 \\
+I-COMP & 7,447 & 7,851 \\
 \bottomrule
 \end{tabular}
 \caption{Gold and predicted label distributions on the full test split.}
 \label{tab:test-label-distribution}
 \end{table}
 
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/full_test_label_distribution.png}
+\caption{Gold and predicted BIO label distributions on the full test split using the best full unweighted PhoBERT NER model.}
+\label{fig:full-test-label-distribution}
+\end{figure}
+
 The predicted distribution shows that the model predicts more complaint tokens than the gold labels. This is partly related to the high COMP token ratio in the constructed dataset, where complaint reviews often contain long or multiple complaint spans. While this behavior improves recall, it can also lead to overly broad span predictions. Therefore, exact boundary evaluation remains important even when token-level scores are high.
 
 \subsection{Error Analysis and Qualitative Discussion}
 
-The main difficulty in complaint span extraction is boundary detection. A model may identify the correct complaint region but include too many surrounding tokens or miss part of the complaint phrase. This affects Entity-F1 more strongly than Token-F1 because entity-level evaluation requires exact span boundaries.
+The rule-based baseline illustrates the limitation of surface keyword matching. It obtains Entity-F1 of 0.0032 and Token-F1 macro of 0.1472 because it can only capture a small set of explicit negative words or phrases. It cannot handle paraphrased complaints, informal Vietnamese expressions, long complaint descriptions, or exact span boundaries. As a result, even when a keyword is found, the predicted span often does not match the annotated complaint boundary.
 
-Several error sources remain. First, Vietnamese e-commerce reviews are noisy and informal, with spelling variants, abbreviations, repeated words, and inconsistent punctuation. Second, some reviews contain multiple complaints in a single sentence, making boundary separation difficult. Third, some complaint expressions are implicit or mixed with suggestions, which can make it unclear whether a phrase should be annotated as a complaint span. Finally, because the span labels are AI-assisted, some annotation boundaries may reflect the guideline and validation pipeline rather than fully human consensus.
+The pilot 100 unweighted PhoBERT model shows a different failure mode: low-data label bias. It obtains Entity-F1 of 0.0000 because the small pilot set is not enough for the model to learn stable B-COMP and I-COMP boundaries. In this setting, the model tends to produce unstable or overly conservative predictions and fails to recover exact complaint spans.
 
-Overall, the experiments show that class weighting and data expansion are both important. Class weighting helps the model avoid predicting only the dominant label, while the full AI-assisted dataset provides enough span-level supervision for PhoBERT NER to learn complaint extraction patterns.
+Class weighting partially mitigates this low-resource problem. On pilot 100, weighted loss increases Entity-F1 from 0.0000 to 0.1370, showing that class weighting can encourage the model to predict complaint labels instead of collapsing toward the dominant or easier labels. However, this effect does not transfer directly to the full setting. On the full AI-assisted dataset, the unweighted model performs better than the weighted model, which suggests that class weighting is useful in low-resource settings but is not always beneficial when larger span-level supervision is available.
+
+The largest improvement comes from data scale. Expanding annotation from the pilot setting to the full complaint set gives the model many more complaint patterns and boundary examples. The full unweighted PhoBERT NER model reaches Entity-F1 of 0.8561 and Token-F1 macro of 0.8732. This indicates that broader AI-assisted span supervision is more important than loss weighting alone for this task.
+
+The prediction distribution also reveals a remaining tendency toward broad complaint predictions. On the full test split, the gold labels contain 2,931 O tokens, 1,089 B-COMP tokens, and 7,447 I-COMP tokens, while the best full unweighted model predicts 2,473 O tokens, 1,143 B-COMP tokens, and 7,851 I-COMP tokens. The model predicts more COMP tokens than the gold labels, which may be related to the high COMP token ratio and relatively broad spans in the AI-assisted dataset.
+
+Span boundary errors remain a central challenge. A predicted complaint span may be too short and miss part of the issue, too long and include surrounding explanation, or may miss the B-COMP boundary between adjacent complaint spans. In reviews with several complaints, the model may also split one complaint into multiple spans or merge multiple complaints into a single broad span. These errors hurt Entity-F1 more than Token-F1 because entity-level evaluation requires exact span boundary matching.
+
+Vietnamese review noise further complicates extraction. Complaint expressions may be implicit, mixed with positive comments, written with teencode, misspellings, abbreviations, repeated words, or informal punctuation. Such cases make it difficult to decide whether a phrase is a direct complaint, a suggestion, or contextual explanation around the complaint.
+
+The error patterns may also differ by domain. App reviews often contain technical complaints such as lag, crash, loading failures, or login errors. Fashion, cosmetic, and mobile reviews more often involve delivery issues, wrong variants, missing items, packaging problems, product quality, or mismatch between advertised and received products. These domain differences lead to different complaint expressions and boundary patterns. A more detailed domain-wise error analysis is therefore an important direction for future work.
+
+Overall, the experiments show that data expansion is the most important factor for this task. Class weighting helps the model avoid low-data label bias in the pilot setting, while the full AI-assisted dataset provides enough span-level supervision for PhoBERT NER to learn complaint extraction patterns. On the full dataset, the unweighted PhoBERT NER model performs best.
+
+\paragraph{Implications for Comparative Evaluation.}
+The experiments compare five methods or settings on the same complaint span extraction task: a rule-based keyword extractor, two pilot-data PhoBERT settings, and two full-data PhoBERT settings. This comparison includes both a simple non-learning baseline and modern neural methods based on PhoBERT. The analysis covers performance differences by data scale, loss weighting, prediction distribution, exact boundary errors, linguistic noise, and domain variation. The results suggest that the main improvement comes from constructing larger span-level supervision and evaluating it with a contextual Vietnamese language model, rather than from any single training trick.
 
 \section{Conclusion and Future Work}
 
@@ -325,9 +419,10 @@ This work revises Vietnamese complaint analysis on UIT-ViOCD from review-level c
 
 To address this issue, we extend UIT-ViOCD with AI-assisted complaint span annotations. The constructed pipeline includes annotation guideline design, schema and offset validation, offset repair, overlap resolving, and BIO conversion. The final AI-assisted complaint span dataset contains 2,854 complaint reviews, including 2,773 records with at least one span, 81 records without explicit spans, 10,195 total spans, and 109,783 tokens. The COMP token ratio is 75.15\%.
 
-We train PhoBERT NER models with token-level BIO labels and class-weighted CrossEntropyLoss. The pilot 100 unweighted model is strongly biased toward the O label and obtains Entity-F1 of 0.0000 and Token-F1 of 0.3002. Using class-weighted loss improves the pilot setting to Entity-F1 of 0.1370 and Token-F1 of 0.5845, but the pilot data remains too small for reliable extraction. Training on the full AI-assisted dataset further improves performance to Entity-F1 of 0.8455 and Token-F1 of 0.8620.
+We evaluate a rule-based keyword extractor and PhoBERT NER models with token-level BIO labels. The rule-based baseline obtains Entity-F1 of 0.0032, confirming that keyword matching is not sufficient for exact complaint span extraction. The pilot 100 unweighted model is strongly biased toward the O label and obtains Entity-F1 of 0.0000 and Token-F1 of 0.3002. Using class-weighted loss improves the pilot setting to Entity-F1 of 0.1370 and Token-F1 of 0.5845, but the pilot data remains too small for reliable extraction.
+Training on the full AI-assisted dataset gives the largest improvement: the full weighted setting reaches Entity-F1 of 0.8455, while the full unweighted setting performs best with Entity-F1 of 0.8561 and Token-F1 of 0.8732.
 
-These results show that both class weighting and expanded span-level supervision are important for Vietnamese complaint span extraction. However, the reported scores should be interpreted as evaluation on the constructed AI-assisted span dataset, not as an official benchmark result for the original UIT-ViOCD dataset.
+These results show that expanded span-level supervision is central to Vietnamese complaint span extraction. Class weighting is useful in the low-data pilot setting, but it is not the best full-data setting. The reported scores should be interpreted as evaluation on the constructed AI-assisted span dataset, not as an official benchmark result for the original UIT-ViOCD dataset.
 
 In future work, the full span labels should be reviewed more extensively by human annotators. The annotation guideline can also be refined and evaluated through inter-annotator agreement to improve boundary consistency. Additional quality-control rules may be added to detect broad spans, implicit complaints, and ambiguous span boundaries more strictly. On the modeling side, future experiments can compare the current PhoBERT token classifier with stronger sequence labeling baselines such as PhoBERT+CRF or transformer-CRF models. Another direction is to jointly model review-level complaint classification and span extraction as a future multi-task extension. Finally, error analysis by domain, including app, cosmetic, fashion, and mobile reviews, can help identify domain-specific weaknesses and reduce over-prediction of COMP tokens.
 
@@ -337,7 +432,7 @@ The main limitation of this work is the nature of the span labels. The full comp
 
 Partial manual review was performed during the pilot and batch expansion process, but not all 2,854 records were fully verified by human annotators. Therefore, some spans may still be too broad, too narrow, or semantically debatable. The high COMP token ratio of 75.15\% also suggests that some annotations may cover relatively large portions of complaint reviews.
 
-The experimental results should be interpreted as performance on the constructed AI-assisted span dataset. In particular, the Entity-F1 score of 0.8455 should not be presented as official benchmark performance on the original UIT-ViOCD task, because the original dataset does not provide human gold-standard complaint span labels.
+The experimental results should be interpreted as performance on the constructed AI-assisted span dataset. In particular, the best Entity-F1 score of 0.8561 should not be presented as official benchmark performance on the original UIT-ViOCD task, because the original dataset does not provide human gold-standard complaint span labels.
 
 The model may still struggle with implicit complaints, ambiguous span boundaries, mixed sentiment, informal Vietnamese, spelling errors, teencode, and inconsistent punctuation. In addition, this work focuses on complaint reviews for span extraction; non-complaint reviews are not used for NER training because they do not contain complaint spans in the constructed task.
 

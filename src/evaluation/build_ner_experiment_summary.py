@@ -19,12 +19,22 @@ DEFAULT_OUTPUT_DIR = "outputs/metrics/summary"
 
 EXPERIMENTS = [
     {
+        "experiment_name": "Rule-based Keyword Span Extractor",
+        "dataset": "UIT-ViOCD full AI-assisted test split",
+        "metrics_path": "outputs/metrics/rule_based_keyword_ner_baseline/metrics/rule_based_ner_metrics.json",
+        "loss_type": "None",
+        "epochs_fallback": 0,
+        "train_records_override": 0,
+        "test_records_override": 291,
+        "note": "simple keyword matching baseline with very low exact-span recall",
+    },
+    {
         "experiment_name": "Pilot100 Unweighted PhoBERT NER",
         "dataset": "UIT-ViOCD pilot 100",
         "metrics_path": "outputs/metrics/uit_viocd_pilot_100_phobert_ner_3epoch_clean/metrics/phobert_ner_single_task.json",
         "loss_type": "CrossEntropy",
         "epochs_fallback": 3,
-        "note": "model biased to O on small pilot data",
+        "note": "model biased to O on small pilot data; train_records shows pilot dataset size",
     },
     {
         "experiment_name": "Pilot100 Weighted PhoBERT NER",
@@ -32,7 +42,7 @@ EXPERIMENTS = [
         "metrics_path": "outputs/metrics/uit_viocd_pilot_100_phobert_ner_weighted_10epoch/metrics/phobert_ner_single_task.json",
         "loss_type": "Weighted CrossEntropy",
         "epochs_fallback": 10,
-        "note": "class weights helped the model predict COMP labels but data size remained small",
+        "note": "class weights improved COMP prediction on pilot data but performance remained limited",
     },
     {
         "experiment_name": "Full Complaint Weighted PhoBERT NER",
@@ -40,7 +50,15 @@ EXPERIMENTS = [
         "metrics_path": "outputs/metrics/uit_viocd_full_complaint_phobert_ner_weighted_5epoch/metrics/phobert_ner_single_task.json",
         "loss_type": "Weighted CrossEntropy",
         "epochs_fallback": 5,
-        "note": "best result after expanding annotation to all complaint reviews",
+        "note": "strong full-data result, but not the best among full-data settings",
+    },
+    {
+        "experiment_name": "Full Complaint Unweighted PhoBERT NER",
+        "dataset": "UIT-ViOCD full AI-assisted complaint span dataset",
+        "metrics_path": "outputs/metrics/uit_viocd_full_complaint_phobert_ner_unweighted_5epoch/metrics/phobert_ner_single_task.json",
+        "loss_type": "CrossEntropy",
+        "epochs_fallback": 5,
+        "note": "best result; full data reduced the need for class weighting",
     },
 ]
 
@@ -98,6 +116,10 @@ def build_rows(
         metrics_path = Path(experiment["metrics_path"])
         metrics = load_json_if_exists(metrics_path)
         train_records, test_records = dataset_sizes(experiment["dataset"], pilot_summary, full_split)
+        if "train_records_override" in experiment:
+            train_records = str(experiment["train_records_override"])
+        if "test_records_override" in experiment:
+            test_records = str(experiment["test_records_override"])
 
         note = experiment["note"]
         if metrics:
@@ -230,15 +252,19 @@ def write_report_key_numbers(
             "## Key Findings",
             "",
             f"- Best available Entity F1: `{best_row.get('entity_f1', '')}` from `{best_row.get('experiment_name', '')}`.",
-            "- Expanding from pilot annotations to the full complaint span dataset substantially improved NER performance.",
-            "- Weighted CrossEntropy was used to reduce bias toward the O label.",
+            "- Rule-based baseline performs poorly, showing that keyword matching is insufficient for exact complaint span extraction.",
+            "- Pilot100 unweighted collapses to O predictions in the low-data setting.",
+            "- Weighted loss helps in the low-data pilot setting.",
+            "- Expanding AI-assisted span annotation to the full complaint set leads to the largest improvement.",
+            "- Full unweighted PhoBERT NER achieves the best result: Entity-F1 0.8561 and Token-F1 0.8732.",
+            "- Weighted loss is useful for pilot data but not the best full-data setting.",
             "",
             "## Limitations To Mention In Report",
             "",
             "- Full span labels are AI-assisted annotations, not fully human gold-standard labels.",
             "- Automatic validation, offset repair, overlap resolving and partial manual review were used to improve consistency.",
             "- Results should be interpreted as evaluation on the constructed AI-assisted span dataset.",
-            "- Some pilot metrics may be absent locally if Kaggle outputs were not copied back.",
+            "- The proposed contribution should be described as an AI-assisted complaint span annotation pipeline combined with PhoBERT NER, not as weighted loss alone.",
             "",
         ]
     )

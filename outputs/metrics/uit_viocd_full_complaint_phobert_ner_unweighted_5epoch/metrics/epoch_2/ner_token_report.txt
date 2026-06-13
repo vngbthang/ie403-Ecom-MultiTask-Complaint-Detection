@@ -1,0 +1,11 @@
+=== TOKEN-LEVEL CLASSIFICATION REPORT (sklearn) ===
+
+              precision    recall  f1-score   support
+
+           O     0.8099    0.7397    0.7732      2931
+      B-COMP     0.8812    0.9063    0.8936      1089
+      I-COMP     0.9123    0.9396    0.9257      7447
+
+    accuracy                         0.8853     11467
+   macro avg     0.8678    0.8619    0.8642     11467
+weighted avg     0.8831    0.8853    0.8837     11467
