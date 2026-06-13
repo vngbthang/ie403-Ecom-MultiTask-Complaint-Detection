@@ -1,0 +1,73 @@
+{
+  "total": 2854,
+  "train": 2280,
+  "val": 283,
+  "test": 291,
+  "seed": 42,
+  "overlap_ids": [],
+  "splits": {
+    "train": {
+      "records": 2280,
+      "has_comp": 2217,
+      "no_comp": 63,
+      "tokens": 87726,
+      "O_count": 21780,
+      "B-COMP_count": 8085,
+      "I-COMP_count": 57861,
+      "comp_tokens": 65946,
+      "domain_distribution": {
+        "app": 1208,
+        "cosmetic": 379,
+        "fashion": 584,
+        "mobile": 109
+      },
+      "original_split_distribution": {
+        "test": 231,
+        "train": 1820,
+        "val": 229
+      }
+    },
+    "val": {
+      "records": 283,
+      "has_comp": 276,
+      "no_comp": 7,
+      "tokens": 10569,
+      "O_count": 2554,
+      "B-COMP_count": 1021,
+      "I-COMP_count": 6994,
+      "comp_tokens": 8015,
+      "domain_distribution": {
+        "app": 151,
+        "cosmetic": 47,
+        "fashion": 73,
+        "mobile": 12
+      },
+      "original_split_distribution": {
+        "test": 19,
+        "train": 238,
+        "val": 26
+      }
+    },
+    "test": {
+      "records": 291,
+      "has_comp": 280,
+      "no_comp": 11,
+      "tokens": 11488,
+      "O_count": 2952,
+      "B-COMP_count": 1089,
+      "I-COMP_count": 7447,
+      "comp_tokens": 8536,
+      "domain_distribution": {
+        "app": 151,
+        "cosmetic": 49,
+        "fashion": 75,
+        "mobile": 16
+      },
+      "original_split_distribution": {
+        "test": 29,
+        "train": 234,
+        "val": 28
+      }
+    }
+  }
+}

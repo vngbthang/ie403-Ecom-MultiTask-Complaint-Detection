@@ -1,0 +1,5352 @@
+{
+  "summary": {
+    "records": 200,
+    "spans_total": 534,
+    "spans_already_valid": 534,
+    "spans_repaired": 0,
+    "spans_unresolved": 0,
+    "ambiguous_matches": 0
+  },
+  "details": [
+    {
+      "id": "train_003994",
+      "span_text": "bảo mua một tặng 1",
+      "old_start": 20,
+      "old_end": 38,
+      "new_start": 20,
+      "new_end": 38,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003994",
+      "span_text": "đã không  được  tặng rồi",
+      "old_start": 40,
+      "old_end": 64,
+      "new_start": 40,
+      "new_end": 64,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003994",
+      "span_text": "chai",
+      "old_start": 66,
+      "old_end": 70,
+      "new_start": 66,
+      "new_end": 70,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003994",
+      "span_text": "ọp ẹp",
+      "old_start": 75,
+      "old_end": 80,
+      "new_start": 75,
+      "new_end": 80,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003994",
+      "span_text": "xì cả kem ra",
+      "old_start": 82,
+      "old_end": 94,
+      "new_start": 82,
+      "new_end": 94,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003994",
+      "span_text": "nói chung không ưng ý lắm",
+      "old_start": 96,
+      "old_end": 121,
+      "new_start": 96,
+      "new_end": 121,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003999",
+      "span_text": "thấy có tặng chai tay trangnhỏ sao hàng chỉ có sữa rửa mặt",
+      "old_start": 0,
+      "old_end": 58,
+      "new_start": 0,
+      "new_end": 58,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004010",
+      "span_text": "ột",
+      "old_start": 25,
+      "old_end": 27,
+      "new_start": 25,
+      "new_end": 27,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004010",
+      "span_text": "cửa hàng  không tặng thì đừng đEr ảnh ngư thế kiểu người ta hiểu lầm",
+      "old_start": 80,
+      "old_end": 148,
+      "new_start": 80,
+      "new_end": 148,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004019",
+      "span_text": "tuýt thứ 3 rồi",
+      "old_start": 0,
+      "old_end": 14,
+      "new_start": 0,
+      "new_end": 14,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004019",
+      "span_text": "dùng rất thích",
+      "old_start": 16,
+      "old_end": 30,
+      "new_start": 16,
+      "new_end": 30,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004019",
+      "span_text": "mặc dù dùng lần đầu thì mùi hơi khó chịu",
+      "old_start": 32,
+      "old_end": 72,
+      "new_start": 32,
+      "new_end": 72,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004019",
+      "span_text": "quen thì rất ổn",
+      "old_start": 83,
+      "old_end": 98,
+      "new_start": 83,
+      "new_end": 98,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004025",
+      "span_text": "kem chống nắng mình thích nhất",
+      "old_start": 0,
+      "old_end": 30,
+      "new_start": 0,
+      "new_end": 30,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004025",
+      "span_text": "chỉ buồn là không có tặng phẩm",
+      "old_start": 32,
+      "old_end": 62,
+      "new_start": 32,
+      "new_end": 62,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004047",
+      "span_text": "màu rất nữ tính nhẹ nhàng",
+      "old_start": 0,
+      "old_end": 25,
+      "new_start": 0,
+      "new_end": 25,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004047",
+      "span_text": "không quá đậm và nổi",
+      "old_start": 27,
+      "old_end": 47,
+      "new_start": 27,
+      "new_end": 47,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004047",
+      "span_text": "mùi hơi hắt",
+      "old_start": 92,
+      "old_end": 103,
+      "new_start": 92,
+      "new_end": 103,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004047",
+      "span_text": "hạn sử dụng  2019 luôn",
+      "old_start": 105,
+      "old_end": 127,
+      "new_start": 105,
+      "new_end": 127,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004047",
+      "span_text": "màu divine wine thì made in usa",
+      "old_start": 129,
+      "old_end": 160,
+      "new_start": 129,
+      "new_end": 160,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004047",
+      "span_text": "quá thích",
+      "old_start": 162,
+      "old_end": 171,
+      "new_start": 162,
+      "new_end": 171,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004047",
+      "span_text": "mùi thơm vani",
+      "old_start": 173,
+      "old_end": 186,
+      "new_start": 173,
+      "new_end": 186,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004047",
+      "span_text": "maybeLine chuẩn bị hàng siêu nhanh",
+      "old_start": 188,
+      "old_end": 222,
+      "new_start": 188,
+      "new_end": 222,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004047",
+      "span_text": "chắc chắn sẽ quay lại <3",
+      "old_start": 224,
+      "old_end": 248,
+      "new_start": 224,
+      "new_end": 248,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004051",
+      "span_text": "gói sơ sài",
+      "old_start": 0,
+      "old_end": 10,
+      "new_start": 0,
+      "new_end": 10,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004063",
+      "span_text": "lúc mua 2 set là  được  tặng kèm tuýp kem chống nắng nhỏ",
+      "old_start": 0,
+      "old_end": 56,
+      "new_start": 0,
+      "new_end": 56,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004063",
+      "span_text": "hàng giao hàng về thì chỉ có một lọ",
+      "old_start": 68,
+      "old_end": 103,
+      "new_start": 68,
+      "new_end": 103,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004063",
+      "span_text": "không thấy có hàng km đi kèm",
+      "old_start": 105,
+      "old_end": 133,
+      "new_start": 105,
+      "new_end": 133,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004070",
+      "span_text": "ap chuẩn chính hãng",
+      "old_start": 0,
+      "old_end": 19,
+      "new_start": 0,
+      "new_end": 19,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004070",
+      "span_text": "mua 7 lọ không thấy tặng  gì",
+      "old_start": 26,
+      "old_end": 54,
+      "new_start": 26,
+      "new_end": 54,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004070",
+      "span_text": "trên ảnh đăng mua 2 tặng một lọ J đó",
+      "old_start": 59,
+      "old_end": 95,
+      "new_start": 59,
+      "new_end": 95,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004096",
+      "span_text": "chưa thấy hiệu  quả  mấy",
+      "old_start": 4,
+      "old_end": 28,
+      "new_start": 4,
+      "new_end": 28,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004128",
+      "span_text": "sản phẩm  gây cho mình bị mụn sau 2 ngày sử dụng",
+      "old_start": 1,
+      "old_end": 49,
+      "new_start": 1,
+      "new_end": 49,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004131",
+      "span_text": "có mùi như cồn",
+      "old_start": 0,
+      "old_end": 14,
+      "new_start": 0,
+      "new_end": 14,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004170",
+      "span_text": "không có quà kèm theo",
+      "old_start": 0,
+      "old_end": 21,
+      "new_start": 0,
+      "new_end": 21,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004170",
+      "span_text": "mỗi lọ kem nền đóng vào csis hộp to gấp 5 lần",
+      "old_start": 23,
+      "old_end": 68,
+      "new_start": 23,
+      "new_end": 68,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004170",
+      "span_text": "kêu lọc cà lọc cọc",
+      "old_start": 69,
+      "old_end": 87,
+      "new_start": 69,
+      "new_end": 87,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004170",
+      "span_text": "hàng trung quốc quốc",
+      "old_start": 89,
+      "old_end": 109,
+      "new_start": 89,
+      "new_end": 109,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004192",
+      "span_text": "màu này không phải đỏ đất nha",
+      "old_start": 0,
+      "old_end": 29,
+      "new_start": 0,
+      "new_end": 29,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004192",
+      "span_text": "kiểu đỏ hồng",
+      "old_start": 34,
+      "old_end": 46,
+      "new_start": 34,
+      "new_end": 46,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004192",
+      "span_text": "đất tring đây khá ít nên nhìn không có giống đỏ đất lắm",
+      "old_start": 48,
+      "old_end": 103,
+      "new_start": 48,
+      "new_end": 103,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004192",
+      "span_text": "màu lên môi tự nhiên lắm",
+      "old_start": 108,
+      "old_end": 132,
+      "new_start": 108,
+      "new_end": 132,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004192",
+      "span_text": "trừ điểm cái là nhà sản xuất nói là đỏ đât",
+      "old_start": 187,
+      "old_end": 229,
+      "new_start": 187,
+      "new_end": 229,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004192",
+      "span_text": "hàng về thì cũng không phải vậy",
+      "old_start": 236,
+      "old_end": 267,
+      "new_start": 236,
+      "new_end": 267,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004212",
+      "span_text": "sản phẩm dùng thích",
+      "old_start": 0,
+      "old_end": 19,
+      "new_start": 0,
+      "new_end": 19,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004212",
+      "span_text": "hơi khô tóc",
+      "old_start": 26,
+      "old_end": 37,
+      "new_start": 26,
+      "new_end": 37,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004264",
+      "span_text": "ghi tặng túi",
+      "old_start": 0,
+      "old_end": 12,
+      "new_start": 0,
+      "new_end": 12,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004264",
+      "span_text": "nhận hàng lại không có",
+      "old_start": 19,
+      "old_end": 41,
+      "new_start": 19,
+      "new_end": 41,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004282",
+      "span_text": "son cua hãng ma không co nhãn in tren son nhu hinh tren bai dang",
+      "old_start": 0,
+      "old_end": 64,
+      "new_start": 0,
+      "new_end": 64,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004282",
+      "span_text": "cung chan co mã vach",
+      "old_start": 66,
+      "old_end": 86,
+      "new_start": 66,
+      "new_end": 86,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004282",
+      "span_text": "chất  son tuong doi ỗn",
+      "old_start": 95,
+      "old_end": 117,
+      "new_start": 95,
+      "new_end": 117,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004282",
+      "span_text": "hãng maybeLine lồn vay can cai thien mau mã",
+      "old_start": 119,
+      "old_end": 162,
+      "new_start": 119,
+      "new_end": 162,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004300",
+      "span_text": "em check mã vạch hàng nó không ra luôn ạ thật sự là rất hoang manG sau đó thì chị bên tư vấn sản phẩm này cũng đã giải thích mình không biết là điều đó có đáng tin hay không",
+      "old_start": 4,
+      "old_end": 177,
+      "new_start": 4,
+      "new_end": 177,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004300",
+      "span_text": "c không bị dị ứng tư vấn nhiệt tình shiPer cũng rất chịu khó giao hàng cẩn thận",
+      "old_start": 218,
+      "old_end": 297,
+      "new_start": 218,
+      "new_end": 297,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004305",
+      "span_text": "được miễm phí giao hàng khi là 120k",
+      "old_start": 0,
+      "old_end": 35,
+      "new_start": 0,
+      "new_end": 35,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004305",
+      "span_text": "tại sao trên đơn lại ghi 128k vậy  cửa hàng",
+      "old_start": 39,
+      "old_end": 82,
+      "new_start": 39,
+      "new_end": 82,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004305",
+      "span_text": "mấy nghìn không quan trong",
+      "old_start": 86,
+      "old_end": 112,
+      "new_start": 86,
+      "new_end": 112,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004305",
+      "span_text": "cảm ơn  cửa hàng",
+      "old_start": 157,
+      "old_end": 173,
+      "new_start": 157,
+      "new_end": 173,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004316",
+      "span_text": "mua trong khung giờ được khuyến mãi tặng quà",
+      "old_start": 0,
+      "old_end": 44,
+      "new_start": 0,
+      "new_end": 44,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004316",
+      "span_text": "nhận thì  không có vậy  cửa hàng",
+      "old_start": 51,
+      "old_end": 83,
+      "new_start": 51,
+      "new_end": 83,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004329",
+      "span_text": "hàng đăng có khuyến mại",
+      "old_start": 0,
+      "old_end": 23,
+      "new_start": 0,
+      "new_end": 23,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004329",
+      "span_text": "không hề gửi kèm khuyến mại",
+      "old_start": 27,
+      "old_end": 54,
+      "new_start": 27,
+      "new_end": 54,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004329",
+      "span_text": "đã thế mã cào kiểm tra hàng chính hãng cũng bị cào ra từ trước",
+      "old_start": 56,
+      "old_end": 118,
+      "new_start": 56,
+      "new_end": 118,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004329",
+      "span_text": "thất vọng thật sự",
+      "old_start": 120,
+      "old_end": 137,
+      "new_start": 120,
+      "new_end": 137,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004338",
+      "span_text": "chưa test",
+      "old_start": 0,
+      "old_end": 9,
+      "new_start": 0,
+      "new_end": 9,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004338",
+      "span_text": "chắc okla",
+      "old_start": 11,
+      "old_end": 20,
+      "new_start": 11,
+      "new_end": 20,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004338",
+      "span_text": "thái độ cho shiPer quá tệ nên trừ   1star   nhé",
+      "old_start": 27,
+      "old_end": 74,
+      "new_start": 27,
+      "new_end": 74,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004355",
+      "span_text": "nhìn bề ngoài rất cũ",
+      "old_start": 0,
+      "old_end": 20,
+      "new_start": 0,
+      "new_end": 20,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004355",
+      "span_text": "không biết sử dụng ổn ko",
+      "old_start": 22,
+      "old_end": 46,
+      "new_start": 22,
+      "new_end": 46,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004362",
+      "span_text": "mua đợt khuyến mãi",
+      "old_start": 0,
+      "old_end": 18,
+      "new_start": 0,
+      "new_end": 18,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004362",
+      "span_text": "hàng tốt",
+      "old_start": 20,
+      "old_end": 28,
+      "new_start": 20,
+      "new_end": 28,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004362",
+      "span_text": "giá tốt",
+      "old_start": 30,
+      "old_end": 37,
+      "new_start": 30,
+      "new_end": 37,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004362",
+      "span_text": "sẽ ủng hộ lâu dài",
+      "old_start": 39,
+      "old_end": 56,
+      "new_start": 39,
+      "new_end": 56,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004362",
+      "span_text": "lúc đặt hàng thấy chưa hết 50 lượt bán",
+      "old_start": 58,
+      "old_end": 96,
+      "new_start": 58,
+      "new_end": 96,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004362",
+      "span_text": "vậy",
+      "old_start": 98,
+      "old_end": 101,
+      "new_start": 98,
+      "new_end": 101,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004362",
+      "span_text": "nhận không có quà tặng kèm",
+      "old_start": 109,
+      "old_end": 135,
+      "new_start": 109,
+      "new_end": 135,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004375",
+      "span_text": "thông tin khuyến mãi đưa ra không rõ ràng",
+      "old_start": 0,
+      "old_end": 41,
+      "new_start": 0,
+      "new_end": 41,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004375",
+      "span_text": "làm tôi cứ nghĩ mua 2 sản phẩm",
+      "old_start": 43,
+      "old_end": 73,
+      "new_start": 43,
+      "new_end": 73,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004375",
+      "span_text": "chỉ nhận được một phần quà",
+      "old_start": 80,
+      "old_end": 106,
+      "new_start": 80,
+      "new_end": 106,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004375",
+      "span_text": "không có quà",
+      "old_start": 142,
+      "old_end": 154,
+      "new_start": 142,
+      "new_end": 154,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004375",
+      "span_text": "never buy it again",
+      "old_start": 156,
+      "old_end": 174,
+      "new_start": 156,
+      "new_end": 174,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004381",
+      "span_text": "hàng như ảnh",
+      "old_start": 0,
+      "old_end": 12,
+      "new_start": 0,
+      "new_end": 12,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004381",
+      "span_text": "không có giấy bạc bao lại hơi thất vọng một xíu🌝",
+      "old_start": 23,
+      "old_end": 71,
+      "new_start": 23,
+      "new_end": 71,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004387",
+      "span_text": "lúc đặt hàng thì có quà tặng",
+      "old_start": 0,
+      "old_end": 28,
+      "new_start": 0,
+      "new_end": 28,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004387",
+      "span_text": "lúc giao lại không có",
+      "old_start": 30,
+      "old_end": 51,
+      "new_start": 30,
+      "new_end": 51,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004387",
+      "span_text": "không cho xem hành trước là sao  cửa hàng",
+      "old_start": 55,
+      "old_end": 96,
+      "new_start": 55,
+      "new_end": 96,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000026",
+      "span_text": "không có sticker hàng lỗi chả đâu vào đâu",
+      "old_start": 0,
+      "old_end": 41,
+      "new_start": 0,
+      "new_end": 41,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000058",
+      "span_text": "đẹp giao đúng hình",
+      "old_start": 0,
+      "old_end": 18,
+      "new_start": 0,
+      "new_end": 18,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000058",
+      "span_text": "cỡ  lồn hơi chật",
+      "old_start": 26,
+      "old_end": 42,
+      "new_start": 26,
+      "new_end": 42,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000065",
+      "span_text": "không giống hình",
+      "old_start": 0,
+      "old_end": 16,
+      "new_start": 0,
+      "new_end": 16,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000069",
+      "span_text": "zai xin lỗi nhỏ quá 50  không mặc vừa  cửa hàng  cho đổi lại zai lớn được không",
+      "old_start": 0,
+      "old_end": 79,
+      "new_start": 0,
+      "new_end": 79,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000072",
+      "span_text": "quần không giống màu",
+      "old_start": 0,
+      "old_end": 20,
+      "new_start": 0,
+      "new_end": 20,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000079",
+      "span_text": "dép đẹp",
+      "old_start": 0,
+      "old_end": 7,
+      "new_start": 0,
+      "new_end": 7,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000079",
+      "span_text": "giao hàng nhanh",
+      "old_start": 9,
+      "old_end": 24,
+      "new_start": 9,
+      "new_end": 24,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000079",
+      "span_text": "không có hiệu cá  xấu  ngoài sau gót chân",
+      "old_start": 32,
+      "old_end": 73,
+      "new_start": 32,
+      "new_end": 73,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000084",
+      "span_text": "mẫu giống hình",
+      "old_start": 0,
+      "old_end": 14,
+      "new_start": 0,
+      "new_end": 14,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000084",
+      "span_text": "vải quần mỏng và ngắn áo chất liệu dày",
+      "old_start": 16,
+      "old_end": 54,
+      "new_start": 16,
+      "new_end": 54,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000084",
+      "span_text": "có chút hở chỉ",
+      "old_start": 61,
+      "old_end": 75,
+      "new_start": 61,
+      "new_end": 75,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000089",
+      "span_text": "đặt màu xanh dương",
+      "old_start": 0,
+      "old_end": 18,
+      "new_start": 0,
+      "new_end": 18,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000089",
+      "span_text": "giao màu hồng",
+      "old_start": 22,
+      "old_end": 35,
+      "new_start": 22,
+      "new_end": 35,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000090",
+      "span_text": "mỏng thấy cả quần lót",
+      "old_start": 0,
+      "old_end": 21,
+      "new_start": 0,
+      "new_end": 21,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000095",
+      "span_text": "quần quá ngắn và mỏng",
+      "old_start": 0,
+      "old_end": 21,
+      "new_start": 0,
+      "new_end": 21,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000098",
+      "span_text": "đặt màu hồng giao màu trắng",
+      "old_start": 0,
+      "old_end": 27,
+      "new_start": 0,
+      "new_end": 27,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000099",
+      "span_text": "đồ thì giống trong hình 90% nhìn tạm được đẹp",
+      "old_start": 0,
+      "old_end": 45,
+      "new_start": 0,
+      "new_end": 45,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000099",
+      "span_text": "có điều cái quần hơi ngắn và dây phun rất là nhỏ chỉ mập ở nhà được thôi",
+      "old_start": 49,
+      "old_end": 121,
+      "new_start": 49,
+      "new_end": 121,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000105",
+      "span_text": "sản phẩm tệ",
+      "old_start": 0,
+      "old_end": 11,
+      "new_start": 0,
+      "new_end": 11,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000109",
+      "span_text": "dù mua giao màu tím không thích",
+      "old_start": 0,
+      "old_end": 31,
+      "new_start": 0,
+      "new_end": 31,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000109",
+      "span_text": "cũng được đung mô tả",
+      "old_start": 39,
+      "old_end": 59,
+      "new_start": 39,
+      "new_end": 59,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000113",
+      "span_text": "quy tính quá",
+      "old_start": 40,
+      "old_end": 52,
+      "new_start": 40,
+      "new_end": 52,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000144",
+      "span_text": "nói chung hàng y hình mặc thì vẫn vừa",
+      "old_start": 0,
+      "old_end": 37,
+      "new_start": 0,
+      "new_end": 37,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000144",
+      "span_text": "không ngồi xuống  được  vãi không có giãn nên mặc hơi khó chịu tí",
+      "old_start": 44,
+      "old_end": 109,
+      "new_start": 44,
+      "new_end": 109,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000154",
+      "span_text": "đặt màu hồng",
+      "old_start": 33,
+      "old_end": 45,
+      "new_start": 33,
+      "new_end": 45,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000154",
+      "span_text": "màu đen giao hai đôi màu trắng",
+      "old_start": 47,
+      "old_end": 77,
+      "new_start": 47,
+      "new_end": 77,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000154",
+      "span_text": "kêu chọn màu làm chi",
+      "old_start": 80,
+      "old_end": 100,
+      "new_start": 80,
+      "new_end": 100,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000156",
+      "span_text": "quá tệ",
+      "old_start": 0,
+      "old_end": 6,
+      "new_start": 0,
+      "new_end": 6,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000156",
+      "span_text": "váy thì rách",
+      "old_start": 7,
+      "old_end": 19,
+      "new_start": 7,
+      "new_end": 19,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000156",
+      "span_text": "đúng là tiền nào của đó",
+      "old_start": 21,
+      "old_end": 44,
+      "new_start": 21,
+      "new_end": 44,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000167",
+      "span_text": "dù đẹp lắm nha mọi người",
+      "old_start": 0,
+      "old_end": 24,
+      "new_start": 0,
+      "new_end": 24,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000167",
+      "span_text": "giao hàng ngẫu nhiên chứ không chọn màu",
+      "old_start": 37,
+      "old_end": 76,
+      "new_start": 37,
+      "new_end": 76,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000167",
+      "span_text": "hàng ưng lắm luôn",
+      "old_start": 83,
+      "old_end": 100,
+      "new_start": 83,
+      "new_end": 100,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000167",
+      "span_text": "lazada cần những  cửa hàng  uy tín như vậy nè ủng hộ  cửa hàng  và tặng  cửa hàng   5star  luôn",
+      "old_start": 102,
+      "old_end": 197,
+      "new_start": 102,
+      "new_end": 197,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000175",
+      "span_text": "du ve chua su dung da hu roi",
+      "old_start": 0,
+      "old_end": 28,
+      "new_start": 0,
+      "new_end": 28,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000175",
+      "span_text": "chan",
+      "old_start": 29,
+      "old_end": 33,
+      "new_start": 29,
+      "new_end": 33,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000175",
+      "span_text": "ve mo ra da tuot mat một cay nag du roi",
+      "old_start": 34,
+      "old_end": 73,
+      "new_start": 34,
+      "new_end": 73,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000175",
+      "span_text": "chất   cửa hàng  xanh reu ma gui xanh da troi",
+      "old_start": 75,
+      "old_end": 120,
+      "new_start": 75,
+      "new_end": 120,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000192",
+      "span_text": "chất vải mỏng",
+      "old_start": 0,
+      "old_end": 13,
+      "new_start": 0,
+      "new_end": 13,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000201",
+      "span_text": "mặc không vừa bộ nào hết 😔😔😔",
+      "old_start": 0,
+      "old_end": 28,
+      "new_start": 0,
+      "new_end": 28,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000212",
+      "span_text": "chất liệu thì được như không xèo như hình và hơi mỏng nói chung cũng không đến nỗi nào",
+      "old_start": 0,
+      "old_end": 86,
+      "new_start": 0,
+      "new_end": 86,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000215",
+      "span_text": "vải thì đẹp",
+      "old_start": 0,
+      "old_end": 11,
+      "new_start": 0,
+      "new_end": 11,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000215",
+      "span_text": "màu được",
+      "old_start": 13,
+      "old_end": 21,
+      "new_start": 13,
+      "new_end": 21,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000215",
+      "span_text": "thiệt tình là 53 không",
+      "old_start": 28,
+      "old_end": 50,
+      "new_start": 28,
+      "new_end": 50,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000215",
+      "span_text": "đặt  cỡ  xin lỗi không thể ních vô được",
+      "old_start": 54,
+      "old_end": 93,
+      "new_start": 54,
+      "new_end": 93,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000215",
+      "span_text": "( quá buồn luôn không biết làm sao",
+      "old_start": 95,
+      "old_end": 129,
+      "new_start": 95,
+      "new_end": 129,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000216",
+      "span_text": "đầm đẹp",
+      "old_start": 0,
+      "old_end": 7,
+      "new_start": 0,
+      "new_end": 7,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000216",
+      "span_text": "giống như hình",
+      "old_start": 10,
+      "old_end": 24,
+      "new_start": 10,
+      "new_end": 24,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000216",
+      "span_text": "cái cổ áo mặc vô sao sao á",
+      "old_start": 33,
+      "old_end": 59,
+      "new_start": 33,
+      "new_end": 59,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000216",
+      "span_text": "cho  cửa hàng  5 star  nhá",
+      "old_start": 72,
+      "old_end": 98,
+      "new_start": 72,
+      "new_end": 98,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000220",
+      "span_text": "đặt hàng lâu rồi chưa nhận  được",
+      "old_start": 0,
+      "old_end": 32,
+      "new_start": 0,
+      "new_end": 32,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000220",
+      "span_text": "r báo đã vận chuyển",
+      "old_start": 36,
+      "old_end": 55,
+      "new_start": 36,
+      "new_end": 55,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000220",
+      "span_text": "lừa đảo à",
+      "old_start": 57,
+      "old_end": 66,
+      "new_start": 57,
+      "new_end": 66,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000227",
+      "span_text": "nhận hàng váy quá mỏng",
+      "old_start": 0,
+      "old_end": 22,
+      "new_start": 0,
+      "new_end": 22,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000227",
+      "span_text": "hơi bị thất vọng",
+      "old_start": 25,
+      "old_end": 41,
+      "new_start": 25,
+      "new_end": 41,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000227",
+      "span_text": "mua về cất tủ chơi thôi",
+      "old_start": 43,
+      "old_end": 66,
+      "new_start": 43,
+      "new_end": 66,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000255",
+      "span_text": "vải xấu",
+      "old_start": 0,
+      "old_end": 7,
+      "new_start": 0,
+      "new_end": 7,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000255",
+      "span_text": "nóng",
+      "old_start": 9,
+      "old_end": 13,
+      "new_start": 9,
+      "new_end": 13,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000261",
+      "span_text": "áo thì nhăn nhó xấu không thể tả được đã vậy mua 3 cái gửi 1cai tính tiền 3 cái nhắn tin đọc xong không trả loi",
+      "old_start": 0,
+      "old_end": 111,
+      "new_start": 0,
+      "new_end": 111,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000268",
+      "span_text": "đúng mẫu",
+      "old_start": 0,
+      "old_end": 8,
+      "new_start": 0,
+      "new_end": 8,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000268",
+      "span_text": "chặt vậy ma nói 59 không vừa",
+      "old_start": 15,
+      "old_end": 43,
+      "new_start": 15,
+      "new_end": 43,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000276",
+      "span_text": "đặc hồng giao đen nền trắng xấu",
+      "old_start": 0,
+      "old_end": 31,
+      "new_start": 0,
+      "new_end": 31,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000283",
+      "span_text": "được",
+      "old_start": 0,
+      "old_end": 4,
+      "new_start": 0,
+      "new_end": 4,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000283",
+      "span_text": "vải quần hơi bị mỏng",
+      "old_start": 12,
+      "old_end": 32,
+      "new_start": 12,
+      "new_end": 32,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000285",
+      "span_text": "đầm khg đúng  cỡ  chuẩn",
+      "old_start": 0,
+      "old_end": 23,
+      "new_start": 0,
+      "new_end": 23,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000285",
+      "span_text": "đặt  cỡ  lồn nhỏ quá",
+      "old_start": 26,
+      "old_end": 46,
+      "new_start": 26,
+      "new_end": 46,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000285",
+      "span_text": "yêu cầu đổi  cỡ  xin lỗi màu xanh",
+      "old_start": 49,
+      "old_end": 82,
+      "new_start": 49,
+      "new_end": 82,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000289",
+      "span_text": "mang một ngày đã đứt  không phải là dép da",
+      "old_start": 0,
+      "old_end": 42,
+      "new_start": 0,
+      "new_end": 42,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000289",
+      "span_text": "dép giấy thì đúng hơn",
+      "old_start": 49,
+      "old_end": 70,
+      "new_start": 49,
+      "new_end": 70,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000289",
+      "span_text": "phí tiền",
+      "old_start": 72,
+      "old_end": 80,
+      "new_start": 72,
+      "new_end": 80,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000298",
+      "span_text": "sai lồn ma nho xíu không mặt  được",
+      "old_start": 0,
+      "old_end": 34,
+      "new_start": 0,
+      "new_end": 34,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000298",
+      "span_text": "lúc đặc hàng thì vãi voan",
+      "old_start": 39,
+      "old_end": 64,
+      "new_start": 39,
+      "new_end": 64,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000298",
+      "span_text": "giao lại vãi kate",
+      "old_start": 71,
+      "old_end": 88,
+      "new_start": 71,
+      "new_end": 88,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000309",
+      "span_text": "đồ đẹp giống hình",
+      "old_start": 0,
+      "old_end": 17,
+      "new_start": 0,
+      "new_end": 17,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000309",
+      "span_text": "mỗi tội giặt bị ra màu quá",
+      "old_start": 46,
+      "old_end": 72,
+      "new_start": 46,
+      "new_end": 72,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000309",
+      "span_text": "không pít giặt lần t2 có ra màu k",
+      "old_start": 74,
+      "old_end": 107,
+      "new_start": 74,
+      "new_end": 107,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000309",
+      "span_text": "nói chung cũng được",
+      "old_start": 109,
+      "old_end": 128,
+      "new_start": 109,
+      "new_end": 128,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000313",
+      "span_text": "đầm mới nhận bị rách tay rồi",
+      "old_start": 31,
+      "old_end": 59,
+      "new_start": 31,
+      "new_end": 59,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000324",
+      "span_text": "vải khá mỏng",
+      "old_start": 0,
+      "old_end": 12,
+      "new_start": 0,
+      "new_end": 12,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000324",
+      "span_text": "giặt máy không biết có rách k",
+      "old_start": 14,
+      "old_end": 43,
+      "new_start": 14,
+      "new_end": 43,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000324",
+      "span_text": "mặc được sẽ ủng hộ tiếp",
+      "old_start": 71,
+      "old_end": 94,
+      "new_start": 71,
+      "new_end": 94,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000336",
+      "span_text": "không đúng màu",
+      "old_start": 0,
+      "old_end": 14,
+      "new_start": 0,
+      "new_end": 14,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000338",
+      "span_text": "trừ  cửa hàng    1star   nhé 1",
+      "old_start": 0,
+      "old_end": 30,
+      "new_start": 0,
+      "new_end": 30,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000338",
+      "span_text": "đề có chữ dưới đế",
+      "old_start": 32,
+      "old_end": 49,
+      "new_start": 32,
+      "new_end": 49,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000338",
+      "span_text": "không có",
+      "old_start": 57,
+      "old_end": 65,
+      "new_start": 57,
+      "new_end": 65,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000338",
+      "span_text": "2",
+      "old_start": 67,
+      "old_end": 68,
+      "new_start": 67,
+      "new_end": 68,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000338",
+      "span_text": "mua 2 đôi một lúc nên chọn màu khác nhau không được",
+      "old_start": 70,
+      "old_end": 121,
+      "new_start": 70,
+      "new_end": 121,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000338",
+      "span_text": "nhắn riêng để chọn màu",
+      "old_start": 123,
+      "old_end": 145,
+      "new_start": 123,
+      "new_end": 145,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000338",
+      "span_text": "rồi khi nhận vẫn là 2 đôi vàng choé",
+      "old_start": 175,
+      "old_end": 210,
+      "new_start": 175,
+      "new_end": 210,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000338",
+      "span_text": "3",
+      "old_start": 212,
+      "old_end": 213,
+      "new_start": 212,
+      "new_end": 213,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000338",
+      "span_text": "gói hàng chỉ có một túi nilong bên trong",
+      "old_start": 215,
+      "old_end": 255,
+      "new_start": 215,
+      "new_end": 255,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000338",
+      "span_text": "bên ngoài là túi đen quấn quanh",
+      "old_start": 257,
+      "old_end": 288,
+      "new_start": 257,
+      "new_end": 288,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000338",
+      "span_text": "làm dép không được bảo vệ -> móp",
+      "old_start": 290,
+      "old_end": 322,
+      "new_start": 290,
+      "new_end": 322,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000338",
+      "span_text": "4",
+      "old_start": 324,
+      "old_end": 325,
+      "new_start": 324,
+      "new_end": 325,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000338",
+      "span_text": "mua từ thứ 2",
+      "old_start": 327,
+      "old_end": 339,
+      "new_start": 327,
+      "new_end": 339,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000338",
+      "span_text": "thứ 7 mới nhận được",
+      "old_start": 346,
+      "old_end": 365,
+      "new_start": 346,
+      "new_end": 365,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000347",
+      "span_text": "dép hơi rộng rất với  cỡ",
+      "old_start": 0,
+      "old_end": 24,
+      "new_start": 0,
+      "new_end": 24,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000351",
+      "span_text": "mua màu hồng gửi màu trắng",
+      "old_start": 0,
+      "old_end": 26,
+      "new_start": 0,
+      "new_end": 26,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000361",
+      "span_text": "đầm bị bung chỉ bên không khoảng 5cm",
+      "old_start": 0,
+      "old_end": 36,
+      "new_start": 0,
+      "new_end": 36,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000361",
+      "span_text": "vậy",
+      "old_start": 38,
+      "old_end": 41,
+      "new_start": 38,
+      "new_end": 41,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000361",
+      "span_text": "nên mình nhận cảm thấy thất vọng",
+      "old_start": 86,
+      "old_end": 118,
+      "new_start": 86,
+      "new_end": 118,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000361",
+      "span_text": "cho  cửa hàng  ba sao",
+      "old_start": 120,
+      "old_end": 141,
+      "new_start": 120,
+      "new_end": 141,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000368",
+      "span_text": "giao hàng đúng",
+      "old_start": 0,
+      "old_end": 14,
+      "new_start": 0,
+      "new_end": 14,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000368",
+      "span_text": "sản phẩm thun quá mỏng",
+      "old_start": 16,
+      "old_end": 38,
+      "new_start": 16,
+      "new_end": 38,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000368",
+      "span_text": "phù hợp với giá tiền",
+      "old_start": 40,
+      "old_end": 60,
+      "new_start": 40,
+      "new_end": 60,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000368",
+      "span_text": "tặng  cửa hàng  3 sao thôi",
+      "old_start": 63,
+      "old_end": 89,
+      "new_start": 63,
+      "new_end": 89,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000384",
+      "span_text": "đặt 2 bộ màu hồng",
+      "old_start": 0,
+      "old_end": 17,
+      "new_start": 0,
+      "new_end": 17,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000384",
+      "span_text": "gửi sai màu",
+      "old_start": 25,
+      "old_end": 36,
+      "new_start": 25,
+      "new_end": 36,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000384",
+      "span_text": "vải cứng không như  quả người cáo",
+      "old_start": 40,
+      "old_end": 73,
+      "new_start": 40,
+      "new_end": 73,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000384",
+      "span_text": "mặc mùa mưa  được  mùa hè bao nóng",
+      "old_start": 76,
+      "old_end": 110,
+      "new_start": 76,
+      "new_end": 110,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000388",
+      "span_text": "chất vải dày dặn",
+      "old_start": 0,
+      "old_end": 16,
+      "new_start": 0,
+      "new_end": 16,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000388",
+      "span_text": "ô đẹp",
+      "old_start": 19,
+      "old_end": 24,
+      "new_start": 19,
+      "new_end": 24,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000388",
+      "span_text": "đặt màu đen",
+      "old_start": 27,
+      "old_end": 38,
+      "new_start": 27,
+      "new_end": 38,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000388",
+      "span_text": "giao màu hồng",
+      "old_start": 41,
+      "old_end": 54,
+      "new_start": 41,
+      "new_end": 54,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000388",
+      "span_text": "có cũng như không",
+      "old_start": 57,
+      "old_end": 74,
+      "new_start": 57,
+      "new_end": 74,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000389",
+      "span_text": "hàng đẹp",
+      "old_start": 0,
+      "old_end": 8,
+      "new_start": 0,
+      "new_end": 8,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000389",
+      "span_text": "chắc chắn",
+      "old_start": 11,
+      "old_end": 20,
+      "new_start": 11,
+      "new_end": 20,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000389",
+      "span_text": "giao hàng hơi lâu",
+      "old_start": 23,
+      "old_end": 40,
+      "new_start": 23,
+      "new_end": 40,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000400",
+      "span_text": "dép đeo tạm tạm",
+      "old_start": 0,
+      "old_end": 15,
+      "new_start": 0,
+      "new_end": 15,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000400",
+      "span_text": "39k chứ nguyên giá thì đôi này không đáng giá tiền",
+      "old_start": 54,
+      "old_end": 104,
+      "new_start": 54,
+      "new_end": 104,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000418",
+      "span_text": "giao sai màu in",
+      "old_start": 0,
+      "old_end": 15,
+      "new_start": 0,
+      "new_end": 15,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000418",
+      "span_text": "vải đẹp",
+      "old_start": 17,
+      "old_end": 24,
+      "new_start": 17,
+      "new_end": 24,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000436",
+      "span_text": "lần đầu đặt loại vải này",
+      "old_start": 0,
+      "old_end": 24,
+      "new_start": 0,
+      "new_end": 24,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000436",
+      "span_text": "rất ưng",
+      "old_start": 31,
+      "old_end": 38,
+      "new_start": 31,
+      "new_end": 38,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000436",
+      "span_text": "vải kate",
+      "old_start": 40,
+      "old_end": 48,
+      "new_start": 40,
+      "new_end": 48,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000436",
+      "span_text": "mềm mịn không bị thô",
+      "old_start": 55,
+      "old_end": 75,
+      "new_start": 55,
+      "new_end": 75,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000436",
+      "span_text": "đg chỉ hơi mỏng",
+      "old_start": 76,
+      "old_end": 91,
+      "new_start": 76,
+      "new_end": 91,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000436",
+      "span_text": "mọi người thông cảm tiền nào của nấy nha mọi người nhận hàng chịu khó đem ra tiệm cho ngt đạp lại 1đg chỉ nữa là tốt r😊k bị lỗi chỗ nào hàng tốt được ủng hộ dài dài😍👌",
+      "old_start": 98,
+      "old_end": 264,
+      "new_start": 98,
+      "new_end": 264,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000460",
+      "span_text": "đóng gói  sản phẩm  tệ làm móp không gãy quai",
+      "old_start": 0,
+      "old_end": 45,
+      "new_start": 0,
+      "new_end": 45,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000460",
+      "span_text": "da nhăn nheo",
+      "old_start": 47,
+      "old_end": 59,
+      "new_start": 47,
+      "new_end": 59,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000460",
+      "span_text": "thất vọng",
+      "old_start": 61,
+      "old_end": 70,
+      "new_start": 61,
+      "new_end": 70,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000462",
+      "span_text": "bộ hơi nhỏ",
+      "old_start": 0,
+      "old_end": 10,
+      "new_start": 0,
+      "new_end": 10,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000462",
+      "span_text": "chất liệu phù hợp với giá tiền nhé",
+      "old_start": 12,
+      "old_end": 46,
+      "new_start": 12,
+      "new_end": 46,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000467",
+      "span_text": "bộ con heo trên hình màu cam cam giao tới lại màu hồng",
+      "old_start": 0,
+      "old_end": 54,
+      "new_start": 0,
+      "new_end": 54,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000467",
+      "span_text": "((",
+      "old_start": 56,
+      "old_end": 58,
+      "new_start": 56,
+      "new_end": 58,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000467",
+      "span_text": "bộ kia thì được",
+      "old_start": 63,
+      "old_end": 78,
+      "new_start": 63,
+      "new_end": 78,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000484",
+      "span_text": "quá tệ",
+      "old_start": 0,
+      "old_end": 6,
+      "new_start": 0,
+      "new_end": 6,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000502",
+      "span_text": "vải hơi mỏng",
+      "old_start": 0,
+      "old_end": 12,
+      "new_start": 0,
+      "new_end": 12,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000502",
+      "span_text": "phù hợp với giá tiền",
+      "old_start": 15,
+      "old_end": 35,
+      "new_start": 15,
+      "new_end": 35,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000536",
+      "span_text": "hàng không giống như trên hình chất lượng quá kém",
+      "old_start": 0,
+      "old_end": 49,
+      "new_start": 0,
+      "new_end": 49,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000541",
+      "span_text": "đặt sét gia đình 3cai giao có một cái",
+      "old_start": 0,
+      "old_end": 37,
+      "new_start": 0,
+      "new_end": 37,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000551",
+      "span_text": "giống hình",
+      "old_start": 0,
+      "old_end": 10,
+      "new_start": 0,
+      "new_end": 10,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000551",
+      "span_text": "vải kate cũng  được  có nhăn xíu",
+      "old_start": 16,
+      "old_end": 48,
+      "new_start": 16,
+      "new_end": 48,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000570",
+      "span_text": "ao  đẹp  vai  đẹp",
+      "old_start": 0,
+      "old_end": 17,
+      "new_start": 0,
+      "new_end": 17,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000570",
+      "span_text": "nhung giao hang thieu mot cai lam an mat uy tin",
+      "old_start": 20,
+      "old_end": 67,
+      "new_start": 20,
+      "new_end": 67,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000570",
+      "span_text": "minh không thich  cửa hàng  nay giong nhu bi lua vay",
+      "old_start": 69,
+      "old_end": 121,
+      "new_start": 69,
+      "new_end": 121,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000576",
+      "span_text": "set quá tệ",
+      "old_start": 0,
+      "old_end": 10,
+      "new_start": 0,
+      "new_end": 10,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000576",
+      "span_text": "vải mỏng",
+      "old_start": 12,
+      "old_end": 20,
+      "new_start": 12,
+      "new_end": 20,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000576",
+      "span_text": "khô",
+      "old_start": 23,
+      "old_end": 26,
+      "new_start": 23,
+      "new_end": 26,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000576",
+      "span_text": "cứng",
+      "old_start": 28,
+      "old_end": 32,
+      "new_start": 28,
+      "new_end": 32,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000576",
+      "span_text": "không đáng đồng tiền",
+      "old_start": 34,
+      "old_end": 54,
+      "new_start": 34,
+      "new_end": 54,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000583",
+      "span_text": "hình chụp thì màu vàng tươi đẹp",
+      "old_start": 0,
+      "old_end": 31,
+      "new_start": 0,
+      "new_end": 31,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000583",
+      "span_text": "nhận được hàng thì màu vàng quá xấu",
+      "old_start": 42,
+      "old_end": 77,
+      "new_start": 42,
+      "new_end": 77,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000583",
+      "span_text": "y",
+      "old_start": 112,
+      "old_end": 113,
+      "new_start": 112,
+      "new_end": 113,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000583",
+      "span_text": "định đặt đồng phục cho công tình yêu",
+      "old_start": 114,
+      "old_end": 150,
+      "new_start": 114,
+      "new_end": 150,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000583",
+      "span_text": "bye bye luôn",
+      "old_start": 191,
+      "old_end": 203,
+      "new_start": 191,
+      "new_end": 203,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000597",
+      "span_text": "mua 2 bộ",
+      "old_start": 0,
+      "old_end": 8,
+      "new_start": 0,
+      "new_end": 8,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000597",
+      "span_text": "giao có một màu",
+      "old_start": 12,
+      "old_end": 27,
+      "new_start": 12,
+      "new_end": 27,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000607",
+      "span_text": "không hài lòng nhé  cửa hàng",
+      "old_start": 0,
+      "old_end": 28,
+      "new_start": 0,
+      "new_end": 28,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000607",
+      "span_text": "hàng và mẫu khác nhau không giống",
+      "old_start": 32,
+      "old_end": 65,
+      "new_start": 32,
+      "new_end": 65,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000607",
+      "span_text": "vải xấu tệ",
+      "old_start": 68,
+      "old_end": 78,
+      "new_start": 68,
+      "new_end": 78,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000607",
+      "span_text": "ai dám mua lần nữa",
+      "old_start": 81,
+      "old_end": 99,
+      "new_start": 81,
+      "new_end": 99,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000617",
+      "span_text": "hàng không như hình đã đành",
+      "old_start": 0,
+      "old_end": 27,
+      "new_start": 0,
+      "new_end": 27,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000617",
+      "span_text": "chấp nhận bỏ qua được",
+      "old_start": 32,
+      "old_end": 53,
+      "new_start": 32,
+      "new_end": 53,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000617",
+      "span_text": "bán cho tôi màu mày đố ai dám sài",
+      "old_start": 74,
+      "old_end": 107,
+      "new_start": 74,
+      "new_end": 107,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000617",
+      "span_text": "đem đi xài đồng nghiệp nó trêu tôi 3d hả mọi người nhìn tôi thế nào",
+      "old_start": 109,
+      "old_end": 176,
+      "new_start": 109,
+      "new_end": 176,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000617",
+      "span_text": "bán không có tâm",
+      "old_start": 178,
+      "old_end": 194,
+      "new_start": 178,
+      "new_end": 194,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000617",
+      "span_text": "thiếu đạo đức nữa",
+      "old_start": 199,
+      "old_end": 216,
+      "new_start": 199,
+      "new_end": 216,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000620",
+      "span_text": "giao hàng rất lâu",
+      "old_start": 0,
+      "old_end": 17,
+      "new_start": 0,
+      "new_end": 17,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000620",
+      "span_text": "chỉ thừa nhiều",
+      "old_start": 19,
+      "old_end": 33,
+      "new_start": 19,
+      "new_end": 33,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000620",
+      "span_text": "vạt áo may bị lật",
+      "old_start": 35,
+      "old_end": 52,
+      "new_start": 35,
+      "new_end": 52,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000620",
+      "span_text": "hơi buồn xíu 🙁🙁🙁",
+      "old_start": 54,
+      "old_end": 70,
+      "new_start": 54,
+      "new_end": 70,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000635",
+      "span_text": "kỹ khi mua  sản phẩm  này và tốt hơn hết là không mua vì nó quá tệ hơn mình tưởng",
+      "old_start": 34,
+      "old_end": 115,
+      "new_start": 34,
+      "new_end": 115,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000638",
+      "span_text": "dép đẹp",
+      "old_start": 0,
+      "old_end": 7,
+      "new_start": 0,
+      "new_end": 7,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000638",
+      "span_text": "mua 37 dao 38  không hài lòng cho lắm",
+      "old_start": 17,
+      "old_end": 54,
+      "new_start": 17,
+      "new_end": 54,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000662",
+      "span_text": "màu không được đẹp như trong hình",
+      "old_start": 0,
+      "old_end": 33,
+      "new_start": 0,
+      "new_end": 33,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000662",
+      "span_text": "mở ra hàng bị lỗi rách một lỗ",
+      "old_start": 35,
+      "old_end": 64,
+      "new_start": 35,
+      "new_end": 64,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000667",
+      "span_text": "áo đẹp",
+      "old_start": 0,
+      "old_end": 6,
+      "new_start": 0,
+      "new_end": 6,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000667",
+      "span_text": "được thun mịn",
+      "old_start": 8,
+      "old_end": 21,
+      "new_start": 8,
+      "new_end": 21,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000667",
+      "span_text": "hơi mỏng",
+      "old_start": 28,
+      "old_end": 36,
+      "new_start": 28,
+      "new_end": 36,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000675",
+      "span_text": "quần đẹp",
+      "old_start": 0,
+      "old_end": 8,
+      "new_start": 0,
+      "new_end": 8,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000675",
+      "span_text": "mặc không vừa 😭😭",
+      "old_start": 16,
+      "old_end": 32,
+      "new_start": 16,
+      "new_end": 32,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000688",
+      "span_text": "đặt màu xanh và hồng thì giao màu vàng và xanh",
+      "old_start": 0,
+      "old_end": 46,
+      "new_start": 0,
+      "new_end": 46,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000688",
+      "span_text": "giao tào lao",
+      "old_start": 49,
+      "old_end": 61,
+      "new_start": 49,
+      "new_end": 61,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000688",
+      "span_text": "đồ mặc đẹp chứ không cho   1star   rồi",
+      "old_start": 63,
+      "old_end": 101,
+      "new_start": 63,
+      "new_end": 101,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000690",
+      "span_text": "không đung sai quan thi nho mat vô rach ao thi to",
+      "old_start": 1,
+      "old_end": 50,
+      "new_start": 1,
+      "new_end": 50,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000702",
+      "span_text": "positive  tưởng chất liệu tốt ai dè làm bằng mút",
+      "old_start": 1,
+      "old_end": 49,
+      "new_start": 1,
+      "new_end": 49,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000705",
+      "span_text": "vải thì đẹp",
+      "old_start": 0,
+      "old_end": 11,
+      "new_start": 0,
+      "new_end": 11,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000705",
+      "span_text": "màu được",
+      "old_start": 13,
+      "old_end": 21,
+      "new_start": 13,
+      "new_end": 21,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000705",
+      "span_text": "thiệt tình là 53 không",
+      "old_start": 28,
+      "old_end": 50,
+      "new_start": 28,
+      "new_end": 50,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000705",
+      "span_text": "đặt  cỡ  xin lỗi không thể ních vô được",
+      "old_start": 54,
+      "old_end": 93,
+      "new_start": 54,
+      "new_end": 93,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000705",
+      "span_text": "( quá buồn luôn không biết làm sao",
+      "old_start": 95,
+      "old_end": 129,
+      "new_start": 95,
+      "new_end": 129,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000727",
+      "span_text": "nói giao một đôi hồng đôi đen",
+      "old_start": 0,
+      "old_end": 29,
+      "new_start": 0,
+      "new_end": 29,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000727",
+      "span_text": "giao 2 đôi hồng",
+      "old_start": 65,
+      "old_end": 80,
+      "new_start": 65,
+      "new_end": 80,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000727",
+      "span_text": "tệ",
+      "old_start": 82,
+      "old_end": 84,
+      "new_start": 82,
+      "new_end": 84,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000733",
+      "span_text": "chất được nhiều màu không đẹp như ảnh lắm",
+      "old_start": 0,
+      "old_end": 41,
+      "new_start": 0,
+      "new_end": 41,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000735",
+      "span_text": "đầm đẹp y hình",
+      "old_start": 0,
+      "old_end": 14,
+      "new_start": 0,
+      "new_end": 14,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000735",
+      "span_text": "hơi rộng",
+      "old_start": 21,
+      "old_end": 29,
+      "new_start": 21,
+      "new_end": 29,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000742",
+      "span_text": "đặt này giao kìa  cửa hàng  làm ăn vậy à",
+      "old_start": 0,
+      "old_end": 40,
+      "new_start": 0,
+      "new_end": 40,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000755",
+      "span_text": "đặt màu trắng với màu đen giao hồng với trắng",
+      "old_start": 0,
+      "old_end": 45,
+      "new_start": 0,
+      "new_end": 45,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000755",
+      "span_text": "đầm trắng hơi mỏng",
+      "old_start": 47,
+      "old_end": 65,
+      "new_start": 47,
+      "new_end": 65,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000758",
+      "span_text": "áo đẹp",
+      "old_start": 0,
+      "old_end": 6,
+      "new_start": 0,
+      "new_end": 6,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000758",
+      "span_text": "hơi mỏng xiếu cho  5star  star",
+      "old_start": 20,
+      "old_end": 50,
+      "new_start": 20,
+      "new_end": 50,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000761",
+      "span_text": "áo được quần mỏng quá ((",
+      "old_start": 0,
+      "old_end": 24,
+      "new_start": 0,
+      "new_end": 24,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000768",
+      "span_text": "mua màu xanh lá",
+      "old_start": 0,
+      "old_end": 15,
+      "new_start": 0,
+      "new_end": 15,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000768",
+      "span_text": "đưa mau da",
+      "old_start": 21,
+      "old_end": 31,
+      "new_start": 21,
+      "new_end": 31,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000768",
+      "span_text": "không có học hả",
+      "old_start": 33,
+      "old_end": 48,
+      "new_start": 33,
+      "new_end": 48,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000768",
+      "span_text": "không biết phân biệt màu",
+      "old_start": 50,
+      "old_end": 74,
+      "new_start": 50,
+      "new_end": 74,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000768",
+      "span_text": "bán như vậy là ban hàng hay lừa gạt vậy",
+      "old_start": 76,
+      "old_end": 115,
+      "new_start": 76,
+      "new_end": 115,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000793",
+      "span_text": "vải mỏng lét",
+      "old_start": 0,
+      "old_end": 12,
+      "new_start": 0,
+      "new_end": 12,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000793",
+      "span_text": "màu đen chắc đỡ hơn",
+      "old_start": 15,
+      "old_end": 34,
+      "new_start": 15,
+      "new_end": 34,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000793",
+      "span_text": "màu trắng thì thấy ghê",
+      "old_start": 37,
+      "old_end": 59,
+      "new_start": 37,
+      "new_end": 59,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000808",
+      "span_text": "giao hàng không đúng với  cỡ  đã đặt",
+      "old_start": 0,
+      "old_end": 36,
+      "new_start": 0,
+      "new_end": 36,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000808",
+      "span_text": "sao",
+      "old_start": 38,
+      "old_end": 41,
+      "new_start": 38,
+      "new_end": 41,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000808",
+      "span_text": "dùng được  cửa hàng  ơi",
+      "old_start": 45,
+      "old_end": 68,
+      "new_start": 45,
+      "new_end": 68,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000816",
+      "span_text": "mặc vừa vặn",
+      "old_start": 0,
+      "old_end": 11,
+      "new_start": 0,
+      "new_end": 11,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000816",
+      "span_text": "đặt hàng lâu rồi",
+      "old_start": 13,
+      "old_end": 29,
+      "new_start": 13,
+      "new_end": 29,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000816",
+      "span_text": "mãi mới nhận  được",
+      "old_start": 33,
+      "old_end": 51,
+      "new_start": 33,
+      "new_end": 51,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000816",
+      "span_text": "nói chung là rất được",
+      "old_start": 54,
+      "old_end": 75,
+      "new_start": 54,
+      "new_end": 75,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000843",
+      "span_text": "giao hang sai màu đặt màu đỏ giao màu hồng lại con hang rắc nữa chứa😠",
+      "old_start": 0,
+      "old_end": 69,
+      "new_start": 0,
+      "new_end": 69,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000856",
+      "span_text": "trễ ngày",
+      "old_start": 26,
+      "old_end": 34,
+      "new_start": 26,
+      "new_end": 34,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000856",
+      "span_text": "giao hàng lâu",
+      "old_start": 36,
+      "old_end": 49,
+      "new_start": 36,
+      "new_end": 49,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000856",
+      "span_text": "sản phẩm không ưng ý lắm",
+      "old_start": 51,
+      "old_end": 75,
+      "new_start": 51,
+      "new_end": 75,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000859",
+      "span_text": "quần đẹp",
+      "old_start": 0,
+      "old_end": 8,
+      "new_start": 0,
+      "new_end": 8,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000859",
+      "span_text": "mặc không vừa 😭😭",
+      "old_start": 16,
+      "old_end": 32,
+      "new_start": 16,
+      "new_end": 32,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000881",
+      "span_text": "vải mỏng nylon nóng",
+      "old_start": 0,
+      "old_end": 19,
+      "new_start": 0,
+      "new_end": 19,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000881",
+      "span_text": "ẻ hơn các  cỡ  màu khác để giao hàng lỗi cho khách",
+      "old_start": 60,
+      "old_end": 110,
+      "new_start": 60,
+      "new_end": 110,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000881",
+      "span_text": "dây kéo may ngược vào trong không mặc  được",
+      "old_start": 112,
+      "old_end": 155,
+      "new_start": 112,
+      "new_end": 155,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000881",
+      "span_text": "đã đổi trả",
+      "old_start": 158,
+      "old_end": 168,
+      "new_start": 158,
+      "new_end": 168,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000882",
+      "span_text": "không phải dép của hãng eroSka",
+      "old_start": 0,
+      "old_end": 30,
+      "new_start": 0,
+      "new_end": 30,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000882",
+      "span_text": "ko có ghi nhãn hiệu của hãng trên dép",
+      "old_start": 31,
+      "old_end": 68,
+      "new_start": 31,
+      "new_end": 68,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000882",
+      "span_text": "ko hài lòng",
+      "old_start": 69,
+      "old_end": 80,
+      "new_start": 69,
+      "new_end": 80,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000883",
+      "span_text": "vải xù giặc 1l nhìn như đồ bị dính kem vậy đó",
+      "old_start": 0,
+      "old_end": 45,
+      "new_start": 0,
+      "new_end": 45,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000890",
+      "span_text": "dép form hơi nhỏ",
+      "old_start": 0,
+      "old_end": 16,
+      "new_start": 0,
+      "new_end": 16,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000897",
+      "span_text": "đẹp",
+      "old_start": 0,
+      "old_end": 3,
+      "new_start": 0,
+      "new_end": 3,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000897",
+      "span_text": "màu hơi không giống hình chút thui",
+      "old_start": 10,
+      "old_end": 44,
+      "new_start": 10,
+      "new_end": 44,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000915",
+      "span_text": "vải mỏng",
+      "old_start": 0,
+      "old_end": 8,
+      "new_start": 0,
+      "new_end": 8,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000917",
+      "span_text": "giao hàng không đúng",
+      "old_start": 0,
+      "old_end": 20,
+      "new_start": 0,
+      "new_end": 20,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000917",
+      "span_text": "gọi không thèm nghe",
+      "old_start": 22,
+      "old_end": 41,
+      "new_start": 22,
+      "new_end": 41,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000917",
+      "span_text": "thất vọng vô cùng",
+      "old_start": 43,
+      "old_end": 60,
+      "new_start": 43,
+      "new_end": 60,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000917",
+      "span_text": "nói tới ứa gan",
+      "old_start": 62,
+      "old_end": 76,
+      "new_start": 62,
+      "new_end": 76,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000929",
+      "span_text": "quai dép mỏng quá",
+      "old_start": 0,
+      "old_end": 17,
+      "new_start": 0,
+      "new_end": 17,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000929",
+      "span_text": "những mẫu khác của eroSka ổn hơn",
+      "old_start": 19,
+      "old_end": 51,
+      "new_start": 19,
+      "new_end": 51,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000935",
+      "span_text": "vải mỏng",
+      "old_start": 0,
+      "old_end": 8,
+      "new_start": 0,
+      "new_end": 8,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000935",
+      "span_text": "bung đường chỉ",
+      "old_start": 12,
+      "old_end": 26,
+      "new_start": 12,
+      "new_end": 26,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000944",
+      "span_text": "tất cả đều đẹp cho đến khi mặc thử",
+      "old_start": 0,
+      "old_end": 34,
+      "new_start": 0,
+      "new_end": 34,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000944",
+      "span_text": "lại hơi ngắn rất với mình",
+      "old_start": 39,
+      "old_end": 64,
+      "new_start": 39,
+      "new_end": 64,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000944",
+      "span_text": "hơi thất vọng xíu",
+      "old_start": 66,
+      "old_end": 83,
+      "new_start": 66,
+      "new_end": 83,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000945",
+      "span_text": "vải đẹp",
+      "old_start": 0,
+      "old_end": 7,
+      "new_start": 0,
+      "new_end": 7,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000945",
+      "span_text": "mặc thoải mái",
+      "old_start": 9,
+      "old_end": 22,
+      "new_start": 9,
+      "new_end": 22,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000945",
+      "span_text": "gui cho mình lhair một cái quần bị bung chỉ",
+      "old_start": 30,
+      "old_end": 73,
+      "new_start": 30,
+      "new_end": 73,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000946",
+      "span_text": "quần không giống ảnh",
+      "old_start": 0,
+      "old_end": 20,
+      "new_start": 0,
+      "new_end": 20,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000946",
+      "span_text": "mặc  cỡ  sao vẫn bị rộng nhiều ạ",
+      "old_start": 37,
+      "old_end": 69,
+      "new_start": 37,
+      "new_end": 69,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000951",
+      "span_text": "hàng đã nhận được",
+      "old_start": 0,
+      "old_end": 17,
+      "new_start": 0,
+      "new_end": 17,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000951",
+      "span_text": "buồn",
+      "old_start": 18,
+      "old_end": 22,
+      "new_start": 18,
+      "new_end": 22,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000951",
+      "span_text": "đặt màu trắng",
+      "old_start": 26,
+      "old_end": 39,
+      "new_start": 26,
+      "new_end": 39,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000951",
+      "span_text": "giao màu xanh đen",
+      "old_start": 43,
+      "old_end": 60,
+      "new_start": 43,
+      "new_end": 60,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000951",
+      "span_text": "hàng tốt xhâp nhận",
+      "old_start": 61,
+      "old_end": 79,
+      "new_start": 61,
+      "new_end": 79,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000967",
+      "span_text": "như lồn anh em đừng động vào  cửa hàng  này nhé",
+      "old_start": 0,
+      "old_end": 47,
+      "new_start": 0,
+      "new_end": 47,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000984",
+      "span_text": "dù tốt rất đẹp và chắc chắn",
+      "old_start": 0,
+      "old_end": 27,
+      "new_start": 0,
+      "new_end": 27,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000984",
+      "span_text": "được không  cửa hàng  bảo được",
+      "old_start": 81,
+      "old_end": 111,
+      "new_start": 81,
+      "new_end": 111,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000984",
+      "span_text": "tôi nhận 3 cái màu đen",
+      "old_start": 123,
+      "old_end": 145,
+      "new_start": 123,
+      "new_end": 145,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000984",
+      "span_text": "ngẫu nhiên gì kỳ vậy",
+      "old_start": 180,
+      "old_end": 200,
+      "new_start": 180,
+      "new_end": 200,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000995",
+      "span_text": "với giá này thì quá ổn",
+      "old_start": 0,
+      "old_end": 22,
+      "new_start": 0,
+      "new_end": 22,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000995",
+      "span_text": "may cẩn thận",
+      "old_start": 29,
+      "old_end": 41,
+      "new_start": 29,
+      "new_end": 41,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000995",
+      "span_text": "vải cũng ok",
+      "old_start": 43,
+      "old_end": 54,
+      "new_start": 43,
+      "new_end": 54,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000995",
+      "span_text": "lên dáng cũng đep",
+      "old_start": 56,
+      "old_end": 73,
+      "new_start": 56,
+      "new_end": 73,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000995",
+      "span_text": "mỗi tội phần eo có vẻ hơi rộng chút",
+      "old_start": 75,
+      "old_end": 110,
+      "new_start": 75,
+      "new_end": 110,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000995",
+      "span_text": "chưa đến 100k cả ship",
+      "old_start": 112,
+      "old_end": 133,
+      "new_start": 112,
+      "new_end": 133,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000995",
+      "span_text": "gì bằng nữa 😁",
+      "old_start": 139,
+      "old_end": 152,
+      "new_start": 139,
+      "new_end": 152,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000995",
+      "span_text": "cảm ơn  cửa hàng  nha",
+      "old_start": 154,
+      "old_end": 175,
+      "new_start": 154,
+      "new_end": 175,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000996",
+      "span_text": "hơi rộng",
+      "old_start": 0,
+      "old_end": 8,
+      "new_start": 0,
+      "new_end": 8,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000996",
+      "span_text": "rất đẹp😊",
+      "old_start": 18,
+      "old_end": 26,
+      "new_start": 18,
+      "new_end": 26,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000997",
+      "span_text": "quần đẹp y hình",
+      "old_start": 0,
+      "old_end": 15,
+      "new_start": 0,
+      "new_end": 15,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000997",
+      "span_text": "mặc dù chọn  cỡ  nhỏ nhất rồi những lưng quần vẫn rộng",
+      "old_start": 17,
+      "old_end": 71,
+      "new_start": 17,
+      "new_end": 71,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000997",
+      "span_text": "phần mông rất vừa",
+      "old_start": 73,
+      "old_end": 90,
+      "new_start": 73,
+      "new_end": 90,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001018",
+      "span_text": "hàng bung chỉ rách",
+      "old_start": 0,
+      "old_end": 18,
+      "new_start": 0,
+      "new_end": 18,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001025",
+      "span_text": "dép đẹp giao nhanh gói kĩ nhung sticker bị giống nhau không sao vẫn đánh giá  5star  sẽ tiep tục ủng hộ",
+      "old_start": 0,
+      "old_end": 103,
+      "new_start": 0,
+      "new_end": 103,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001039",
+      "span_text": "hàng không đẹp như hình",
+      "old_start": 0,
+      "old_end": 23,
+      "new_start": 0,
+      "new_end": 23,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001039",
+      "span_text": "mặc dù mình đã chọn đúng  cỡ",
+      "old_start": 25,
+      "old_end": 53,
+      "new_start": 25,
+      "new_end": 53,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001039",
+      "span_text": "không mặc vừa  cỡ  m( mình 48 kg)",
+      "old_start": 65,
+      "old_end": 98,
+      "new_start": 65,
+      "new_end": 98,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001047",
+      "span_text": "màu hồng lợt hơn trong hình",
+      "old_start": 0,
+      "old_end": 27,
+      "new_start": 0,
+      "new_end": 27,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001047",
+      "span_text": "đường may phía sau bị dúm",
+      "old_start": 29,
+      "old_end": 54,
+      "new_start": 29,
+      "new_end": 54,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001047",
+      "span_text": "khuyến khích mình chấm 4star",
+      "old_start": 56,
+      "old_end": 84,
+      "new_start": 56,
+      "new_end": 84,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001049",
+      "span_text": "tone màu không chuẩn",
+      "old_start": 0,
+      "old_end": 20,
+      "new_start": 0,
+      "new_end": 20,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001049",
+      "span_text": "dép có mùi hôi nặng",
+      "old_start": 22,
+      "old_end": 41,
+      "new_start": 22,
+      "new_end": 41,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001051",
+      "span_text": "chỉ có một vài vấn đề nhỏ thôi",
+      "old_start": 0,
+      "old_end": 30,
+      "new_start": 0,
+      "new_end": 30,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001051",
+      "span_text": "màu không được tươi như hình",
+      "old_start": 32,
+      "old_end": 60,
+      "new_start": 32,
+      "new_end": 60,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001051",
+      "span_text": "lớp lót trong có vết bẩn khá sậm nên qua lớp voan ngoài vẫn nhìn rõ",
+      "old_start": 62,
+      "old_end": 129,
+      "new_start": 62,
+      "new_end": 129,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001051",
+      "span_text": "không có đai nên khá bối rối không giữ được dây nơ",
+      "old_start": 131,
+      "old_end": 181,
+      "new_start": 131,
+      "new_end": 181,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001051",
+      "span_text": "và đầm hơi dài",
+      "old_start": 183,
+      "old_end": 197,
+      "new_start": 183,
+      "new_end": 197,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001051",
+      "span_text": "thì dáng đầm đẹp",
+      "old_start": 207,
+      "old_end": 223,
+      "new_start": 207,
+      "new_end": 223,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001051",
+      "span_text": "đường may ổn",
+      "old_start": 225,
+      "old_end": 237,
+      "new_start": 225,
+      "new_end": 237,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001051",
+      "span_text": "đề kia",
+      "old_start": 273,
+      "old_end": 279,
+      "new_start": 273,
+      "new_end": 279,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001051",
+      "span_text": "ai có cách giải quyết 2 vết mực kia làm ơn chia sẻ cho mình nhé",
+      "old_start": 281,
+      "old_end": 344,
+      "new_start": 281,
+      "new_end": 344,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001056",
+      "span_text": "đồ mỏng lưng quần như lưng quần đồ con nít",
+      "old_start": 0,
+      "old_end": 42,
+      "new_start": 0,
+      "new_end": 42,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001057",
+      "span_text": "vãi ok",
+      "old_start": 0,
+      "old_end": 6,
+      "new_start": 0,
+      "new_end": 6,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001057",
+      "span_text": "cỡ  lồn nhung hơi ôm",
+      "old_start": 9,
+      "old_end": 29,
+      "new_start": 9,
+      "new_end": 29,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001061",
+      "span_text": "hàng đẹp",
+      "old_start": 0,
+      "old_end": 8,
+      "new_start": 0,
+      "new_end": 8,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001061",
+      "span_text": "giao có 3 đoi  cửa hàng",
+      "old_start": 31,
+      "old_end": 54,
+      "new_start": 31,
+      "new_end": 54,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001061",
+      "span_text": "thiếu em 2 đoi vậy  cửa hàng  rởi thim cho em nghe  cửa hàng",
+      "old_start": 60,
+      "old_end": 120,
+      "new_start": 60,
+      "new_end": 120,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001068",
+      "span_text": "dat mau nay goi mau khac",
+      "old_start": 0,
+      "old_end": 24,
+      "new_start": 0,
+      "new_end": 24,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001068",
+      "span_text": "noi 52 không ma giao hang nho qua  không  mat vua",
+      "old_start": 26,
+      "old_end": 75,
+      "new_start": 26,
+      "new_end": 75,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001068",
+      "span_text": "mai mot  không  dat hang nua",
+      "old_start": 77,
+      "old_end": 105,
+      "new_start": 77,
+      "new_end": 105,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001068",
+      "span_text": "trong khi da co nhan tin noi voi  cửa hàng",
+      "old_start": 107,
+      "old_end": 149,
+      "new_start": 107,
+      "new_end": 149,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001075",
+      "span_text": "cỡ sao",
+      "old_start": 0,
+      "old_end": 6,
+      "new_start": 0,
+      "new_end": 6,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001075",
+      "span_text": "to",
+      "old_start": 14,
+      "old_end": 16,
+      "new_start": 14,
+      "new_end": 16,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001078",
+      "span_text": "vải rất tệ",
+      "old_start": 0,
+      "old_end": 10,
+      "new_start": 0,
+      "new_end": 10,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001078",
+      "span_text": "mặc nóng",
+      "old_start": 11,
+      "old_end": 19,
+      "new_start": 11,
+      "new_end": 19,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001081",
+      "span_text": "tam on",
+      "old_start": 0,
+      "old_end": 6,
+      "new_start": 0,
+      "new_end": 6,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001081",
+      "span_text": "quan vai mỏng qua",
+      "old_start": 7,
+      "old_end": 24,
+      "new_start": 7,
+      "new_end": 24,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001100",
+      "span_text": "hàng rất tệ",
+      "old_start": 0,
+      "old_end": 11,
+      "new_start": 0,
+      "new_end": 11,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001100",
+      "span_text": "mua 2 bộ",
+      "old_start": 12,
+      "old_end": 20,
+      "new_start": 12,
+      "new_end": 20,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001100",
+      "span_text": "2 loại vải khác nhau có một màu xanh bị rách",
+      "old_start": 24,
+      "old_end": 68,
+      "new_start": 24,
+      "new_end": 68,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001100",
+      "span_text": "chụp hình không đăng lên được",
+      "old_start": 72,
+      "old_end": 101,
+      "new_start": 72,
+      "new_end": 101,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001100",
+      "span_text": "buôn bán thì phải giữ uy tín",
+      "old_start": 128,
+      "old_end": 156,
+      "new_start": 128,
+      "new_end": 156,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001100",
+      "span_text": "chớ không phải bán một lần rồi thôi",
+      "old_start": 157,
+      "old_end": 192,
+      "new_start": 157,
+      "new_end": 192,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001104",
+      "span_text": "mẫu giống hình vải thì cứng",
+      "old_start": 0,
+      "old_end": 27,
+      "new_start": 0,
+      "new_end": 27,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001104",
+      "span_text": "phù hợp với giá tiền",
+      "old_start": 34,
+      "old_end": 54,
+      "new_start": 34,
+      "new_end": 54,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001109",
+      "span_text": "vải hơi mỏng",
+      "old_start": 0,
+      "old_end": 12,
+      "new_start": 0,
+      "new_end": 12,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001109",
+      "span_text": "kiểu như hình",
+      "old_start": 14,
+      "old_end": 27,
+      "new_start": 14,
+      "new_end": 27,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001120",
+      "span_text": "đẹp",
+      "old_start": 0,
+      "old_end": 3,
+      "new_start": 0,
+      "new_end": 3,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001120",
+      "span_text": "tiếc là hơi nhỏ",
+      "old_start": 10,
+      "old_end": 25,
+      "new_start": 10,
+      "new_end": 25,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001123",
+      "span_text": "quần đẹp",
+      "old_start": 0,
+      "old_end": 8,
+      "new_start": 0,
+      "new_end": 8,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001123",
+      "span_text": "quá rộng",
+      "old_start": 15,
+      "old_end": 23,
+      "new_start": 15,
+      "new_end": 23,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001125",
+      "span_text": "cũng đẹp",
+      "old_start": 0,
+      "old_end": 8,
+      "new_start": 0,
+      "new_end": 8,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001125",
+      "span_text": "h màu trắng",
+      "old_start": 49,
+      "old_end": 60,
+      "new_start": 49,
+      "new_end": 60,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001129",
+      "span_text": "bạn nào 40-45 không là mặc hơi rộng",
+      "old_start": 0,
+      "old_end": 35,
+      "new_start": 0,
+      "new_end": 35,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001129",
+      "span_text": "vải và kiểu dáng  sản phẩm  như hình",
+      "old_start": 37,
+      "old_end": 73,
+      "new_start": 37,
+      "new_end": 73,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001129",
+      "span_text": "là voan nên cũng hơi mỏng",
+      "old_start": 78,
+      "old_end": 103,
+      "new_start": 78,
+      "new_end": 103,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001129",
+      "span_text": "giao hàng nhanh",
+      "old_start": 105,
+      "old_end": 120,
+      "new_start": 105,
+      "new_end": 120,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001140",
+      "span_text": "giao  cỡ  35",
+      "old_start": 22,
+      "old_end": 34,
+      "new_start": 22,
+      "new_end": 34,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001155",
+      "span_text": "vải thì tốt",
+      "old_start": 0,
+      "old_end": 11,
+      "new_start": 0,
+      "new_end": 11,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001155",
+      "span_text": "người may không có tâm",
+      "old_start": 18,
+      "old_end": 40,
+      "new_start": 18,
+      "new_end": 40,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001155",
+      "span_text": "may áo thế ai",
+      "old_start": 42,
+      "old_end": 55,
+      "new_start": 42,
+      "new_end": 55,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001155",
+      "span_text": "mặc",
+      "old_start": 59,
+      "old_end": 62,
+      "new_start": 59,
+      "new_end": 62,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001171",
+      "span_text": "sao màu  không giống nhau vậy một cái màu xanh đậm hơn",
+      "old_start": 0,
+      "old_end": 54,
+      "new_start": 0,
+      "new_end": 54,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001171",
+      "span_text": "2 cái giống nhau",
+      "old_start": 59,
+      "old_end": 75,
+      "new_start": 59,
+      "new_end": 75,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001171",
+      "span_text": "sei to quá  cửa hàng  nên cho thông tin về sei và chiều cao cân nặng để dễ đặt hàng nhé",
+      "old_start": 82,
+      "old_end": 169,
+      "new_start": 82,
+      "new_end": 169,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001175",
+      "span_text": "hơi chật thì phải  cỡ  mình",
+      "old_start": 0,
+      "old_end": 27,
+      "new_start": 0,
+      "new_end": 27,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001175",
+      "span_text": "hơi nhỏ",
+      "old_start": 31,
+      "old_end": 38,
+      "new_start": 31,
+      "new_end": 38,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001196",
+      "span_text": "đặt 5 giao có 2 giao thiếu 3 cái",
+      "old_start": 0,
+      "old_end": 32,
+      "new_start": 0,
+      "new_end": 32,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001209",
+      "span_text": "áo lỗi",
+      "old_start": 0,
+      "old_end": 6,
+      "new_start": 0,
+      "new_end": 6,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001209",
+      "span_text": "bị rút chỉ",
+      "old_start": 8,
+      "old_end": 18,
+      "new_start": 8,
+      "new_end": 18,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001220",
+      "span_text": "dép đẹp",
+      "old_start": 0,
+      "old_end": 7,
+      "new_start": 0,
+      "new_end": 7,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001220",
+      "span_text": "gửi đúng  cỡ",
+      "old_start": 9,
+      "old_end": 21,
+      "new_start": 9,
+      "new_end": 21,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001220",
+      "span_text": "mong  cửa hàng  đổi  cỡ  giùm mình",
+      "old_start": 99,
+      "old_end": 133,
+      "new_start": 99,
+      "new_end": 133,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001234",
+      "span_text": "mua mắc không vừa gọi điện thoại cho cửa hàng muốn đổi cỡ lớn hơn",
+      "old_start": 0,
+      "old_end": 65,
+      "new_start": 0,
+      "new_end": 65,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001234",
+      "span_text": "gọi cả chục cuộc không ai thèm bắt máy",
+      "old_start": 69,
+      "old_end": 107,
+      "new_start": 69,
+      "new_end": 107,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001234",
+      "span_text": "gio muốn đổi hàng",
+      "old_start": 108,
+      "old_end": 125,
+      "new_start": 108,
+      "new_end": 125,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001244",
+      "span_text": "hop voi gia tien",
+      "old_start": 0,
+      "old_end": 16,
+      "new_start": 0,
+      "new_end": 16,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001244",
+      "span_text": "nhung minh dat  cỡ  Xl nhung  cửa hàng  dua  cỡ  nho mac không vua",
+      "old_start": 18,
+      "old_end": 84,
+      "new_start": 18,
+      "new_end": 84,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001256",
+      "span_text": "vải áo rất tệ không hài lòng tí nào",
+      "old_start": 0,
+      "old_end": 35,
+      "new_start": 0,
+      "new_end": 35,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001262",
+      "span_text": "lưng rộng",
+      "old_start": 0,
+      "old_end": 9,
+      "new_start": 0,
+      "new_end": 9,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001262",
+      "span_text": "ống lại hơi ngắn",
+      "old_start": 13,
+      "old_end": 29,
+      "new_start": 13,
+      "new_end": 29,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001280",
+      "span_text": "hàng đẹp vải tốt uy tín",
+      "old_start": 0,
+      "old_end": 23,
+      "new_start": 0,
+      "new_end": 23,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001280",
+      "span_text": "giao hàng hơi lâu",
+      "old_start": 30,
+      "old_end": 47,
+      "new_start": 30,
+      "new_end": 47,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001285",
+      "span_text": "quần không giống màu",
+      "old_start": 0,
+      "old_end": 20,
+      "new_start": 0,
+      "new_end": 20,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001287",
+      "span_text": "lộn màu",
+      "old_start": 0,
+      "old_end": 7,
+      "new_start": 0,
+      "new_end": 7,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001291",
+      "span_text": "áo như hình",
+      "old_start": 0,
+      "old_end": 11,
+      "new_start": 0,
+      "new_end": 11,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001291",
+      "span_text": "vải hơi mỏng tí",
+      "old_start": 13,
+      "old_end": 28,
+      "new_start": 13,
+      "new_end": 28,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001291",
+      "span_text": "52kg",
+      "old_start": 54,
+      "old_end": 58,
+      "new_start": 54,
+      "new_end": 58,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001291",
+      "span_text": "cỡ  lồn hơi rộng",
+      "old_start": 60,
+      "old_end": 76,
+      "new_start": 60,
+      "new_end": 76,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001292",
+      "span_text": "quần hơi chật",
+      "old_start": 0,
+      "old_end": 13,
+      "new_start": 0,
+      "new_end": 13,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001292",
+      "span_text": "không ngồi được",
+      "old_start": 15,
+      "old_end": 30,
+      "new_start": 15,
+      "new_end": 30,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001301",
+      "span_text": "quá tệ không hỏi kích thước sản phẩm thời trang gì cả",
+      "old_start": 0,
+      "old_end": 53,
+      "new_start": 0,
+      "new_end": 53,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001304",
+      "span_text": "đặt này thì giao cái kia",
+      "old_start": 26,
+      "old_end": 50,
+      "new_start": 26,
+      "new_end": 50,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001304",
+      "span_text": "vải xấu",
+      "old_start": 52,
+      "old_end": 59,
+      "new_start": 52,
+      "new_end": 59,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001304",
+      "span_text": "đường mai xấu",
+      "old_start": 61,
+      "old_end": 74,
+      "new_start": 61,
+      "new_end": 74,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001306",
+      "span_text": "vừa nhận hàng xong",
+      "old_start": 0,
+      "old_end": 18,
+      "new_start": 0,
+      "new_end": 18,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001306",
+      "span_text": "2 cái lỗ to đùng",
+      "old_start": 20,
+      "old_end": 36,
+      "new_start": 20,
+      "new_end": 36,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001306",
+      "span_text": "ai mặc  được  hả  cửa hàng",
+      "old_start": 38,
+      "old_end": 64,
+      "new_start": 38,
+      "new_end": 64,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001320",
+      "span_text": "ep đống gói cẩn thận nhung  cửa hàng  giao hoi chậm😂",
+      "old_start": 32,
+      "old_end": 84,
+      "new_start": 32,
+      "new_end": 84,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001329",
+      "span_text": "như cái rẻ lau",
+      "old_start": 0,
+      "old_end": 14,
+      "new_start": 0,
+      "new_end": 14,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001329",
+      "span_text": "mua về vứt xó",
+      "old_start": 16,
+      "old_end": 29,
+      "new_start": 16,
+      "new_end": 29,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001330",
+      "span_text": "mua màu xanh",
+      "old_start": 0,
+      "old_end": 12,
+      "new_start": 0,
+      "new_end": 12,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001330",
+      "span_text": "giao màu đen mua cỡ 35",
+      "old_start": 13,
+      "old_end": 35,
+      "new_start": 13,
+      "new_end": 35,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001330",
+      "span_text": "giao cỡ 38",
+      "old_start": 37,
+      "old_end": 47,
+      "new_start": 37,
+      "new_end": 47,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001342",
+      "span_text": "quần chất đẹp",
+      "old_start": 0,
+      "old_end": 13,
+      "new_start": 0,
+      "new_end": 13,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001342",
+      "span_text": "bị chật",
+      "old_start": 21,
+      "old_end": 28,
+      "new_start": 21,
+      "new_end": 28,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001342",
+      "span_text": "khách đổi hàng cũng không làm được",
+      "old_start": 73,
+      "old_end": 107,
+      "new_start": 73,
+      "new_end": 107,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001343",
+      "span_text": "đồ xấu lên hình đẹp",
+      "old_start": 0,
+      "old_end": 19,
+      "new_start": 0,
+      "new_end": 19,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001343",
+      "span_text": "giao hàng vải xấu thậm tệ",
+      "old_start": 23,
+      "old_end": 48,
+      "new_start": 23,
+      "new_end": 48,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001374",
+      "span_text": "3 áo không giống màu",
+      "old_start": 0,
+      "old_end": 20,
+      "new_start": 0,
+      "new_end": 20,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001374",
+      "span_text": "cũng màu xanh mới cái lợt cái đậm",
+      "old_start": 21,
+      "old_end": 54,
+      "new_start": 21,
+      "new_end": 54,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001374",
+      "span_text": "mh muốn đổi hàng",
+      "old_start": 55,
+      "old_end": 71,
+      "new_start": 55,
+      "new_end": 71,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001374",
+      "span_text": "yêu cầu lazada xem lại kiện hàng này",
+      "old_start": 72,
+      "old_end": 108,
+      "new_start": 72,
+      "new_end": 108,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001381",
+      "span_text": "lần trước mua một bộ rồi thấy được lắm",
+      "old_start": 0,
+      "old_end": 38,
+      "new_start": 0,
+      "new_end": 38,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001381",
+      "span_text": "ai ngờ vải mỏng không bằng lúc trước",
+      "old_start": 76,
+      "old_end": 112,
+      "new_start": 76,
+      "new_end": 112,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001381",
+      "span_text": "rất với giá tiền thì cũng xem như chấp nhận được",
+      "old_start": 120,
+      "old_end": 168,
+      "new_start": 120,
+      "new_end": 168,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001400",
+      "span_text": "giao màu da  cỡ  37  gì o phải làm sao đây",
+      "old_start": 27,
+      "old_end": 69,
+      "new_start": 27,
+      "new_end": 69,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001405",
+      "span_text": "quá đẹp luôn",
+      "old_start": 1,
+      "old_end": 13,
+      "new_start": 1,
+      "new_end": 13,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001405",
+      "span_text": "có điều hơi rộng",
+      "old_start": 21,
+      "old_end": 37,
+      "new_start": 21,
+      "new_end": 37,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001411",
+      "span_text": "thất vọng thật sự luôn",
+      "old_start": 0,
+      "old_end": 22,
+      "new_start": 0,
+      "new_end": 22,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001411",
+      "span_text": "nghĩ chơi",
+      "old_start": 24,
+      "old_end": 33,
+      "new_start": 24,
+      "new_end": 33,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001411",
+      "span_text": "không chơi với lazada nữa",
+      "old_start": 35,
+      "old_end": 60,
+      "new_start": 35,
+      "new_end": 60,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001411",
+      "span_text": "chán thật sự",
+      "old_start": 63,
+      "old_end": 75,
+      "new_start": 63,
+      "new_end": 75,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001429",
+      "span_text": "dép màu trắng dính keo và xước",
+      "old_start": 0,
+      "old_end": 30,
+      "new_start": 0,
+      "new_end": 30,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001429",
+      "span_text": "chùi mãi không ra",
+      "old_start": 33,
+      "old_end": 50,
+      "new_start": 33,
+      "new_end": 50,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001429",
+      "span_text": "thật tệ",
+      "old_start": 53,
+      "old_end": 60,
+      "new_start": 53,
+      "new_end": 60,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001429",
+      "span_text": "lần trước mua màu đen rất ổn",
+      "old_start": 63,
+      "old_end": 91,
+      "new_start": 63,
+      "new_end": 91,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001429",
+      "span_text": "nên mới đặt thêm đôi màu trắng",
+      "old_start": 94,
+      "old_end": 124,
+      "new_start": 94,
+      "new_end": 124,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001429",
+      "span_text": "hi giao cho khách",
+      "old_start": 166,
+      "old_end": 183,
+      "new_start": 166,
+      "new_end": 183,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001442",
+      "span_text": "dù mỏng và nhỏ",
+      "old_start": 0,
+      "old_end": 14,
+      "new_start": 0,
+      "new_end": 14,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001442",
+      "span_text": "cái lồn kém",
+      "old_start": 16,
+      "old_end": 27,
+      "new_start": 16,
+      "new_end": 27,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001460",
+      "span_text": "cỡ sao",
+      "old_start": 0,
+      "old_end": 6,
+      "new_start": 0,
+      "new_end": 6,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001460",
+      "span_text": "to",
+      "old_start": 14,
+      "old_end": 16,
+      "new_start": 14,
+      "new_end": 16,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001480",
+      "span_text": "xấu chưa từng có",
+      "old_start": 0,
+      "old_end": 16,
+      "new_start": 0,
+      "new_end": 16,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001485",
+      "span_text": "vải mềm",
+      "old_start": 0,
+      "old_end": 7,
+      "new_start": 0,
+      "new_end": 7,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001485",
+      "span_text": "vải mỏng",
+      "old_start": 14,
+      "old_end": 22,
+      "new_start": 14,
+      "new_end": 22,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001485",
+      "span_text": "đường may tệ",
+      "old_start": 23,
+      "old_end": 35,
+      "new_start": 23,
+      "new_end": 35,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001485",
+      "span_text": "chỉ lòng thòng tùm lum",
+      "old_start": 36,
+      "old_end": 58,
+      "new_start": 36,
+      "new_end": 58,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001485",
+      "span_text": "quan thi may dáy quá dài",
+      "old_start": 60,
+      "old_end": 84,
+      "new_start": 60,
+      "new_end": 84,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001491",
+      "span_text": "đã nhận hàng",
+      "old_start": 0,
+      "old_end": 12,
+      "new_start": 0,
+      "new_end": 12,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001491",
+      "span_text": "áo nhỏ hơn  cỡ",
+      "old_start": 21,
+      "old_end": 35,
+      "new_start": 21,
+      "new_end": 35,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001491",
+      "span_text": "2xl",
+      "old_start": 39,
+      "old_end": 42,
+      "new_start": 39,
+      "new_end": 42,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001491",
+      "span_text": "như là  cỡ  lồn",
+      "old_start": 46,
+      "old_end": 61,
+      "new_start": 46,
+      "new_end": 61,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001496",
+      "span_text": "vải hơi thô",
+      "old_start": 0,
+      "old_end": 11,
+      "new_start": 0,
+      "new_end": 11,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001496",
+      "span_text": "nhung với giá này thì được rồi",
+      "old_start": 12,
+      "old_end": 42,
+      "new_start": 12,
+      "new_end": 42,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001496",
+      "span_text": "đung màu và đúng mẫu",
+      "old_start": 43,
+      "old_end": 63,
+      "new_start": 43,
+      "new_end": 63,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001501",
+      "span_text": "một cái đúg hìh đúng màu",
+      "old_start": 0,
+      "old_end": 24,
+      "new_start": 0,
+      "new_end": 24,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001501",
+      "span_text": "1cái đúng màu sai hình",
+      "old_start": 26,
+      "old_end": 48,
+      "new_start": 26,
+      "new_end": 48,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001501",
+      "span_text": "vải hơi mỏg",
+      "old_start": 49,
+      "old_end": 60,
+      "new_start": 49,
+      "new_end": 60,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001501",
+      "span_text": "noi chung củg được",
+      "old_start": 62,
+      "old_end": 80,
+      "new_start": 62,
+      "new_end": 80,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001506",
+      "span_text": "áo",
+      "old_start": 39,
+      "old_end": 41,
+      "new_start": 39,
+      "new_end": 41,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001506",
+      "span_text": "sao lại giao có 6 áo",
+      "old_start": 42,
+      "old_end": 62,
+      "new_start": 42,
+      "new_end": 62,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001506",
+      "span_text": "nhờ cửa hàng gửi lại số áo đang",
+      "old_start": 64,
+      "old_end": 95,
+      "new_start": 64,
+      "new_end": 95,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001506",
+      "span_text": "thiếu dùm mình",
+      "old_start": 100,
+      "old_end": 114,
+      "new_start": 100,
+      "new_end": 114,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001524",
+      "span_text": "quần  cỡ  lồn",
+      "old_start": 0,
+      "old_end": 13,
+      "new_start": 0,
+      "new_end": 13,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001524",
+      "span_text": "mặc như  cỡ  sao",
+      "old_start": 17,
+      "old_end": 33,
+      "new_start": 17,
+      "new_end": 33,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001524",
+      "span_text": "chất vải nóng",
+      "old_start": 36,
+      "old_end": 49,
+      "new_start": 36,
+      "new_end": 49,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001524",
+      "span_text": "hơi bó",
+      "old_start": 52,
+      "old_end": 58,
+      "new_start": 52,
+      "new_end": 58,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001524",
+      "span_text": "chặt",
+      "old_start": 61,
+      "old_end": 65,
+      "new_start": 61,
+      "new_end": 65,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001524",
+      "span_text": "không thoải mái",
+      "old_start": 68,
+      "old_end": 83,
+      "new_start": 68,
+      "new_end": 83,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001524",
+      "span_text": "ngồi xuống khó chịu",
+      "old_start": 86,
+      "old_end": 105,
+      "new_start": 86,
+      "new_end": 105,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001524",
+      "span_text": "màu cũ",
+      "old_start": 108,
+      "old_end": 114,
+      "new_start": 108,
+      "new_end": 114,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001538",
+      "span_text": "hàng như hình",
+      "old_start": 0,
+      "old_end": 13,
+      "new_start": 0,
+      "new_end": 13,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001538",
+      "span_text": "vải hơi mỏng",
+      "old_start": 20,
+      "old_end": 32,
+      "new_start": 20,
+      "new_end": 32,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001554",
+      "span_text": "đặt  cỡ  35 đưa 39 làm sao mang",
+      "old_start": 27,
+      "old_end": 58,
+      "new_start": 27,
+      "new_end": 58,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001554",
+      "span_text": "đặt màu xanh đưa màu đen thui",
+      "old_start": 60,
+      "old_end": 89,
+      "new_start": 60,
+      "new_end": 89,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001554",
+      "span_text": "muốn đổi hàng thì phải làm sao",
+      "old_start": 91,
+      "old_end": 121,
+      "new_start": 91,
+      "new_end": 121,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001555",
+      "span_text": "đúng vải kate",
+      "old_start": 0,
+      "old_end": 13,
+      "new_start": 0,
+      "new_end": 13,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001555",
+      "span_text": "giống mẫu",
+      "old_start": 15,
+      "old_end": 24,
+      "new_start": 15,
+      "new_end": 24,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001555",
+      "span_text": "áo hơi rộng",
+      "old_start": 26,
+      "old_end": 37,
+      "new_start": 26,
+      "new_end": 37,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001555",
+      "span_text": "quần chuẩn đẹp",
+      "old_start": 39,
+      "old_end": 53,
+      "new_start": 39,
+      "new_end": 53,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001555",
+      "span_text": "quần hơi mỏng thấy nội y luôn",
+      "old_start": 65,
+      "old_end": 94,
+      "new_start": 65,
+      "new_end": 94,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001565",
+      "span_text": "đặt màu đỏ",
+      "old_start": 0,
+      "old_end": 10,
+      "new_start": 0,
+      "new_end": 10,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    }
+  ]
+}

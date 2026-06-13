@@ -1,0 +1,708 @@
+{
+  "batch_id": "full_annotation_batch_004",
+  "records": 200,
+  "records_with_overlap_before": 18,
+  "spans_before": 921,
+  "spans_after": 888,
+  "merged_overlap_groups": 21,
+  "changed_record_ids": [
+    "train_002407",
+    "train_002474",
+    "train_002495",
+    "train_002509",
+    "train_002537",
+    "train_002638",
+    "train_002657",
+    "train_002671",
+    "train_002691",
+    "train_002764",
+    "train_002775",
+    "train_002800",
+    "train_002828",
+    "train_002851",
+    "train_002921",
+    "train_003055",
+    "train_003069",
+    "train_003137"
+  ],
+  "details": [
+    {
+      "id": "train_002407",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 35,
+              "end": 105,
+              "text": "này game hay bị không vô  được  trận đấu khi đang load thì bị đứng lun",
+              "label": "COMP"
+            },
+            {
+              "start": 106,
+              "end": 144,
+              "text": "(một số người bạn của mình cũng bị nv)",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 35,
+            "end": 144,
+            "text": "này game hay bị không vô  được  trận đấu khi đang load thì bị đứng lun.(một số người bạn của mình cũng bị nv)",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002474",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 72,
+              "end": 161,
+              "text": "như thế nếu hàng hoá không đúng  quả người cáo rồi chúng tôi phải tự mang trả hàng này nọ",
+              "label": "COMP"
+            },
+            {
+              "start": 164,
+              "end": 239,
+              "text": "vừa phải mất tiền vì phải thanh toán trước vừa tốn thời gian đi trả lại nữa",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 72,
+            "end": 239,
+            "text": "như thế nếu hàng hoá không đúng  quả người cáo rồi chúng tôi phải tự mang trả hàng này nọ...vừa phải mất tiền vì phải thanh toán trước vừa tốn thời gian đi trả lại nữa",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002495",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 6,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 37,
+              "end": 80,
+              "text": "ra ev rồi lại fix làm guner tiêu thây vì 20",
+              "label": "COMP"
+            },
+            {
+              "start": 81,
+              "end": 103,
+              "text": "000x lại phải tiêu 200",
+              "label": "COMP"
+            },
+            {
+              "start": 104,
+              "end": 109,
+              "text": "000xu",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 37,
+            "end": 109,
+            "text": "ra ev rồi lại fix làm guner tiêu thây vì 20.000x lại phải tiêu 200.000xu",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002509",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 36,
+              "end": 96,
+              "text": "không chấp nhận để khách kiểm tra xem có đúng hàng hay không",
+              "label": "COMP"
+            },
+            {
+              "start": 97,
+              "end": 132,
+              "text": "rất nhiều lần bị lừa bỏ tiền ôm rác",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 36,
+            "end": 132,
+            "text": "không chấp nhận để khách kiểm tra xem có đúng hàng hay không.rất nhiều lần bị lừa bỏ tiền ôm rác",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002537",
+      "changed": true,
+      "spans_before": 12,
+      "spans_after": 10,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 221,
+              "end": 230,
+              "text": "bị out ra",
+              "label": "COMP"
+            },
+            {
+              "start": 234,
+              "end": 235,
+              "text": "v",
+              "label": "COMP"
+            },
+            {
+              "start": 237,
+              "end": 238,
+              "text": "v",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 221,
+            "end": 238,
+            "text": "bị out ra,...v..v",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002638",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 168,
+              "end": 171,
+              "text": "now",
+              "label": "COMP"
+            },
+            {
+              "start": 172,
+              "end": 203,
+              "text": "vn đã nhiều lần làm ăn tất trắc",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 168,
+            "end": 203,
+            "text": "now.vn đã nhiều lần làm ăn tất trắc",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002657",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 64,
+              "text": "aC clone người ta cày cuốc mệt nghỉ đem xoá thì chơi game nỗi gì",
+              "label": "COMP"
+            },
+            {
+              "start": 65,
+              "end": 73,
+              "text": "công sức",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 73,
+            "text": "aC clone người ta cày cuốc mệt nghỉ đem xoá thì chơi game nỗi gì.công sức",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002671",
+      "changed": true,
+      "spans_before": 10,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 37,
+              "text": "game rất hay và có nhiều nhạc hay nữa",
+              "label": "COMP"
+            },
+            {
+              "start": 38,
+              "end": 61,
+              "text": "có điều bán bóng khá ít",
+              "label": "COMP"
+            },
+            {
+              "start": 62,
+              "end": 114,
+              "text": "cho nhiều trái bóng nữa và có màu sắc rực rỡ đẹp hơn",
+              "label": "COMP"
+            },
+            {
+              "start": 115,
+              "end": 146,
+              "text": "như vậy người chơi sẽ rất thích",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 146,
+            "text": "game rất hay và có nhiều nhạc hay nữa.có điều bán bóng khá ít,cho nhiều trái bóng nữa và có màu sắc rực rỡ đẹp hơn.như vậy người chơi sẽ rất thích",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 169,
+              "end": 175,
+              "text": "khá ít",
+              "label": "COMP"
+            },
+            {
+              "start": 176,
+              "end": 251,
+              "text": "cho nhiều nhạc trẻ trâu đang thích hoặc thịnh hành nhất giới trẻ sẽ hay hơn",
+              "label": "COMP"
+            },
+            {
+              "start": 252,
+              "end": 265,
+              "text": "sống động hơn",
+              "label": "COMP"
+            },
+            {
+              "start": 266,
+              "end": 300,
+              "text": "như vậy mình và mọi người mới thíc",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 169,
+            "end": 300,
+            "text": "khá ít,cho nhiều nhạc trẻ trâu đang thích hoặc thịnh hành nhất giới trẻ sẽ hay hơn,sống động hơn.như vậy mình và mọi người mới thíc",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002691",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14,
+              "text": "dịch sai nghĩa",
+              "label": "COMP"
+            },
+            {
+              "start": 15,
+              "end": 21,
+              "text": "quá tệ",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 21,
+            "text": "dịch sai nghĩa,quá tệ",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002764",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 6,
+              "text": "lag vl",
+              "label": "COMP"
+            },
+            {
+              "start": 7,
+              "end": 52,
+              "text": "nhất khi đấu trường lại phải thoát ra vào lai",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 52,
+            "text": "lag vl.nhất khi đấu trường lại phải thoát ra vào lai",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002775",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 21,
+              "text": "càng về sau càng chán",
+              "label": "COMP"
+            },
+            {
+              "start": 22,
+              "end": 44,
+              "text": "như một vòng tuần hoàn",
+              "label": "COMP"
+            },
+            {
+              "start": 45,
+              "end": 65,
+              "text": "ko thay đổi gì nhiều",
+              "label": "COMP"
+            },
+            {
+              "start": 66,
+              "end": 78,
+              "text": "tăng cấp lâu",
+              "label": "COMP"
+            },
+            {
+              "start": 79,
+              "end": 118,
+              "text": "ai nạp càng nhiều tiền thì cấp càng cao",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 118,
+            "text": "càng về sau càng chán,như một vòng tuần hoàn,ko thay đổi gì nhiều,tăng cấp lâu,ai nạp càng nhiều tiền thì cấp càng cao",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 210,
+              "end": 263,
+              "text": "đòi hỏi phải như bang người ta đóng góp 500 mới cho ở",
+              "label": "COMP"
+            },
+            {
+              "start": 264,
+              "end": 305,
+              "text": "cho mình ra thì cũng đành đóng góp đủ thứ",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 210,
+            "end": 305,
+            "text": "đòi hỏi phải như bang người ta đóng góp 500 mới cho ở,cho mình ra thì cũng đành đóng góp đủ thứ",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002800",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 93,
+              "end": 95,
+              "text": "(1",
+              "label": "COMP"
+            },
+            {
+              "start": 96,
+              "end": 278,
+              "text": "2 chữ thì không nói  gì )có những câu cỡ 2 dòng câu dịch câu không thì twiTer nên dịch ra luôn chứ có những câu cỡ một hàng twiTer không dịch dù có thể nó sẽ quan trọng với người xem",
+              "label": "COMP"
+            },
+            {
+              "start": 279,
+              "end": 311,
+              "text": "mong twiTer sẽ khắc phục lỗi này",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 93,
+            "end": 311,
+            "text": "(1,2 chữ thì không nói  gì )có những câu cỡ 2 dòng câu dịch câu không thì twiTer nên dịch ra luôn chứ có những câu cỡ một hàng twiTer không dịch dù có thể nó sẽ quan trọng với người xem.mong twiTer sẽ khắc phục lỗi này",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002828",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 8,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 247,
+              "end": 248,
+              "text": "đ",
+              "label": "COMP"
+            },
+            {
+              "start": 249,
+              "end": 285,
+              "text": "tme tôi cho   1star   vì tội ngu lồn",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 247,
+            "end": 285,
+            "text": "đ!tme tôi cho   1star   vì tội ngu lồn",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002851",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 76,
+              "end": 82,
+              "text": "khá ok",
+              "label": "COMP"
+            },
+            {
+              "start": 84,
+              "end": 169,
+              "text": "chỉ có một trường hợp duy nhất từng gặp là tài xế trên đường đi không nói một lời nào",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 76,
+            "end": 169,
+            "text": "khá ok..chỉ có một trường hợp duy nhất từng gặp là tài xế trên đường đi không nói một lời nào",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 221,
+              "end": 281,
+              "text": "chở thẳng đến lối sau (trong khi cửa sau này không vào được)",
+              "label": "COMP"
+            },
+            {
+              "start": 283,
+              "end": 299,
+              "text": "thế là mình phải",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 221,
+            "end": 299,
+            "text": "chở thẳng đến lối sau (trong khi cửa sau này không vào được)..thế là mình phải",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002921",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11,
+              "text": "phiên bản 3",
+              "label": "COMP"
+            },
+            {
+              "start": 12,
+              "end": 27,
+              "text": "0 đồ hoạ khá ok",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 27,
+            "text": "phiên bản 3.0 đồ hoạ khá ok",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003055",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 174,
+              "end": 243,
+              "text": "tài khoản game đều liên kết với facebOk mất tất cả chỉ trong một phút",
+              "label": "COMP"
+            },
+            {
+              "start": 244,
+              "end": 245,
+              "text": "😧",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 174,
+            "end": 245,
+            "text": "tài khoản game đều liên kết với facebOk mất tất cả chỉ trong một phút.😧",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003069",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15,
+              "text": "game đồ hoạ đẹp",
+              "label": "COMP"
+            },
+            {
+              "start": 16,
+              "end": 63,
+              "text": "mượt nếu có hổ trợ tiếng việt thì đỉnh của đỉnh",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 63,
+            "text": "game đồ hoạ đẹp,mượt nếu có hổ trợ tiếng việt thì đỉnh của đỉnh",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003137",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 99,
+              "end": 154,
+              "text": "hay bảo trì làm gián đoạn khá nhiều event và chiến dịch",
+              "label": "COMP"
+            },
+            {
+              "start": 155,
+              "end": 188,
+              "text": "hệ thống dịch chưa được chính xác",
+              "label": "COMP"
+            },
+            {
+              "start": 189,
+              "end": 190,
+              "text": "V",
+              "label": "COMP"
+            },
+            {
+              "start": 191,
+              "end": 192,
+              "text": "V",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 99,
+            "end": 192,
+            "text": "hay bảo trì làm gián đoạn khá nhiều event và chiến dịch,hệ thống dịch chưa được chính xác,V.V",
+            "label": "COMP"
+          }
+        }
+      ]
+    }
+  ]
+}

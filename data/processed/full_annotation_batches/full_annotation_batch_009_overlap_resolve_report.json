@@ -1,0 +1,897 @@
+{
+  "batch_id": "full_annotation_batch_009",
+  "records": 200,
+  "records_with_overlap_before": 23,
+  "spans_before": 480,
+  "spans_after": 439,
+  "merged_overlap_groups": 27,
+  "changed_record_ids": [
+    "train_001583",
+    "train_001680",
+    "train_001770",
+    "train_001856",
+    "train_001907",
+    "train_001957",
+    "train_002023",
+    "train_002076",
+    "train_002175",
+    "train_002333",
+    "train_002347",
+    "train_002356",
+    "train_002393",
+    "train_002433",
+    "train_002498",
+    "train_002524",
+    "train_002660",
+    "train_002670",
+    "train_002808",
+    "train_003012",
+    "train_003209",
+    "train_003258",
+    "train_003330"
+  ],
+  "details": [
+    {
+      "id": "train_001583",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 26,
+              "text": "bị lộn  cỡ  lớn rồi bạn ơi",
+              "label": "COMP"
+            },
+            {
+              "start": 27,
+              "end": 41,
+              "text": "đổi được không",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 41,
+            "text": "bị lộn  cỡ  lớn rồi bạn ơi.đổi được không",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001680",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 38,
+              "end": 51,
+              "text": "mặc không vừa",
+              "label": "COMP"
+            },
+            {
+              "start": 52,
+              "end": 79,
+              "text": "con nít 7 tuổi mặc vừa luôn",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 38,
+            "end": 79,
+            "text": "mặc không vừa,con nít 7 tuổi mặc vừa luôn",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001770",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 7,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 52,
+              "end": 60,
+              "text": "ai cao 1",
+              "label": "COMP"
+            },
+            {
+              "start": 61,
+              "end": 63,
+              "text": "8m",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 52,
+            "end": 63,
+            "text": "ai cao 1,8m",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001856",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 14,
+              "end": 17,
+              "text": "dày",
+              "label": "COMP"
+            },
+            {
+              "start": 18,
+              "end": 21,
+              "text": "đẹp",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 14,
+            "end": 21,
+            "text": "dày,đẹp",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001907",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 80,
+              "end": 96,
+              "text": "tính tiền 10 đôi",
+              "label": "COMP"
+            },
+            {
+              "start": 97,
+              "end": 98,
+              "text": "m",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 80,
+            "end": 98,
+            "text": "tính tiền 10 đôi.m",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001957",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 22,
+              "end": 30,
+              "text": "dung mau",
+              "label": "COMP"
+            },
+            {
+              "start": 31,
+              "end": 86,
+              "text": "m gì nhiều đi một bên thì vừa con một bên quai hoi rộng",
+              "label": "COMP"
+            },
+            {
+              "start": 88,
+              "end": 111,
+              "text": "nói chung cũng tạm duoc",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 22,
+            "end": 111,
+            "text": "dung mau.m gì nhiều đi một bên thì vừa con một bên quai hoi rộng,.nói chung cũng tạm duoc",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002023",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 12,
+              "text": "mau nhu hinh",
+              "label": "COMP"
+            },
+            {
+              "start": 13,
+              "end": 20,
+              "text": "co dieu",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 20,
+            "text": "mau nhu hinh.co dieu",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 22,
+              "end": 43,
+              "text": "chất  lieu vai qua te",
+              "label": "COMP"
+            },
+            {
+              "start": 44,
+              "end": 57,
+              "text": "that vong qua",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 22,
+            "end": 57,
+            "text": "chất  lieu vai qua te.that vong qua",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002076",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 18,
+              "text": "giao hàng đúng mẫu",
+              "label": "COMP"
+            },
+            {
+              "start": 19,
+              "end": 36,
+              "text": "chất vải cũng tốt",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 36,
+            "text": "giao hàng đúng mẫu,chất vải cũng tốt",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002175",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11,
+              "text": "hàng quá tệ",
+              "label": "COMP"
+            },
+            {
+              "start": 14,
+              "end": 26,
+              "text": "đường may ẩu",
+              "label": "COMP"
+            },
+            {
+              "start": 27,
+              "end": 50,
+              "text": "dây kéo thì xéo một bên",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 50,
+            "text": "hàng quá tệ...đường may ẩu,dây kéo thì xéo một bên",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002333",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 9,
+              "text": "vải = giá",
+              "label": "COMP"
+            },
+            {
+              "start": 10,
+              "end": 22,
+              "text": "hơi kén dáng",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 22,
+            "text": "vải = giá,hơi kén dáng",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002347",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 26,
+              "end": 59,
+              "text": "không chịu đổi trả cho khách hàng",
+              "label": "COMP"
+            },
+            {
+              "start": 60,
+              "end": 116,
+              "text": "mọi người cân nhắc khi mua hàng của nhà bán hàng này nhé",
+              "label": "COMP"
+            },
+            {
+              "start": 118,
+              "end": 120,
+              "text": "((",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 26,
+            "end": 120,
+            "text": "không chịu đổi trả cho khách hàng,mọi người cân nhắc khi mua hàng của nhà bán hàng này nhé.:((",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002356",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 22,
+              "text": "áo màu trắng bị ố vàng",
+              "label": "COMP"
+            },
+            {
+              "start": 23,
+              "end": 28,
+              "text": "va dơ",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 28,
+            "text": "áo màu trắng bị ố vàng.va dơ",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002393",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 23,
+              "text": "cổ ao nhin dơ dơ sao ấy",
+              "label": "COMP"
+            },
+            {
+              "start": 24,
+              "end": 38,
+              "text": "hàng nhăn nheo",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 38,
+            "text": "cổ ao nhin dơ dơ sao ấy.hàng nhăn nheo",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002433",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 3,
+              "text": "xau",
+              "label": "COMP"
+            },
+            {
+              "start": 4,
+              "end": 30,
+              "text": "mang duoc vai lan choc keo",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 30,
+            "text": "xau.mang duoc vai lan choc keo",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002498",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 23,
+              "text": "giao không đúng với mẫu",
+              "label": "COMP"
+            },
+            {
+              "start": 24,
+              "end": 36,
+              "text": "k giống kiểu",
+              "label": "COMP"
+            },
+            {
+              "start": 37,
+              "end": 97,
+              "text": "đac tay ngắn lại giao tay dài không hài lòng về sản phẩm này",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 97,
+            "text": "giao không đúng với mẫu.k giống kiểu.đac tay ngắn lại giao tay dài không hài lòng về sản phẩm này",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002524",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 31,
+              "text": "đặt 2 bộ tay dài giao tay cụt k",
+              "label": "COMP"
+            },
+            {
+              "start": 32,
+              "end": 86,
+              "text": "làm ăn không kiểm tra hàng khi giao cho khách  gì  hết",
+              "label": "COMP"
+            },
+            {
+              "start": 87,
+              "end": 132,
+              "text": "ngta đặt hàng muốn giao sao giao rồi lấy tiền",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 132,
+            "text": "đặt 2 bộ tay dài giao tay cụt k,làm ăn không kiểm tra hàng khi giao cho khách  gì  hết.ngta đặt hàng muốn giao sao giao rồi lấy tiền",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002660",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 1,
+              "end": 14,
+              "text": "sản phẩm  đẹp",
+              "label": "COMP"
+            },
+            {
+              "start": 15,
+              "end": 32,
+              "text": "nhung 2ao  cỡ  xl",
+              "label": "COMP"
+            },
+            {
+              "start": 33,
+              "end": 44,
+              "text": "1ao  cỡ  Xl",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 1,
+            "end": 44,
+            "text": "sản phẩm  đẹp.nhung 2ao  cỡ  xl.1ao  cỡ  Xl",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 48,
+              "end": 61,
+              "text": "giao 2 cai xl",
+              "label": "COMP"
+            },
+            {
+              "start": 62,
+              "end": 78,
+              "text": "nen không ma vua",
+              "label": "COMP"
+            },
+            {
+              "start": 79,
+              "end": 97,
+              "text": "giao hang cham quá",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 48,
+            "end": 97,
+            "text": "giao 2 cai xl.nen không ma vua.giao hang cham quá",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002670",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 25,
+              "end": 72,
+              "text": "mua màu hồng giao màu đen nên mình phải trả lại",
+              "label": "COMP"
+            },
+            {
+              "start": 74,
+              "end": 81,
+              "text": "cho 4🇨🇳",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 25,
+            "end": 81,
+            "text": "mua màu hồng giao màu đen nên mình phải trả lại..cho 4🇨🇳",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002808",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 20,
+              "end": 48,
+              "text": "không giong nhu hinh da dang",
+              "label": "COMP"
+            },
+            {
+              "start": 49,
+              "end": 57,
+              "text": "xau  quá",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 20,
+            "end": 57,
+            "text": "không giong nhu hinh da dang.xau  quá",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 59,
+              "end": 87,
+              "text": "ti nua goi anh  quá  cho coi",
+              "label": "COMP"
+            },
+            {
+              "start": 88,
+              "end": 147,
+              "text": "dinh mua them vai cai dam nua kieu nay chac het dam mua rồi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 59,
+            "end": 147,
+            "text": "ti nua goi anh  quá  cho coi.dinh mua them vai cai dam nua kieu nay chac het dam mua rồi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003012",
+      "changed": true,
+      "spans_before": 11,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 18,
+              "text": "dao không dung mau",
+              "label": "COMP"
+            },
+            {
+              "start": 22,
+              "end": 35,
+              "text": "van  chất  ne",
+              "label": "COMP"
+            },
+            {
+              "start": 38,
+              "end": 52,
+              "text": "con vai kho ne",
+              "label": "COMP"
+            },
+            {
+              "start": 55,
+              "end": 83,
+              "text": "chi  được  mau deo tuoi thoi",
+              "label": "COMP"
+            },
+            {
+              "start": 86,
+              "end": 127,
+              "text": "2lan truoc cửa hàng dao fo  đẹp  được lam",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 127,
+            "text": "dao không dung mau....van  chất  ne...con vai kho ne...chi  được  mau deo tuoi thoi...2lan truoc cửa hàng dao fo  đẹp  được lam",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 131,
+              "end": 151,
+              "text": "con lan sai het chon",
+              "label": "COMP"
+            },
+            {
+              "start": 155,
+              "end": 204,
+              "text": "dinh ung ho cửa hàng day lau ma cửa hàng làm an z",
+              "label": "COMP"
+            },
+            {
+              "start": 207,
+              "end": 240,
+              "text": "suy lai co nen ung cửa hàng nua k",
+              "label": "COMP"
+            },
+            {
+              "start": 243,
+              "end": 248,
+              "text": "va te",
+              "label": "COMP"
+            },
+            {
+              "start": 252,
+              "end": 275,
+              "text": "dat mau nay dao mau kat",
+              "label": "COMP"
+            },
+            {
+              "start": 279,
+              "end": 306,
+              "text": "van thi nhu con mit mac vua",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 131,
+            "end": 306,
+            "text": "con lan sai het chon....dinh ung ho cửa hàng day lau ma cửa hàng làm an z...suy lai co nen ung cửa hàng nua k...va te....dat mau nay dao mau kat....van thi nhu con mit mac vua",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003209",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 7,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 82,
+              "end": 88,
+              "text": "lazada",
+              "label": "COMP"
+            },
+            {
+              "start": 91,
+              "end": 106,
+              "text": "cũng không duoc",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 82,
+            "end": 106,
+            "text": "lazada...cũng không duoc",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003258",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 4,
+              "end": 26,
+              "text": "không phải hàng eroSka",
+              "label": "COMP"
+            },
+            {
+              "start": 27,
+              "end": 36,
+              "text": "nhái thôi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 4,
+            "end": 36,
+            "text": "không phải hàng eroSka,nhái thôi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003330",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11,
+              "text": "vãi hơi thô",
+              "label": "COMP"
+            },
+            {
+              "start": 12,
+              "end": 16,
+              "text": "mỏng",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 16,
+            "text": "vãi hơi thô,mỏng",
+            "label": "COMP"
+          }
+        }
+      ]
+    }
+  ]
+}

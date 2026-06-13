@@ -1,0 +1,226 @@
+{
+  "batch_id": "full_annotation_batch_007",
+  "records": 200,
+  "records_with_overlap_before": 6,
+  "spans_before": 583,
+  "spans_after": 575,
+  "merged_overlap_groups": 7,
+  "changed_record_ids": [
+    "train_001820",
+    "train_001852",
+    "train_002398",
+    "train_002570",
+    "train_003244",
+    "train_003913"
+  ],
+  "details": [
+    {
+      "id": "train_001820",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 6,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 40,
+              "end": 47,
+              "text": "sáng 10",
+              "label": "COMP"
+            },
+            {
+              "start": 48,
+              "end": 61,
+              "text": "9 đã giao tới",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 40,
+            "end": 61,
+            "text": "sáng 10.9 đã giao tới",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001852",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 19,
+              "text": "đã nhận  được  hàng",
+              "label": "COMP"
+            },
+            {
+              "start": 20,
+              "end": 39,
+              "text": "chất lượng chưa thử",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 39,
+            "text": "đã nhận  được  hàng,chất lượng chưa thử",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002398",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 59,
+              "end": 97,
+              "text": "xài xong các vết thâm càng lúc càng đỏ",
+              "label": "COMP"
+            },
+            {
+              "start": 98,
+              "end": 122,
+              "text": "da thì bong tróc tùm lum",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 59,
+            "end": 122,
+            "text": "xài xong các vết thâm càng lúc càng đỏ,da thì bong tróc tùm lum",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 125,
+              "end": 150,
+              "text": "mặt thì ngứa ngáy khô rát",
+              "label": "COMP"
+            },
+            {
+              "start": 153,
+              "end": 183,
+              "text": "sài thấy không có ket  quả  gì",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 125,
+            "end": 183,
+            "text": "mặt thì ngứa ngáy khô rát...sài thấy không có ket  quả  gì",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002570",
+      "changed": true,
+      "spans_before": 18,
+      "spans_after": 17,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 236,
+              "end": 297,
+              "text": "dù không ăn vẫn bị trôi lòng môi loang lổ nhìn rất kinh khủng",
+              "label": "COMP"
+            },
+            {
+              "start": 298,
+              "end": 382,
+              "text": "(trong hình là mới đánh nửa tiếng không ăn uống gì đã bị trôi loang lổ lòng môi rồi)",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 236,
+            "end": 382,
+            "text": "dù không ăn vẫn bị trôi lòng môi loang lổ nhìn rất kinh khủng.(trong hình là mới đánh nửa tiếng không ăn uống gì đã bị trôi loang lổ lòng môi rồi)",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003244",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 37,
+              "text": "nói tặng bộ trang điểm sao không thấy",
+              "label": "COMP"
+            },
+            {
+              "start": 40,
+              "end": 54,
+              "text": "lừa gạt ha  gì",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 54,
+            "text": "nói tặng bộ trang điểm sao không thấy...lừa gạt ha  gì",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003913",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 37,
+              "end": 69,
+              "text": "mấy nốt tàn nhang chưa thấy giảm",
+              "label": "COMP"
+            },
+            {
+              "start": 70,
+              "end": 93,
+              "text": "da chỉ đều màu hơn thôi",
+              "label": "COMP"
+            },
+            {
+              "start": 94,
+              "end": 114,
+              "text": "mua lúc sale là 340k",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 37,
+            "end": 114,
+            "text": "mấy nốt tàn nhang chưa thấy giảm.da chỉ đều màu hơn thôi.mua lúc sale là 340k",
+            "label": "COMP"
+          }
+        }
+      ]
+    }
+  ]
+}

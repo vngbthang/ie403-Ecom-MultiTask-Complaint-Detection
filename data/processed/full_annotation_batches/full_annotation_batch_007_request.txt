@@ -1,0 +1,465 @@
+# AI-assisted Complaint Span Annotation Prompt
+
+## Mục tiêu annotation
+
+Gán nhãn các cụm từ thể hiện nội dung khiếu nại/phàn nàn trong review tiếng Việt từ UIT-ViOCD. Kết quả annotation sẽ được chuyển sang BIO labels để huấn luyện bài toán complaint span extraction với nhãn `O`, `B-COMP`, `I-COMP`.
+
+## Định nghĩa complaint span
+
+Complaint span là cụm từ ngắn nhất nhưng đủ nghĩa trong review thể hiện nội dung khiếu nại/phàn nàn của người dùng.
+
+Ví dụ: trong câu `áo đẹp nhưng giao hàng quá chậm`, complaint span là `giao hàng quá chậm`, không phải toàn bộ câu.
+
+## Nhãn cần gán
+
+Hiện tại chỉ có một nhãn span:
+
+- `COMP`: cụm từ thể hiện vấn đề, lỗi, sự không hài lòng, phàn nàn, yêu cầu khắc phục, hoặc trải nghiệm tiêu cực của người dùng.
+
+## Quy tắc chọn span
+
+1. Chỉ chọn cụm thể hiện vấn đề/khiếu nại.
+2. Không chọn toàn câu nếu có thể chọn cụm ngắn hơn.
+3. Không chọn phần khen, phần trung tính, hoặc thông tin nền không trực tiếp là khiếu nại.
+4. Không chọn emoji riêng lẻ làm complaint span.
+5. Nếu review có nhiều lỗi/khiếu nại, trả về nhiều span.
+6. Nếu complaint là gián tiếp hoặc nói bóng gió, chọn cụm thể hiện ý không hài lòng rõ nhất.
+7. Nếu không tìm được span rõ ràng, trả về `spans = []` và ghi lý do trong `reason`.
+8. Span phải là substring xuất hiện nguyên văn trong `text`.
+9. `start` và `end` là character offset theo Python slicing: `text[start:end] == span_text`.
+10. Giữ nguyên chính tả, teencode, viết tắt và dấu câu như trong text gốc.
+
+## Quy tắc rút gọn span
+
+1. Ưu tiên chọn cụm nguyên nhân/vấn đề chính, không chọn cả câu giải thích dài.
+2. Span lý tưởng thường từ 2 đến 8 token.
+3. Chỉ chọn span dài hơn 12 token nếu không thể rút ngắn mà vẫn đủ nghĩa.
+4. Bỏ các cụm mở đầu không cần thiết như `tôi thấy`, `mình thấy`, `em tải xong vào thì`, `tại sao các ông lại`, nếu phần còn lại vẫn thể hiện rõ complaint.
+5. Với lỗi lặp lại, chọn cụm lỗi trung tâm như `tải xong lỗi`, `lại lỗi tiếp`, thay vì chọn toàn bộ quá trình.
+6. Với câu hỏi phàn nàn, chọn phần vấn đề chính, ví dụ `không thấy thống kê dịch bệnh liên quan đến nước Anh`, không cần chọn `admin ơi. sao... vậy`.
+7. Với góp ý tính năng, chỉ gán `COMP` nếu có bất cập rõ; nếu chỉ là đề xuất trung tính thì trả về `spans = []`.
+
+## Ví dụ đúng/sai
+
+### Ví dụ 1
+
+Input:
+
+```json
+{"id":"ex_001","text":"áo đẹp nhưng giao hàng quá chậm","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"fashion","cls_label":1}}
+```
+
+Output đúng:
+
+```json
+{
+  "id": "ex_001",
+  "text": "áo đẹp nhưng giao hàng quá chậm",
+  "spans": [
+    {"start": 13, "end": 31, "text": "giao hàng quá chậm", "label": "COMP"}
+  ],
+  "reason": "Cụm này nêu trực tiếp vấn đề giao hàng chậm; phần 'áo đẹp' là khen nên không chọn."
+}
+```
+
+Sai:
+
+- Chọn `áo đẹp nhưng giao hàng quá chậm`: quá dài, chứa phần khen.
+- Chọn `chậm`: quá ngắn, thiếu ngữ cảnh vấn đề.
+
+### Ví dụ 2
+
+Input:
+
+```json
+{"id":"ex_002","text":"mua 2 chai mà giao thiếu 1 chai, nhắn tin không ai trả lời","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"cosmetic","cls_label":1}}
+```
+
+Output đúng:
+
+```json
+{
+  "id": "ex_002",
+  "text": "mua 2 chai mà giao thiếu 1 chai, nhắn tin không ai trả lời",
+  "spans": [
+    {"start": 15, "end": 31, "text": "giao thiếu 1 chai", "label": "COMP"},
+    {"start": 33, "end": 58, "text": "nhắn tin không ai trả lời", "label": "COMP"}
+  ],
+  "reason": "Review có hai khiếu nại riêng: giao thiếu hàng và không được phản hồi."
+}
+```
+
+Sai:
+
+- Chọn toàn câu: quá dài.
+- Chỉ chọn một span: bỏ sót khiếu nại còn lại.
+
+### Ví dụ 3
+
+Input:
+
+```json
+{"id":"ex_003","text":"sản phẩm cũng tạm, mua một lần cho biết","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"fashion","cls_label":1}}
+```
+
+Output đúng:
+
+```json
+{
+  "id": "ex_003",
+  "text": "sản phẩm cũng tạm, mua một lần cho biết",
+  "spans": [
+    {"start": 19, "end": 41, "text": "mua một lần cho biết", "label": "COMP"}
+  ],
+  "reason": "Cụm này thể hiện ý không hài lòng gián tiếp, hàm ý sẽ không mua lại."
+}
+```
+
+### Ví dụ 4
+
+Input:
+
+```json
+{"id":"ex_004","text":"mình chưa dùng nên chưa biết chất lượng thế nào","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"cosmetic","cls_label":1}}
+```
+
+Output đúng:
+
+```json
+{
+  "id": "ex_004",
+  "text": "mình chưa dùng nên chưa biết chất lượng thế nào",
+  "spans": [],
+  "reason": "Không có cụm khiếu nại rõ ràng; người dùng chỉ nói chưa sử dụng."
+}
+```
+
+### Ví dụ 5: Rút gọn lỗi lặp lại
+
+Input:
+
+```json
+{"id":"ex_005","text":"anh chị xem khắc phục lại lỗi hộ em với ạ, em tải xong vào thì bảo tải dữ liệu, vừa hiện tải xong lỗi, thử lại thì lại hiện tải xong lại lỗi tiếp","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"app","cls_label":1}}
+```
+
+Output tốt:
+
+```json
+{
+  "id": "ex_005",
+  "text": "anh chị xem khắc phục lại lỗi hộ em với ạ, em tải xong vào thì bảo tải dữ liệu, vừa hiện tải xong lỗi, thử lại thì lại hiện tải xong lại lỗi tiếp",
+  "spans": [
+    {"start": 92, "end": 104, "text": "tải xong lỗi", "label": "COMP"},
+    {"start": 139, "end": 151, "text": "lại lỗi tiếp", "label": "COMP"}
+  ],
+  "reason": "Review mô tả lỗi lặp lại; chọn các cụm lỗi trung tâm thay vì toàn bộ quá trình tải."
+}
+```
+
+Sai:
+
+- Chọn cả đoạn dài từ `em tải xong vào...` đến `lỗi tiếp`: quá dài, chứa nhiều bước giải thích không cần thiết.
+
+### Ví dụ 6: Rút gọn câu hỏi phàn nàn
+
+Input:
+
+```json
+{"id":"ex_006","text":"admin ơi. sao không thấy thống kê các thông số dịch bệnh liên quan đến nước anh vậy","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"app","cls_label":1}}
+```
+
+Output tốt:
+
+```json
+{
+  "id": "ex_006",
+  "text": "admin ơi. sao không thấy thống kê các thông số dịch bệnh liên quan đến nước anh vậy",
+  "spans": [
+    {"start": 15, "end": 79, "text": "không thấy thống kê các thông số dịch bệnh liên quan đến nước anh", "label": "COMP"}
+  ],
+  "reason": "Cụm này nêu vấn đề thiếu thống kê liên quan đến nước Anh; bỏ phần gọi admin và từ hỏi."
+}
+```
+
+Sai:
+
+- Chọn cả câu gồm `admin ơi. sao... vậy`: quá dài, chứa phần gọi admin và khung câu hỏi không cần thiết.
+
+## Output JSON schema bắt buộc
+
+Mỗi input record phải trả về đúng một JSON object:
+
+```json
+{
+  "id": "<id>",
+  "text": "<original text>",
+  "spans": [
+    {
+      "start": 0,
+      "end": 10,
+      "text": "<exact substring>",
+      "label": "COMP"
+    }
+  ],
+  "reason": "<short Vietnamese explanation>"
+}
+```
+
+Ràng buộc bắt buộc:
+
+- Không thêm markdown trong output cuối cùng nếu tool yêu cầu JSONL.
+- Mỗi dòng là một JSON object hợp lệ.
+- Không đổi `id`.
+- Không sửa `text`.
+- `span.text` phải khớp chính xác `text[start:end]`.
+- Chỉ dùng label `COMP`.
+
+## Prompt hoàn chỉnh để copy vào AI tool
+
+Bạn là annotator cho bài toán complaint span extraction trong review tiếng Việt.
+
+Nhiệm vụ: Với mỗi input JSON object, hãy tìm các complaint spans. Complaint span là cụm từ ngắn nhất nhưng đủ nghĩa trong review thể hiện nội dung khiếu nại/phàn nàn của người dùng.
+
+Chỉ dùng nhãn `COMP`.
+
+Quy tắc:
+
+1. Chỉ chọn cụm thể hiện vấn đề/khiếu nại.
+2. Không chọn toàn câu nếu có thể chọn cụm ngắn hơn.
+3. Không chọn phần khen, phần trung tính, hoặc thông tin nền không trực tiếp là khiếu nại.
+4. Không chọn emoji riêng lẻ làm complaint span.
+5. Nếu review có nhiều lỗi/khiếu nại, trả về nhiều span.
+6. Nếu complaint là gián tiếp hoặc nói bóng gió, chọn cụm thể hiện ý không hài lòng rõ nhất.
+7. Nếu không tìm được span rõ ràng, trả về `spans = []` và ghi lý do trong `reason`.
+8. Span phải là substring xuất hiện nguyên văn trong `text`.
+9. `start` và `end` là character offset theo Python slicing: `text[start:end] == span_text`.
+10. Giữ nguyên chính tả, teencode, viết tắt và dấu câu như trong text gốc.
+11. Ưu tiên chọn cụm nguyên nhân/vấn đề chính, không chọn cả câu giải thích dài.
+12. Span lý tưởng thường từ 2 đến 8 token.
+13. Chỉ chọn span dài hơn 12 token nếu không thể rút ngắn mà vẫn đủ nghĩa.
+14. Bỏ các cụm mở đầu không cần thiết như `tôi thấy`, `mình thấy`, `em tải xong vào thì`, `tại sao các ông lại`, nếu phần còn lại vẫn thể hiện rõ complaint.
+15. Với lỗi lặp lại, chọn cụm lỗi trung tâm như `tải xong lỗi`, `lại lỗi tiếp`, thay vì chọn toàn bộ quá trình.
+16. Với câu hỏi phàn nàn, chọn phần vấn đề chính, ví dụ `không thấy thống kê dịch bệnh liên quan đến nước Anh`, không cần chọn `admin ơi. sao... vậy`.
+17. Với góp ý tính năng, chỉ gán `COMP` nếu có bất cập rõ; nếu chỉ là đề xuất trung tính thì trả về `spans = []`.
+
+Output bắt buộc cho mỗi input:
+
+```json
+{
+  "id": "<id>",
+  "text": "<original text>",
+  "spans": [
+    {
+      "start": 0,
+      "end": 10,
+      "text": "<exact substring>",
+      "label": "COMP"
+    }
+  ],
+  "reason": "<giải thích ngắn bằng tiếng Việt>"
+}
+```
+
+Hãy trả về JSONL: mỗi dòng là một JSON object hợp lệ, không bọc trong markdown, không thêm giải thích ngoài trường `reason`.
+
+INPUT JSONL TO ANNOTATE:
+{"id": "train_001046", "text": "sản phẩm son tặng kèm không nhận được. trong khi canh một 2h sáng để mua", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001073", "text": "aPly xong khá rít. không ưng lắm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001094", "text": "giao hàng nhanh gói hàng chắc chắn chọn màu 128 giao 310 giờ mình mới khui xài nên mới bít  cửa hàng  làm ăn vậy không  được  😡😡", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001095", "text": "toàn cồn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001096", "text": "hàng dùng rất tốt nhưng chai sữa rửa mặt có vẻ bị mở trước đó rồi", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001099", "text": "hài lòng với sản phẩm nhưng hàng tặng không xài được , bù lại giao nhanh.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001115", "text": "quá tệ. sử dụng càng nhiều mụn hơn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001116", "text": "sản phẩm dùng ổn, nhưng mùi cồn nồng nặc.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001138", "text": "sản phẩm đúng như qc, chỉ có điều vỏ bao bì móp không", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001160", "text": "tôi không hiểu sao trên hình thì có đề tặng kèm như v.mà giao hàng kiểu này đây", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001187", "text": " cửa hàng  giao hàng gì  không  có hàng khuyến mãi, khi đăng bán thì có.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001197", "text": "kem nền xuống tông nhanh, giá cả hợp lý", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001204", "text": "không thấy hàng tặng hãng nhé", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001215", "text": "sản phẩm tốt nhưng đóng hàng không cẩn thận làm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001229", "text": "chắc tuỳ người hợp thôi. không nên dùng cho da hay bị mụn và nhạy cảm. mình dùng cảm giác mụn nhiều", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001240", "text": "theo đơn hàng mình  được  tặng kèm một lọ sữa sửa mặt cùng loại, nhưng khi nhận  được  không thấy có, đề nghị  cửa hàng  chuyển bù cho mình nhé", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001246", "text": "da mình trung quốc bình sáng-sáng nhưng chọn 120 hơi tối da. mặt nạ mạnh dạn chọn tông sáng chút nhé không được mịn cho lắm nhìn rõ hạt phấn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001281", "text": "lúc bôi lên mặt ( nhiều chút) thấy mùi sực lên rất nồng cảm giác như say rượu. nhưng được cái bay mùi nhanh, dùng rất thích. da mình dù nhạy cảm nhưng rất ưng em này. vừa mua thêm một tuýp. nhận hàng lần nào cũng cách nsx gần tròn một năm. điểm trừ duy nhất là: mùi lúc đầu bôi lên mặt bị nồng quá.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001298", "text": "bọt không nhiều như mình tưởng tượng... hơi thất vọng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001307", "text": "mãi không thấy quà tặng nhỉ? mua đúng khung giờ và giá trị đơn hàng đủ kia mà .", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001316", "text": "sản phẩm thơm lắm ý mà hình như giao thiếu mất chai tẩy trang rồi", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001344", "text": "đóng gói không kĩ như những đợt trước và lần nào đặt lúc đặt thì nói tặng kèm bông tán phấn lúc giao thì không có", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001351", "text": "mua combo 2 sản phẩm để nhận khuyến mãi theo ctr plại không thấy đâu, nhắn tin hỏi thì lại hết sản phẩm khuyến mãi. thiệt không hiểu nổi luôn á !!!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001379", "text": " cửa hàng  ơi em đã nhận được hàng mà sao không có son giờ làm sao", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001395", "text": "bộ  sản phẩm  này không phù hợp với làn da của mình. mình dùng dung dịch dưỡng da và kem trị mụn không thấy giảm thậm chí còn nổi mụn nhiều hơn, da đổ nhiều dầu hơn và xấu đi trông thấy. sửa rửa mặt thì mình chưa dùng vì mình đang dùng bọt rửa mặt. chỉ có quà tặng kèm là giấy thấm dầu dùng ok.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001504", "text": "hàng xài đã lắm ạ. nhưng không thấy sản phẩm tặng kèm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001512", "text": "không giống trong hình cho lắm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001551", "text": "made in china🙂 son mùi rất hoá học, vô cùng kinh khủng, thấy mấy bạn kia bình luận tốt nên mua, ai dè🙂", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001581", "text": "bôi 3 ngày bị ngứa cục sẩn kiểu mề đay rất khó chịu", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001592", "text": "có dùng cái này với sữa_dưỡng cùng dòng nhưng không thấy giảm thâm gì,còn nổi mụn chắc da không hợp", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001610", "text": "ôi xuống tông kinh khủng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001613", "text": "đóng gói đẹp cẩn thận nhưng thấy ghi tặng son nhưng khi mở ra chỉ thấy một chai foundation???", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001643", "text": "không thấm nhanh, hơi rít bí, mới được một tuần nên chưa đánh giá hiệu  quả  được.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001655", "text": "màu 128 trong hình thấy trắng nhưng ở ngoài rất tối, mùi lại hôi nữa.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001661", "text": "đã nhận được hàng, dù đã đặt hàng lúc 0h ngày 273 nhưng vẫn không có khuyến mãi", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001702", "text": "mua lúc khuyến mãi mà không gửi hàng khuyến mai. thất vọng. vào đơn hàng cũng để những sản phârm tặng kèm mà không gửi", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001715", "text": "giao hàng nhanh  sản phẩm  dùng một lần cũng khá hiệu  quả ,lúc mới gội xong có hơi rít tóc và hơi khô nhưng sau sẽ hết và mùi không thơm lắm nên dùng thêm loại dầu khác để tóc mượt và thơm hơn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001740", "text": "đặt mẫu mới mà gửi mẫu cũ. đặt 2  sản phẩm  cùng lúc mà cái gửi trước gửi sau. thành ra mất 2 lần phí.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001750", "text": "da dầu bị dị ứng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001767", "text": "khi đặt hàng có hình ảnh tặng chai tẩy trang. nhưng khi nhận hàng thì lại không có. dù cho hết hàng tặng cũng phải ghi trên thông tin nhận hàng là đẫ hết hằng tặng hay nhắn tin. chia tay lần sau.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001820", "text": "giao hàng cực nhanh, mình săn sale 9.9, sáng 10.9 đã giao tới. cũng như nhiều bạn đánh giá, của mình cũng bị trầy xước trên thân chai khá nhiều nên nhìn không  được  sáng mướt như mua ở  cửa hàng  ngoài. nv tư vấn rất nhiệt tình", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001840", "text": "không có hang tặng phẩm như  quả người cáo thì giải quyết cho mình thế nào ạ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001843", "text": "hơi thất vọng một chút vì mua trog đợt khuyến mãi mà không có kèm quà như  quả người cáo, tuy nhiên bù lại chất lượng sản phẩm tốt và giao đúg hạn nên cho 4sao", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001846", "text": "không có quà tặng như trên hình", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001852", "text": "đã nhận  được  hàng,chất lượng chưa thử, đóng hộp cẩn thận nhưng  không em được tặng kèm thỏi son mà cũng không thấy đâu", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001889", "text": "phần ngoài bị bẩn và ố", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001902", "text": "không co qua tang hang thi nhu kiểu co nguoi dung rui sao y", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001908", "text": "rõ ràng trên ảnh  cửa hàng  có tặng kèm một chai nước tẩy trang mini  cỡ  vậy mà khi nhận chỉ nhận  được  sữa rửa mặt nhưng đóng gói hàng đẹp, giao hàng nhanh chất lượng sản phẩm tốt.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001922", "text": "tone màu khá vừa ý. chất mỏng mịn nhưng che khuyết điểm không tốt như mong đợi. giao hàng nhanh, đóng gói chu đáo và chuyên nghiệp.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001932", "text": "son mềm mịn nhưng hay bị loang lỗ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001939", "text": "vận chuyển giao hàng 24h nhưng chậm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001943", "text": "mùi không thơm. kem bệt da. độ che phủ trung quốc bình. cũng mịn . màu 120 không sáng lắm đâu. kem này dùng nó cũng như loreal.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001945", "text": "sao trên sản phẩm ghi tăng kèm son mà không có vậy  cửa hàng ?", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001950", "text": "sản phẩm dùng thích nhưng mùi thì không được thơm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001952", "text": "hình tặng son mà giao không có son vậy bạn , làm ăn kì vậy", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_001983", "text": " sản phẩm  giao không đúng như  cửa hàng   quả người cáo", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002000", "text": "xin chào, tôi mới nhận hàng, mở hộp ra không thấy chai có tem dán nắp hộp và hộp cũng không có chặn miếng để đừng tràn kem ra vậy, không biết hàng chính hãng không ạ.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002012", "text": "thất vọng vì không hiểu sao  cửa hàng  lại gửi tuýp này về cho mình. không đúng hình và mẫu mã", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002032", "text": "đóng gói đẹp,  cửa hàng  tư vấn nhiệt tình. giao hàng nhanh,nhưng hàng new mình nghĩ đáng lẽ phải có miếng niêm phong đầu chai chứ nhỉ, để vậy ai cũng mở ra được hết, chỉ cần mở nắp thôi là sữa rửa mặt ra ngoài rồi", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002048", "text": "mùi cam chanh rất dễ chịu, tuy nhiên da mình dùng hơi bị châm chích, chắc tại da cũng nhạy cảm. tác dụng làm trắng chưa thấy đâu, mờ thâm cũng không thấy rõ mặc dù chỉ dùng buổi tối và chống nắng thường xuyên. nói chung không thần thánh lắm đâu. cho 4 sao vì thích mùi hương!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002049", "text": "lên mụn nhiều", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002052", "text": "mình không thấy quà kèm theo nhưng giá thành lại giảm chắc là trừ tiền nhưng thật long mình hóng khuyến mại hơn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002075", "text": "giao hàng thiếu em hộp phấn phủ mịn lì 220 nhé ,chổ làm  không kiểm tra về moi kiểm tra thiếu , cửa hàng  giao phan dùm ...", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002094", "text": "hàng đóng hơi cồng kềnh, giao hàng nhanh", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002100", "text": "không có đồ tặng, chưa dùng nên chưa nhận xét  được  chất lượng, nhưng không có đồ tặng kèm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002101", "text": "mua lần thứ 2 rồi, sữa rửa mặt xài ưng lắm. hôm trước thấy có người đánh giá là mua về được nửa tuýp mình cũng không tin cho lắm vì lần một mua đóng gói đẹp và xài ok, vậy mà lần 2 mua mới cách đây 4 ngày mà xài thấy gần hết luôn rồi. bán nửa tuýp là có thật 😣😣😣", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002120", "text": "chỉ giao chai kem nền ghi tặng son mà không có cây nào", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002127", "text": "không có son tặng kèm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002134", "text": "hộp bị rách rồi có băng dính đè lên như đã bị bóc trước đó, dưới đáy hộp thì nắp như đã mở từ trước, gẩy nhẹ là ra vì nắp không dính vào thân hộp như được dán keo khi sản xuất.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002142", "text": "đóng gói sơ sài", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002154", "text": "nhân viên giao hàng không gọi điện thông báo cho khách hàng.. giao hàng cho người khác nhưng chưa thông báo cho khách hàng biết thông tin.. và khách hàng chưa uỷ quyền nhận hàng cho người khác", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002158", "text": " cửa hàng  tư vấn màu không đúng. mình mua màu 220 mà tối hơn da mình", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002165", "text": "rửa mặt sạch không cay mắt nhưng hơi khô da", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002177", "text": "sử dụng 3 - 4 ngày xẫy ra hiện tượng chí da và vùng da đỏ nhưng có hiệu  quả  với các nốt mụn nhỏ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002214", "text": "không có lọ nước tẩy trang tặng kèm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002230", "text": "lọ dầu gội đến tay tôi thì còn một nửa, tem bị bóc hết. lần sau chắc không mua của  cửa hàng  nữa", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002242", "text": "quá chán. chả có tác dụng gì cả", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002251", "text": "thiếu quà tặng trong khi mình lúc đặt hàng thấy có quà tặng. mong có lời giải thích thoả đáng ạ.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002265", "text": "tại sao khi đặt hàng aP thông báo đã có phần quà kèm theo mà khi nhận lại không hề có?", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002293", "text": "dầu gội trị gàu rất tốt. nhưng đóng gói không đẹp. khi nhận hàng hộp bị không", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002308", "text": "chỉ nên chấm nên vùng thâm mụn và nám thôi, dùng cả mặt là lên mụn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002325", "text": "canh sale mua cuối cùng giao có một cái tức muốn té xỉu", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002390", "text": "trừ   1star   vì nhầm màu sãn phẩm được không hợp với da khô", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002398", "text": "càng xài càng mụn , các vết thâm lúc trước đã mờ đi vậy mà xài xong các vết thâm càng lúc càng đỏ,da thì bong tróc tùm lum , mặt thì ngứa ngáy khô rát...sài thấy không có ket  quả  gì", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002399", "text": "son trung quốc quốc không hài lòng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002400", "text": "không thấy mùi thơm nhẹ như nhận xét, mình toàn ngửi thấy mùi cồn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002401", "text": "sao nhận tiền mà giao hàng không có sản phẩm vậy", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002422", "text": "không có quà tặng kèm. hết quà tặng khuyến mãi thì đừng đăng bài tặng chứ nhỉ?", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002428", "text": "màu đẹp nhưng phải dưỡng môi trước kỹ để môi mượt, nếu không sẽ bị bờ và bết. nhanh trôi. không bị quá khô môi nhưng cũng không ẩm.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002430", "text": "nói được tặng mặt nạ nhưng không hề đây là lừa dối khách hàng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002453", "text": "lời khuyên nhẹ cho các chị em. mình bỏ 169k để mua 2 cây son môi của mỹ thì không bao giờ có chữ made in. china ngoài mặt hàng điện tử các chị em nhé. tôi không biết vì sao hàng trung quốc quốc lại  được  bán ở trên lazada ????, tại sao người việt nam lại hại người việt nam??? hết tin nỗi.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002454", "text": "mịn môi lắm, nhẹ như không đánh son, tuy nhiên mình không ăn chỉ uống nước lọc cũng trôi hết trong lòng môi", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002477", "text": "coment liệu  cửa hàng  có giải quyết vấn đề ?khách đã nhắn tin phản hồi nhưng đọc tin xong im luôn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002491", "text": "ship nhanh . dùng cũng được cũng không khác màu trắng là mấy . mình mùa đông trung quốc thành với màu trắng. nhưng hè thì màu trắng cảm giáC nó không sạch nên chuyển sang xanh .mong mấy hôm nữa nóng hơn dùng tốt hơn màu trắng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002510", "text": "chừng nào có hàng ạ .lâu  quá rồi admin ..rất mong có hàng đặng mình mua sử dụng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002523", "text": " sản phẩm  khá tốt, nhưng khâu giao hàng mình phải nhận hàng lúc 7h tối và trời khá lạnh mà mình phải chờ và đi đến điểm hẹn, trong khi nv giao hàng không hề di chuyển mặc dù trong quá trình liên lạc có kêu là chị đó đang đi rồi  positive ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002540", "text": "mua nhiều lần ưng nhưng lần này hộp móp không và anh shipe vui tánh :3 cảm ơn  cửa hàng  bán hàng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002544", "text": "vỏ son hơi khác hình, đóng gói xấu. lên màu khá chuẩn. nói chung ổn, nên mua", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002557", "text": "sao trong hình vỏ hộp có số một ở phần đầu khác với hàng nhận vỏ hộp không có số1 .nhờ lada giải thích hàng nhận được có phải sản phẩm loại một không?", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002559", "text": " không  không het mụn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002565", "text": "giao hàng nhanh, đóng hàng quá tệ, vỏ bên ngoài của sản phẩm gần như bị nát gần hết, bên trong lọ đã bật nắp, chảy ra một ít sản phẩm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002570", "text": "đặt nguyên bộ, phấn nền tiệp da, nhưng da dầu phải phủ thêm phấn bột chứ dùng một mình vẫn không kiềm dầu mấy. son thì đặt màu đỏ thuần đánh lên lại ra màu ruby hồng nhiều hơn đỏ, và như có lớp su rít rất khó chịu, để cả buổi vẫn dính, dù không ăn vẫn bị trôi lòng môi loang lổ nhìn rất kinh khủng.(trong hình là mới đánh nửa tiếng không ăn uống gì đã bị trôi loang lổ lòng môi rồi). kinh nghiệm của mình đánh lần 2 là đánh một lớp son khác (mình dùng peripera peri's ink velvet, lúc mix tiệp màu, lúc mix màu khác, ra màu son rất lạ) đánh một lớp nhẹ, sau đó chờ 5s cho khô rồi mới đánh son maybeLine superstay maTe ink này lên thì son ít dính, nhanh khô hơn. & mình ăn uống cả ngày dầu mỡ thì son vẫn trôi rất ít, chỉ cần chấm 2,3 chấm ở lòng môi rồi bặm lại là có ngay lớp son tươi mới cả ngày. (đánh kiểu này mình thấy son đúng lì trâu bò, thách thức các nàng ăn uống nhé, mình đi nhậu về tối tẩy trang phù mỏ luôn í)", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002580", "text": "mới sử dụng 2 lần nên chưa thấy vấn đề. nhưng  sản phẩm  không có tem niêm phong. mở nắp là sữa rửa mặt chảy ra luôn nên trừ   1star  ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002625", "text": "đóng gói hàng không cẩn thận, chỉ là một chiếc túi nên cả hộp ngoài lẫn sản phẩm đều bị không mó. sản phẩm không có tem dán cứ như được bóc ra rồi . thất vọng về lần giao hàng này của lazada.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002641", "text": "hàng rất tệ... son không thơm .. đã vậy còn nhiều vết xước", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002646", "text": "không có quà km tặng kèm như đơn đã đặt, mất tới 8 ngày từ lúc đặt đến lúc nhận hàng. không hài lòng về lần mua sắm này 👎", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002650", "text": "da em thuộc da dầu, nhưng xài cái này thấy hơi khô da ạ, nhưng đưọc một lúc thì da tự tiết dầu ra, và da mềm trở lại.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002653", "text": " sản phẩm  không đi kèm mẫu thử vậy  cửa hàng ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002683", "text": "mua này lần t2 rồi nhưng lần này  sản phẩm  như xài rồi hay sao á thấy sẹp với rỗng hơn rất với lần đầu nhưng cũng được", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002714", "text": "cần check kĩ mã sản phẩm trước khi giao, lần giao hàng này sai màu.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002719", "text": "mình đã nhận hàng đủ ,phấn mùi rất dễ chịu,da mình không trắng cũng không đen nên màu 120 đúng như màu da, chỉ có điều mình không hiểu : vì thấy được tặng kèm miếng mút trang điểm như ảnh nhưng không thấy có,mình không hiểu điều kiện được nhận quà tặng của hãng là như nào luôn????", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002725", "text": "màu son rất đẹp, cực kì ưng ý, mua với giá khuyến mãi nữa nên rất rất rất là thích luôn. màu không kén da, mặc dù da mình ngâm nhưng đánh lên vẫn rất hợp. điểm trừ duy nhất là son hơi mau trôi, tuy nhiên với tầm giá này với chất son và màu son như vậy thì quá tuyệt rồi, không thể đòi hỏi thêm nữa. lần này lazada giao hàng cực nhanh.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002731", "text": "son dùng được ok, không hài lòng chút vì sản xuất từ 2018", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002733", "text": "da thiếu ẩm sẽ dễ bị khô nhé, lưu ý điểm này thôi chứ  sản phẩm  rất tốt", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002739", "text": "màu chili nude son nhẹ nhưng khá nhanh trôi", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002762", "text": " cửa hàng  làm việc thiếu chuyên nghiệp", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002767", "text": "sản phẩm tạm, sử dụng gần hết chai kem vẫn chưa thấy giảm mụn.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002779", "text": "trên hình sản phẩm có tặng bông tẩy trang mà sao mình không có  cửa hàng ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002782", "text": "vận chuyển hơi lâu tận 4 ngày mới nhận được, đóng gói chắc chắn, chưa dùng thử nên chưa biết chất lượng, check mã được và  hạn sử dụng  khá xa tới 2022", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002799", "text": "sản phẩm chính hãng, đóng gói chắc chắn, giao hàng nhanh. lúc mới bôi hơi có mùi cồn, một lúc sau thì hết mùi.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002803", "text": "không biết mấy bạn sao chứ mình xài không hiệu  quả  gì hết", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002805", "text": "đặt hàng melano, tem hộp ghi nhãn_hiệu vậy mà hàng trong hộp lại là kem dưỡng da", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002810", "text": " quả người cáo tặng quà vào khung giờ 0h đến 2h cho đơn hàng từ 149k. mình canh đặt mua lúc 0h mà không nhận được quà tặng gì. thật thất vọng và mất lòng tin về  quả người cáo của hãng.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002842", "text": "hàng được gói rất được mỗi tội mãi mới giao đợi hơi lâu nên buồn :((", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002848", "text": "mua 73k ai dè ra tiệm mỹ phẩm mua chỉ 60k thui. nhưng chất lượng  sản phẩm  thì tốt", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002855", "text": "giao hàng không đúng mẫu", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002862", "text": "xài được hơn 2 tuần nhưng vẫn không thấy kết  quả  gì.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002864", "text": "mình đặt hàng vào hôm có quà tặng mà gửi hàng chỉ có mỗi lọ nền", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002868", "text": "mình nhận hàng nhưng không có quà buồn. phấn ok!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002894", "text": "sản phẩm tốt rất hài lòng giao hàng nhanh nhưng có đều là kem nền có mùi hôi rất khó chịu", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002908", "text": "giao hàng rất nhanh, nhân viên giao rất thân thiện, dùng lần đầu có vẻ hơi căng da mặt", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002919", "text": "mình dùng thấy không còn bị ngứa hay gàu mặc dù mình dùng vào mùa đông. bình thường gội clear mà vẫn không hết  được  gàu. giá hơi cao, giá mà giảm nữa thì tốt. rất với dầu gội thông thương thì khá mắc.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002944", "text": "nếu là hàng thật chất lượng mực in dưới đáy lọ khi dùng móng tay cào ra thì không bị tróc nhưng sản phẩm của tôi thì hầu như tróc rất nhiều", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002987", "text": "sao tớ mua đúng số lượng sản phẩm và đúng khung giờ, khi đăng kí đơn hàng đã báo   chúc mừng bạn đã được nhận quà tặng  mà lại không gửi kèm quà, chỉ có mỗi 2 sản phẩm mua! đểu thật!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002993", "text": "màu rất thích .mới đánh thì đậm để lâu là lợt như đánh son dưỡng. và mau phai", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_002996", "text": "bé này mình dùng gần một tháng rồi mới nêu fEdback. dùng bé rất được cho việc trị mụn nhưng mình thấy hình như dầu vẫn chưa bớt tiết ra, buồn dễ sợ :(", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003002", "text": "tôi trước chả có mụn mấy da đẹp lắm chỉ có mụn đầu đen từ lúc dùng cái này mụn càng ngày càng nhiều đầu đen cũng không hết", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003004", "text": "đóng gói khá ok. sản phẩm dùng thấy thích. sữa rửa mặt thì tạo bọt nhiều lắm, nên khá tiết kiệm, nên kết hợp với miếng rửa mặt chất hại giá khoảng 5_10k,rửa rất sạch. sữa_dưỡng thì dùng thấy da được thoáng và ẩm. kem trị mụn thì khá ok. tuy nhiên mùi các  sản phẩm  trên không  được  thơm, nhưng cũng không quá khó chịu. phim thấm dầu thì mình chưa dùng.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003013", "text": " cửa hàng  giao hàng nhanh,đóng gói chắc chắn nhưng mỗi tội anh shiPer không nhiệt tình và khó tính", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003058", "text": "kem chống nắng dùng ok, nhưng mà không biết quà tặng giới hạn bao nhiêu mà mình lại không nhận được. giao hàng cũng khá lâu rất với các sản phẩm maL khác.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003090", "text": "mua cùng với người khác vì thấy có kèm chai nhỏ nên mới chia tiền. mở ra thật bất ngờ khi  positive )))))))) không tặng kèm làm như thế có mất uy tín không chứ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003101", "text": "dùng  được  mấy ngày xong mặt nổi mụn nhiều hơn, không bớt gì cả. tin tưởng vậy mà... tệ! tệ! tệ! tệ!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003114", "text": "lên nhiều mụn lắm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003142", "text": "mình dùng ngay hôm đầu đã dị ứng lên mụn mủ và nhiều mụn ẩn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003143", "text": "lọ kem trầy xước rất nhiều, trông như đã để lâu vậy, hơi thất vọng khi nhận đồ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003151", "text": "kêu mua một tặng một mà có thấy gì đâu", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003153", "text": "son mềm, lên màu chuẩn. tuy nhiên lần này mình mua bị gãy son. mong  cửa hàng  lần sau cẩn thận hơn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003154", "text": "sản phẩm min mượt trên môi. nhưng dễ phai màu", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003163", "text": "giao hàng thiếu 3 sản phẩm tặng kèm. sau khi liên lạc với  cửa hàng  thì  được  hỗ trợ bằng một phiếu giảm giá 345k và mình phải đặt lại một đơn hàng mới bao gồm 3 sản phẩm thiếu, tổng giá trị chỉ có 344k không đủ điều kiện dùng voucher. mình phải mua thêm một sản phẩm mới đủ  được  và còn chịu thêm một lần tiền ship. nhắn tin cho  cửa hàng  biết tình hình thì  cửa hàng  bảo mình đợi. đợi hết một ngày, trong khi đó sản phẩm sắp bán hết. mình đành phải bỏ thêm gần 80k để nhận  được  phần quà tặng mà mình đáng lẽ có frE", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003186", "text": "mẫu mới dễ dùng,nhưng cảm giác chất nền loãng hơn loại cũ.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003188", "text": "combo bao gồm kem chống nắng và túi nhưng không thấy giao túi.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003199", "text": "không biết do da mặt mình nhạy cảm hay sao đó mà bị dị ứng nổi mụn còn nhiều hơn. hơi buồn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003223", "text": " cửa hàng  đưa  sản phẩm  có ngày sản xuất 12019 ( nay tháng 92020) rồi, cảm thấy không hài lòng chút nào .", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003228", "text": "sản phẩm cực tốt. chăm sóc khách hàng cực tệ!!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003240", "text": "cái này chỉ dành cho những người da không mụn nha hoặc da mụn ít quá 2 tuần sử dụng một ngày 3 lần rửa mặt thì thật bất ý deL có cái gì hết mặt vẫn đầy mụn thui", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003244", "text": "nói tặng bộ trang điểm sao không thấy...lừa gạt ha  gì ...đề nghị lazada xem lại tư cách bán hàng của  cửa hàng  này...thật thất vọng...", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003260", "text": "không thấy quà khuyến mãi", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003272", "text": "đề nghị  cửa hàng  hết khuyến mại thi gỡ hộ cáiquang cao xuống.  quả người cáo cho đã rồi mua xong nhận hàng thiếu. hỏi thi kêu hết khuyen mại .quá thể là không châp nhận  được ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003278", "text": "sản phẩm trị gàu tốt, nhưng đắt hơn bên ngoài hiệu thuốc", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003284", "text": "thấy  cửa hàng  ghi đính kèm quà tặng mà mở gói ra không thấy quà tặng đâu ạ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003317", "text": "mùi son hơi khó chịu", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003319", "text": "hàng giao bị vỡ nắp", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003337", "text": "bôi lên cảm giác rích, bết dính, khó chịu. da nhờn càng nhờn hơn. mụn nổi nhiều hơn . thật khủng khiếp. bỏ luôn. xem như đi đường đánh rơi mất tiền . cứ nghĩ thương hiệu nổi tiếng là an tâm. không ngờ dỡ tệ.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003360", "text": "trong ảnh là 4  sản phẩm  chính tặng một  sản phẩm  phụ là 5. nhưng chỉ nhận  được  4  sản phẩm  🤔", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003389", "text": "vừa mở nắp đã thấy mùi cồn nhiều rồi, dùng thử tạm ổn, chưa thấy kích ứng da", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003396", "text": "nhìn màu trên hình thì đẹp mà giao về thì không giống màu  gì  cả hơi thất vọng một chút", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003420", "text": "giao sai màu", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003434", "text": "giao hàng nhanh sản phẩm mùi cồn hơi khó chịu tác dụng che khuyết điểm tạm ổn nhưng đối với mình thì không hài lòng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003448", "text": "sản phẩm chỉ có phân nửa như hàng xài rồi không có tẹo bọt nào làm ăn kic cục", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003473", "text": "giao hàng hơi lâu dùng  được  không kích ứng da", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003513", "text": "không có xốp bong bóng khí bảo vệ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003536", "text": "không giống hình. mùi khó chịu", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003559", "text": "ủa mới mở ra mà đã mất cái tem bạc. những lần trước mình mua sữa rửa mặt này đều có tem bạc. chỉ có shiPer còn được", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003561", "text": "hàng giao kèm thiếu đề nghị giao lại nếu không thể tặng kèm thì khi bán làm ơn đừng khi có phần quà tặng kèm thất vọng vô cùng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003564", "text": "tại sao có hình ảnh kèm sữa rửa mặt và nước tẩy trang 0đ nhưng nhận hàng chỉ có sữa rửa mặt vậy? mình mua 2 tuýp mà không nhận  được  lọ tẩy trang 70ml nào", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003570", "text": "sao không co quà tang kem vậy  cửa hàng ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003600", "text": "giao hàng rất tệ, chọn giao hàng hoả tốc nhận trong ngày, cam kết nhận trong ngày 2411, mãi đến 2611 mới nhận  được  hàng, bên lazada còn báo tình trạng vận chuyển là khách báo delay nhận hàng trong khi đó mình chẳng nhận được cuộc gọi nào từ shiPer.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003606", "text": "lần đầu tiên mua hàng không được đồng kiểm, thấy lo! may mắn là hàng đúng, đủ, được đóng gói cẩn thận không bị vấn đề gì. tuy nhiên son không giống màu cam đất mà là màu đỏ bầm đánh lên trông già đi gần chục tuổi, mình không thích chút nào.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003618", "text": "hiệu  quả  không cao mụn vẫn sưng viêm như vậy", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003621", "text": "chất kem mỏng nhẹ, hơi xuống tông sau vài tiếng, tuy nhiên với nhu cầu dùng của mình thì hợp lý, da đều màu hơn mà không bị bí", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003627", "text": "sài  gì  nỗi mụn thêm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003629", "text": "đề là tặng quà cho đơn 199k nhưng mua hết 300k mà không thấy quà tặng đâu cả  nagative . thấy có quà tặng kèm nên mình mới mua", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003678", "text": "sao theo hình là  được  nhận thêm sản phẩm frE 0đ, mà lúc nhận lại không có? cảm ơn.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003704", "text": "kem nó hơi hôi mùi khó chịu", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003705", "text": "hàng không check được mã vạch nên không biết  sản phẩm  có nguồn gốc từ đâu. chính hãng hay không chỉ có người bán mới biết. người tiêu dùng chịu. hết.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003710", "text": "son màu đẹp nhưng không lì lắm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003714", "text": "mua vào ngày sale có quà tặng ,mà khi nhận lại không có gì ?", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003735", "text": "mình dùng chai thứ 2 rồi, mặt sạch, ẩm, mịn sáng da. mình dùng kết hợp cả bộ: kem rửa mặt + tinh chất dưỡng trắng + sửa dưỡng trắng + kem dưỡng trắng màu xanh. lúc mới dùng thì da hơi châm chích ngứa và nỗi mụn. mình chịu khó sử dụng đến ngày thứ 10 thì hết ngứa và châm chích. đến nay mình dùng đã gần 2 tháng da thấy trắng mịn, sờ da mặt thấy rất mượt. sẽ luôn ủng hộ hada labo.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003736", "text": "màu tối rất với da", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003750", "text": "bao bì chán ,  được  cái chất son ok, son nhiều, quẹt một lần là lên màu rồi, vẫn đủ ẩm, có bóng, mình tuy da ngăm đánh lòng môi hay nhạt đều hợp, đánh lòng môi & nhạt thì màu rất tươi tắn, trên môi mình là 7 phần đỏ, 2 phần cam, một phần hồng đánh đi học đi chơi ok, fuL môi thì phải makeup mắt chứ không nhìn hơi lạc lõng, đỏ tươi đậm chói loá luôn, hợp đi tiệc. màu tôn da và không làm xỉn răng, chất son không dày cũg không nhẹ, bình thường, mùi nhẹ không hắc, có điều dễ lem và trôi nhanh nên cũng đôi chút thất vọng. đề nghị maybeL việt nam nên chú trọng cải tiến bao bì, sản phẩm dù sao cũng 170 mấy! nói chung  sản phẩm am ok, đáng thử", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003752", "text": "mua một chai tặng một chai mà lại không tặng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003756", "text": "- packaging: vỏ nhựa nắp trắng, mình thấy nắp hơi lỏng lẻo kiểu dễ bị bật mở ra ấy. - texture dạng kem đặc, tạo bọt mịn nên khi dùng cảm giác da nhẹ nhàng thoải mái, mịn (chỉ một chút thôi nhé chứ không phải mịn màng đâu  positive ) đồng thời không quá khô căng da. - theo công dụng hãng ghi có làm trắng thì hầu như không có. chỉ đơn giản là làm sạch da - mùi hương... khó ngửi. => dùng thử và không mua lại", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003776", "text": " sản phẩm  sử dụng khá được nắp chai kem nền nhìn khá cũ kĩ nhưng vẫn còn tem nên chấp nhận  được  săn sale nên giá trời ơi và  được  tặng kèm quà", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003790", "text": "hết một tuýp có mờ thâm một xíu thôi nhưng có cảm giác bí rít nặng mặt trong suốt quá trình sử dụng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003800", "text": "mình vừa nhận hàng và không được nhận quà tặng như nội dung đã đề cập :(", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003834", "text": "sữa rửa mặt nên dùng sau khi tẩy trang nhé mọi người mình không tẩy trang nên rửa đã bị kích ứng sau khi mua thêm nói chung tẩy trang của hãng thì xài rất được da mình rất sạch", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003869", "text": "mình đã dùng gần 2 tuần mà không thấy gì khả quan cả, da mặt thì mịn nhưng mụn không lặn, mụn thâm còn nổi lên nhiều, da mặt bong tróc mấy ngày đầu còn ngứa nữa, rửa mặt xong thì da mặt sáng hẳn lên nhưng đâu lại vào đó", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003904", "text": "son tone nâu nhưng pha ánh đỏ nên tuỳ nền môi sẽ ra nâu nhiều hay đỏ nhiều nha. có điều son rất dễ gãy, trước khi mua mình cũng đã biết kết cấu son mềm nhưnh mua từ hôm 412 thì phải, đến nay 1412 đã bị gãy (nghĩa là chưa đầy 10 ngày). khá là tiếc", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003905", "text": "mình dùng  được  2 tuần thấy da có cải thiện hơn trước , hy vọng sau một tháng sẽ  được  kết  quả  như mong muốn, hàng chính hãng nên cũng yên tâm, mỗi tội giá hơi mắc", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}
+{"id": "train_003913", "text": "mình dùng cũng gần 2 tháng rồi nhưng mấy nốt tàn nhang chưa thấy giảm.da chỉ đều màu hơn thôi.mua lúc sale là 340k nhưng vẫn đắt hơn thị trường", "label": [], "meta": {"source": "UIT-ViOCD", "split": "train", "domain": "cosmetic", "cls_label": 1}}

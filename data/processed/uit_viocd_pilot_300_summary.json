@@ -1,0 +1,28 @@
+{
+  "dataset": "UIT-ViOCD",
+  "subset": "pilot_300_train_complaint_reviews",
+  "total_records": 300,
+  "source_pilot100_records": 100,
+  "source_batch200_records": 200,
+  "records_with_spans": 262,
+  "records_without_spans": 38,
+  "total_tokens": 10128,
+  "O_count": 6374,
+  "B-COMP_count": 444,
+  "I-COMP_count": 3310,
+  "COMP_token_count": 3754,
+  "COMP_token_ratio": 0.37065560821484994,
+  "domain_distribution": {
+    "app": 99,
+    "cosmetic": 62,
+    "fashion": 84,
+    "mobile": 55
+  },
+  "duplicate_ids_count": 0,
+  "validation_pass": true,
+  "notes": [
+    "Only UIT-ViOCD data is used.",
+    "Shopee/rating mapping is not used.",
+    "Pilot300 is built by merging pilot100 with fixed batch200 annotations."
+  ]
+}

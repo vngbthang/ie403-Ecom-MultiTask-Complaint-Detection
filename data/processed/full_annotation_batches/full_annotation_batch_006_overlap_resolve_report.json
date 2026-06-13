@@ -1,0 +1,625 @@
+{
+  "batch_id": "full_annotation_batch_006",
+  "records": 200,
+  "records_with_overlap_before": 17,
+  "spans_before": 815,
+  "spans_after": 789,
+  "merged_overlap_groups": 19,
+  "changed_record_ids": [
+    "train_003925",
+    "train_004023",
+    "train_004056",
+    "train_004066",
+    "train_004132",
+    "train_004182",
+    "train_004190",
+    "train_004265",
+    "train_004279",
+    "train_004287",
+    "train_004289",
+    "train_004303",
+    "train_004330",
+    "train_000147",
+    "train_000164",
+    "train_000294",
+    "train_000465"
+  ],
+  "details": [
+    {
+      "id": "train_003925",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 89,
+              "text": "vng phá sản rồi á sao bảo trì toàn sinh viên sao không nói trước cho anh em biết trời vậy",
+              "label": "COMP"
+            },
+            {
+              "start": 90,
+              "end": 227,
+              "text": "làm ăn  gì  kì vậy game thì toàn là văng miết 15p văng 4 lần bảo người ta chơi làm sao tiền thì nạp nhiều đổi lại game thì ngày càng chán",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 227,
+            "text": "vng phá sản rồi á sao bảo trì toàn sinh viên sao không nói trước cho anh em biết trời vậy.làm ăn  gì  kì vậy game thì toàn là văng miết 15p văng 4 lần bảo người ta chơi làm sao tiền thì nạp nhiều đổi lại game thì ngày càng chán",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004023",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 89,
+              "end": 101,
+              "text": "game khác xa",
+              "label": "COMP"
+            },
+            {
+              "start": 102,
+              "end": 104,
+              "text": "((",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 89,
+            "end": 104,
+            "text": "game khác xa:((",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004056",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 18,
+              "end": 63,
+              "text": "mấy hôm nay tôi không thể sử dụng được twiTer",
+              "label": "COMP"
+            },
+            {
+              "start": 64,
+              "end": 85,
+              "text": "toàn là đã xảy ra lỗi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 18,
+            "end": 85,
+            "text": "mấy hôm nay tôi không thể sử dụng được twiTer,toàn là đã xảy ra lỗi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004066",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 8,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 1,
+              "text": "1",
+              "label": "COMP"
+            },
+            {
+              "start": 2,
+              "end": 32,
+              "text": "phần nhắc nhỉ từ để học khá là",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 32,
+            "text": "1.phần nhắc nhỉ từ để học khá là",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004132",
+      "changed": true,
+      "spans_before": 13,
+      "spans_after": 12,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 76,
+              "end": 117,
+              "text": "cho 3 sao là sống thiện lành lắm rồi đó -",
+              "label": "COMP"
+            },
+            {
+              "start": 118,
+              "end": 138,
+              "text": "- chơi game giải trí",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 76,
+            "end": 138,
+            "text": "cho 3 sao là sống thiện lành lắm rồi đó -.- chơi game giải trí",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004182",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 15,
+              "text": "trò này rất hay",
+              "label": "COMP"
+            },
+            {
+              "start": 16,
+              "end": 24,
+              "text": "nhạc hay",
+              "label": "COMP"
+            },
+            {
+              "start": 25,
+              "end": 46,
+              "text": "chơi không có bị chán",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 46,
+            "text": "trò này rất hay,nhạc hay,chơi không có bị chán",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 97,
+              "end": 210,
+              "text": "không chán như mấy trò khác mỗi cái cứ chơi xong trận nào thì 99% có  quả người cáo lại phải chờ nên hơi khó chịu",
+              "label": "COMP"
+            },
+            {
+              "start": 213,
+              "end": 286,
+              "text": "mong admin sớm khôi phục nên cho ba sao thôi nếu không đã cho năm sao rồi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 97,
+            "end": 286,
+            "text": "không chán như mấy trò khác mỗi cái cứ chơi xong trận nào thì 99% có  quả người cáo lại phải chờ nên hơi khó chịu...mong admin sớm khôi phục nên cho ba sao thôi nếu không đã cho năm sao rồi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004190",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 16,
+              "text": "vào game quá lâu",
+              "label": "COMP"
+            },
+            {
+              "start": 17,
+              "end": 148,
+              "text": "thiết lập thì lằng nhằng tốn nhiều thời gian lại chạy đi chạy lại việc kết nối máy chủ rồi lại triệu tập anh hùng tốt nhất xoá game",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 148,
+            "text": "vào game quá lâu,thiết lập thì lằng nhằng tốn nhiều thời gian lại chạy đi chạy lại việc kết nối máy chủ rồi lại triệu tập anh hùng tốt nhất xoá game",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004265",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 8,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 145,
+              "end": 233,
+              "text": "mua hàng đưa sản phẩm đểu giả vớ vẩn khác hay  cửa hàng E tự động huỷ đơn hàng của khách",
+              "label": "COMP"
+            },
+            {
+              "start": 235,
+              "end": 264,
+              "text": "rồi bắt khách mang đi gửi trả",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 145,
+            "end": 264,
+            "text": "mua hàng đưa sản phẩm đểu giả vớ vẩn khác hay  cửa hàng E tự động huỷ đơn hàng của khách..rồi bắt khách mang đi gửi trả",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004279",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 18,
+              "end": 41,
+              "text": "máy ba mẹ tôi android 5",
+              "label": "COMP"
+            },
+            {
+              "start": 42,
+              "end": 43,
+              "text": "1",
+              "label": "COMP"
+            },
+            {
+              "start": 44,
+              "end": 60,
+              "text": "1 không cài được",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 18,
+            "end": 60,
+            "text": "máy ba mẹ tôi android 5.1.1 không cài được",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004287",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 38,
+              "end": 133,
+              "text": "làm việc thiếu chuyên nghiệp hồi tháng một tôi có đặt một sản phẩm thang nhôm với giá giảm là 1",
+              "label": "COMP"
+            },
+            {
+              "start": 134,
+              "end": 137,
+              "text": "819",
+              "label": "COMP"
+            },
+            {
+              "start": 138,
+              "end": 141,
+              "text": "000",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 38,
+            "end": 141,
+            "text": "làm việc thiếu chuyên nghiệp hồi tháng một tôi có đặt một sản phẩm thang nhôm với giá giảm là 1.819.000",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004289",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 5,
+              "end": 26,
+              "text": "thi thì nhảy ra ngoài",
+              "label": "COMP"
+            },
+            {
+              "start": 27,
+              "end": 43,
+              "text": "cả tiếng đồng hồ",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 5,
+            "end": 43,
+            "text": "thi thì nhảy ra ngoài.cả tiếng đồng hồ",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004303",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 68,
+              "text": "lúc trước khi mở mạng lên là tôi có thể nhận được thông báo bên nick",
+              "label": "COMP"
+            },
+            {
+              "start": 69,
+              "end": 129,
+              "text": "nhận được thông báo của người đã bình luận bài viết của mình",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 129,
+            "text": "lúc trước khi mở mạng lên là tôi có thể nhận được thông báo bên nick,nhận được thông báo của người đã bình luận bài viết của mình",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 242,
+              "end": 276,
+              "text": "xin aD cải thiện đều này giúp mình",
+              "label": "COMP"
+            },
+            {
+              "start": 277,
+              "end": 287,
+              "text": "xin cảm ơn",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 242,
+            "end": 287,
+            "text": "xin aD cải thiện đều này giúp mình,xin cảm ơn",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004330",
+      "changed": true,
+      "spans_before": 12,
+      "spans_after": 11,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 25,
+              "text": "nhiều điểm không cân bằng",
+              "label": "COMP"
+            },
+            {
+              "start": 26,
+              "end": 69,
+              "text": "rosaline có khả năng gây sát thương quá lớn",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 69,
+            "text": "nhiều điểm không cân bằng.rosaline có khả năng gây sát thương quá lớn",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000147",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 98,
+              "end": 122,
+              "text": "tức uổng công săn sale 9",
+              "label": "COMP"
+            },
+            {
+              "start": 123,
+              "end": 124,
+              "text": "9",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 98,
+            "end": 124,
+            "text": "tức uổng công săn sale 9.9",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000164",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 6,
+              "text": "nắp cũ",
+              "label": "COMP"
+            },
+            {
+              "start": 7,
+              "end": 25,
+              "text": "ngày sản xuất 2019",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 25,
+            "text": "nắp cũ,ngày sản xuất 2019",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000294",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 76,
+              "end": 90,
+              "text": "không dúng vậy",
+              "label": "COMP"
+            },
+            {
+              "start": 91,
+              "end": 112,
+              "text": "chỉ tặng miếng đắp nạ",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 76,
+            "end": 112,
+            "text": "không dúng vậy.chỉ tặng miếng đắp nạ",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000465",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 21,
+              "text": "sản phẩm không có tem",
+              "label": "COMP"
+            },
+            {
+              "start": 22,
+              "end": 45,
+              "text": "bao bì không giống hình",
+              "label": "COMP"
+            },
+            {
+              "start": 46,
+              "end": 69,
+              "text": "nhìn sản phẩm không tem",
+              "label": "COMP"
+            },
+            {
+              "start": 70,
+              "end": 86,
+              "text": "mở ra mở vào vậy",
+              "label": "COMP"
+            },
+            {
+              "start": 87,
+              "end": 123,
+              "text": "mua dồi không biết dám bôi không đây",
+              "label": "COMP"
+            },
+            {
+              "start": 125,
+              "end": 140,
+              "text": "buồn lazada quá",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 140,
+            "text": "sản phẩm không có tem,bao bì không giống hình,nhìn sản phẩm không tem,mở ra mở vào vậy,mua dồi không biết dám bôi không đây..buồn lazada quá",
+            "label": "COMP"
+          }
+        }
+      ]
+    }
+  ]
+}

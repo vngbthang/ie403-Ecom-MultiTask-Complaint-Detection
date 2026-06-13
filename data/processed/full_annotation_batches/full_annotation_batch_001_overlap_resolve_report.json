@@ -1,0 +1,514 @@
+{
+  "batch_id": "full_annotation_batch_001",
+  "records": 200,
+  "records_with_overlap_before": 14,
+  "spans_before": 977,
+  "spans_after": 957,
+  "merged_overlap_groups": 16,
+  "changed_record_ids": [
+    "train_000057",
+    "train_000085",
+    "train_000238",
+    "train_000257",
+    "train_000265",
+    "train_000286",
+    "train_000344",
+    "train_000451",
+    "train_000507",
+    "train_000593",
+    "train_000655",
+    "train_000706",
+    "train_000707",
+    "train_000721"
+  ],
+  "details": [
+    {
+      "id": "train_000057",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 78,
+              "text": "thang suc vat nao quang cao vay keu no di chet di (ko tien không linh sao choi",
+              "label": "COMP"
+            },
+            {
+              "start": 82,
+              "end": 111,
+              "text": "choi cai lồn M thang suc vat)",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 111,
+            "text": "thang suc vat nao quang cao vay keu no di chet di (ko tien không linh sao choi....choi cai lồn M thang suc vat)",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000085",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11,
+              "text": "không hay >",
+              "label": "COMP"
+            },
+            {
+              "start": 12,
+              "end": 30,
+              "text": "( 😡👎 cho không sao",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 30,
+            "text": "không hay >:( 😡👎 cho không sao",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000238",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 84,
+              "text": "mua đồ trên lazada gần 3năm mới biết được là có rất nhiều  cửa hàng  bán mỹ phẫm giã",
+              "label": "COMP"
+            },
+            {
+              "start": 85,
+              "end": 111,
+              "text": "face trên lazada quá nhiều",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 111,
+            "text": "mua đồ trên lazada gần 3năm mới biết được là có rất nhiều  cửa hàng  bán mỹ phẫm giã,face trên lazada quá nhiều",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000257",
+      "changed": true,
+      "spans_before": 10,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 51,
+              "end": 86,
+              "text": "phân bố sự kiện chưa có thực sự tốt",
+              "label": "COMP"
+            },
+            {
+              "start": 88,
+              "end": 103,
+              "text": "pk lại càng nản",
+              "label": "COMP"
+            },
+            {
+              "start": 105,
+              "end": 142,
+              "text": "số tiền nạp vào qui đổi knb là quá ít",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 51,
+            "end": 142,
+            "text": "phân bố sự kiện chưa có thực sự tốt..pk lại càng nản..số tiền nạp vào qui đổi knb là quá ít",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 145,
+              "end": 185,
+              "text": "hệ thống hài nhi khi gã cưới quá tốn kém",
+              "label": "COMP"
+            },
+            {
+              "start": 187,
+              "end": 237,
+              "text": "chênh lệch quá lớn giữa lượng nạp và lượng qui đổi",
+              "label": "COMP"
+            },
+            {
+              "start": 239,
+              "end": 263,
+              "text": "các sự kiện và nv quá ít",
+              "label": "COMP"
+            },
+            {
+              "start": 265,
+              "end": 303,
+              "text": "chỉ đẹp mỗi các nhân vật nữ khi được t",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 145,
+            "end": 303,
+            "text": "hệ thống hài nhi khi gã cưới quá tốn kém..chênh lệch quá lớn giữa lượng nạp và lượng qui đổi..các sự kiện và nv quá ít..chỉ đẹp mỗi các nhân vật nữ khi được t",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000265",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 111,
+              "end": 119,
+              "text": "của game",
+              "label": "COMP"
+            },
+            {
+              "start": 120,
+              "end": 184,
+              "text": "từ bản quốc tế sang đến bản của vng sao độ giật lag tăng cao quá",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 111,
+            "end": 184,
+            "text": "của game,từ bản quốc tế sang đến bản của vng sao độ giật lag tăng cao quá",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000286",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11,
+              "text": "game quá tệ",
+              "label": "COMP"
+            },
+            {
+              "start": 12,
+              "end": 45,
+              "text": "ngốn dữ liệu bộ nhớ máy quá nhiều",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 45,
+            "text": "game quá tệ,ngốn dữ liệu bộ nhớ máy quá nhiều",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000344",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 72,
+              "text": "hình như cái games này chu loading với chu đang tải là cách chơi game ak",
+              "label": "COMP"
+            },
+            {
+              "start": 73,
+              "end": 83,
+              "text": "dm dag tai",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 83,
+            "text": "hình như cái games này chu loading với chu đang tải là cách chơi game ak.dm dag tai",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000451",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 40,
+              "end": 131,
+              "text": "mọi thứ đều tự động ức chế thèm đập luôn cái điện thoại khi mình không tự chủ được nhân vật",
+              "label": "COMP"
+            },
+            {
+              "start": 132,
+              "end": 156,
+              "text": "game dị nhất đã từng thử",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 40,
+            "end": 156,
+            "text": "mọi thứ đều tự động ức chế thèm đập luôn cái điện thoại khi mình không tự chủ được nhân vật.game dị nhất đã từng thử",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000507",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 153,
+              "end": 164,
+              "text": "nói tóm lại",
+              "label": "COMP"
+            },
+            {
+              "start": 167,
+              "end": 190,
+              "text": "thôi xoá luôn cho rảnh😄",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 153,
+            "end": 190,
+            "text": "nói tóm lại...thôi xoá luôn cho rảnh😄",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000593",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 72,
+              "end": 96,
+              "text": "không thẻ chia sẻ vị trí",
+              "label": "COMP"
+            },
+            {
+              "start": 97,
+              "end": 151,
+              "text": "vui lòng thử lại sau khi cài đặt dịch vụ của gOgle lay",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 72,
+            "end": 151,
+            "text": "không thẻ chia sẻ vị trí.vui lòng thử lại sau khi cài đặt dịch vụ của gOgle lay",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000655",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 6,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 244,
+              "end": 302,
+              "text": "hôm nào cũng phát nhạc đến khi mình tỉnh giấc thì mình tắt",
+              "label": "COMP"
+            },
+            {
+              "start": 303,
+              "end": 305,
+              "text": "th",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 244,
+            "end": 305,
+            "text": "hôm nào cũng phát nhạc đến khi mình tỉnh giấc thì mình tắt,th",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000706",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 7,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 19,
+              "end": 81,
+              "text": "tại sao ngày 3 tháng 7 năm 2019 hôm nay tôi không vô game được",
+              "label": "COMP"
+            },
+            {
+              "start": 82,
+              "end": 112,
+              "text": "mặc dù vẫn có wifi và rất mạnh",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 19,
+            "end": 112,
+            "text": "tại sao ngày 3 tháng 7 năm 2019 hôm nay tôi không vô game được,mặc dù vẫn có wifi và rất mạnh",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 285,
+              "end": 293,
+              "text": "không có",
+              "label": "COMP"
+            },
+            {
+              "start": 294,
+              "end": 313,
+              "text": "mau là có thể sửa l",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 285,
+            "end": 313,
+            "text": "không có,mau là có thể sửa l",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000707",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 172,
+              "end": 235,
+              "text": "phần từ vựng có rất nhiều từ không thể bấm vào nút nghe để nghe",
+              "label": "COMP"
+            },
+            {
+              "start": 239,
+              "end": 240,
+              "text": ")",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 172,
+            "end": 240,
+            "text": "phần từ vựng có rất nhiều từ không thể bấm vào nút nghe để nghe,...)",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000721",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 7,
+              "end": 33,
+              "text": "không cập nhật phiên bản 1",
+              "label": "COMP"
+            },
+            {
+              "start": 34,
+              "end": 36,
+              "text": "13",
+              "label": "COMP"
+            },
+            {
+              "start": 37,
+              "end": 53,
+              "text": "0 thì sẽ đẹp hơn",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 7,
+            "end": 53,
+            "text": "không cập nhật phiên bản 1.13.0 thì sẽ đẹp hơn",
+            "label": "COMP"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,611 @@
+{
+  "batch_id": "full_annotation_batch_011",
+  "records": 200,
+  "records_with_overlap_before": 15,
+  "spans_before": 947,
+  "spans_after": 923,
+  "merged_overlap_groups": 20,
+  "changed_record_ids": [
+    "val_000084",
+    "val_000145",
+    "val_000154",
+    "val_000156",
+    "val_000185",
+    "val_000226",
+    "val_000269",
+    "val_000292",
+    "val_000395",
+    "val_000413",
+    "val_000456",
+    "val_000529",
+    "val_000424",
+    "val_000530",
+    "val_000041"
+  ],
+  "details": [
+    {
+      "id": "val_000084",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 20,
+              "text": "aP hay và thú vị ghê",
+              "label": "COMP"
+            },
+            {
+              "start": 21,
+              "end": 44,
+              "text": "game giúp mình dễ thuộc",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 44,
+            "text": "aP hay và thú vị ghê,game giúp mình dễ thuộc",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000145",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 204,
+              "end": 233,
+              "text": "u vào đăng kí lại vẫn báo cáo",
+              "label": "COMP"
+            },
+            {
+              "start": 236,
+              "end": 247,
+              "text": "thật ức chế",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 204,
+            "end": 247,
+            "text": "u vào đăng kí lại vẫn báo cáo...thật ức chế",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000154",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 30,
+              "text": "xử lý cho khách hàng không tốt",
+              "label": "COMP"
+            },
+            {
+              "start": 31,
+              "end": 120,
+              "text": "đặt hàng thanh toán xong báo chưa có đổi món khác thừa tiền sẽ hoàn trả vào tài khoảng ví",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 120,
+            "text": "xử lý cho khách hàng không tốt,đặt hàng thanh toán xong báo chưa có đổi món khác thừa tiền sẽ hoàn trả vào tài khoảng ví",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 148,
+              "end": 201,
+              "text": "liên hệ nhắn tin lên hệ thống nowvn thì không trả lời",
+              "label": "COMP"
+            },
+            {
+              "start": 202,
+              "end": 238,
+              "text": "gọi điện đến văn phòng không bắt máy",
+              "label": "COMP"
+            },
+            {
+              "start": 241,
+              "end": 288,
+              "text": "không đáng bao nhiêu đừng để mang tiếng lừa đảo",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 148,
+            "end": 288,
+            "text": "liên hệ nhắn tin lên hệ thống nowvn thì không trả lời,gọi điện đến văn phòng không bắt máy...không đáng bao nhiêu đừng để mang tiếng lừa đảo",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000156",
+      "changed": true,
+      "spans_before": 11,
+      "spans_after": 9,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 42,
+              "end": 82,
+              "text": "gặp mấy ông cố lv 40 thì làm gì để thắng",
+              "label": "COMP"
+            },
+            {
+              "start": 85,
+              "end": 91,
+              "text": "dở hơi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 42,
+            "end": 91,
+            "text": "gặp mấy ông cố lv 40 thì làm gì để thắng...dở hơi",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 94,
+              "end": 105,
+              "text": "game rác vl",
+              "label": "COMP"
+            },
+            {
+              "start": 108,
+              "end": 119,
+              "text": "làm về game",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 94,
+            "end": 119,
+            "text": "game rác vl...làm về game",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000185",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 7,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 26,
+              "end": 77,
+              "text": "các bạn luôn kết nối rộng khắp mọi khu vực trong tp",
+              "label": "COMP"
+            },
+            {
+              "start": 78,
+              "end": 81,
+              "text": "hcm",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 26,
+            "end": 81,
+            "text": "các bạn luôn kết nối rộng khắp mọi khu vực trong tp.hcm",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000226",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 7,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 43,
+              "text": "tại sao khi tôi định đăng story và đăng ảnh",
+              "label": "COMP"
+            },
+            {
+              "start": 44,
+              "end": 72,
+              "text": "vào thư viện tìm ảnh để đăng",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 72,
+            "text": "tại sao khi tôi định đăng story và đăng ảnh,vào thư viện tìm ảnh để đăng",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000269",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 17,
+              "text": "game lag quá trời",
+              "label": "COMP"
+            },
+            {
+              "start": 18,
+              "end": 28,
+              "text": "bị lỗi nữa",
+              "label": "COMP"
+            },
+            {
+              "start": 29,
+              "end": 91,
+              "text": "chạy xe lỡ vướng vào bờ rào hay cầu thì không ra được thì thôi",
+              "label": "COMP"
+            },
+            {
+              "start": 92,
+              "end": 147,
+              "text": "đằng này đến khi chết cũng không thoát ra  được  là sau",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 147,
+            "text": "game lag quá trời!bị lỗi nữa!chạy xe lỡ vướng vào bờ rào hay cầu thì không ra được thì thôi!đằng này đến khi chết cũng không thoát ra  được  là sau",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 152,
+              "end": 183,
+              "text": "việc bắn súng thì lâu lâu đơ ra",
+              "label": "COMP"
+            },
+            {
+              "start": 186,
+              "end": 201,
+              "text": "không bắn  được",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 152,
+            "end": 201,
+            "text": "việc bắn súng thì lâu lâu đơ ra...không bắn  được",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000292",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 8,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 214,
+              "end": 228,
+              "text": "có phải thế ko",
+              "label": "COMP"
+            },
+            {
+              "start": 229,
+              "end": 249,
+              "text": "game nghe bảo oFline",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 214,
+            "end": 249,
+            "text": "có phải thế ko.game nghe bảo oFline",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000395",
+      "changed": true,
+      "spans_before": 11,
+      "spans_after": 7,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 56,
+              "end": 77,
+              "text": "lên level rất là chậm",
+              "label": "COMP"
+            },
+            {
+              "start": 78,
+              "end": 99,
+              "text": "(( mình nói trước nhá",
+              "label": "COMP"
+            },
+            {
+              "start": 100,
+              "end": 156,
+              "text": "game này không dành cho mấy đứa trẻ trâu không biết chơi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 56,
+            "end": 156,
+            "text": "lên level rất là chậm:(( mình nói trước nhá,game này không dành cho mấy đứa trẻ trâu không biết chơi",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 164,
+              "end": 185,
+              "text": "chửi bới cái game này",
+              "label": "COMP"
+            },
+            {
+              "start": 186,
+              "end": 278,
+              "text": "game này chỉ dành cho những bạn biết kiêng nhẫn chứ không dành cho thằng nào không biết chơi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 164,
+            "end": 278,
+            "text": "chửi bới cái game này,game này chỉ dành cho những bạn biết kiêng nhẫn chứ không dành cho thằng nào không biết chơi",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 285,
+              "end": 289,
+              "text": "chửi",
+              "label": "COMP"
+            },
+            {
+              "start": 290,
+              "end": 294,
+              "text": "chửi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 285,
+            "end": 294,
+            "text": "chửi,chửi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000413",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 8,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 1,
+              "text": "1",
+              "label": "COMP"
+            },
+            {
+              "start": 2,
+              "end": 32,
+              "text": "cốt truyện không có tiếng việt",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 32,
+            "text": "1.cốt truyện không có tiếng việt",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000456",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 113,
+              "end": 193,
+              "text": "làm ơn trước khi giao hàng cho khách làm ơn cho khách người ta kiểm hàng dùm cái",
+              "label": "COMP"
+            },
+            {
+              "start": 194,
+              "end": 224,
+              "text": "tui củng là một trong số đó nè",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 113,
+            "end": 224,
+            "text": "làm ơn trước khi giao hàng cho khách làm ơn cho khách người ta kiểm hàng dùm cái.tui củng là một trong số đó nè",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000529",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 8,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 127,
+              "end": 148,
+              "text": "phí vận chuyển thì 48",
+              "label": "COMP"
+            },
+            {
+              "start": 149,
+              "end": 152,
+              "text": "000",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 127,
+            "end": 152,
+            "text": "phí vận chuyển thì 48.000",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000424",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 1,
+              "end": 23,
+              "text": "sản phẩm  dùng rất tốt",
+              "label": "COMP"
+            },
+            {
+              "start": 24,
+              "end": 55,
+              "text": "shiper giao hàng không hài lòng",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 1,
+            "end": 55,
+            "text": "sản phẩm  dùng rất tốt.shiper giao hàng không hài lòng",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000530",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 69,
+              "text": "tặng thì tặng không tặng thì thôi chơi kiểu ma trận khách hàng bó tay",
+              "label": "COMP"
+            },
+            {
+              "start": 71,
+              "end": 105,
+              "text": "tóm lại lần đầu mua hàng thất vọng",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 105,
+            "text": "tặng thì tặng không tặng thì thôi chơi kiểu ma trận khách hàng bó tay..tóm lại lần đầu mua hàng thất vọng",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000041",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 54,
+              "end": 74,
+              "text": "dép này mình mang 36",
+              "label": "COMP"
+            },
+            {
+              "start": 75,
+              "end": 82,
+              "text": "dép đẹp",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 54,
+            "end": 82,
+            "text": "dép này mình mang 36,dép đẹp",
+            "label": "COMP"
+          }
+        }
+      ]
+    }
+  ]
+}

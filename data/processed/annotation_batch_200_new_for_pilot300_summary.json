@@ -1,0 +1,31 @@
+{
+  "candidates_path": "data\\processed\\uit_viocd_annotation_candidates_train.jsonl",
+  "existing_annotations_path": "data\\processed\\uit_viocd_pilot_100_annotations.jsonl",
+  "prompt_path": "docs\\ai_span_annotation_prompt.md",
+  "seed": 42,
+  "existing_pilot_count": 100,
+  "new_batch_count": 200,
+  "total_after_merge_expected": 300,
+  "duplicate_ids_count": 0,
+  "overlap_with_existing_count": 0,
+  "domain_distribution": {
+    "app": 50,
+    "cosmetic": 50,
+    "fashion": 50,
+    "mobile": 50
+  },
+  "first_10_selected_ids": [
+    "train_003601",
+    "train_000426",
+    "train_002332",
+    "train_000229",
+    "train_001369",
+    "train_001734",
+    "train_002823",
+    "train_003779",
+    "train_003010",
+    "train_002870"
+  ],
+  "output": "data\\processed\\annotation_batch_200_new_for_pilot300.jsonl",
+  "request_output": "data\\processed\\annotation_batch_200_new_for_pilot300_request.txt"
+}

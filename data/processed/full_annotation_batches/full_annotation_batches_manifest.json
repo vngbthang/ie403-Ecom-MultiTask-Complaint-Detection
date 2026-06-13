@@ -1,0 +1,293 @@
+{
+  "candidate_files": [
+    "data\\processed\\uit_viocd_annotation_candidates_train.jsonl",
+    "data\\processed\\uit_viocd_annotation_candidates_val.jsonl",
+    "data\\processed\\uit_viocd_annotation_candidates_test.jsonl"
+  ],
+  "existing_annotation_files": [
+    "data\\processed\\uit_viocd_pilot_100_annotations.jsonl",
+    "data\\processed\\annotation_batch_200_new_for_pilot300_ai_repaired_fixed.jsonl"
+  ],
+  "prompt_file": "docs\\ai_span_annotation_prompt.md",
+  "output_dir": "data\\processed\\full_annotation_batches",
+  "seed": 42,
+  "total_candidates": 2854,
+  "existing_annotated_count": 300,
+  "remaining_count": 2554,
+  "batch_size": 200,
+  "num_batches": 13,
+  "duplicate_ids_count": 0,
+  "remaining_split_distribution": {
+    "test": 279,
+    "train": 1992,
+    "val": 283
+  },
+  "remaining_domain_distribution": {
+    "app": 1411,
+    "cosmetic": 413,
+    "fashion": 648,
+    "mobile": 82
+  },
+  "batches": [
+    {
+      "batch_id": "full_annotation_batch_001",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_001.jsonl",
+      "request_txt": "data\\processed\\full_annotation_batches\\full_annotation_batch_001_request.txt",
+      "record_count": 200,
+      "split_distribution": {
+        "train": 200
+      },
+      "domain_distribution": {
+        "app": 200
+      },
+      "first_5_ids": [
+        "train_000002",
+        "train_000004",
+        "train_000011",
+        "train_000014",
+        "train_000021"
+      ]
+    },
+    {
+      "batch_id": "full_annotation_batch_002",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_002.jsonl",
+      "request_txt": "data\\processed\\full_annotation_batches\\full_annotation_batch_002_request.txt",
+      "record_count": 200,
+      "split_distribution": {
+        "train": 200
+      },
+      "domain_distribution": {
+        "app": 200
+      },
+      "first_5_ids": [
+        "train_000741",
+        "train_000744",
+        "train_000749",
+        "train_000750",
+        "train_000751"
+      ]
+    },
+    {
+      "batch_id": "full_annotation_batch_003",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_003.jsonl",
+      "request_txt": "data\\processed\\full_annotation_batches\\full_annotation_batch_003_request.txt",
+      "record_count": 200,
+      "split_distribution": {
+        "train": 200
+      },
+      "domain_distribution": {
+        "app": 200
+      },
+      "first_5_ids": [
+        "train_001586",
+        "train_001590",
+        "train_001594",
+        "train_001596",
+        "train_001598"
+      ]
+    },
+    {
+      "batch_id": "full_annotation_batch_004",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_004.jsonl",
+      "request_txt": "data\\processed\\full_annotation_batches\\full_annotation_batch_004_request.txt",
+      "record_count": 200,
+      "split_distribution": {
+        "train": 200
+      },
+      "domain_distribution": {
+        "app": 200
+      },
+      "first_5_ids": [
+        "train_002361",
+        "train_002368",
+        "train_002378",
+        "train_002380",
+        "train_002382"
+      ]
+    },
+    {
+      "batch_id": "full_annotation_batch_005",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_005.jsonl",
+      "request_txt": "data\\processed\\full_annotation_batches\\full_annotation_batch_005_request.txt",
+      "record_count": 200,
+      "split_distribution": {
+        "train": 200
+      },
+      "domain_distribution": {
+        "app": 200
+      },
+      "first_5_ids": [
+        "train_003165",
+        "train_003175",
+        "train_003176",
+        "train_003180",
+        "train_003182"
+      ]
+    },
+    {
+      "batch_id": "full_annotation_batch_006",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_006.jsonl",
+      "request_txt": "data\\processed\\full_annotation_batches\\full_annotation_batch_006_request.txt",
+      "record_count": 200,
+      "split_distribution": {
+        "train": 200
+      },
+      "domain_distribution": {
+        "app": 107,
+        "cosmetic": 93
+      },
+      "first_5_ids": [
+        "train_003885",
+        "train_003890",
+        "train_003891",
+        "train_003910",
+        "train_003917"
+      ]
+    },
+    {
+      "batch_id": "full_annotation_batch_007",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_007.jsonl",
+      "request_txt": "data\\processed\\full_annotation_batches\\full_annotation_batch_007_request.txt",
+      "record_count": 200,
+      "split_distribution": {
+        "train": 200
+      },
+      "domain_distribution": {
+        "cosmetic": 200
+      },
+      "first_5_ids": [
+        "train_001046",
+        "train_001073",
+        "train_001094",
+        "train_001095",
+        "train_001096"
+      ]
+    },
+    {
+      "batch_id": "full_annotation_batch_008",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_008.jsonl",
+      "request_txt": "data\\processed\\full_annotation_batches\\full_annotation_batch_008_request.txt",
+      "record_count": 200,
+      "split_distribution": {
+        "train": 200
+      },
+      "domain_distribution": {
+        "cosmetic": 27,
+        "fashion": 173
+      },
+      "first_5_ids": [
+        "train_003994",
+        "train_003999",
+        "train_004010",
+        "train_004019",
+        "train_004025"
+      ]
+    },
+    {
+      "batch_id": "full_annotation_batch_009",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_009.jsonl",
+      "request_txt": "data\\processed\\full_annotation_batches\\full_annotation_batch_009_request.txt",
+      "record_count": 200,
+      "split_distribution": {
+        "train": 200
+      },
+      "domain_distribution": {
+        "fashion": 200
+      },
+      "first_5_ids": [
+        "train_001568",
+        "train_001582",
+        "train_001583",
+        "train_001587",
+        "train_001593"
+      ]
+    },
+    {
+      "batch_id": "full_annotation_batch_010",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_010.jsonl",
+      "request_txt": "data\\processed\\full_annotation_batches\\full_annotation_batch_010_request.txt",
+      "record_count": 200,
+      "split_distribution": {
+        "train": 192,
+        "val": 8
+      },
+      "domain_distribution": {
+        "app": 8,
+        "fashion": 136,
+        "mobile": 56
+      },
+      "first_5_ids": [
+        "train_003335",
+        "train_003339",
+        "train_003348",
+        "train_003376",
+        "train_003377"
+      ]
+    },
+    {
+      "batch_id": "full_annotation_batch_011",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_011.jsonl",
+      "request_txt": "data\\processed\\full_annotation_batches\\full_annotation_batch_011_request.txt",
+      "record_count": 200,
+      "split_distribution": {
+        "val": 200
+      },
+      "domain_distribution": {
+        "app": 154,
+        "cosmetic": 39,
+        "fashion": 7
+      },
+      "first_5_ids": [
+        "val_000042",
+        "val_000043",
+        "val_000045",
+        "val_000051",
+        "val_000053"
+      ]
+    },
+    {
+      "batch_id": "full_annotation_batch_012",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_012.jsonl",
+      "request_txt": "data\\processed\\full_annotation_batches\\full_annotation_batch_012_request.txt",
+      "record_count": 200,
+      "split_distribution": {
+        "test": 125,
+        "val": 75
+      },
+      "domain_distribution": {
+        "app": 125,
+        "fashion": 62,
+        "mobile": 13
+      },
+      "first_5_ids": [
+        "val_000046",
+        "val_000047",
+        "val_000052",
+        "val_000058",
+        "val_000063"
+      ]
+    },
+    {
+      "batch_id": "full_annotation_batch_013",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_013.jsonl",
+      "request_txt": "data\\processed\\full_annotation_batches\\full_annotation_batch_013_request.txt",
+      "record_count": 154,
+      "split_distribution": {
+        "test": 154
+      },
+      "domain_distribution": {
+        "app": 17,
+        "cosmetic": 54,
+        "fashion": 70,
+        "mobile": 13
+      },
+      "first_5_ids": [
+        "test_000472",
+        "test_000481",
+        "test_000482",
+        "test_000483",
+        "test_000485"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "summary": {
+    "total_input_candidates": 154,
+    "total_annotation_records": 154,
+    "valid_records": 154,
+    "invalid_records": 0,
+    "missing_ids": 0,
+    "duplicate_ids": 0,
+    "allow_missing": false,
+    "error_counts": {}
+  },
+  "errors": []
+}

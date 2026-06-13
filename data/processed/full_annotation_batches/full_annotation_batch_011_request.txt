@@ -1,0 +1,465 @@
+# AI-assisted Complaint Span Annotation Prompt
+
+## Mục tiêu annotation
+
+Gán nhãn các cụm từ thể hiện nội dung khiếu nại/phàn nàn trong review tiếng Việt từ UIT-ViOCD. Kết quả annotation sẽ được chuyển sang BIO labels để huấn luyện bài toán complaint span extraction với nhãn `O`, `B-COMP`, `I-COMP`.
+
+## Định nghĩa complaint span
+
+Complaint span là cụm từ ngắn nhất nhưng đủ nghĩa trong review thể hiện nội dung khiếu nại/phàn nàn của người dùng.
+
+Ví dụ: trong câu `áo đẹp nhưng giao hàng quá chậm`, complaint span là `giao hàng quá chậm`, không phải toàn bộ câu.
+
+## Nhãn cần gán
+
+Hiện tại chỉ có một nhãn span:
+
+- `COMP`: cụm từ thể hiện vấn đề, lỗi, sự không hài lòng, phàn nàn, yêu cầu khắc phục, hoặc trải nghiệm tiêu cực của người dùng.
+
+## Quy tắc chọn span
+
+1. Chỉ chọn cụm thể hiện vấn đề/khiếu nại.
+2. Không chọn toàn câu nếu có thể chọn cụm ngắn hơn.
+3. Không chọn phần khen, phần trung tính, hoặc thông tin nền không trực tiếp là khiếu nại.
+4. Không chọn emoji riêng lẻ làm complaint span.
+5. Nếu review có nhiều lỗi/khiếu nại, trả về nhiều span.
+6. Nếu complaint là gián tiếp hoặc nói bóng gió, chọn cụm thể hiện ý không hài lòng rõ nhất.
+7. Nếu không tìm được span rõ ràng, trả về `spans = []` và ghi lý do trong `reason`.
+8. Span phải là substring xuất hiện nguyên văn trong `text`.
+9. `start` và `end` là character offset theo Python slicing: `text[start:end] == span_text`.
+10. Giữ nguyên chính tả, teencode, viết tắt và dấu câu như trong text gốc.
+
+## Quy tắc rút gọn span
+
+1. Ưu tiên chọn cụm nguyên nhân/vấn đề chính, không chọn cả câu giải thích dài.
+2. Span lý tưởng thường từ 2 đến 8 token.
+3. Chỉ chọn span dài hơn 12 token nếu không thể rút ngắn mà vẫn đủ nghĩa.
+4. Bỏ các cụm mở đầu không cần thiết như `tôi thấy`, `mình thấy`, `em tải xong vào thì`, `tại sao các ông lại`, nếu phần còn lại vẫn thể hiện rõ complaint.
+5. Với lỗi lặp lại, chọn cụm lỗi trung tâm như `tải xong lỗi`, `lại lỗi tiếp`, thay vì chọn toàn bộ quá trình.
+6. Với câu hỏi phàn nàn, chọn phần vấn đề chính, ví dụ `không thấy thống kê dịch bệnh liên quan đến nước Anh`, không cần chọn `admin ơi. sao... vậy`.
+7. Với góp ý tính năng, chỉ gán `COMP` nếu có bất cập rõ; nếu chỉ là đề xuất trung tính thì trả về `spans = []`.
+
+## Ví dụ đúng/sai
+
+### Ví dụ 1
+
+Input:
+
+```json
+{"id":"ex_001","text":"áo đẹp nhưng giao hàng quá chậm","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"fashion","cls_label":1}}
+```
+
+Output đúng:
+
+```json
+{
+  "id": "ex_001",
+  "text": "áo đẹp nhưng giao hàng quá chậm",
+  "spans": [
+    {"start": 13, "end": 31, "text": "giao hàng quá chậm", "label": "COMP"}
+  ],
+  "reason": "Cụm này nêu trực tiếp vấn đề giao hàng chậm; phần 'áo đẹp' là khen nên không chọn."
+}
+```
+
+Sai:
+
+- Chọn `áo đẹp nhưng giao hàng quá chậm`: quá dài, chứa phần khen.
+- Chọn `chậm`: quá ngắn, thiếu ngữ cảnh vấn đề.
+
+### Ví dụ 2
+
+Input:
+
+```json
+{"id":"ex_002","text":"mua 2 chai mà giao thiếu 1 chai, nhắn tin không ai trả lời","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"cosmetic","cls_label":1}}
+```
+
+Output đúng:
+
+```json
+{
+  "id": "ex_002",
+  "text": "mua 2 chai mà giao thiếu 1 chai, nhắn tin không ai trả lời",
+  "spans": [
+    {"start": 15, "end": 31, "text": "giao thiếu 1 chai", "label": "COMP"},
+    {"start": 33, "end": 58, "text": "nhắn tin không ai trả lời", "label": "COMP"}
+  ],
+  "reason": "Review có hai khiếu nại riêng: giao thiếu hàng và không được phản hồi."
+}
+```
+
+Sai:
+
+- Chọn toàn câu: quá dài.
+- Chỉ chọn một span: bỏ sót khiếu nại còn lại.
+
+### Ví dụ 3
+
+Input:
+
+```json
+{"id":"ex_003","text":"sản phẩm cũng tạm, mua một lần cho biết","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"fashion","cls_label":1}}
+```
+
+Output đúng:
+
+```json
+{
+  "id": "ex_003",
+  "text": "sản phẩm cũng tạm, mua một lần cho biết",
+  "spans": [
+    {"start": 19, "end": 41, "text": "mua một lần cho biết", "label": "COMP"}
+  ],
+  "reason": "Cụm này thể hiện ý không hài lòng gián tiếp, hàm ý sẽ không mua lại."
+}
+```
+
+### Ví dụ 4
+
+Input:
+
+```json
+{"id":"ex_004","text":"mình chưa dùng nên chưa biết chất lượng thế nào","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"cosmetic","cls_label":1}}
+```
+
+Output đúng:
+
+```json
+{
+  "id": "ex_004",
+  "text": "mình chưa dùng nên chưa biết chất lượng thế nào",
+  "spans": [],
+  "reason": "Không có cụm khiếu nại rõ ràng; người dùng chỉ nói chưa sử dụng."
+}
+```
+
+### Ví dụ 5: Rút gọn lỗi lặp lại
+
+Input:
+
+```json
+{"id":"ex_005","text":"anh chị xem khắc phục lại lỗi hộ em với ạ, em tải xong vào thì bảo tải dữ liệu, vừa hiện tải xong lỗi, thử lại thì lại hiện tải xong lại lỗi tiếp","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"app","cls_label":1}}
+```
+
+Output tốt:
+
+```json
+{
+  "id": "ex_005",
+  "text": "anh chị xem khắc phục lại lỗi hộ em với ạ, em tải xong vào thì bảo tải dữ liệu, vừa hiện tải xong lỗi, thử lại thì lại hiện tải xong lại lỗi tiếp",
+  "spans": [
+    {"start": 92, "end": 104, "text": "tải xong lỗi", "label": "COMP"},
+    {"start": 139, "end": 151, "text": "lại lỗi tiếp", "label": "COMP"}
+  ],
+  "reason": "Review mô tả lỗi lặp lại; chọn các cụm lỗi trung tâm thay vì toàn bộ quá trình tải."
+}
+```
+
+Sai:
+
+- Chọn cả đoạn dài từ `em tải xong vào...` đến `lỗi tiếp`: quá dài, chứa nhiều bước giải thích không cần thiết.
+
+### Ví dụ 6: Rút gọn câu hỏi phàn nàn
+
+Input:
+
+```json
+{"id":"ex_006","text":"admin ơi. sao không thấy thống kê các thông số dịch bệnh liên quan đến nước anh vậy","label":[],"meta":{"source":"UIT-ViOCD","split":"train","domain":"app","cls_label":1}}
+```
+
+Output tốt:
+
+```json
+{
+  "id": "ex_006",
+  "text": "admin ơi. sao không thấy thống kê các thông số dịch bệnh liên quan đến nước anh vậy",
+  "spans": [
+    {"start": 15, "end": 79, "text": "không thấy thống kê các thông số dịch bệnh liên quan đến nước anh", "label": "COMP"}
+  ],
+  "reason": "Cụm này nêu vấn đề thiếu thống kê liên quan đến nước Anh; bỏ phần gọi admin và từ hỏi."
+}
+```
+
+Sai:
+
+- Chọn cả câu gồm `admin ơi. sao... vậy`: quá dài, chứa phần gọi admin và khung câu hỏi không cần thiết.
+
+## Output JSON schema bắt buộc
+
+Mỗi input record phải trả về đúng một JSON object:
+
+```json
+{
+  "id": "<id>",
+  "text": "<original text>",
+  "spans": [
+    {
+      "start": 0,
+      "end": 10,
+      "text": "<exact substring>",
+      "label": "COMP"
+    }
+  ],
+  "reason": "<short Vietnamese explanation>"
+}
+```
+
+Ràng buộc bắt buộc:
+
+- Không thêm markdown trong output cuối cùng nếu tool yêu cầu JSONL.
+- Mỗi dòng là một JSON object hợp lệ.
+- Không đổi `id`.
+- Không sửa `text`.
+- `span.text` phải khớp chính xác `text[start:end]`.
+- Chỉ dùng label `COMP`.
+
+## Prompt hoàn chỉnh để copy vào AI tool
+
+Bạn là annotator cho bài toán complaint span extraction trong review tiếng Việt.
+
+Nhiệm vụ: Với mỗi input JSON object, hãy tìm các complaint spans. Complaint span là cụm từ ngắn nhất nhưng đủ nghĩa trong review thể hiện nội dung khiếu nại/phàn nàn của người dùng.
+
+Chỉ dùng nhãn `COMP`.
+
+Quy tắc:
+
+1. Chỉ chọn cụm thể hiện vấn đề/khiếu nại.
+2. Không chọn toàn câu nếu có thể chọn cụm ngắn hơn.
+3. Không chọn phần khen, phần trung tính, hoặc thông tin nền không trực tiếp là khiếu nại.
+4. Không chọn emoji riêng lẻ làm complaint span.
+5. Nếu review có nhiều lỗi/khiếu nại, trả về nhiều span.
+6. Nếu complaint là gián tiếp hoặc nói bóng gió, chọn cụm thể hiện ý không hài lòng rõ nhất.
+7. Nếu không tìm được span rõ ràng, trả về `spans = []` và ghi lý do trong `reason`.
+8. Span phải là substring xuất hiện nguyên văn trong `text`.
+9. `start` và `end` là character offset theo Python slicing: `text[start:end] == span_text`.
+10. Giữ nguyên chính tả, teencode, viết tắt và dấu câu như trong text gốc.
+11. Ưu tiên chọn cụm nguyên nhân/vấn đề chính, không chọn cả câu giải thích dài.
+12. Span lý tưởng thường từ 2 đến 8 token.
+13. Chỉ chọn span dài hơn 12 token nếu không thể rút ngắn mà vẫn đủ nghĩa.
+14. Bỏ các cụm mở đầu không cần thiết như `tôi thấy`, `mình thấy`, `em tải xong vào thì`, `tại sao các ông lại`, nếu phần còn lại vẫn thể hiện rõ complaint.
+15. Với lỗi lặp lại, chọn cụm lỗi trung tâm như `tải xong lỗi`, `lại lỗi tiếp`, thay vì chọn toàn bộ quá trình.
+16. Với câu hỏi phàn nàn, chọn phần vấn đề chính, ví dụ `không thấy thống kê dịch bệnh liên quan đến nước Anh`, không cần chọn `admin ơi. sao... vậy`.
+17. Với góp ý tính năng, chỉ gán `COMP` nếu có bất cập rõ; nếu chỉ là đề xuất trung tính thì trả về `spans = []`.
+
+Output bắt buộc cho mỗi input:
+
+```json
+{
+  "id": "<id>",
+  "text": "<original text>",
+  "spans": [
+    {
+      "start": 0,
+      "end": 10,
+      "text": "<exact substring>",
+      "label": "COMP"
+    }
+  ],
+  "reason": "<giải thích ngắn bằng tiếng Việt>"
+}
+```
+
+Hãy trả về JSONL: mỗi dòng là một JSON object hợp lệ, không bọc trong markdown, không thêm giải thích ngoài trường `reason`.
+
+INPUT JSONL TO ANNOTATE:
+{"id": "val_000042", "text": "pokestops ở những vùng ngoại ô còn ít quá! mình ở thành phố như cẩm phả còn chẳng có cái nào, đề nghị thêm những nơi như trường học, chợ làm pokestops!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000043", "text": "sau khi đã gửi lại cho twiTer rằng bây giờ tôi đã 13 tuổi thì cả tuần nay vẫn chưa mở khoá aC. tại sao thế? hiện tại chẳng khác gì một con nhà quê không biết một chút tin tức gì về thần tượng cả.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000045", "text": "ứng dụng đang ngày càng phát triển, nên thêm phần điền từ để kiểm tra ngữ pháp và trợ từ.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000051", "text": "đăng nhập được , lướt được nhưng không hiện hình ảnh và video , gif nhỉ? mặc dù đã thử tắt wifi và xoá đi tải lại nhưng vẫn không ổn. mong mau sửa chữa ạ :< trai nhà em sắp cán bộ đến nơi mà vẫn không thể tia được tin tức gì hết . please~~!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000053", "text": "admin ơi, em không thể sử dụng được nút tra cứu nhanh, tại sao vậy ạ??? nó vẫn hiển thị trên màn hình điện thoại nhưng bấm vào thì lại không hiện từ điển 😭😭😭 mỗi lần muốn tra từ lại phải vào lại từ đầu. bất tiện lắm ạ 😭😭😭", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000056", "text": "mình là thành viên hay mua gói tháng của grab. hôm nay tự nhiên đi chuyến xe xong bị khoá tài khoản. hộp thư đến lên trang thì bảo do tạo nhiều tài khoản trên một thiết bị. mấy hôm trước mình có tạo 3 tài khoản trên máy mình vậy cũng bị khoá thì tôi cũng chịu. 😊 chả có cái điều khoản nào vớ vẩn như vậy. mọi người định ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000060", "text": "làm ăn gì kì cục vậy? cứ 2 bên lưu số điện thoại của nhau là zalo tự động kết bạn qua lại. tôi đã đồng ý đâu. làm mất sự riêng tư của tôi. rất thất vọng. rất siêng năng làm ra những phiên bản mới. nhưng chẳng phiên bản nào ra hồn. không bị lỗi này thì mắc lỗi kia. làm ơn chế phiên bản thì để ý cảm n... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000062", "text": "sao tôi chơi nó cứ kêu là kết nối lại mạng với lại những skin mà tôi mua bằng đậu nó cũng mất hết ngay cả những món đồ ví dụ như cái giường chiếu bàn ghế nó cũng mất hết với đậu cũng mất hết nhận quà cũng không cho vườn cũng vậy. tôi nghĩ là tôi đã bị hack tài khoản mong một ngày nào đó tôi sẽ được chơi lại... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000065", "text": "rất mong được sự trợ giúp. tài khoản line của tôi liên kết với facebOk nhưng do tôi đã xoá ứng dụng mà quên chưa bật chuyển tài khoản. bây giờ tôi muốn đăng nhập vào tài khoản thì làm như thế nào đây? chả lẽ một ứng dụng lớn như thế này mà lại không hiểu được một cái lỗi nhỏ này sao? hơn nữa lại không có chỗ quên m... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000068", "text": "chẳng thể nói được ,  quả người cáo thì cũng phải đúng chỗ chứ , đang chơi game thì nhảy vào  quả người cáo , chơi game thì lúc có lúc mất . đừng đổ thừa tại mạng vì mình không phải chơi một máy đâu . muốn đăng mà cũng khó nữa , nếu không cho  5star  thì không đăng được . quá đắng luôn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000069", "text": "bạn có thể tiếp tục xem không nếu như cái màng hình chỉ toàn là một màu trắng? tôi không thể lướt được mặc dù wifi rất mạnh, tình trạng này bị lâu rồi mà vẫn chưa được khắc phục. tôi chẳng hiểu cách  quả nó lí của một trang mạng xã hội lớn như vầy mà lại có những sơ xuất lớn như vậy. tôi đã tải ứng dụn... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000076", "text": "cứ mỗi lần vào là bắt cập nhật dữ liệu để sử dụng oFline, nhưng được 2 đến 3 đợt là nó vẫn tiếp tục bắt cập nhật dữ liệu nhưng chạy rất lâu và thậm chí là không thể sử dụng oFline được nữa, tôi đã tìm rất nhiều cách nhưng không có, cứ mỗi lần như vậy tôi lại phải gỡ và tải lại, thế này là sao, rất... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000081", "text": "quá tệ. mình là khách hàng trung quốc thành của tiki từ 26032016, tin tưởng là thế nhưng đến bây giờ càng dùng càng thấy tệ. đơn hàng tết của mình dự kiến 18022019, đến ngày 13022019, tiki đơn phương huỷ đơn hàng, kéo dài ngày giao đến 27022019, đã vậy còn thiếu luôn sản phẩm của mình chứ. đây là... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000083", "text": "đừng thay đổi giao diện nữa. mẹ tôi khó xài quá. cả tôi cũng không thoải mái nữa. đổi gì đổi miết thế. cho 3 sao là quá tốt rồi đó. còn nhiều người nữa cũng cảm thấy khó chịu với việc zing cập nhật giao diện liên tục. giao diện càng ngày càng xấu, phải chi đẹp thì thôi đi. mong nhà phát triển xem xé... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000084", "text": "aP hay và thú vị ghê,game giúp mình dễ thuộc mà lại không chán. nhưng ghi âm giọng khi mình tập đọc thì nó lại đứng không load  được ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000089", "text": "tôi cứ tưởng những bài hát việt nam như của nO phước thịnh sẽ có ở bản vip mà lại không có, và tôi không cảm thấy được quá nhiều quyền lợi khi nâng cấp lên bản vip. ứng dụng nhạc việt hàng đầu việt nam mà những bài hát việt mới, cũ cũng không có. tôi cảm thấy thất vọng nếu zing không thay đổi chắc chắn... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000090", "text": "mặc dù mới ra cũng có nhiều chương trình kích cầu người dùng bằng cách giảm giá cước nhưng thái độ của tài xế vẫn quan trọng. là một người đi lại khá nhiều từ grap chuyển qua bE tôi thấy thái độ của tài xế không được tốt cho lắm. nhiều vị trí chưa có trên bản đồ nên khác hàng phải đặt mặc định theo định vị... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000097", "text": "ứng dụng học monkey  gì unior rất hay,hy vọng monkeys phát triển thêm tính năng thu âm giọng đọc của bé và đánh giá xem bé đã đọc đúng chưa,phát hiện ra nỗi sai và sửa nỗi sai cho bé thì phần mềm này càng tuyệt vời hơn nữa", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000099", "text": "game lậu, rất tệ, nạp mất tiền, có biL thanh toán mà bp chăm sóc khách hàng cũng không giải quyết, nói chuyện lật lọng, trả lời kiểu lảng tránh. gửi email cũng không được phản hồi, không có hotline hay địa chỉ văn phòng ở việt nam để khiếu nại khi mất tiền oan.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000103", "text": "nhìn chung game ok, hay tặng quà, cúng bái hàng ngày, vượt ải hay  được  nb. nhưng game nên xem lại cuộn cường hoá, quá chán. 11 cuộn thì  được  một cuộn. chán chẳng buồn nói, ít ra cũng nên 311 chứ. :(((((( thế này đua top với người ta thua hết. không chỉ mình em mà cả liên minh của em đều bị thế. nạp tiền hay kh... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000105", "text": "lúc trước mình xài oPo f5youth, mỗi khi gửi ảnh trên direct thì ảnh luôn luôn bị bể nét. giờ chuyển sang xài samsung a7 2018, gửi ảnh vẫn bị bể nét, post video trên tài khoản cá nhân cũng bị bể nốt, nhìn rất khó chịu. admin có thể nào khắc phục tình trạng này được không ạ?", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000106", "text": "admin làm ăn như C. nạp nhiều cho chúng mày mà chúng mày thích là khoá à. mất dạy", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000107", "text": "dịch không chuẩn lại còn hay bị lỗi. dịch tiếng việt sang nhật mà lại thành việt sang việt. quá tệ. không giống như giới thiệu. chậm.  quả người cáo nhiều. đôi lúc còn dịch sai", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000110", "text": "grab gần đây xảy ra nhiều vấn đề gây khó chịu cho người dùng. xử lí truyền thông kém, ví dụ như vấn đề tài xế tự nhập tiền phụ phí hay về các gói khuyến mãi, gói hội viên và thái độ của đối tác tài xế. mong rằng grab sẽ sớm khắc phục và giải quyết được tình trạng trên. có vẻ như đang là thương hiệu ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000124", "text": "cho mình đóng góp ý kiến này nhé mình rất thích game này nhưng khi mình đăng xuất hay chạy lại chương trình để chơi game được tốt hơn thì mình phải đăng nhập lại từ đầu trong khi đó thì mình cũng có đăng nhập bằng facebOk và zalo nếu cứ như vậy thì công sức bỏ ra chơi trước kia thì sao ? bây giờ phải chơi lại từ đ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000127", "text": "game  quả nó cáo vào chơi nạp lần đầu một usd thì  được  10 triệu knb. nhưng khi chơi thì không như  quả nó cáo, lừa đảo", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000133", "text": "game hay dễ cày tuy nhiên nên giảm thời gian hiệu ứng kỹ năng đi nó quá dài tận 4s trở lên khiến cho một số tướng có kỹ năng khống chế hay bất tử trở nên quá mạnh, khiến những tướng thủ hay tướng công không làm được gì. các màn boS ở các ải cực kì khó qua nó không tương thích với tướng mình có, cùn... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000139", "text": "thay đổi chóng mặt quá, chưa kịp quen đã thay đổi tiếp rồi, giờ còn mất luôn đóng góp của người dùng (android). từ điển thì chủ yếu cần đủ nghĩa, cần gì thay giao diện xoành xoạch suốt ngày", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000140", "text": "grab hãy xem lại nếu không sẽ mất hoàn toàn khách hàng. đã cho khách sử dụng mã khuyến mãi và grab pay thì tài xế phải chạy cho đàng hoàng. chứ không phải khách đặt cho đã. nhìn trong bản đồ là đang ở gần địa chỉ mình đặt nhưng lại viện lý do xa quá không chạy. hoặc là không gọi báo cho khách biết l... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000145", "text": "sao mình đăng nhập facebOk của mình qua cũng không  được  ..rồi mình lập tài khoản mới thì báo cáo bị sự cố nói thử lại mình cũng thử lại chục lần mà cứ báo cáo sự cố ...mình cũng kien nhẫn đợi đến hôm sau vào đăng kí lại vẫn báo cáo...thật ức chế ..mong cần có sự chấn chỉnh cho ứng dụng thêm hoàn hảo..cảm ơn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000146", "text": "không được đồng kiểm hàng nên dễ mua phải hàng không đúng  quả người cáo, dù rằng nếu kiểm hàng thì cũng có những người sẽ không nhận hàng và người bán phải chịu chi phí ship, cái gì cũng có 2 mặt, nhưng lazada không bảo vệ người tiêu dùng thì tôi đã chuyển sang mua hàng ở  cửa hàng E ( được kiểm hàng trước khi ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000147", "text": "tôi đã tải twiTer, đăng ký sau đó ứng dụng bắt xác nhận số điện thoại & gửi sms. nhưng tôi đã chờ 10' và không nhận được sms. tôi đã đăng xuất ở bước xác thực mã sms. đến khi tôi vào lại ứng dụng, đăng nhập thì báo email không khớp với hồ sơ. đăng ký thì báo email đã được sử dụng. thế là thế nào??? mong nh... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000152", "text": "hàng bán không chất lượng, không đúng như hình ảnh, không giới thiệu về sản phẩm chi tiết. khi kiểm tra hàng không vừa ý, không nhận lại còn doạ khách hàng là từ chối nhận hàng nhiều lần sẽ bị khoá ứng dụng. vậy tao xoá luôn, khỏi khoá", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000154", "text": "xử lý cho khách hàng không tốt,đặt hàng thanh toán xong báo chưa có đổi món khác thừa tiền sẽ hoàn trả vào tài khoảng ví nhưng chờ hoài không thấy. liên hệ nhắn tin lên hệ thống nowvn thì không trả lời,gọi điện đến văn phòng không bắt máy...không đáng bao nhiêu đừng để mang tiếng lừa đảo.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000156", "text": "ghép đội kiểu gì vậy... mới chơi lv 10 mà gặp mấy ông cố lv 40 thì làm gì để thắng...dở hơi.. game rác vl...làm về game mà làm kiểu này có ngày không có một mống nào chơi... bao nhiêu game rác đó chơi cũng được đấy nhưng vì một số lỗi quá gây ức chế người chơi nên xoá rồi kia kìa... mắt mũi không nh... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000157", "text": "tại sao tôi không mở được ứng dụng này??? sau khi ấn mở thậm chí xoá đi tải lại rồi vẫn ghi là rất tiếc, monkey  gì unior đã dừng lại. nó làm cho tôi rất tức giận😡😡😡😡", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000158", "text": "sao mình tải instagram về mà không vào được vậy ạ  positive )) do aP hay do máy vậy ạ chứ mình xoá đi tải lại mấy chục lần mà đâu có được ạ  positive ) bây giờ phải làm sao ạ  positive  mong mọi người cho em câu trả lời vào giúp em vào được instagram chứ em xoá đi tải lục chục lần rồi mà không hề vào được ạ :(((", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000159", "text": "game như cục cạc vào màm hình đen thuy huên các bạn đừng tải", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000160", "text": "admin nên tối ưu hoá hệ thống tin nhắn, để khi người khác oF mình có thể nhắn tin cho họ, bây giờ khi nhắn tin xong là mình oF, mà oF rồi thì liên quân tự xoá hết tin đi, nhỡ có nhiều tin nhắn quan trọng nữa, mong admin xem xét và sửa lỗi hệ thống tin nhắn, xin cám ơn và chúc một ngày tốt lành!!!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000173", "text": "sau khi cập nhật thì trai diện nghe nhạc khi vuốt qua phải không còn danh sách nhạc đang phát nên không thể thay đổi vị trí để khi kết thúc bài này và chuyển đến hát bài kế theo ý mình muốn, rất bất tiện, và thay vào đó là chỉ hiện cái thông tin bài hát và những thứ linh tinh không cần thiết. nên thay ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000176", "text": "nếu có phiên bản tiếng việt thì rất tốt", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000177", "text": "game lừa đảo người chơi ra even ảo dụ người chơi nạp tiền xong gần ăn được mốc thì không cho ăn even nữa và fix lại từ 20k xu lên 200k xu =)) đéo mẹ nhắn tin cho trang thì bảo thông cảm trang không giải quyết cũng không một lời giải thích hay bảo sẽ đền bù cho người chơi ra sao game như lờ vng toàn một bọn vừa h... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000178", "text": "ứng dụng nên thêm nhiều câu hỏi để người học có thể luyện tập. phần bài kiểm tra hiện nay mỗi khi làm  được  một câu, để quay lại câu trước thì rất khó, vuốt từng tý một. và khi làm sai thì không biết mình làm sai câu nào. phần ngữ pháp bên dưới mục chú thích vẫn có một số chỗ sai. từ vựng nên thêm một số câu... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000183", "text": "sao hôm qua thì dùng được lắm nhưng mình vừa cập nhật ứng dụng thì toàn bộ các bài học đều không vào được bắt buộc phải nạp tiền vào mới học được vậy ? để lại như cũ như hôm qua đi hay hơn nhiều. cập nhật xong thì tệ quá hôm qua tính cho  5star  nhưng giờ thì   1star   thôi. gỡ bỏ ứng dụng này cho rồi.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000185", "text": "tôi vẫn hay dùng grab, vì các bạn luôn kết nối rộng khắp mọi khu vực trong tp.hcm, nên rất thuận tiện để sử dụng dịch vụ mỗi khi cần. nhưng phần mềm của các bạn, thay đổi làm tôi không hài lòng. grab cần cải thiện lại phiên bản mới này, rất hay bị lỗi. mỗi lần sử dụng, là tôi lại phải huỷ đi và cài ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000188", "text": "rất tuyệt vời riêng phần thi nên chấm điểm có số hoặc chữ sẽ hây hơn chứ để ngôi sao không biết thực lực của mình đấy ạ arigato admin", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000191", "text": "lazada ngày càng tệ. mình là khách hàng trung quốc thành và đã từng cho họ  5star . mua hàng thì lẹ trả hàng thì khó. và nó bắt mình mình mang hàng ra tận điểm của nó để làm thủ tục trả hàng trong khi lỗi không phải do mình. lazada không cho kiểm tra hàng khác nào mở đường cho tụi gian thương treo đầu dê b... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000194", "text": "tôi nói cho bqt vng ( bubg) cứ nhúng tay vào nhiều tựa game rồi làm ăn như kiêu đem con bỏ chợ. có cập nhật thì sau 3-4 ngày. đằng này sau một tháng. đã về vng thì phải làm cho ngày càng đông đảo người chơi có phản hồi tích cực chứ. đằng này lại để người chơi phàn nàn quá nhiều về cách  quả nó lý của vng... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000195", "text": "game quá tệ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000198", "text": "bản cập nhật mới bị lỗi rất nhiều. thứ tự nhạc mặc định mình cài giờ bị thay đổi nên việc tìm bài hát mất thời gian hơn. hơn nữa, khi mình bật một bài nhạc trong danh sách thì ứng dụng chỉ phát một bài đấy xong sau đó sẽ phát nhạc online những bài mình chưa nghe bao giờ và chưa tải bao giờ. tin dùng zing... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000202", "text": "tài khoản game của tôi trước đăng nhập bằng ios giờ tôi đăng nhập lại android lại mất nhân vật bao nhiêu tiền của tôi và bao nhiêu công sức lại mất dễ như vậy .ad giải thích đi", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000203", "text": "thật sự vng khá tệ đối với mình, không biết các game kia như thế nào nhưng riêng pubg mobile mỗi lần đăng hạn sử dụng  thì chậm lâu làm người chơi phải đợi, sau mỗi lần đăng hạn sử dụng  lại giật lag kinh khủng. đồng thời game vẫn còn rất nhiều hack, sử dụng phần mềm thứ 3 để gian lận trò chơi", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000210", "text": "thật sự rất lười đánh giá nhưnG... những luợt chơi sự bất ngờ ngẫu nhiên logic trong các ván chơi rất tệ, ví dụ nó cho 30 luợt chơi khi kéo các biểu tuợng đi vào ngõ cụt không à. cho 60 lượt vẫn thế... chơi rất ức chế ... và có thể xoá game", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000212", "text": "tôi đã chơi game này lâu tôi đã từng đánh giá rất cao về game này nhưng sau khi cập nhật ub 15 tôi thường bị đứng hình nếu nhà sản xuất không khắc phục thì sẽ có rất nhiều người bỏ game mong nhà sản xuất khắc phục tôi chơi rất ức chế có khi tôi muốn xoá cả game rất mong nhà sản xuất để ý hộ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000214", "text": "gặp vấn đề trong việc bổ sung vị trí cho bài viết. ứng dụng chỉ cho chọn những vị trí gần đó, tại thời điểm đăng bài. nhiều khi sau một chuyến đi chơi, mọi người về nhà rồi mới đăng bài, nhưng bật vị trí lên thì ứng dụng chỉ cho chọn những vị trí gần đó chứ không cho chọn địa điểm mà bức ảnh hay vid... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000217", "text": "ứng dụng quá tệ. không vào được mặc dù wifi rất mạnh. mong đừng ai tải về chả  được  tích sự gì positive )))) cả tuần nay không vào  được . có vào  được  cũng vào  được  một hai lần. thật sự muốn xoá đi cho xong. hệ thống làm ăn kỉu vậy đó :v không hiệu  quả . tôi khuyên nên bỏ facebook lite đi. bực mình thật sự 🙂", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000219", "text": "ứng dụng rất hay! tuy nhiên chưa có tính năng đồng bộ lịch sử và kết  quả  học tập theo tài khoản giữa các thiết bị là điều đáng tiếc. cứ ôn tập ở thiết bị nào thì chỉ có trên thiết bị đó thôi nên hơi bất tiện.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000226", "text": "tại sao khi tôi định đăng story và đăng ảnh,vào thư viện tìm ảnh để đăng mà không có hiện ảnh? mặc dù đã gỡ đi tải lại đến 3 lần rồi mà vẫn thế? trước giờ có bị thế đâu nhưng mới một tuần mới đây lại bị như vậy? mong sớm khắc phục lỗi này  positive ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000228", "text": "tôi đặt chuyến xe cước 660k trả bằng thẻ. khi có tài xế, grab lập tức trừ 660k của tôi. kết thúc chuyến đi phát sinh cước cầu đường 90k. lúc này grab tiếp tục trừ 750k vào thẻ, thay vì chỉ trừ 90k. 660k ban đầu grab nói ngân hàng sẽ trả lại và tôi đã đợi 20 ngày mà không thấy tiền về. tôi không chấp... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000230", "text": "rất hay nhưng bị lỗi ở đầu từ pea đọc to hơn mấy từ kia mà mấy từ kia thì được mà từ pea thì đọc mãi mà cứ bạn nhắn tin o không nghe thấy bé đọc bé hãy đọc to hơn nhé bực cả mình .lắm cái đọc đúng rồi nó bảo đúng rồi thế mà vẫn không có cái xoắn ở đầu bực lắm nên tôi xoá đi rồi", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000231", "text": "ứng dụng grab nên xem xét lại và có một ứng dụng và một phiên bản chuẩn mực không cập nhật nhiều quá gây ra tốn nhiều bộ nhớ trong của máy tính laptop và máy tính bảng và điện thông minh và cả gây ra tốn nhiều ram rồi tốn nhiều pin điện của các thiết bị và làm các tiết bị của máy chạy chậm chạp và đơ má... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000234", "text": "map khó, mà chỉ có một map duy nhất để đi, nên kẹt quá lâu, buF thì chỉ kiếm  được  khi qua màn, map thì không có bổ sung map khác để farm gold hay quest ngoài để còn kiếm buF qua màn, khó quá đâm ra nản. chính vì vậy số lượng tài khoản tham gia event chỉ có hơn trăm, quá nghèo nàn, quá ít ỏi. chung quy,... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000239", "text": "biết là  quả người cáo là làm ăn nhưng hơi quá rồi đó ad.. nghèo đến nỗi đó hay sao  quả người cáo đến nỗi, không cho người ta chơi game... vào game toàn là  quả người cáo ơi là  quả người cáo.tôi nghĩ thay vì magic tiles thì admin đặt tên là wed  quả người cáo luôn đi. tôi không thích điều này.  1star  ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000241", "text": "thật sự mà nói chơi game là cách giúp chúng ta giải trí nhưng game này là tôi hết sức bực bội. mỗi lần chơi xong nó đều có  quả người cáo. nó làm tôi cảm thấy phiền và tốn thời gian", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000244", "text": "em rất có đam mê với game, thực sự game rất hay nhưng sau lần cập nhật hôm nay thì lại không thể nào tải nổi game chứ chưa nói đến việc vô game. do bản thân là học sinh nên em không có điều kiện để đầu tư điện thoại tốt để chơi. nên mong admin có thể khắc phục điều này để những người thiếu điều kiện nh... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000246", "text": "game thì được rồi mà nhà phát hành game nên cần chỉ sửa về khoản quái ở các chương giảm đi sức mạnh một chút và nâng điểm kinh nghiệm rơi cao lên một chút chứ không lever thấp sẽ gần như mở rất ít tính năng nên rất nhanh chán mong nhà phát hành game đọc đến bài đánh giá này của tôi nha 😁", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000251", "text": "aP gặp vấn đề về định vị gfs. tôi không truy cập vào để đặt xe được! đề nghị nhà cung ứng khắc phục và phản hồi ngay cho khách hàng. muốn dịch vụ lớn mạnh thì hãy tự hoàn thiện mình, đừng mơ mộng mình là con ếch lớn nhất trong cái giếng của mình! ngay đến sự hài lòng của khách hàng cũng không thể l... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000252", "text": "đề nghị tạo thêm tính năng đánh dấu tin nhắn hàng loạt để xoá. cứ mỗi lần có bạn mới là có tin nhắn gợi ý nhắn tin. tin nhắn quan trọng thì bị trôi hết. mà xoá từng tin thì rất phiền. kiến nghị lâu rồi mà không thấy phản hồi gì cả", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000262", "text": "tiki phát sinh lỗi lưu kho huỷ đơn hàng đã thanh toán trước của tôi. email thông báo sẽ hoàn tiền từ 1-3 ngày nhưng đến ngày thứ 3 tôi gọi điện lên tổng đài thì báo sẽ chuyển đến các bộ phận liên quan giải quyết. email thì không trả lời. cực thất vọng.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000269", "text": "game lag quá trời!bị lỗi nữa!chạy xe lỡ vướng vào bờ rào hay cầu thì không ra được thì thôi!đằng này đến khi chết cũng không thoát ra  được  là sau?còn việc bắn súng thì lâu lâu đơ ra...không bắn  được !ak còn khi chơi gặp những kẻ hack sau chơi?mong admin nghiên cứu có thể hạn chế các vấn đề trên hoặc tương tự cho ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000270", "text": "cái game lồn mẹ dì d gì  cho kim cương đã lấy lại chó mà làm cày lên 300 rồi má nó", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000271", "text": "tuyệt vời, tuy nhiên phần hiển thị  quả người cáo hơi lớn làm phần từ vựng hiển thị ít đi", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000272", "text": "sao mình vào nhân vật gaem không  được  nó đứng mấy luôn vậy ạ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000274", "text": "khá hay, tôi nhiên nên có phần ghép chữ hay gì đó. quá nhiều qc. mình đống ý xem quảng cáo để ủng hộ nhà sản xuất tuy nhiên chúng quá nhiều.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000278", "text": "nên có nút huỷ đơn hàng nữa. cho phép người mua trò chuyện với nhà bán hàng để biết thêm thông tin sản phẩm. có tiếng là chỉ cung cấp sản phẩm chính hãng thì phải kiểm soát chất lượng sản phẩm, giá luôn cao hơn các sàn tmđt khác thì phải đi đôi với chất lượng nữa.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000280", "text": "aP tốt. cũng nhiều tính năng. nhưng về phần điều hướng còn khá nhiều thao tác gây mất thời gian người sử dụng. có vẻ aP vẫn chưa tối ưu tốt. cần khắc phục", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000288", "text": "em đang vào bài học mà aP cứ tự động thoát ra không ạ :((( mong aP khắc phục sớm .!!!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000291", "text": "thật sự mình rất thích xài instagram. mình biết gì cũng cần có tiền và dạo gần đây aP chạy  quả người cáo quá nhiều đến nổi mình lướt 2 tin thì có một  quả người cáo. thật sự khó chịu vì điều này. mình thích xài aP vì nó mang tính riêng tư và chỉ theo dõi những trang mình thích. việc chạy  quả người cáo quá nhiều ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000292", "text": "game không vào  được  6 phần trăm nhảy lên 22 xong không vào  được  luôn nó cứ quay hoài á vào  được  thì bảo không kết nối mạng .chơi xong bị ngay cái quảng cáo đập vào mặt cay quá trời .tui biết là làm vì tìn mà có phải thế ko.game nghe bảo oFline mà tắt mạng vẫn không vào  được  . nói chung game như củ cải đi . mong admin sửa lại .cho 3 s... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000294", "text": "dạ em đang xài tự nhiên mở lên thấy bị khoá hết trơn😔 xong còn bảo phải mua sách phiên bản 2019 mới được sử dụng em đang có hứng bắt đầu học cái bị vậy tụt mOd luôn mong được trả lời sớm về vấn đề này quá thất vọng😞", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000297", "text": "nhà sản xuất nên mở các chế độ vip .vì con nhỏ không có tiền để mua. hãy vì hôm nay cho cuộc sống mai sau.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000301", "text": "1: tải rất nhiều nhạc trong playlist nhưng vào lại không có bài nào. 2: bản trước cập nhật và có tất cả bài hát mình thích, giờ không có nữa và có một số bài bắt phải nâng cấp tài khoản vip, nạp tiền vô😐 hết noia nổi😑nhưng phải giữ lại không thì không có ứng dụng nào cả,mình thì không thích nhacuatui. mong ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000308", "text": "là một ứng dụng chuyên phục vụ dịch vụ ăn uống mà lại không đáp ứng được nhu cầu ăn uống của khách hàng khi không đủ giao hàng chạy đơn- lí do cho mỗi lần mình đặt đơn mà giao hàng cứ đổi liên tục. khuyến mãi thì không hơn các ứng dụng tương tự mà chất lượng dịch vụ bị đi xuống thì buồn rồi.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000309", "text": "game thì hay đó nhưng mà tôi hay gặp phải một cái lỗi gì mà tôi xoá đi tải lại 2 lần rồi mà nó vẫn bị cái lỗi đó lúc tôi vô game thì nó hiện ra một cái màn hình màu trắng rồi nó nói  download failed because the external storage is fuL  tôi đợi nó chạy nhưng nó vẫn 0mb0mb rồi cuối cùng là 0% không biết có... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000313", "text": "đây là game giải trí hay làm cho người khác căng thẳng hơn khi phải suy nghĩ hả một bàn chơi cho quá trời thử thách mà chỉ cho từ 30 đến 20 mấy lượt có khi chỉ cho có 10 mấy lượt rồi kêu người chơi làm sao mà qua bàn nỗi mún hồi sinh mà tốn 900 xu trong khi chơi  được  một bàn chỉ có 100 xu đỗ lại chắc ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000315", "text": "tôi thực hiện cuộc gọi với những người bạn mà máy của tôi không thể nghe người bên kia nói gì. muốn nghe được phải nhờ người bên kia gọi lại. không biết là do lỗi ứng dụng hay điện thoại nữa", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000318", "text": "mong xem xét lại dùm mình. chơi cày ngày cày đêm. làm nhiệm vụ và tham gia sự kiện rất nhiều. nhưng đến lúc cường hoá đồ hoặc dung luyện thì vẫn không thành công lever cao rồi mà đồ vẫn chưa fuL +15. trong khi nó nhiều tài khoản khác chỉ mới lever 20 mấy đã fuL.??? do tôi không may mắn hay tại guNy không biết... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000320", "text": "game rất hay, thú vị. tuy vậy nhưng có những khó khăn về ngôn ngữ giữa các quốc gia khác nhau, và khi muốn dịch chuyển sang khu vực khác phải vướng thêm khó khăn đường hầm,...làm cho người chơi không thể tập hợp với hội của họ được. nói chung game hay, không chê vào đâu được", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000334", "text": "đặt một đơn hàng thanh toán bằng airpay nhưng quán đóng cửa nên đơn hàng bị huỷ. sau đó chờ mãi vẫn không thấy tiền hoàn về tài khoản, mình có gửi phản hồi cho now nhưng cũng không thấy hồi âm gì. đã từng sử dụng now nhiều lần và từng rate  5star   cho aP nhưng phải vào sửa vì lần này làm mình thất vọng th... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000339", "text": "mình xài instagram cũng lâu rồi nhưng dạo gần đây nó hay chặn thích liên tục ,lại còn tự động tăng luôn cả lượt đang theo dõi của mình ,mình đã cố un thích hết tất cả các bài thích nhưng mà nó vẫn chặn ,còn thêm nữa là luôn liên tục tăng đang theo dõi của mình lên 50 người trong một ngày , mình mong rằng... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000344", "text": "tôi thấy những ứng dụng như thế này rất hay vì sau những lúc mệt mỏi chúng ta có thể xem để giải trí. nhưng tôi vẫn chưa  thích  lắm vì trên tik tok vẫn còn rất nhiều người trẻ trâu và vô văn hoá lên chưởi thần tượng và xỉa xói người khác....... tôi mong chuyện này sẽ được khắc phục sớm.!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000346", "text": "chào ad! em đã xoá và cập nhật lại zalo rất nhiều lần nhưng vẫn không bật được chế độ thu nhỏ màn hình khi vừa gọi vừa nhắn tin, trong khi em đã bật tất cả. em có nhờ xin giúp đỡ và gửi cả ảnh nữa, nhưng không thấy bất cứ phản hồi nào. xin giúp em sữa lỗi! em cảm ơn!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000350", "text": "bài học hay nhưng luôn bị không nhận diện được giọng nói. tôi đã xem thử micro của máy mình nhưng vẫn không có hiệu  quả  mong có thể sớm khắc phục", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000351", "text": "game khá tốt và vui nhộn... nhưng mình chơi tới vòng 900 mấy rồi cứ vào game là bị hỏi mật khẩu hay tài khoản gOgle tùm lum ... loay hoay đủ thứ cuối cùng cũng vào game được.. qua ngày sau cũng y như vậy.. thấy ghét... bỏ game luôn....", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000354", "text": "bây giờ mini word có vấn đề ạ tôi thấy mấy hôm nay từ cái ngày cập nhập phiên bản mới đây, vào liên thông để chơi hay bị văng ra ngoài một cách vô lí. lúc sinh tồn thì đập lúa hay tương tự các thứ khác đến mấy phút sau mới vỡ được. cần được khác phục sự cố này .", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000360", "text": "game như cức đô chơi không có cái gì cả màm hình đen thuy", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000362", "text": "mình cần xe gấp nhưng tài xế không ai nhận cuốc, mình phải ấn bOk tầm 30 lần, đến khi có bác tài nhận và đang di chuyển đến điểm đón thì bác tài lại huỷ không lý do, mình không hề nhận được một tin nhắn hay cuộc gọi thông báo lý do, chỉ thông báo tài xế đã huỷ chuyến. người dùng cũng không được đán... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000364", "text": "tôi không thể  chia sẻ vị trí  được, mặc dù đã làm rất nhiều cách, nhưng mãi cũng chỉ nhận lại được dòng chữ  không thể chia sẻ vị trí, vui lòng thử lại sau khi cài đặt dịch vụ gOgle play . công việc tôi cần nó, mong bạn sẽ trả lời tôi trường hợp trên", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000365", "text": "tôi đã nhập đúng mã xác nhận điện thoại nhưng nó ghi là tôi đã nhập sai và hết lượt thử! tôi tạo tài khoản mới = email nhưng sau khi đăng nhập nó bắt buộc phải xác thực số điện thoại !", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000371", "text": "game khó nhưng mà nhạc rất hay, kiểu chơi mới lạ và lôi cuốn người chơi tôi đánh giá  5star  cho tựa game này. tái bút nên giảm độ khó lại một tí vì có một số người chơi mãi mà không có tiến triển gì thì họ sẽ xoá game đấy", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000373", "text": "game rất hay nhưng mình không hiểu máy mình là realme c2 232gb mà sao chơi lang kinh khủng vậy ạ. mong admin giải đáp", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000374", "text": "admin ơi, sao vào trò chơi ấy. mình đã tạo phòng và mời bạn bè vào chơi nhưng máy bạn mình cứ hiện là người chơi đã đóng phòng, nhưng em vẫn chưa đóng phòng và khi em kêu bạn mình ra tạo phòng. bạn ấy tạo phòng và em vào cũng không được, nó lại hiện là người chơi này hiện đang ở chế độ chơi đơn. hồi tr... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000375", "text": "now làm ăn ngày càng chán, món thì đắt đặt hàng thì chậm mà giá vận chuyển còn tăng cao, đặt ly trà sữa có 400 mét mà đến hai mấy ngàn tiền ship. trong khi grap vừa khuyến mại giá thấp lại còn giao hàng thấp. làm vậy thì sao mà cạnh tranh lại những đơn vị khác được. đả thế aP còn lỗi lên lỗi xuống không c... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000379", "text": "tại sao có một số quán ăn đã dẹp tiệm từ lâu nhưng vẫn xuất hiện trên ứng dụng. để rồi khi khách đặt món, tài xế đến quán thì phát hiện quán đóng cửa rồi lại phải xác nhận lại với khách hàng để huỷ đơn, khá phiền phức. now có cách nào khắc phục được hoặc loại bỏ các quán không còn hoạt động", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000383", "text": "sao lại khó chơi quá phải đợi đến 5 tiếng đồng hồ mới chơi được game này mong game cho tốc độ dễ thôi tôi thấy game  quả người cáo rất hay cho nên tôi mới tải về chơi nhưng tôi vẫn đợi tôi định xoá nhưng thấy  quả người cáo hay cho nên tôi mới tải về gúp tôi cho trò chơi này cho nhanh nha tôi xin chân thành c... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000385", "text": "gửi hình ảnh và tin nhắn thoại toàn bị lỗi, yêu cầu thử lại mà vẫn không nhìn thấy hình ảnh, trước có bị vậy đâu phiên bản này lỗi nhiều quá. thậm chí wifi căng đét mà hình đại diện cũng chỉ có một màu đen xì thôi. mọi thứ rất tốt chỉ mỗi gửi hình ảnh và tin nhắn thoại cứ bị lỗi thôi ạ, hy vọng các ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000386", "text": "người ta khôi phục lại cái máy. đăng nhâp lại thì cần xác minh trên tin nhắn line. đã đăng nhập dô đâu mà thấy tin nhắn. aD xem lại nhé.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000392", "text": "từ lúc tải lại line. line không thông báo lên ngoài màn hình. chỉ vào trong ứng dụng mới nhận được thông báo. dù đã cài đặt thông báo đúng chuẩn. xin cảm ơn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000395", "text": "ngồi một chỗ mà cũng bắt quá trời pokemon positive ) mà lên level rất là chậm:(( mình nói trước nhá,game này không dành cho mấy đứa trẻ trâu không biết chơi mà còn chửi bới cái game này,game này chỉ dành cho những bạn biết kiêng nhẫn chứ không dành cho thằng nào không biết chơi mà cứ chửi,chửi... game nó tội ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000400", "text": "cần cải thiện, nên thêm tuỳ chọn xem giá vận chuyển theo vị trí kèm mới mô tả sản phẩm thay vì phải đợi để xem ở bước thanh toán. phần theo dõi đơn hàng chưa chi tiết cụ thể không thể theo xem hàng đã được vận chuyển tới đâu theo khoảng thời gian. về phần chất lượng phục vụ thì khá hài lòng.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000402", "text": "tại sao khi tôi đăng xuất rồi đăng nhập lại thì máy lại cứ báo là đường truyền không ổn định. dù đã thử chỉnh thời gian, xoá đi tải lại nhưng vẫn không được. có cách nào khắc phục mà cần không cần khôi phục cài đặt ko? hiện tại tôi đang rất cần để đăng nhập lại vì có việc quan trọng. mong zalo phản ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000403", "text": "quá nhiều lỗi sai .không thể chấp nhận được", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000406", "text": "game như C game toàn bị đảo lộn xộn và các bạn sinh viên có thể đăng ký tên miền nam, có thể đăng ký tên miền nam, có thể đăng tin rao bán chung kết nối mạng xã tân phú quốc. vãi các cháu, không có một số rất nhiều, nhưng có lẽ không phải chỉ có thể là các cháu, không có gì đáng ngạc của bạn sẽ có ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000413", "text": "1.cốt truyện không có tiếng việt. why? 2.tôi muốn nhà phát triển thêm chức năng để các anh hùng huyền thoại có thể lên cấp hoặc thăng thiên. tất nhiên nó sẽ không mạnh bằng các anh hùng thăng thiên nhưng sẽ giúp đa dạng chiến thuật vì ngoài dùng để thăng thiên anh hùng ra, các anh hùng này không có ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000425", "text": "đồ hoạ tuyệt vời, tương tác với trai nhân sống động, game chơi vui, không lag, không có quá nhiều nhiệm vụ chồng chất để một ngày làm mãi không hết như các game khác, chỉ là admin thêm cho tính năng bỏ qua ải với, mỗi lần đợi đánh xong trận hơi mất kiên nhẫn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000427", "text": "giao diện đơn giản, dễ sử dụng, tiện lợi, chỉ mong zalo có thể cải thiện hơn về việc lưu giữ tin nhắn, vì hiện tại, tin nhắn ở zalo sau một thời gian sẽ tự động xoá bỏ, muốn giữ lại cũng không được, mong là trong tương lai khuyết điểm này có thể khắc phục, tin nhắn sẽ được lưu vĩnh viễn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000434", "text": "chương trình bị lỗi: khi đang học dở bài học mà thoát ra ngoài, khi vào học tiếp thì bài học đã trạng thái hoàn thành. người học không nhận được sticker. rất bức xúc. đề nghị sớm khắc phục lỗi này", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000436", "text": "cung cấp thông tin hữu ích . tuy nhiên còn nó điểm chưa được trực quan cần tham khảo phần mềm các quốc gia khác", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000439", "text": "còn bị giật lag nhiều ạ :(( lắm lúc vào học mà cứ chờ nó load cho được bài giảng lâu ơi là lâu, phần tài liệu cũng thường xuyên không load được nhưng bây giờ đã đỡ hơn nhiều rồi ạ.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000440", "text": "thấy bảo là 25 bài đầu miễn phí. nhưng học đến bài 3 là bắt mua. không hiểu. chăm sóc khách hàng nói một đường . aP bảo một đường. xoá ngay ứng dụng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000441", "text": "đặt hàng mà aP cứ bắt thêm địa chỉ mới. thêm địa chỉ mới rồi nhưng vẫn không thoát ra để đặt hàng được vì nó vẫn tiếp tục bắt thêm địa chỉ mới. sau khi thêm địa chỉ mới nó lần thì cuối cùng vẫn chưa đặt hàng được vì nó vẫn không cho thoát khỏi trang thêm địa chỉ. xoá đi tải lại cũng y chang vậy. chắ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000442", "text": "mazI có tính năng đưa flashcard ra màn hình từ widget ra giống đồng hồ (rất thích luôn) . cám ơn mazI nhiều lắm! mình có một góp ý, khi mình tra từ メインビジュアル, vì không có trong từ điển mazI nên được dịch tự động, và mình không thể lưu lại trong flashcard được, nếu như từ mình lưu có thể chỉnh sửa đư... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000446", "text": "aP rất hay bị dừng hoạt động, lỗi nhiều", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000448", "text": "sao lúc đầu chơi bằng điện thoại tới màn 38 (đã đăng nhập fb) sau đó chuyển sang ipad vẫn dùng tài khoản facebook đó chơi tiếp đến tầm màn 59,giờ đổi lại điện thoại thì nó hiện vẫn đang dừng ở 38 ạ? dù đăng nhập lại, hay xoá đi tải lại thì nó vẫn vậy.. giờ làm sao ạ? không lẽ chơi lại từ đầu?", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000451", "text": "game hút máu không no anh em nạp tiền vào bằng biếu nó chứ không  được  chị gì  đâu bọn nó điều hành game như lồn chỉ biết ăn thôi", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000452", "text": "góp ý cho người phát triển ứng dụng nhé! thứ 1: giọng đọc lấy từ gOgle thật sự cực kì khó nghe, つむ mà nghe nó đọc thành うむ🙂 nếu admin có tâm thì lấy giọng đọc của bản gốc trong sách nhé! giọng đọc đó mới chuẩn thứ 2: dịch nghĩa của từ vựng (n3) - nghĩa dịch không đủ, không sát với sách mimi kara oboeru ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000456", "text": "có góp ý nhỏ cho lazada nè trước khi khách hàng có mua sản phẩm nào thì người ta chỉ nhìn thấy trên màn ảnh thoi,làm ơn trước khi giao hàng cho khách làm ơn cho khách người ta kiểm hàng dùm cái.tui củng là một trong số đó nè. tôi kêu cho kiểm hàng trước khi nhận nhân viên giao không cho còn nhằm lúc c... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000457", "text": "mã số bhxh đúng theo thông tin tra rồi mà muốn khai báo cũng không  được  nữa. cứ bảo sai mã bhxh, trong khi đã tra cứu rõ ràng từ trang bhxh 😠", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000460", "text": "game hay, trang phục đẹp, cốt truyện hấp dẫn. nhưng mumu cần ra ít sự kiện thôi vì cứ dồn dập sự kiện như thế thì kim cương moi đâu ra đây. nên cho thêm chức năng là các star có thể nhắn tin với nhau và thi đấu với nhau.  cửa hàng  bán nhiều trang phục hơn nữa. khi các star thi đấu thua, mumu hãy an ủi, đ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000463", "text": "game rất là hay tôi rất thích thể loại như vậy. nhưng có vấn đề là cập nhập gần đây khi vào game tôi điều bị lag, lúc hiện thị hình, lúc thì không thấy gì cả... mạng 4g wifi điều rất tốt nhưng mấy còn dư ram rất nhiều... admin có thể xem lai dùm ạ. cảm ơn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000464", "text": "ứng dụng không thể sử dụng được, tự động tắt, xin hãy khắc phục lỗi này, chân thành cảm ơn!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000466", "text": "nếu là ngày trước sẽ cho  5star  nhưng bâyh rất hay bắt khôi phục lại, đôi khi không dùng  được  oFline, từ vựng còn thiếu rất nhiều và quan trọng là dịch văn bản giống hệt trên gOgle dịch, toàn dịch theo chữ và sai hết cả câu, đề nghị admin có thể khắc phục ạ, cảm ơn positive ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000467", "text": "tỉ lệ rớt tướng tím thực sự quá thấp, người chơi khó cải thiện lực chiến để vượt map, nên mở nhiều event hoặc tăng tiền nhận được khi rung grEn hero để chúng hữu dụng hơn. hiện tại khi thấy grEn tôi chỉ thấy sự ức chế", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000468", "text": "thấy  quả người cáo nạp 10nghìn  được  100 triệu nạp lần đầu mà vào game sai không đúng  quả người cáo vào chỉ có gió 8888 sai quá sai tưởng vào  được  100 triêu ai dè không  được  quang vòng mà cubgx không có chỗ quay nốt buồn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000471", "text": "game rất hay, đồ hoạ đẹp, tính giải chí cao... nói chung là hay. nhưng thật sự việc đăng hạn sử dụng  phiên bản mới liên tục và game ngày cành chiếm nhiều dung lượng bộ nhớ, yêu cầu cấu hình máy quá cao khiến cho những người chơi bình dân không có tiền mua điện thoại xịn không thể chơi game. game là để mọi ngư... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000476", "text": "tài khoản đang sử dụng tự nhiên bị hết phiên đăng nhập. xong rồi đăng nhập lại bị mật khẩu sai, ấn quên mật khẩu thì lại thấy email của người lạ, còn không sử dụng được số điện thoại để đăng nhập mà lấy lại mật khẩu. admin xem lại xem nào.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000477", "text": "sao facebOk của tôi vẫn đang bình thường tự nhiên xác nhận danh tính bắt phê duyệt trên máy tính hoặc điện thoại sử dụng trước đó mà không cho cái cách xác nhận khác, đến khi phê duyệt rồi mà cũng không được thế, vậy coi luôn mất cái nick. làm ăn như này thì làm sao", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000482", "text": "tôi cập nhập thường xuyên bản ứng dụng tiktok, và còn gỡ và cài đặt lại nhiều lần nhưng lại không tải được phiên bản mới nhất của tiktok. không chỉ riêng tôi những bình luận của một số bạn trên video tiktok cũng không có được những tính năng mới nhất. không hiểu vì sao?", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000490", "text": "có thêm phần video minh hoạ từ mà mình đang tìm kiếm khá là hay đấy. mỗi tội nhiều lúc dịch nhiều từ nghĩa rất khó hiểu. như kiểu dịch từ nhật sang anh rồi từ anh sang việt chứ không phải trực tiếp dịch từ nhật sang viêt. nói chung là ổn đấy bro", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000491", "text": "rất tốt nhưng phải đăng nhập nên không thích", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000493", "text": "phải có tiếng việt nữa thì quá được", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000495", "text": "trò chơi rất hay tôi hy vọng game sẽ ngày càng phát triển nhiều tính năng mới về ar tương tác với pokemon. và tôi muốn game cải thiện bổ sung thêm pokestops vào lv 35 và bổ sung gym vào lv 40 để game thu hút và dễ dàng hơn cho những người mới chơi, sinh sống ở nơi nông thôn ít người.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000496", "text": "đang chơi thì bị treo máy do mất kết nối, trong khi mạng và các thiết bị khác vẫn kết nối bình thường, chơi game khác cũng không bị trường hợp này, phải tắt máy khởi động lại mới hết! đề nghị nhà phát hành xem lại!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000499", "text": "game hay nhung ở nông thôn không co nha thi đấu hoi chan mong nha san xuat cho cac nha thi đấu ở nông thôn để cac ban ở nông thôn choi pokemon go có thể thi đấu với nhau và cho nhiều pokemon đe cac ban trẻ co thể thu phục được nhiều pokemon để dễ dàng thi đấu tránh gây ra tai nạn... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000501", "text": "tôi không thể sử dụng tính năng đặt biệt danh trong nhóm và không sử dụng được tính năng để nhạc trong trang cá nhân. trong khi bạn bè tôi đều sử dụng được còn tôi thì không sử dụng được người khác thì thấy bản cập nhật còn tôi thì không có bản cập nhật.một lỗi tồi tệ mong admin khắc phục giúp tôi", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000506", "text": "không muốn cho  1star   đâu vì dù sao cũng là aP do người việt phát triển. nhưng thật sự không dùng  được , mở aP lên tự động hiện số điện thoại 11 số rồi báo không hợp lệ, được thì mình sửa thành 10 số thôi. nhưng khi gửi qua điện thoại mã otp thì mình vào tin nhắn xem mã, trở lại aP thì quay về màn hình hiện 11 số. thử ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000509", "text": "hay nhưng mà tôi nghĩ nên thêm phần ngữ pháp vào để khi người dùng có điền sai ngữ pháp thì nhắc nhỉ cho họ rút kinh nghiệm, nói chung là thêm ngữ pháp vào. ví dụ: người dùng cần dịch  she would thích some milk , có thể họ muốn dịch vậy vì họ muốn kiểm tra xem  thích  hay là  likes , có sao hay là không có... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000519", "text": "dịch sai bét thử dịch siêu nhân da siêu anh hùng bó tay ứng dụng như star star star star ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000522", "text": "không biết cơ chế định vị vủa grab hoạt động theo kiểu gì mà tài xế ngay bên cạnh thì không bắt được mà bắt tài xế ở xa lắc xa lơ, làm khách phải chờ lâu, mà bản thân tài xế cũng phải chạy một đoạn đường khá xa mới đến được chỗ của khách. làm khổ cả 2 phía, vừa mất  thời gian  của cả 2, vừa làm tốn xăng khô... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000529", "text": "nhiều sản phẩm giá rẻ nhưng phí vận chuyển thì cao, nhiều khi sản phẩm rất với giá ở ngoài thị trường rẻ hơn 15, 20 ngàn nhưng phí vận chuyển thì 48.000, vậy thì mua trên lazada làm gì? đề nghị coi lại chính sách giao hàng. nhiều khi muốn mua sản phẩm trên lazada nhưng nhìn phí giao hàng lại thôi.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000534", "text": "rất hay có tất cả bài hát và ca sĩ trong hát đó nó có tất cả bài hát trên thế giới nhưng nó không lưu lại các bài hát mình đã từng nghe mong người tạo ra cái này sửa lại không sửa lại cũng được không sao hết nhưng cái này cũng rất hay nên mình thấy  5star  là hợp nhất", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000543", "text": "game này mình thấy có mấy cái bất hợp lý. một tên nhân vật và tên bang hội : người dùng chỉ đặt  được  ký tự thường, không chứa ký  được  các ký tự đặt biệt. 2 hồ sơ cá nhân thì khi khởi tạo thì có cập nhật hs: tên tuổi địa chỉ nhưng người dùng thì lại không cho xem học sinh của mình trên game bao gồm ngày tạo tài kh... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000544", "text": "game rất hay mang phong cách của game chiến thuật aoe nhưng số loạt quân lính quá ít nên không đủ để người chơi cảm thấy sức mạnh của quân đội và cần phong cách riêng cho quân đội của những quốc gia châu á như nhật bản sẽ khiến gamer không cảm thấy nhanh chán", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000548", "text": "ủa, rồi giải quyết dùm em chưa, em sợ hệ điều hành em cũ nên aP mới đòi đăng hạn sử dụng  10000000001 lần một giây nên em mới nâng cấp lên hđh mới nhất rồi mà aP vẫn đòi em đăng hạn sử dụng  là sao kìa, rồi đăng hạn sử dụng  thì em đăng hạn sử dụng  thôi mà cứ bị lỗi hoài vậy, rồi định không cho em xài nữa chứ gì, vậy thì nói tiếng không cho ... bài đánh giá đầy đủ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "app", "cls_label": 1}}
+{"id": "val_000010", "text": "em đã nhận được hàng. nhưng vẫn thắc mắc không biết kem nền này có đúng chính hãng không ạ. tại trên  sản phẩm  có ghi xuất xứ từ china. và bao bì cũng hơi khác ạ. nếu như rất với giá  bình thường giờ thì giá như này là quá được rồi. mà đây là chương trình giảm giá của hãng maybeline. tuy là mọi người fEdback rất tốt", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000033", "text": "hàng tặng tẩy trang nhưng giao hàng không có chai tẩy trang", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000055", "text": "mua hàng khuyến mãi 99  cửa hàng  ghi là có rặng son xác nhận đơn hàng có son nhưng khi giao lại không có. son thất vọng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000061", "text": "mình đặt loại mới có vòi mà sao lại giao loại phiên bản cũ, và không có son tặng kèm????", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000064", "text": "không thấy giao bông tẩy trang tặng kèm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000087", "text": "kêu là hàng chính hãng usa, khi check tem lại là made in china", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000100", "text": "giá đắt mà vẫn bán hàng giả. thực sự thất vọng!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000117", "text": "thấy bảo tặng son nhưng mở ra không thấy son đâu", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000131", "text": "sao kêu  được  tặng quà mà không thấy vậy  cửa hàng ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000134", "text": "nhận hàng không có quà tặng kèm như  quả người cáo, thật thất vọng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000148", "text": "cảm giác tuyp này chất nó dính dính chứ không thấm nhanh như tuyp trước mình dùng nhi?", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000164", "text": "giao hàng nhanh. tư vấn rất nhiệt tình. màu son lên không chuẩn :(( . hy vọng sẽ có trải nghiệm tốt hơn ở maybeLine oFicial  cửa hàng .", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000187", "text": "để có quà tặng nhưng giao hàng lại không thấy hàng tặng đâu", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000192", "text": "dùng sản phẩm thấy trắng lên và thâm mờ đi rõ. sản phẩm có cồn nên ban đầu hơi nóng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000193", "text": "mình mua 3 cây nhưng cây son này giao hàng về thì bị gãy như hình.  cửa hàng  có thể đổi cây khác giúp mình không ?", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000225", "text": "nhận  được  hàng rồi nhưng màu 128 nó tối hơn da của mình. mình muốn paS lại giá 140k. hoặc trao đổi màu 125 ạ đóng gói sơ xài", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000263", "text": "sao mình mua 3 tuýp sữa rửa mặt luôn mà không có quà tặng kèm ạ, mình mua trong ngày 273 luôn mà", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000289", "text": "chả trị thâm nám gì đâu ạ. mua phí tiền", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000290", "text": "bảo được tặng mút tán nhưng không có :((((", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000296", "text": "lần đầu mua hàng lazada hơi thất vọng giao hàng lâu, không có sản phẩm tặng như ảnh.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000310", "text": "đắp xong rửa mặt thấy sạch và mịn màng, rất thích. tuy nhiên khi để lâu sẽ bị khô lại, cần có nước cân bằng để làm mềm mặt nạ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000312", "text": "chưa thấy kết  quả  khi dùng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000330", "text": "mua giờ vàng mua một tặng một nhân sinh nhật 273 mà cuối cùng chả nhận được quà. thiệt là khó chấp nhận.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000341", "text": "sao để có quà tặng nhưng lúc giao lại không có? cần lazada xử lí ạ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000353", "text": "giao hg cham một người", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000378", "text": "đã từng dùng sản phẩm xách tay và thấy hiệu  quả  làm trắng cũng như trị thâm sau 2 tuần sử dụng một lần vào mỗi sáng. ai có nhu cầu trị thâm cao hơn có thể dùng 2 lần một ngày. mùi khá dễ chịu. giá trên lazada hơi mắc chỉ đợi sale mới mua được  positive ))", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000388", "text": "mình mua lúc khuyến mại, mua kem nền tặng kèm son nhưng khi nhận thì chỉ có kem nền mà không có son. được không sao vì màu son quà tặng khá xấu, có tặng cũng chưa chắc đã xài đến. tuy nhiên, chai kem nền khiến mình rất thất vọng. nắp chai bị trầy xước, mở nắp ra thì đầy bụi bám quanh cổ chai nhìn khá bẩn.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000416", "text": "son lên chuẩn màu, nhẹ và không bị khô môi. tuy nhiên trên thân son có lỗi nhỏ như hình phía dưới, nhưng nhìn chung thì vẫn ok. nếu sử dụng hết thì chắc mình sẽ vẫn mua lại ^^. về phía giao hàng khá nhanh, bọc hàng cẩn thận", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000418", "text": "không hài lòng vì  sản phẩm  không có vỏ hộp nên tạo cảm giác không tin tưởng vào chất lượng  sản phẩm  lắm", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000424", "text": " sản phẩm  dùng rất tốt.shiper giao hàng không hài lòng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000465", "text": "giao hàng nhanh, đóng gói cẩn thận, kem nền thích hợp dạ dầu đánh xong tiệp vào dạ chứ không bị nhờn bóng như cushion, rất thích. canh mua giờ sale có quà tặng mà sao không nhận  được  quà nhỉ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000474", "text": "màu son không vưa ý mình. son lên bóng quá. mình không hợp với loại son bóng, không ưng ý. mong được hỗ trợ đổi trả ạ!!", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000486", "text": "da nhạy cảm không nên dùg, dị ứg", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000489", "text": "dùng được 3 lần là son gãy ngay lập tức. bù lại màu rất đẹp, hợp tone da trung quốc bình, chất son cũng tốt, hợp với mấy bạn mới trang điểm màu nude, giá rẻ nên nhớ mua kèm cây cọ để tránh trải nghiệm gãy son. với mình thì sẽ không mua lại dòng nào giá thấp của maybeline (có thể do điều kiện bảo  quả nó và vận chuyển ở nhiệt độ cao nên son dễ gãy).", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000511", "text": " hạn sử dụng  2020 là sao  cửa hàng  ???", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000512", "text": "mình đặt ngày 9.9. thấy  quả người cáo có tặng son nhưng không nhận được son.", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000518", "text": "hình hộp xanh lúc gửi lại màu xanh lẫn trắng vỏ sản phẩm không giống hình", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000528", "text": "đóng gói thì được ,giao hàng nhanh nhưng - nắp hộp kem bị vỡ - mùi như men rượu - tán lên da có tệp nhưng sau vài phút nó bị bay đi đâu mất không có được như khi vừa tán", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000530", "text": "tặng thì tặng không tặng thì thôi chơi kiểu ma trận khách hàng bó tay..tóm lại lần đầu mua hàng thất vọng", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "cosmetic", "cls_label": 1}}
+{"id": "val_000001", "text": "quần đẹp nhưng  cỡ  lồn hơi ngắn", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "fashion", "cls_label": 1}}
+{"id": "val_000006", "text": "kiểu dáng đẹp nhưng chất liệu hơi mỏng và nóng ! tiền nào của nấy thôi ! giao hàng đúng hẹn , nhân viên giao hàng rất nhiệt tình nhưng xem lại giá vận chuyển của lazada việt nam lúc nào cũng cao hơn tiki !", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "fashion", "cls_label": 1}}
+{"id": "val_000007", "text": " cỡ  quần giao sai ạ", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "fashion", "cls_label": 1}}
+{"id": "val_000016", "text": "không như mẫu", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "fashion", "cls_label": 1}}
+{"id": "val_000031", "text": "đặc tay dài mà giao tay ngắn 😠", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "fashion", "cls_label": 1}}
+{"id": "val_000039", "text": "đặc 40 mà giao 37  cửa hàng  kêu người ta sao mang .quá đáng vừa thôi . bộ ế số nào giao số đó hả hả hả hả ..............hả .????", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "fashion", "cls_label": 1}}
+{"id": "val_000041", "text": "dép đi ôm chân, dép mình mang ở gia vy là  cỡ  37 còn dép này mình mang 36,dép đẹp, nhưng mình cầm lên mình không thích thân dép", "label": [], "meta": {"source": "UIT-ViOCD", "split": "val", "domain": "fashion", "cls_label": 1}}

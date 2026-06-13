@@ -1,0 +1,852 @@
+{
+  "batch_id": "full_annotation_batch_003",
+  "records": 200,
+  "records_with_overlap_before": 20,
+  "spans_before": 999,
+  "spans_after": 961,
+  "merged_overlap_groups": 27,
+  "changed_record_ids": [
+    "train_001614",
+    "train_001670",
+    "train_001716",
+    "train_001737",
+    "train_001761",
+    "train_001804",
+    "train_001871",
+    "train_001874",
+    "train_001876",
+    "train_001912",
+    "train_001917",
+    "train_001948",
+    "train_001991",
+    "train_002189",
+    "train_002215",
+    "train_002222",
+    "train_002226",
+    "train_002248",
+    "train_002274",
+    "train_002319"
+  ],
+  "details": [
+    {
+      "id": "train_001614",
+      "changed": true,
+      "spans_before": 10,
+      "spans_after": 9,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 66,
+              "end": 101,
+              "text": "gần đây bản cập nhật chiến trường 3",
+              "label": "COMP"
+            },
+            {
+              "start": 102,
+              "end": 110,
+              "text": "0 ra mắt",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 66,
+            "end": 110,
+            "text": "gần đây bản cập nhật chiến trường 3.0 ra mắt",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001670",
+      "changed": true,
+      "spans_before": 10,
+      "spans_after": 9,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 43,
+              "text": "mua 1k toàn không có phương thức thanh toán",
+              "label": "COMP"
+            },
+            {
+              "start": 44,
+              "end": 84,
+              "text": "không có phương thức vận chuyển các kiểu",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 84,
+            "text": "mua 1k toàn không có phương thức thanh toán,không có phương thức vận chuyển các kiểu",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001716",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 68,
+              "end": 69,
+              "text": "5",
+              "label": "COMP"
+            },
+            {
+              "start": 70,
+              "end": 101,
+              "text": "9 để trải nghiệm toàn màng hình",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 68,
+            "end": 101,
+            "text": "5:9 để trải nghiệm toàn màng hình",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001737",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 6,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 87,
+              "end": 102,
+              "text": "chứ chả ai nhắn",
+              "label": "COMP"
+            },
+            {
+              "start": 103,
+              "end": 127,
+              "text": "(( tải về cũng như không",
+              "label": "COMP"
+            },
+            {
+              "start": 128,
+              "end": 166,
+              "text": "tạo nhóm rồi nhắn một mình y như tự kỉ",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 87,
+            "end": 166,
+            "text": "chứ chả ai nhắn:(( tải về cũng như không.tạo nhóm rồi nhắn một mình y như tự kỉ",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001761",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 17,
+              "text": "game lỗi khá nặng",
+              "label": "COMP"
+            },
+            {
+              "start": 20,
+              "end": 94,
+              "text": "công huân chiến công dùng nâng cấp khoa kỹ cứ đến 10k là tự reset về số lẻ",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 94,
+            "text": "game lỗi khá nặng...công huân chiến công dùng nâng cấp khoa kỹ cứ đến 10k là tự reset về số lẻ",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 96,
+              "end": 114,
+              "text": "12000 thì thành 2k",
+              "label": "COMP"
+            },
+            {
+              "start": 117,
+              "end": 140,
+              "text": "d mình công fam cả buổi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 96,
+            "end": 140,
+            "text": "12000 thì thành 2k...d mình công fam cả buổi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001804",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 6,
+              "text": "bản 24",
+              "label": "COMP"
+            },
+            {
+              "start": 7,
+              "end": 8,
+              "text": "3",
+              "label": "COMP"
+            },
+            {
+              "start": 9,
+              "end": 48,
+              "text": "1 yêu cầu đăng ký tài khoản bằng 3 cách",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 48,
+            "text": "bản 24.3.1 yêu cầu đăng ký tài khoản bằng 3 cách",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001871",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 165,
+              "end": 177,
+              "text": "cứ quay quay",
+              "label": "COMP"
+            },
+            {
+              "start": 182,
+              "end": 187,
+              "text": "😭😰😥😭😭",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 165,
+            "end": 187,
+            "text": "cứ quay quay.....😭😰😥😭😭",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001874",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 31,
+              "end": 57,
+              "text": "người đọc từ đọc nhanh quá",
+              "label": "COMP"
+            },
+            {
+              "start": 58,
+              "end": 107,
+              "text": "khiến tôi không thể nghe một cách chính xác  được",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 31,
+            "end": 107,
+            "text": "người đọc từ đọc nhanh quá,khiến tôi không thể nghe một cách chính xác  được",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001876",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 6,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 154,
+              "end": 274,
+              "text": "phải giảm bớt dung lượng để dòng máy khác có thể tải và chơi ( ý kiến riêng ) nói tóm lại là tuyệt vời trên cả tuyệt vời",
+              "label": "COMP"
+            },
+            {
+              "start": 277,
+              "end": 295,
+              "text": "ae tải về chơi nha",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 154,
+            "end": 295,
+            "text": "phải giảm bớt dung lượng để dòng máy khác có thể tải và chơi ( ý kiến riêng ) nói tóm lại là tuyệt vời trên cả tuyệt vời...ae tải về chơi nha",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001912",
+      "changed": true,
+      "spans_before": 12,
+      "spans_after": 8,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 18,
+              "text": "game giống khùng á",
+              "label": "COMP"
+            },
+            {
+              "start": 19,
+              "end": 32,
+              "text": "sao tự làm đi",
+              "label": "COMP"
+            },
+            {
+              "start": 33,
+              "end": 63,
+              "text": "bắt người ta bấm vô ghế làm gì",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 63,
+            "text": "game giống khùng á,sao tự làm đi,bắt người ta bấm vô ghế làm gì",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 85,
+              "end": 124,
+              "text": "người nào nói hay thì người đó bị khùng",
+              "label": "COMP"
+            },
+            {
+              "start": 125,
+              "end": 151,
+              "text": "tao nhắc trước rồi đấy nhá",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 85,
+            "end": 151,
+            "text": "người nào nói hay thì người đó bị khùng,tao nhắc trước rồi đấy nhá",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 236,
+              "end": 263,
+              "text": "tao viết mấy chữ kệ tao chứ",
+              "label": "COMP"
+            },
+            {
+              "start": 264,
+              "end": 298,
+              "text": "mắt mớ chi phải ghi đến 500 chữ hả",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 236,
+            "end": 298,
+            "text": "tao viết mấy chữ kệ tao chứ,mắt mớ chi phải ghi đến 500 chữ hả",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001917",
+      "changed": true,
+      "spans_before": 17,
+      "spans_after": 11,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 1,
+              "text": "(",
+              "label": "COMP"
+            },
+            {
+              "start": 2,
+              "end": 14,
+              "text": ")2019-apr-26",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 14,
+            "text": "(!)2019-apr-26",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 16,
+              "end": 20,
+              "text": "v212",
+              "label": "COMP"
+            },
+            {
+              "start": 21,
+              "end": 22,
+              "text": "1",
+              "label": "COMP"
+            },
+            {
+              "start": 23,
+              "end": 24,
+              "text": "0",
+              "label": "COMP"
+            },
+            {
+              "start": 25,
+              "end": 27,
+              "text": "13",
+              "label": "COMP"
+            },
+            {
+              "start": 28,
+              "end": 31,
+              "text": "109",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 16,
+            "end": 31,
+            "text": "v212.1.0.13.109",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 57,
+              "end": 64,
+              "text": "lỗi 😨 (",
+              "label": "COMP"
+            },
+            {
+              "start": 65,
+              "end": 77,
+              "text": ")2019-apr-18",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 57,
+            "end": 77,
+            "text": "lỗi 😨 (!)2019-apr-18",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001948",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 33,
+              "end": 36,
+              "text": "i à",
+              "label": "COMP"
+            },
+            {
+              "start": 37,
+              "end": 67,
+              "text": "một ứng dụng hàng đầu thế giới",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 33,
+            "end": 67,
+            "text": "i à.một ứng dụng hàng đầu thế giới",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 75,
+              "end": 93,
+              "text": "làm ăn rất mất dạy",
+              "label": "COMP"
+            },
+            {
+              "start": 94,
+              "end": 155,
+              "text": "tài khoản cũ của tôi sau khi đăng nhập lại thì bị vô hiệu hoá",
+              "label": "COMP"
+            },
+            {
+              "start": 156,
+              "end": 253,
+              "text": "lập thêm cái nữa để kiểm tra thì hiện tượng ấy vẫn bị lặp lại trong khi tôi không làm gì sai trái",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 75,
+            "end": 253,
+            "text": "làm ăn rất mất dạy!tài khoản cũ của tôi sau khi đăng nhập lại thì bị vô hiệu hoá,lập thêm cái nữa để kiểm tra thì hiện tượng ấy vẫn bị lặp lại trong khi tôi không làm gì sai trái",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001991",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 118,
+              "end": 141,
+              "text": "vào bài hát thì bị đứng",
+              "label": "COMP"
+            },
+            {
+              "start": 142,
+              "end": 174,
+              "text": "chơi xong một bài  quả người cáo",
+              "label": "COMP"
+            },
+            {
+              "start": 175,
+              "end": 243,
+              "text": "chs không thấy mất lượt chơi nào chỉ toàn tăng 'chán'😔 game toàn lỗi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 118,
+            "end": 243,
+            "text": "vào bài hát thì bị đứng,chơi xong một bài  quả người cáo,chs không thấy mất lượt chơi nào chỉ toàn tăng 'chán'😔 game toàn lỗi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002189",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 7,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 142,
+              "end": 198,
+              "text": "không chỉ thế bây giờ phần dịch văn bản thường xuyên lỗi",
+              "label": "COMP"
+            },
+            {
+              "start": 199,
+              "end": 256,
+              "text": "có những từ gOgle dịch ngoại tuyến dịch vô cùng ngon lành",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 142,
+            "end": 256,
+            "text": "không chỉ thế bây giờ phần dịch văn bản thường xuyên lỗi.có những từ gOgle dịch ngoại tuyến dịch vô cùng ngon lành",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002215",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 10,
+              "end": 44,
+              "text": "ứng dụng nghe không  được  tốt lắm",
+              "label": "COMP"
+            },
+            {
+              "start": 45,
+              "end": 95,
+              "text": "xin nhà cung cấp mở khoá những chức năng chung cấp",
+              "label": "COMP"
+            },
+            {
+              "start": 96,
+              "end": 103,
+              "text": "cao cấp",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 10,
+            "end": 103,
+            "text": "ứng dụng nghe không  được  tốt lắm.xin nhà cung cấp mở khoá những chức năng chung cấp,cao cấp",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002222",
+      "changed": true,
+      "spans_before": 10,
+      "spans_after": 9,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 186,
+              "end": 220,
+              "text": "tại sao lạ có chuyện charge dư 130",
+              "label": "COMP"
+            },
+            {
+              "start": 221,
+              "end": 231,
+              "text": "000vnd vậy",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 186,
+            "end": 231,
+            "text": "tại sao lạ có chuyện charge dư 130,000vnd vậy",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002226",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 58,
+              "text": "một quá nhiều nạp lậu khắc phục cho có không quét hết được",
+              "label": "COMP"
+            },
+            {
+              "start": 59,
+              "end": 102,
+              "text": "2 kick nạp vàng giá đấu tướng lên quá nhiều",
+              "label": "COMP"
+            },
+            {
+              "start": 103,
+              "end": 150,
+              "text": "3 pug code vừa qua quá thiệt hại cho người chơi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 150,
+            "text": "một quá nhiều nạp lậu khắc phục cho có không quét hết được,2 kick nạp vàng giá đấu tướng lên quá nhiều.3 pug code vừa qua quá thiệt hại cho người chơi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002248",
+      "changed": true,
+      "spans_before": 11,
+      "spans_after": 9,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 167,
+              "end": 210,
+              "text": "không có chỗ đổi lại biểu tượng cảm xúc nữa",
+              "label": "COMP"
+            },
+            {
+              "start": 211,
+              "end": 239,
+              "text": "người khác nhắn tin cho mình",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 167,
+            "end": 239,
+            "text": "không có chỗ đổi lại biểu tượng cảm xúc nữa,người khác nhắn tin cho mình",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 263,
+              "end": 300,
+              "text": "phải vào aC xem kéo xuống mới thấy tn",
+              "label": "COMP"
+            },
+            {
+              "start": 301,
+              "end": 312,
+              "text": "mạng mở 247",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 263,
+            "end": 312,
+            "text": "phải vào aC xem kéo xuống mới thấy tn,mạng mở 247",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002274",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 6,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 257,
+              "end": 282,
+              "text": "đừng xoá nhận xét của tôi",
+              "label": "COMP"
+            },
+            {
+              "start": 285,
+              "end": 291,
+              "text": "cảm ơn",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 257,
+            "end": 291,
+            "text": "đừng xoá nhận xét của tôi...cảm ơn",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002319",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 6,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 110,
+              "end": 201,
+              "text": "sản phẩm Ed text với vẽ hình cần phải phản hồi nhanh hơn vì chậm 1s thôi đã đủ khó chịu rồi",
+              "label": "COMP"
+            },
+            {
+              "start": 202,
+              "end": 228,
+              "text": "với cả lỗi không thể góp ý",
+              "label": "COMP"
+            },
+            {
+              "start": 229,
+              "end": 306,
+              "text": "lúc được lúc không làm tôi phải mất công bật cái laptop lên nếu muốn góp ý từ",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 110,
+            "end": 306,
+            "text": "sản phẩm Ed text với vẽ hình cần phải phản hồi nhanh hơn vì chậm 1s thôi đã đủ khó chịu rồi,với cả lỗi không thể góp ý,lúc được lúc không làm tôi phải mất công bật cái laptop lên nếu muốn góp ý từ",
+            "label": "COMP"
+          }
+        }
+      ]
+    }
+  ]
+}

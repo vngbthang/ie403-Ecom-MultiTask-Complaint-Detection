@@ -1,0 +1,2822 @@
+{
+  "summary": {
+    "records": 200,
+    "spans_total": 281,
+    "spans_already_valid": 281,
+    "spans_repaired": 0,
+    "spans_unresolved": 0,
+    "ambiguous_matches": 0
+  },
+  "details": [
+    {
+      "id": "train_003601",
+      "span_text": "kem nền có mùi cồn nhiều mà còn nồng nặc nữa",
+      "old_start": 0,
+      "old_end": 44,
+      "new_start": 0,
+      "new_end": 44,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003601",
+      "span_text": "nắp thì hờ hừng không khít nói chung là rất luồn không biết có phải hàng chính hãng k",
+      "old_start": 111,
+      "old_end": 196,
+      "new_start": 111,
+      "new_end": 196,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003601",
+      "span_text": "thực sự là rất buồn 😥😥😢😢😢",
+      "old_start": 198,
+      "old_end": 223,
+      "new_start": 198,
+      "new_end": 223,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000426",
+      "span_text": "lag màu vào nó một cục màu ngay nhân vật",
+      "old_start": 52,
+      "old_end": 92,
+      "new_start": 52,
+      "new_end": 92,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000426",
+      "span_text": "quả người cáo lừa đảo",
+      "old_start": 144,
+      "old_end": 165,
+      "new_start": 144,
+      "new_end": 165,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002332",
+      "span_text": "gọi xe cứ bị huỷ chuyến rất mất thời gian",
+      "old_start": 0,
+      "old_end": 41,
+      "new_start": 0,
+      "new_end": 41,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002332",
+      "span_text": "lại gọi điện thoại bảo mình huỷ chuyến",
+      "old_start": 67,
+      "old_end": 105,
+      "new_start": 67,
+      "new_end": 105,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002332",
+      "span_text": "chưa kịp huỷ đang tìm grab để đi thì cứ gọi đến giục huỷ chuyến đi",
+      "old_start": 108,
+      "old_end": 174,
+      "new_start": 108,
+      "new_end": 174,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002332",
+      "span_text": "rất mất thời gian và bất tiện",
+      "old_start": 176,
+      "old_end": 205,
+      "new_start": 176,
+      "new_end": 205,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002332",
+      "span_text": "đang lúc gấp gáp cứ bị huỷ chuyến liên tục rất là bực mình",
+      "old_start": 207,
+      "old_end": 265,
+      "new_start": 207,
+      "new_end": 265,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000229",
+      "span_text": "không hợp với da mình",
+      "old_start": 0,
+      "old_end": 21,
+      "new_start": 0,
+      "new_end": 21,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000229",
+      "span_text": "không hiệu  quả",
+      "old_start": 23,
+      "old_end": 38,
+      "new_start": 23,
+      "new_end": 38,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001369",
+      "span_text": "tôi không hài lòng với việc mỗi khi cập nhật oby mới thì hãy đặt chính xác số giờ hết bảo trì chứ cứ nói lúc 11h đến 6h30 sau đó lại nói là 12h đến 7h30 rồi tiếp đó thì lại nói là 12h đến 8h30 tôi cảm thấy khá bực mình về chuyện này mong admin giúp đỡ và tôi cũng nghỉ là nê",
+      "old_start": 33,
+      "old_end": 307,
+      "new_start": 33,
+      "new_end": 307,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001734",
+      "span_text": "bị rách ở đầu",
+      "old_start": 0,
+      "old_end": 13,
+      "new_start": 0,
+      "new_end": 13,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002823",
+      "span_text": "không có tặng gì cả",
+      "old_start": 216,
+      "old_end": 235,
+      "new_start": 216,
+      "new_end": 235,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002823",
+      "span_text": "thất vọng  cửa hàng  quá đặt lúc 27",
+      "old_start": 237,
+      "old_end": 272,
+      "new_start": 237,
+      "new_end": 272,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003779",
+      "span_text": "mặt bị xước trước và sau",
+      "old_start": 32,
+      "old_end": 56,
+      "new_start": 32,
+      "new_end": 56,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003010",
+      "span_text": "đầm hơi mỏng",
+      "old_start": 0,
+      "old_end": 12,
+      "new_start": 0,
+      "new_end": 12,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003062",
+      "span_text": "cảm giác dính hơi khó chịu",
+      "old_start": 27,
+      "old_end": 53,
+      "new_start": 27,
+      "new_end": 53,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000561",
+      "span_text": "đây là từ điển nhật - việt chứ đâu phải từ điển nhật - anh đâu mà chỉ có tuếng anh khi tra vậy",
+      "old_start": 0,
+      "old_end": 94,
+      "new_start": 0,
+      "new_end": 94,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000561",
+      "span_text": "nói điều này không phù hợp cho người không giỏi tiếng anh",
+      "old_start": 149,
+      "old_end": 206,
+      "new_start": 149,
+      "new_end": 206,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003624",
+      "span_text": "chán",
+      "old_start": 83,
+      "old_end": 87,
+      "new_start": 83,
+      "new_end": 87,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003624",
+      "span_text": "thấy chán",
+      "old_start": 101,
+      "old_end": 110,
+      "new_start": 101,
+      "new_end": 110,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003624",
+      "span_text": "càng chơi càng chán vì chả còn gì mới lạ để chơi",
+      "old_start": 130,
+      "old_end": 178,
+      "new_start": 130,
+      "new_end": 178,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003624",
+      "span_text": "quá tệ",
+      "old_start": 181,
+      "old_end": 187,
+      "new_start": 181,
+      "new_end": 187,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003574",
+      "span_text": "hàng  được  nhưng dải hơi mỏng nhưng được lắm đẹp như hình",
+      "old_start": 0,
+      "old_end": 58,
+      "new_start": 0,
+      "new_end": 58,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003574",
+      "span_text": "mình thất vọng về shiper của lazada quá kêu giao tận nhà mà không khi nào",
+      "old_start": 71,
+      "old_end": 144,
+      "new_start": 71,
+      "new_end": 144,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002643",
+      "span_text": "3h sau vẫn không nhận được mã thẻ nạp cũng không có hoàn trả vào ví điện tử grabpay của tôi",
+      "old_start": 192,
+      "old_end": 283,
+      "new_start": 192,
+      "new_end": 283,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002019",
+      "span_text": "mùi ghê lắm",
+      "old_start": 23,
+      "old_end": 34,
+      "new_start": 23,
+      "new_end": 34,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004164",
+      "span_text": "đặt màu đen mà đi giao màu vàng",
+      "old_start": 0,
+      "old_end": 31,
+      "new_start": 0,
+      "new_end": 31,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001829",
+      "span_text": "eo hơi nhỏ đường may hơi túm",
+      "old_start": 0,
+      "old_end": 28,
+      "new_start": 0,
+      "new_end": 28,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002068",
+      "span_text": "bọc hàng chán không chịu  được",
+      "old_start": 14,
+      "old_end": 44,
+      "new_start": 14,
+      "new_end": 44,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002068",
+      "span_text": "không có lót gì bên trong hộp",
+      "old_start": 47,
+      "old_end": 76,
+      "new_start": 47,
+      "new_end": 76,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002068",
+      "span_text": "cạch lazada đến già  quả  mua hàng đắt tiền thế này",
+      "old_start": 103,
+      "old_end": 154,
+      "new_start": 103,
+      "new_end": 154,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003691",
+      "span_text": "tin tưởng phân phối chính hãng và mua hàng",
+      "old_start": 0,
+      "old_end": 42,
+      "new_start": 0,
+      "new_end": 42,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003691",
+      "span_text": "mặt sau 4 camera thì bị lệch hết 2 cam dưới",
+      "old_start": 84,
+      "old_end": 127,
+      "new_start": 84,
+      "new_end": 127,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003691",
+      "span_text": "gia công tệ kinh khủng",
+      "old_start": 129,
+      "old_end": 151,
+      "new_start": 129,
+      "new_end": 151,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001471",
+      "span_text": "điện thoại không có tai nghe hả  cửa hàng",
+      "old_start": 0,
+      "old_end": 41,
+      "new_start": 0,
+      "new_end": 41,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003096",
+      "span_text": "giao hàng nhanh",
+      "old_start": 0,
+      "old_end": 15,
+      "new_start": 0,
+      "new_end": 15,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003096",
+      "span_text": "đóng gói không có xốp hay nilon chống sốc",
+      "old_start": 17,
+      "old_end": 58,
+      "new_start": 17,
+      "new_end": 58,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003096",
+      "span_text": "may là không có va đập gì",
+      "old_start": 66,
+      "old_end": 91,
+      "new_start": 66,
+      "new_end": 91,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003096",
+      "span_text": "sẽ ủng hộ  cửa hàng  trong đơn hàng tiếp theo",
+      "old_start": 308,
+      "old_end": 353,
+      "new_start": 308,
+      "new_end": 353,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003073",
+      "span_text": "giao hàng chập chút nhưng vẫn ủng hộ  cửa hàng   5star",
+      "old_start": 62,
+      "old_end": 116,
+      "new_start": 62,
+      "new_end": 116,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001961",
+      "span_text": "n hình có phần kim cương hoặc dấu cộng rất vướng víu khi tìm kiếm",
+      "old_start": 2,
+      "old_end": 67,
+      "new_start": 2,
+      "new_end": 67,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000765",
+      "span_text": "ở ngoài đầm hơi ôm chứ  không xoè nên  không thích lắm",
+      "old_start": 28,
+      "old_end": 82,
+      "new_start": 28,
+      "new_end": 82,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000444",
+      "span_text": "hôi cực",
+      "old_start": 10,
+      "old_end": 17,
+      "new_start": 10,
+      "new_end": 17,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001396",
+      "span_text": "có giao trễ hơn dự kiến vài hôm",
+      "old_start": 19,
+      "old_end": 50,
+      "new_start": 19,
+      "new_end": 50,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000587",
+      "span_text": "u nên ngửi hơi khó chịu",
+      "old_start": 29,
+      "old_end": 52,
+      "new_start": 29,
+      "new_end": 52,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002179",
+      "span_text": "giao hàng chậm 3 ngày",
+      "old_start": 0,
+      "old_end": 21,
+      "new_start": 0,
+      "new_end": 21,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002179",
+      "span_text": "hàng không móp không hay hư hỏng",
+      "old_start": 43,
+      "old_end": 75,
+      "new_start": 43,
+      "new_end": 75,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002179",
+      "span_text": "máy trầy mình không lấy",
+      "old_start": 176,
+      "old_end": 199,
+      "new_start": 176,
+      "new_end": 199,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002360",
+      "span_text": "lại không hề có và cũng không hề thông báo cho khách hàng",
+      "old_start": 33,
+      "old_end": 90,
+      "new_start": 33,
+      "new_end": 90,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002360",
+      "span_text": "thất vọng về  cửa hàng",
+      "old_start": 92,
+      "old_end": 114,
+      "new_start": 92,
+      "new_end": 114,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002369",
+      "span_text": "sms vẫn không hề gửi mã",
+      "old_start": 279,
+      "old_end": 302,
+      "new_start": 279,
+      "new_end": 302,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001937",
+      "span_text": "thiếu những chỗ cần nghe để điền từ",
+      "old_start": 56,
+      "old_end": 91,
+      "new_start": 56,
+      "new_end": 91,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001937",
+      "span_text": "ví dụ như unit 7 trang 71 của sách phiên bản cũ thì mất luôn cái dòng đối thoại thứ nhất",
+      "old_start": 92,
+      "old_end": 180,
+      "new_start": 92,
+      "new_end": 180,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001937",
+      "span_text": "ở trang 79 của unit 8 cũng mất hẳng đoạn voice dài 3 dòng ở cuối đoạn chuyện chêm và còn nhiều nữa",
+      "old_start": 183,
+      "old_end": 281,
+      "new_start": 183,
+      "new_end": 281,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001481",
+      "span_text": "cửa hàng  giao không tặng",
+      "old_start": 35,
+      "old_end": 60,
+      "new_start": 35,
+      "new_end": 60,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001530",
+      "span_text": "không thấy sản phẩm tặng kèm thật thất vọng với chất lượng dịch vụ như thế đóng gói sản phẩm rất tốt",
+      "old_start": 0,
+      "old_end": 100,
+      "new_start": 0,
+      "new_end": 100,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000043",
+      "span_text": "nó cứ xoay vòng vòng mãi không được thế 💁💁💁",
+      "old_start": 57,
+      "old_end": 100,
+      "new_start": 57,
+      "new_end": 100,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004077",
+      "span_text": "giao nhầm super volcanic peL oF mask 2x",
+      "old_start": 0,
+      "old_end": 39,
+      "new_start": 0,
+      "new_end": 39,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000020",
+      "span_text": "em có một tài khoản lần đầu em bị mất xim nên em đã thêm số điện thoại mới",
+      "old_start": 0,
+      "old_end": 74,
+      "new_start": 0,
+      "new_end": 74,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000020",
+      "span_text": "mới vừa rồi em đổi mật khẩu quên khuấy mất",
+      "old_start": 83,
+      "old_end": 125,
+      "new_start": 83,
+      "new_end": 125,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002047",
+      "span_text": "giao  cỡ  38 mang rộng chân không  được  đẹp lắm",
+      "old_start": 39,
+      "old_end": 87,
+      "new_start": 39,
+      "new_end": 87,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002047",
+      "span_text": "cửa hàng  rút kinh nghiệm lần sau đừng nhầm lẩn nha  cửa hàng",
+      "old_start": 89,
+      "old_end": 150,
+      "new_start": 89,
+      "new_end": 150,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001226",
+      "span_text": "lại không thích hợp với chủ đề trong khi thi và bình chọn",
+      "old_start": 84,
+      "old_end": 141,
+      "new_start": 84,
+      "new_end": 141,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001226",
+      "span_text": "ai cũng dùng mấy bộ trang phục không thích hợp với chủ đề cả",
+      "old_start": 143,
+      "old_end": 203,
+      "new_start": 143,
+      "new_end": 203,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003083",
+      "span_text": "điện thoại cảm ứng không được nhảy cho lắm đóng gói không chắc chắn còn lại đều rất ngon trong tầm giá này",
+      "old_start": 0,
+      "old_end": 106,
+      "new_start": 0,
+      "new_end": 106,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000993",
+      "span_text": "giao nhầm nhãn_hiệu",
+      "old_start": 36,
+      "old_end": 55,
+      "new_start": 36,
+      "new_end": 55,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001034",
+      "span_text": "đắt đơn ngày dưng",
+      "old_start": 23,
+      "old_end": 40,
+      "new_start": 23,
+      "new_end": 40,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001034",
+      "span_text": "quá chán",
+      "old_start": 81,
+      "old_end": 89,
+      "new_start": 81,
+      "new_end": 89,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003604",
+      "span_text": "0 thật sự quá tệ",
+      "old_start": 22,
+      "old_end": 38,
+      "new_start": 22,
+      "new_end": 38,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003604",
+      "span_text": "phiên bản hiện tại làm tôi rất thất vọng",
+      "old_start": 79,
+      "old_end": 119,
+      "new_start": 79,
+      "new_end": 119,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003604",
+      "span_text": "bản đồ giao diện thật sự nhìn rất tệ",
+      "old_start": 122,
+      "old_end": 158,
+      "new_start": 122,
+      "new_end": 158,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003604",
+      "span_text": "thật sự tôi phải xoá game bởi vì nó rất tệ khôg phải riêng tôi mà là tất cả mọi người đều quen với bản đồ cũ",
+      "old_start": 161,
+      "old_end": 269,
+      "new_start": 161,
+      "new_end": 269,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002384",
+      "span_text": "chưa có lỗi gì",
+      "old_start": 4,
+      "old_end": 18,
+      "new_start": 4,
+      "new_end": 18,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002384",
+      "span_text": "slow motion hơi giật",
+      "old_start": 20,
+      "old_end": 40,
+      "new_start": 20,
+      "new_end": 40,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001420",
+      "span_text": "cái bình hơi bẩn một tí",
+      "old_start": 16,
+      "old_end": 39,
+      "new_start": 16,
+      "new_end": 39,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004137",
+      "span_text": "và mỗi lần đăng kí đều không được",
+      "old_start": 98,
+      "old_end": 131,
+      "new_start": 98,
+      "new_end": 131,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004137",
+      "span_text": "nhờ người khác  được  để mình đăng nhập nó cứ để là   rất tiếc lỗi đã xảy ra",
+      "old_start": 133,
+      "old_end": 209,
+      "new_start": 133,
+      "new_end": 209,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004050",
+      "span_text": "áo vừa quần chật không mặt vừa luôn 53  không vừa lấy đâu 55",
+      "old_start": 0,
+      "old_end": 60,
+      "new_start": 0,
+      "new_end": 60,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002082",
+      "span_text": "cỡ  quần giao sai ạ",
+      "old_start": 1,
+      "old_end": 20,
+      "new_start": 1,
+      "new_end": 20,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000999",
+      "span_text": "hình động của tướng và có khi không tải vào trận",
+      "old_start": 234,
+      "old_end": 282,
+      "new_start": 234,
+      "new_end": 282,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003397",
+      "span_text": "cục sạc bị hỏng lazada qua te",
+      "old_start": 0,
+      "old_end": 29,
+      "new_start": 0,
+      "new_end": 29,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003695",
+      "span_text": "khôi phục lại tin nhắn cũ đã sao lưu thì bị mất hết những tin nhắn mới (mặc dù các tin nhắn mới này đều đã  được  sao lưu)",
+      "old_start": 0,
+      "old_end": 122,
+      "new_start": 0,
+      "new_end": 122,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003695",
+      "span_text": "rất không hài lòng",
+      "old_start": 158,
+      "old_end": 176,
+      "new_start": 158,
+      "new_end": 176,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003695",
+      "span_text": "nếu khôi phục lại tin nhắn cũ để rồi mất hết những tin nhắn mới thì tính năng này thà không có còn hơn",
+      "old_start": 178,
+      "old_end": 280,
+      "new_start": 178,
+      "new_end": 280,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002717",
+      "span_text": "vào lại mất hết những phần trợ giúp lại phai chơi từ đầu",
+      "old_start": 133,
+      "old_end": 189,
+      "new_start": 133,
+      "new_end": 189,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002717",
+      "span_text": "tào lao hết pít",
+      "old_start": 235,
+      "old_end": 250,
+      "new_start": 235,
+      "new_end": 250,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001341",
+      "span_text": "chỉ xuất hiện đại loại là một hạn chế lớn đối với phần này",
+      "old_start": 166,
+      "old_end": 224,
+      "new_start": 166,
+      "new_end": 224,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002700",
+      "span_text": "giao hàng chậm nhưng sản phẩm ok",
+      "old_start": 0,
+      "old_end": 32,
+      "new_start": 0,
+      "new_end": 32,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000600",
+      "span_text": "chưa thấy nph nào óc chó",
+      "old_start": 0,
+      "old_end": 24,
+      "new_start": 0,
+      "new_end": 24,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000600",
+      "span_text": "mất dạy như bọn gamota này",
+      "old_start": 26,
+      "old_end": 52,
+      "new_start": 26,
+      "new_end": 52,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000600",
+      "span_text": "cập nhật xong bây giờ mất mẹ luôn tài khoản",
+      "old_start": 54,
+      "old_end": 97,
+      "new_start": 54,
+      "new_end": 97,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000600",
+      "span_text": "khuyên mọi người tẩy chay game mất dạy này",
+      "old_start": 234,
+      "old_end": 276,
+      "new_start": 234,
+      "new_end": 276,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003659",
+      "span_text": "giao hàng nhanh hàng đúng mẫu",
+      "old_start": 0,
+      "old_end": 29,
+      "new_start": 0,
+      "new_end": 29,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003659",
+      "span_text": "sao nhìn ảnh thấy có quà tặng kèm giờ nhận hàng rồi không thấy)",
+      "old_start": 79,
+      "old_end": 142,
+      "new_start": 79,
+      "new_end": 142,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001179",
+      "span_text": "form không được chuẩn",
+      "old_start": 10,
+      "old_end": 31,
+      "new_start": 10,
+      "new_end": 31,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004035",
+      "span_text": "sử dụng zing id đăng nhập không được",
+      "old_start": 0,
+      "old_end": 36,
+      "new_start": 0,
+      "new_end": 36,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004035",
+      "span_text": "tưởng mình nhập sai đi lên trang zing id lấy mật khẩu qua đăng nhập cũng không được",
+      "old_start": 89,
+      "old_end": 172,
+      "new_start": 89,
+      "new_end": 172,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004035",
+      "span_text": "nghi là lỗi do mật khẩu lên trang chủ đổi lại vào đăng nhập game lại báo mật khẩu hoặc tài khoảng không chính xác bình chọn   1star   cho",
+      "old_start": 175,
+      "old_end": 312,
+      "new_start": 175,
+      "new_end": 312,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000332",
+      "span_text": "đặt  cỡ  39-40 giao  cỡ  37-38",
+      "old_start": 0,
+      "old_end": 30,
+      "new_start": 0,
+      "new_end": 30,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000332",
+      "span_text": "làm ăn ẩu",
+      "old_start": 61,
+      "old_end": 70,
+      "new_start": 61,
+      "new_end": 70,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001278",
+      "span_text": "mọi người không nên đăng kí học online nhé tải sử dụng thôi chứ giáo viên hỗ trợ gần như không có tác dụng gì mấy đâu bài giảng xem cũng hết sức bình thường không hẳn là dễ hiểu lắm khi nên bài cao",
+      "old_start": 0,
+      "old_end": 197,
+      "new_start": 0,
+      "new_end": 197,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002790",
+      "span_text": "hàng chuẩn xài tốt giao hơi lâu",
+      "old_start": 0,
+      "old_end": 31,
+      "new_start": 0,
+      "new_end": 31,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000716",
+      "span_text": "lại giao màu 125",
+      "old_start": 19,
+      "old_end": 35,
+      "new_start": 19,
+      "new_end": 35,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002330",
+      "span_text": "giao đúng hàng",
+      "old_start": 0,
+      "old_end": 14,
+      "new_start": 0,
+      "new_end": 14,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002330",
+      "span_text": "lúc đặt thì trên đó có ghi tặng cây son",
+      "old_start": 104,
+      "old_end": 143,
+      "new_start": 104,
+      "new_end": 143,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002330",
+      "span_text": "sao giờ chỉ có một chai này thôi vậy",
+      "old_start": 146,
+      "old_end": 182,
+      "new_start": 146,
+      "new_end": 182,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002330",
+      "span_text": "không hài lòng à nghen 🥴",
+      "old_start": 185,
+      "old_end": 209,
+      "new_start": 185,
+      "new_end": 209,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000427",
+      "span_text": "không thấy",
+      "old_start": 40,
+      "old_end": 50,
+      "new_start": 40,
+      "new_end": 50,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001364",
+      "span_text": "tôi không hiểu vì sao facebOk lại bắt xác nhận danh tính và không cho người dùng đổi tên",
+      "old_start": 0,
+      "old_end": 88,
+      "new_start": 0,
+      "new_end": 88,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001364",
+      "span_text": "tôi thấy khá khó chịu về điều này",
+      "old_start": 130,
+      "old_end": 163,
+      "new_start": 130,
+      "new_end": 163,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001364",
+      "span_text": "cứ cho là vì facebOk muốn  quả nó lý chặt hơn để tránh những tài khoản giả mạo đi",
+      "old_start": 165,
+      "old_end": 246,
+      "new_start": 165,
+      "new_end": 246,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003686",
+      "span_text": "đã thông báo giao hàng thành công",
+      "old_start": 19,
+      "old_end": 52,
+      "new_start": 19,
+      "new_end": 52,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001106",
+      "span_text": "không có tai nghe",
+      "old_start": 14,
+      "old_end": 31,
+      "new_start": 14,
+      "new_end": 31,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003066",
+      "span_text": "không có quà tặng kèm",
+      "old_start": 34,
+      "old_end": 55,
+      "new_start": 34,
+      "new_end": 55,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003066",
+      "span_text": "thấy hụt hẫng ghê gớm",
+      "old_start": 72,
+      "old_end": 93,
+      "new_start": 72,
+      "new_end": 93,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003066",
+      "span_text": "dù sao mình cũng sẽ bình chọn  1star   vì không có quà tặng kèm",
+      "old_start": 149,
+      "old_end": 212,
+      "new_start": 149,
+      "new_end": 212,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001469",
+      "span_text": "ứng dụng đơn giản mà hiệu  quả",
+      "old_start": 0,
+      "old_end": 30,
+      "new_start": 0,
+      "new_end": 30,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000003",
+      "span_text": "chơi game frE fire bị chậm khung hình không mượt lắm nhưng với giá giẫm ngày 1111 được aD mã giảm giá 200k còn hơn 2tr6 thì vậy là ngon rồi",
+      "old_start": 77,
+      "old_end": 216,
+      "new_start": 77,
+      "new_end": 216,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000197",
+      "span_text": "nên có thêm tính nắng xoá hình đơn lẻ",
+      "old_start": 31,
+      "old_end": 68,
+      "new_start": 31,
+      "new_end": 68,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003784",
+      "span_text": "đóng gói sơ xài vận chuyển móp không",
+      "old_start": 85,
+      "old_end": 121,
+      "new_start": 85,
+      "new_end": 121,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000545",
+      "span_text": "quần đẹp lắm nha mọi người chỉ là hơi ngắn xíu",
+      "old_start": 0,
+      "old_end": 46,
+      "new_start": 0,
+      "new_end": 46,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000457",
+      "span_text": "giao hàng cũng rất nhanh",
+      "old_start": 38,
+      "old_end": 62,
+      "new_start": 38,
+      "new_end": 62,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000457",
+      "span_text": "sản phẩm có mùi không được thơm làm khi nhỏ giọt ra tay xài cũng khó chịu",
+      "old_start": 71,
+      "old_end": 144,
+      "new_start": 71,
+      "new_end": 144,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002813",
+      "span_text": "mình đặt 2 đơn là 10 áo",
+      "old_start": 0,
+      "old_end": 23,
+      "new_start": 0,
+      "new_end": 23,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002813",
+      "span_text": "sao  cửa hàng  giao thiếu 2 đơn là 4 áo",
+      "old_start": 24,
+      "old_end": 63,
+      "new_start": 24,
+      "new_end": 63,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002813",
+      "span_text": "rất thất vọng",
+      "old_start": 64,
+      "old_end": 77,
+      "new_start": 64,
+      "new_end": 77,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002813",
+      "span_text": "thiếu",
+      "old_start": 115,
+      "old_end": 120,
+      "new_start": 115,
+      "new_end": 120,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002813",
+      "span_text": "ko cho kiểm hàng giờ giao thiếu sản phẩm cho khách rồi",
+      "old_start": 121,
+      "old_end": 175,
+      "new_start": 121,
+      "new_end": 175,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001488",
+      "span_text": "không thấy có dấu hiệu mờ thâm",
+      "old_start": 42,
+      "old_end": 72,
+      "new_start": 42,
+      "new_end": 72,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001488",
+      "span_text": "có thể là do da mình không hợp",
+      "old_start": 106,
+      "old_end": 136,
+      "new_start": 106,
+      "new_end": 136,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000152",
+      "span_text": "nhìn không  được  mới",
+      "old_start": 36,
+      "old_end": 57,
+      "new_start": 36,
+      "new_end": 57,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001130",
+      "span_text": "vào được khoảng 30s và làm vài thao tác là game bị đứng và không thể làm gì khác ngoài thoát game",
+      "old_start": 40,
+      "old_end": 137,
+      "new_start": 40,
+      "new_end": 137,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001130",
+      "span_text": "dù tôi không chạy thêm ứng dụng ngầm nào của bên thứ ba nữa",
+      "old_start": 139,
+      "old_end": 198,
+      "new_start": 139,
+      "new_end": 198,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003770",
+      "span_text": "tài khoản mới tôi vừa nhắn vài tin bỗng mất hết lịch sử tin nhắn",
+      "old_start": 84,
+      "old_end": 148,
+      "new_start": 84,
+      "new_end": 148,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003770",
+      "span_text": "mở ra không thấy đâu cả",
+      "old_start": 196,
+      "old_end": 219,
+      "new_start": 196,
+      "new_end": 219,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003770",
+      "span_text": "mỗi lần chuyển tài khoản đăng xuất mất 4-5 phút",
+      "old_start": 221,
+      "old_end": 268,
+      "new_start": 221,
+      "new_end": 268,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003770",
+      "span_text": "đề nghị nC sớm sửa lỗi",
+      "old_start": 270,
+      "old_end": 292,
+      "new_start": 270,
+      "new_end": 292,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001882",
+      "span_text": "cổ may hơi lỗi",
+      "old_start": 0,
+      "old_end": 14,
+      "new_start": 0,
+      "new_end": 14,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000061",
+      "span_text": "cửa hàng  giao thiếu quà tặng là nước tẩy trang rồi",
+      "old_start": 1,
+      "old_end": 52,
+      "new_start": 1,
+      "new_end": 52,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001077",
+      "span_text": "vải không đẹp lắm nhưng củng được",
+      "old_start": 0,
+      "old_end": 33,
+      "new_start": 0,
+      "new_end": 33,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001684",
+      "span_text": "khích thước hơi nhỏ",
+      "old_start": 18,
+      "old_end": 37,
+      "new_start": 18,
+      "new_end": 37,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004087",
+      "span_text": "chất lượng sản phẩm tốt theo đơn hàng là có  sản phẩm  tặng kèm nhưng giao về",
+      "old_start": 0,
+      "old_end": 77,
+      "new_start": 0,
+      "new_end": 77,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003352",
+      "span_text": "sản phẩm như hình như tôi không được tặng kèm sản phẩm",
+      "old_start": 0,
+      "old_end": 54,
+      "new_start": 0,
+      "new_end": 54,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002079",
+      "span_text": "đồ đẹp như bi giờ lỗi ở cổ áo không  được  không lắm nhưng còn lại bộ này cũng đẹp (•‿•)(✷‿✷)",
+      "old_start": 0,
+      "old_end": 93,
+      "new_start": 0,
+      "new_end": 93,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001688",
+      "span_text": "mình không thích quần 9 tất tí nào cả",
+      "old_start": 113,
+      "old_end": 150,
+      "new_start": 113,
+      "new_end": 150,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001688",
+      "span_text": "mặc cũng không được thoải mái ngồi xuống rất chật",
+      "old_start": 153,
+      "old_end": 202,
+      "new_start": 153,
+      "new_end": 202,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001688",
+      "span_text": "quần không được ưng ý nhưng mặc đi làm ai cũng khen đẹp nên mình đánh giá lại cho  cửa hàng   5star",
+      "old_start": 256,
+      "old_end": 355,
+      "new_start": 256,
+      "new_end": 355,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000809",
+      "span_text": "quần quá mỏng",
+      "old_start": 0,
+      "old_end": 13,
+      "new_start": 0,
+      "new_end": 13,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000809",
+      "span_text": "mặc vào chả biết bị rách lúc nào",
+      "old_start": 16,
+      "old_end": 48,
+      "new_start": 16,
+      "new_end": 48,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001368",
+      "span_text": "không tặng cũng không sao chứ không nên tặng kèm chỉ để cho có thôi ạ",
+      "old_start": 88,
+      "old_end": 157,
+      "new_start": 88,
+      "new_end": 157,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002396",
+      "span_text": "thiết kế đơn giản nhưng rất chắc chắn nhưng có một điểm trừ đối với cá nhân mình là phần thân son được phủ như tráng gương khi cầm vào hay môi chạm vào sẽ để lại vân môi hoặc vân tay",
+      "old_start": 0,
+      "old_end": 182,
+      "new_start": 0,
+      "new_end": 182,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002396",
+      "span_text": "không hề làm nặng môi",
+      "old_start": 274,
+      "old_end": 295,
+      "new_start": 274,
+      "new_end": 295,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002396",
+      "span_text": "chỉ son thôi thì vẫn xinh chứ không dừ ( mình nghĩ nên tẩy da chết cho môi rồi thêm một lớp son dưỡng mỏng thôi rồi son em này lên là được  )",
+      "old_start": 351,
+      "old_end": 492,
+      "new_start": 351,
+      "new_end": 492,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002396",
+      "span_text": "vì bản chất em này cũng là son có thành phần dưỡng rồi nên mình nghĩ không thể rất với các dòng khác về mặt lâu trôi được nhưng mình đã sử dụng qua và không dặm lại nhưng đến cuối ngày vẫn thấy còn lại trên môi màu hồng phớt",
+      "old_start": 494,
+      "old_end": 718,
+      "new_start": 494,
+      "new_end": 718,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002396",
+      "span_text": "giao hàng cũng nhanh nữa nên rất hài lòng 😊",
+      "old_start": 830,
+      "old_end": 873,
+      "new_start": 830,
+      "new_end": 873,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001423",
+      "span_text": "bài hát thì càng ngày càng ít và hạn chế đặc biệt là những ca khúc tiếng anh cùng theo đó thì lại bắt người tiêu dùng xem nhiều  quả người cáo trong một lần nghe những ca khúc tiếng anh  được  nghe",
+      "old_start": 0,
+      "old_end": 197,
+      "new_start": 0,
+      "new_end": 197,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001423",
+      "span_text": "ứng dụng càng ngày càng tệ hại chỉ vì cái mà anh duy mạnh gọi là kiếm lợi nhuận càng nhiều càng tốt bất chấp ngườ",
+      "old_start": 200,
+      "old_end": 313,
+      "new_start": 200,
+      "new_end": 313,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001430",
+      "span_text": "đặt màu 125 mà lại giao màu 230",
+      "old_start": 0,
+      "old_end": 31,
+      "new_start": 0,
+      "new_end": 31,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003017",
+      "span_text": "các bạn muốn không có  quả người cáo tắt wi-fi hoặc 4g đi",
+      "old_start": 46,
+      "old_end": 103,
+      "new_start": 46,
+      "new_end": 103,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000743",
+      "span_text": "sop giao đồ lâu",
+      "old_start": 0,
+      "old_end": 15,
+      "new_start": 0,
+      "new_end": 15,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000743",
+      "span_text": "giao đúng màu",
+      "old_start": 55,
+      "old_end": 68,
+      "new_start": 55,
+      "new_end": 68,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002531",
+      "span_text": "mất một tháng để người chơi mới như tôi có thể đạt được 1m5 sức mạnh",
+      "old_start": 0,
+      "old_end": 68,
+      "new_start": 0,
+      "new_end": 68,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002531",
+      "span_text": "tôi mất tất cả",
+      "old_start": 116,
+      "old_end": 130,
+      "new_start": 116,
+      "new_end": 130,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003295",
+      "span_text": "shiPer hơi khó chịu 😅",
+      "old_start": 31,
+      "old_end": 52,
+      "new_start": 31,
+      "new_end": 52,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002780",
+      "span_text": "bôi thấy nóng không thấy tác dụng",
+      "old_start": 0,
+      "old_end": 33,
+      "new_start": 0,
+      "new_end": 33,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001517",
+      "span_text": "dép hơi nhỏ nhưng không sao",
+      "old_start": 14,
+      "old_end": 41,
+      "new_start": 14,
+      "new_end": 41,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000590",
+      "span_text": "cửa hàng  giao màu trắng",
+      "old_start": 63,
+      "old_end": 87,
+      "new_start": 63,
+      "new_end": 87,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002437",
+      "span_text": "tại sao trong điện thoại không có gì hết vậy",
+      "old_start": 0,
+      "old_end": 44,
+      "new_start": 0,
+      "new_end": 44,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001418",
+      "span_text": "tôi không thích chức năng camera lấy góc rộng của samsung",
+      "old_start": 60,
+      "old_end": 117,
+      "new_start": 60,
+      "new_end": 117,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001228",
+      "span_text": "giao hàng hơi lâu",
+      "old_start": 47,
+      "old_end": 64,
+      "new_start": 47,
+      "new_end": 64,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001228",
+      "span_text": "không có",
+      "old_start": 124,
+      "old_end": 132,
+      "new_start": 124,
+      "new_end": 132,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002684",
+      "span_text": "48 mỹ phẩm không chuẩn như các hãng điện thoại khác",
+      "old_start": 0,
+      "old_end": 51,
+      "new_start": 0,
+      "new_end": 51,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004213",
+      "span_text": "mong sẽ thay đổi một chức năng hơi bất tiện tiện",
+      "old_start": 43,
+      "old_end": 91,
+      "new_start": 43,
+      "new_end": 91,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004213",
+      "span_text": "người lạ bật ẩn trò chuyện lên rồi tìm lại thì không thấy đâu cả",
+      "old_start": 164,
+      "old_end": 228,
+      "new_start": 164,
+      "new_end": 228,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004147",
+      "span_text": "sửa lỗi",
+      "old_start": 54,
+      "old_end": 61,
+      "new_start": 54,
+      "new_end": 61,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004147",
+      "span_text": "cũng không tệ",
+      "old_start": 198,
+      "old_end": 211,
+      "new_start": 198,
+      "new_end": 211,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002335",
+      "span_text": "camera khá không chuẩn 48mp",
+      "old_start": 11,
+      "old_end": 38,
+      "new_start": 11,
+      "new_end": 38,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000104",
+      "span_text": "chưa nhận được hoá đơn",
+      "old_start": 28,
+      "old_end": 50,
+      "new_start": 28,
+      "new_end": 50,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000005",
+      "span_text": "sao giao mẫu này vậy  cửa hàng",
+      "old_start": 16,
+      "old_end": 46,
+      "new_start": 16,
+      "new_end": 46,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001107",
+      "span_text": "không em 8 của tôi không thể chạy  được",
+      "old_start": 1,
+      "old_end": 40,
+      "new_start": 1,
+      "new_end": 40,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001107",
+      "span_text": "tôi yêu cầu admin phải fix lại lỗi của ứng dụng này",
+      "old_start": 76,
+      "old_end": 127,
+      "new_start": 76,
+      "new_end": 127,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001107",
+      "span_text": "các bạn không hề làm",
+      "old_start": 269,
+      "old_end": 289,
+      "new_start": 269,
+      "new_end": 289,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004352",
+      "span_text": "tôi muốn hỏi là tin nhắn trong smartphone sẽ tự động biến mất dần theo năm tháng lý do là giản lược bộ nhớ",
+      "old_start": 26,
+      "old_end": 132,
+      "new_start": 26,
+      "new_end": 132,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001631",
+      "span_text": "dù hơi nhỏ thân yếu",
+      "old_start": 0,
+      "old_end": 19,
+      "new_start": 0,
+      "new_end": 19,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001725",
+      "span_text": "nếu không tạo bọt kĩ thì khi rửa mấy bạn da thường sẽ khô một tí và rít rít",
+      "old_start": 33,
+      "old_end": 108,
+      "new_start": 33,
+      "new_end": 108,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001725",
+      "span_text": "rít nữa",
+      "old_start": 158,
+      "old_end": 165,
+      "new_start": 158,
+      "new_end": 165,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001725",
+      "span_text": "về nước tẩy trang thì có mùi trà xanh nhẹ",
+      "old_start": 171,
+      "old_end": 212,
+      "new_start": 171,
+      "new_end": 212,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002887",
+      "span_text": "đặt 5 cái sao  cửa hàng  giao có 3 cái vậy",
+      "old_start": 0,
+      "old_end": 42,
+      "new_start": 0,
+      "new_end": 42,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000800",
+      "span_text": "tôi phải gọi lên tổng đài để hỏi và được giải thích rằng đơn hàng có thể bị huỷ và không giao đến được",
+      "old_start": 118,
+      "old_end": 220,
+      "new_start": 118,
+      "new_end": 220,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000800",
+      "span_text": "quá hạn giao hàng đơn hàng sẽ tự động huỷ",
+      "old_start": 222,
+      "old_end": 263,
+      "new_start": 222,
+      "new_end": 263,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000800",
+      "span_text": "và khuyến khích tôi huỷ đơn hàng đặt lại",
+      "old_start": 265,
+      "old_end": 305,
+      "new_start": 265,
+      "new_end": 305,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000800",
+      "span_text": "do tôi cần gấp nên khuya đó tôi đã phải đặt 01 đơn khác",
+      "old_start": 379,
+      "old_end": 434,
+      "new_start": 379,
+      "new_end": 434,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000800",
+      "span_text": "sáng hôm sau tôi phát hiện 02 đơn đang giao hàng",
+      "old_start": 436,
+      "old_end": 484,
+      "new_start": 436,
+      "new_end": 484,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000800",
+      "span_text": "không tự động huỷ và 01 đơn đặt vào tối đó vì tôi sợ qua ngày mai sẽ không còn giá khuyến mãi tốt",
+      "old_start": 509,
+      "old_end": 606,
+      "new_start": 509,
+      "new_end": 606,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000800",
+      "span_text": "rất thất vọng về xử lý đơn hàng của lazada",
+      "old_start": 645,
+      "old_end": 687,
+      "new_start": 645,
+      "new_end": 687,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000616",
+      "span_text": "giao hàng hơi lâu",
+      "old_start": 45,
+      "old_end": 62,
+      "new_start": 45,
+      "new_end": 62,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000860",
+      "span_text": "máy mới như gì vậy chơi game laG tệ hại",
+      "old_start": 0,
+      "old_end": 39,
+      "new_start": 0,
+      "new_end": 39,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000537",
+      "span_text": "eo hơi rộng xíu",
+      "old_start": 20,
+      "old_end": 35,
+      "new_start": 20,
+      "new_end": 35,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001321",
+      "span_text": "mỗi lần tôi đọc thì cứ bảo là không nhận diện  được  giọng nói",
+      "old_start": 24,
+      "old_end": 86,
+      "new_start": 24,
+      "new_end": 86,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003843",
+      "span_text": "đóng gói chắc chắn lâu lâu cs đơ giật",
+      "old_start": 18,
+      "old_end": 55,
+      "new_start": 18,
+      "new_end": 55,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001572",
+      "span_text": "không  được  tặg quà như  quả g cáo",
+      "old_start": 21,
+      "old_end": 56,
+      "new_start": 21,
+      "new_end": 56,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001472",
+      "span_text": "không có thêm gì chống sốc khi vận chuyển khiến hộp điện thoại không góc và cạnh rất nhiều",
+      "old_start": 95,
+      "old_end": 185,
+      "new_start": 95,
+      "new_end": 185,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001472",
+      "span_text": "thất vọng hãng lớn mà đóng gói quá sơ sài",
+      "old_start": 187,
+      "old_end": 228,
+      "new_start": 187,
+      "new_end": 228,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001640",
+      "span_text": "lươn lẹo",
+      "old_start": 28,
+      "old_end": 36,
+      "new_start": 28,
+      "new_end": 36,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001640",
+      "span_text": "đã liên hệ đổi lại  cỡ  thì báo tự trả phí giao hàng mình vẫn ok",
+      "old_start": 38,
+      "old_end": 102,
+      "new_start": 38,
+      "new_end": 102,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001640",
+      "span_text": "một tuần lễ không thấy hồi âm",
+      "old_start": 110,
+      "old_end": 139,
+      "new_start": 110,
+      "new_end": 139,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001640",
+      "span_text": "nhắn tin  hỏi thì báo sẽ hối giao hàng này nọ cuối cùng tới nay vẫn chưa nhận được",
+      "old_start": 142,
+      "old_end": 224,
+      "new_start": 142,
+      "new_end": 224,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001640",
+      "span_text": "tôi mua hàng để đi du lịch mà đi về rồi còn chưa nhận được hàng đổi",
+      "old_start": 226,
+      "old_end": 293,
+      "new_start": 226,
+      "new_end": 293,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001640",
+      "span_text": "cửa hàng  tệ hại",
+      "old_start": 296,
+      "old_end": 312,
+      "new_start": 296,
+      "new_end": 312,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003598",
+      "span_text": "sợ mua không đúng chính hãng nữa rùi",
+      "old_start": 10,
+      "old_end": 46,
+      "new_start": 10,
+      "new_end": 46,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002935",
+      "span_text": "cũng không có ghi chú hàng dễ vỡ",
+      "old_start": 21,
+      "old_end": 53,
+      "new_start": 21,
+      "new_end": 53,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002935",
+      "span_text": "hơi thất vọng với lazada",
+      "old_start": 55,
+      "old_end": 79,
+      "new_start": 55,
+      "new_end": 79,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002935",
+      "span_text": "hộp hơi xấu tí",
+      "old_start": 114,
+      "old_end": 128,
+      "new_start": 114,
+      "new_end": 128,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001310",
+      "span_text": "chỉ cần bật mạng hay wi-fi lên là lag r",
+      "old_start": 285,
+      "old_end": 324,
+      "new_start": 285,
+      "new_end": 324,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002592",
+      "span_text": "hộp bị móp méo",
+      "old_start": 0,
+      "old_end": 14,
+      "new_start": 0,
+      "new_end": 14,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001947",
+      "span_text": "lúc mình ngửi có mùi như mùi cồn rất khó chịu",
+      "old_start": 18,
+      "old_end": 63,
+      "new_start": 18,
+      "new_end": 63,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001947",
+      "span_text": "có ghi bên ngoài là hàng dễ vỡ để mọi người giao hàng cẩn thận hơn",
+      "old_start": 97,
+      "old_end": 163,
+      "new_start": 97,
+      "new_end": 163,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001947",
+      "span_text": "nhân viên giao hàng rất thân thiện",
+      "old_start": 165,
+      "old_end": 199,
+      "new_start": 165,
+      "new_end": 199,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001980",
+      "span_text": "không thấy",
+      "old_start": 26,
+      "old_end": 36,
+      "new_start": 26,
+      "new_end": 36,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001980",
+      "span_text": "giao hàng nhanh đóng gói chắc chắn",
+      "old_start": 41,
+      "old_end": 75,
+      "new_start": 41,
+      "new_end": 75,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003594",
+      "span_text": "tôi đã chơi game này 3 tháng rồi và giờ các phiên bản gần đây tôi không thể chơi game quá một phút bởi vì vào game chưa làm được gì đã đứng màn hình và game ngừng hoạt động",
+      "old_start": 0,
+      "old_end": 172,
+      "new_start": 0,
+      "new_end": 172,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000037",
+      "span_text": "thiếu 2 sticker🤦‍♀",
+      "old_start": 21,
+      "old_end": 39,
+      "new_start": 21,
+      "new_end": 39,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003215",
+      "span_text": "bị giao hàng làm 3 lần",
+      "old_start": 185,
+      "old_end": 207,
+      "new_start": 185,
+      "new_end": 207,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003957",
+      "span_text": "cửa hàng  không đóng gói bưu kiện chuẩn không có lót  gì  may nhận hàng không bị sao",
+      "old_start": 23,
+      "old_end": 107,
+      "new_start": 23,
+      "new_end": 107,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002487",
+      "span_text": "tao tặng bọn làm game một câu cuối : game như C quảng cáo lz gì q",
+      "old_start": 254,
+      "old_end": 319,
+      "new_start": 254,
+      "new_end": 319,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000891",
+      "span_text": "shiPer hơi khó chịu 😅",
+      "old_start": 31,
+      "old_end": 52,
+      "new_start": 31,
+      "new_end": 52,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004295",
+      "span_text": "mình cũng đặt như này ta cái bảng kèm hàng tặng",
+      "old_start": 41,
+      "old_end": 88,
+      "new_start": 41,
+      "new_end": 88,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004295",
+      "span_text": "hàng gửi về vẫn lồn có hàng tặng",
+      "old_start": 97,
+      "old_end": 129,
+      "new_start": 97,
+      "new_end": 129,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004295",
+      "span_text": "hơi thất vọng",
+      "old_start": 131,
+      "old_end": 144,
+      "new_start": 131,
+      "new_end": 144,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001163",
+      "span_text": "sao em đặt 2 lần đều không đung mau đung  cỡ  sao em mang mong  cửa hàng  phan hoi dùm em",
+      "old_start": 0,
+      "old_end": 89,
+      "new_start": 0,
+      "new_end": 89,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003006",
+      "span_text": "giao không thấy có tặng🙁",
+      "old_start": 111,
+      "old_end": 135,
+      "new_start": 111,
+      "new_end": 135,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001308",
+      "span_text": "chất lượng thì không như mong muốn dùng 2 lần vẫn chưa thấy có hiểu  quả",
+      "old_start": 17,
+      "old_end": 89,
+      "new_start": 17,
+      "new_end": 89,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000055",
+      "span_text": "không thấy có gì",
+      "old_start": 51,
+      "old_end": 67,
+      "new_start": 51,
+      "new_end": 67,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000055",
+      "span_text": "rất thất vọng",
+      "old_start": 68,
+      "old_end": 81,
+      "new_start": 68,
+      "new_end": 81,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003489",
+      "span_text": "đéo mẹ game như C vào tạo nv là đứng nếu chplay cho đánh giá âm sao bố cho âm luôn rồi",
+      "old_start": 0,
+      "old_end": 86,
+      "new_start": 0,
+      "new_end": 86,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003489",
+      "span_text": "tốt nhất anh em đừng tải mất công lại xoá",
+      "old_start": 87,
+      "old_end": 128,
+      "new_start": 87,
+      "new_end": 128,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000264",
+      "span_text": "đóng gói hàng cần thêm lót để đảm bảo sản phẩm không bị nứt",
+      "old_start": 22,
+      "old_end": 81,
+      "new_start": 22,
+      "new_end": 81,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000264",
+      "span_text": "bể",
+      "old_start": 83,
+      "old_end": 85,
+      "new_start": 83,
+      "new_end": 85,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002200",
+      "span_text": "nhiên hơi thất vọng xíu khi mua hàng ở khung giờ 0-2h 11",
+      "old_start": 23,
+      "old_end": 79,
+      "new_start": 23,
+      "new_end": 79,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002200",
+      "span_text": "đặt xong hỏi hãng báo hết sản phẩm tặng kèm",
+      "old_start": 117,
+      "old_end": 160,
+      "new_start": 117,
+      "new_end": 160,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003268",
+      "span_text": "thông tin đăng tải khi mua sẽ được tặng một lọ kem chống nắng mini  cỡ",
+      "old_start": 0,
+      "old_end": 70,
+      "new_start": 0,
+      "new_end": 70,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003268",
+      "span_text": "nhiên khi nhận hàng không có",
+      "old_start": 77,
+      "old_end": 105,
+      "new_start": 77,
+      "new_end": 105,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000986",
+      "span_text": "thiếu tai nghe thôi",
+      "old_start": 19,
+      "old_end": 38,
+      "new_start": 19,
+      "new_end": 38,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003839",
+      "span_text": "chỉ tầm như 4500 thôi",
+      "old_start": 35,
+      "old_end": 56,
+      "new_start": 35,
+      "new_end": 56,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003839",
+      "span_text": "làm ảnh bị sai màu hết",
+      "old_start": 92,
+      "old_end": 114,
+      "new_start": 92,
+      "new_end": 114,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003839",
+      "span_text": "hơi thất vọng",
+      "old_start": 154,
+      "old_end": 167,
+      "new_start": 154,
+      "new_end": 167,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001499",
+      "span_text": "u  cửa hàng  giao hàng nhanh đóng gói kỉ",
+      "old_start": 76,
+      "old_end": 116,
+      "new_start": 76,
+      "new_end": 116,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002301",
+      "span_text": "đến lúc chơi lại không có",
+      "old_start": 87,
+      "old_end": 112,
+      "new_start": 87,
+      "new_end": 112,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002301",
+      "span_text": "cảm giác như kiểu treo đầu dê bán thịt chó vậy",
+      "old_start": 114,
+      "old_end": 160,
+      "new_start": 114,
+      "new_end": 160,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002036",
+      "span_text": "lừa đảo liên hệ fanpage không trả lời có dấu hiệu lừa tiền người chơi nếu đánh giá  được  0",
+      "old_start": 0,
+      "old_end": 91,
+      "new_start": 0,
+      "new_end": 91,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002062",
+      "span_text": "đến khi nhận hàng thì không thấy quà đâu 🥺🥺🥺",
+      "old_start": 41,
+      "old_end": 85,
+      "new_start": 41,
+      "new_end": 85,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004337",
+      "span_text": "đường máy quá xấu",
+      "old_start": 0,
+      "old_end": 17,
+      "new_start": 0,
+      "new_end": 17,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003946",
+      "span_text": "S làm ăn chán quá",
+      "old_start": 57,
+      "old_end": 74,
+      "new_start": 57,
+      "new_end": 74,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003500",
+      "span_text": "không nhận được khuyến mãi",
+      "old_start": 33,
+      "old_end": 59,
+      "new_start": 33,
+      "new_end": 59,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002508",
+      "span_text": "bị rách một lỗ bên không nên chỉ cho 4 sao thôi",
+      "old_start": 22,
+      "old_end": 69,
+      "new_start": 22,
+      "new_end": 69,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004334",
+      "span_text": "tại sao kiểm tra trên trang chủ samsung + nhắn tin qua tổng đài 6060 lại báo là thông tin về điện thoại không đúng ạ",
+      "old_start": 52,
+      "old_end": 168,
+      "new_start": 52,
+      "new_end": 168,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003283",
+      "span_text": "không thấy quà tặng",
+      "old_start": 15,
+      "old_end": 34,
+      "new_start": 15,
+      "new_end": 34,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000827",
+      "span_text": "dép đẹp hơi nhỏ",
+      "old_start": 0,
+      "old_end": 15,
+      "new_start": 0,
+      "new_end": 15,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003202",
+      "span_text": "đặt giao hàng hoả tốc ngày hôm trước",
+      "old_start": 0,
+      "old_end": 36,
+      "new_start": 0,
+      "new_end": 36,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003202",
+      "span_text": "đến mãi 20h ngày hôm sau mới gọi giao hàng trong khi địa chỉ giao hàng ghi rất rõ là cơ quan làm việc",
+      "old_start": 38,
+      "old_end": 139,
+      "new_start": 38,
+      "new_end": 139,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003202",
+      "span_text": "chất lượng dịch vụ rất tệ",
+      "old_start": 141,
+      "old_end": 166,
+      "new_start": 141,
+      "new_end": 166,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003483",
+      "span_text": "hơi nhỏ co thể đổi  được  không ạ",
+      "old_start": 49,
+      "old_end": 82,
+      "new_start": 49,
+      "new_end": 82,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002466",
+      "span_text": "máy tôi không có chức năng  chất  với tài xế để nhắn vị trí đón",
+      "old_start": 108,
+      "old_end": 171,
+      "new_start": 108,
+      "new_end": 171,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002934",
+      "span_text": "n hình không bị ám",
+      "old_start": 111,
+      "old_end": 129,
+      "new_start": 111,
+      "new_end": 129,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002934",
+      "span_text": "thiết kế không để lại vết bẩn phần vỏ",
+      "old_start": 131,
+      "old_end": 168,
+      "new_start": 131,
+      "new_end": 168,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001091",
+      "span_text": "hoả tốc 2 hơi lâu rất với tôi nghi",
+      "old_start": 27,
+      "old_end": 61,
+      "new_start": 27,
+      "new_end": 61,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_003416",
+      "span_text": "giao đúng màu có cái là hơi nho",
+      "old_start": 0,
+      "old_end": 31,
+      "new_start": 0,
+      "new_end": 31,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_001880",
+      "span_text": "co môt hoa thì không ra hoa quá tệ 😌😌",
+      "old_start": 34,
+      "old_end": 71,
+      "new_start": 34,
+      "new_end": 71,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002543",
+      "span_text": "hàng đóng gói không có lót mút hay nilon đệm khí",
+      "old_start": 123,
+      "old_end": 171,
+      "new_start": 123,
+      "new_end": 171,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002543",
+      "span_text": "điện thoại bên trong không vấn đề gì",
+      "old_start": 180,
+      "old_end": 216,
+      "new_start": 180,
+      "new_end": 216,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002543",
+      "span_text": "đến cuối ngày nhận thông báo hàng giao không thành công vì người nhận không nghe máy trong khi tôi chẳng nhận được cuộc gọi nào",
+      "old_start": 303,
+      "old_end": 430,
+      "new_start": 303,
+      "new_end": 430,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002543",
+      "span_text": "đổ lỗi cho khách hàng không nghe máy nữa",
+      "old_start": 542,
+      "old_end": 582,
+      "new_start": 542,
+      "new_end": 582,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002535",
+      "span_text": "không có quà tặng kèm như  quả người cáo",
+      "old_start": 0,
+      "old_end": 40,
+      "new_start": 0,
+      "new_end": 40,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002535",
+      "span_text": "cách xử lý quá thiếu chuyên nghiệp",
+      "old_start": 98,
+      "old_end": 132,
+      "new_start": 98,
+      "new_end": 132,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002535",
+      "span_text": "bốc mùi",
+      "old_start": 167,
+      "old_end": 174,
+      "new_start": 167,
+      "new_end": 174,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_004217",
+      "span_text": "giao hang nhanh dung mẫu  cỡ  hơi rộng vẫn cho  5star  và sẽ ủng hộ tiếp",
+      "old_start": 0,
+      "old_end": 72,
+      "new_start": 0,
+      "new_end": 72,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_002394",
+      "span_text": "đóng gói tệ không lót giấy làm camera bi trầy",
+      "old_start": 0,
+      "old_end": 45,
+      "new_start": 0,
+      "new_end": 45,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    },
+    {
+      "id": "train_000896",
+      "span_text": "cảm biến vân tay hơi không nhạy một tẹo",
+      "old_start": 179,
+      "old_end": 218,
+      "new_start": 179,
+      "new_end": 218,
+      "status": "already_valid",
+      "message": "Current offsets are valid."
+    }
+  ]
+}

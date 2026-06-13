@@ -1,0 +1,3254 @@
+{
+  "summary": {
+    "total_records": 200,
+    "warning_records": 125,
+    "likely_ok": 63,
+    "needs_review": 62,
+    "needs_review_ids": [
+      "train_003601",
+      "train_002332",
+      "train_001369",
+      "train_000561",
+      "train_003574",
+      "train_002643",
+      "train_002068",
+      "train_003691",
+      "train_001961",
+      "train_002360",
+      "train_001937",
+      "train_001530",
+      "train_000020",
+      "train_002483",
+      "train_002047",
+      "train_003969",
+      "train_003083",
+      "train_003604",
+      "train_004137",
+      "train_004203",
+      "train_003695",
+      "train_003659",
+      "train_004035",
+      "train_001278",
+      "train_001364",
+      "train_002866",
+      "train_000003",
+      "train_000457",
+      "train_001130",
+      "train_003770",
+      "train_004087",
+      "train_002079",
+      "train_002536",
+      "train_001688",
+      "train_001368",
+      "train_002396",
+      "train_001423",
+      "train_002531",
+      "train_002684",
+      "train_004213",
+      "train_004352",
+      "train_001725",
+      "train_000800",
+      "train_003368",
+      "train_001472",
+      "train_001640",
+      "train_001947",
+      "train_003594",
+      "train_003957",
+      "train_002487",
+      "train_000978",
+      "train_001163",
+      "train_001308",
+      "train_002200",
+      "train_003268",
+      "train_002036",
+      "train_004334",
+      "train_003202",
+      "train_002466",
+      "train_002543",
+      "train_002535",
+      "train_004217"
+    ]
+  },
+  "likely_ok": [
+    {
+      "id": "train_000229",
+      "token_count": 8,
+      "comp_token_count": 8,
+      "comp_ratio": 1.0,
+      "span_count": 2,
+      "max_span_token_length": 5,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "không hợp với da mình, không hiệu  quả ",
+      "spans": [
+        {
+          "start": 0,
+          "end": 21,
+          "text": "không hợp với da mình",
+          "label": "COMP",
+          "token_length": 5
+        },
+        {
+          "start": 23,
+          "end": 38,
+          "text": "không hiệu  quả",
+          "label": "COMP",
+          "token_length": 3
+        }
+      ]
+    },
+    {
+      "id": "train_001734",
+      "token_count": 4,
+      "comp_token_count": 4,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "bị rách ở đầu",
+      "spans": [
+        {
+          "start": 0,
+          "end": 13,
+          "text": "bị rách ở đầu",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_002870",
+      "token_count": 8,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "tang một thung bia ma không tang sao",
+      "spans": []
+    },
+    {
+      "id": "train_004130",
+      "token_count": 5,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "không dung mau hình mẫu",
+      "spans": []
+    },
+    {
+      "id": "train_004164",
+      "token_count": 8,
+      "comp_token_count": 8,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 8,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "đặt màu đen mà đi giao màu vàng",
+      "spans": [
+        {
+          "start": 0,
+          "end": 31,
+          "text": "đặt màu đen mà đi giao màu vàng",
+          "label": "COMP",
+          "token_length": 8
+        }
+      ]
+    },
+    {
+      "id": "train_001829",
+      "token_count": 7,
+      "comp_token_count": 7,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 7,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "eo hơi nhỏ đường may hơi túm",
+      "spans": [
+        {
+          "start": 0,
+          "end": 28,
+          "text": "eo hơi nhỏ đường may hơi túm",
+          "label": "COMP",
+          "token_length": 7
+        }
+      ]
+    },
+    {
+      "id": "train_001471",
+      "token_count": 10,
+      "comp_token_count": 9,
+      "comp_ratio": 0.9,
+      "span_count": 1,
+      "max_span_token_length": 9,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (90.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "điện thoại không có tai nghe hả  cửa hàng ?",
+      "spans": [
+        {
+          "start": 0,
+          "end": 41,
+          "text": "điện thoại không có tai nghe hả  cửa hàng",
+          "label": "COMP",
+          "token_length": 9
+        }
+      ]
+    },
+    {
+      "id": "train_000765",
+      "token_count": 18,
+      "comp_token_count": 12,
+      "comp_ratio": 0.6666666666666666,
+      "span_count": 1,
+      "max_span_token_length": 12,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (66.7%)"
+      ],
+      "classification": "likely_ok",
+      "text": "đầm đẹp đáng giá tiền nhưng ở ngoài đầm hơi ôm chứ  không xoè nên  không thích lắm",
+      "spans": [
+        {
+          "start": 28,
+          "end": 82,
+          "text": "ở ngoài đầm hơi ôm chứ  không xoè nên  không thích lắm",
+          "label": "COMP",
+          "token_length": 12
+        }
+      ]
+    },
+    {
+      "id": "train_001396",
+      "token_count": 13,
+      "comp_token_count": 8,
+      "comp_ratio": 0.6153846153846154,
+      "span_count": 1,
+      "max_span_token_length": 8,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (61.5%)"
+      ],
+      "classification": "likely_ok",
+      "text": "sản phẩm tốt , tuy có giao trễ hơn dự kiến vài hôm.",
+      "spans": [
+        {
+          "start": 19,
+          "end": 50,
+          "text": "có giao trễ hơn dự kiến vài hôm",
+          "label": "COMP",
+          "token_length": 8
+        }
+      ]
+    },
+    {
+      "id": "train_004077",
+      "token_count": 8,
+      "comp_token_count": 8,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 8,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "giao nhầm super volcanic peL oF mask 2x",
+      "spans": [
+        {
+          "start": 0,
+          "end": 39,
+          "text": "giao nhầm super volcanic peL oF mask 2x",
+          "label": "COMP",
+          "token_length": 8
+        }
+      ]
+    },
+    {
+      "id": "train_004117",
+      "token_count": 6,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "có quà  cửa hàng  không gửi",
+      "spans": []
+    },
+    {
+      "id": "train_002384",
+      "token_count": 12,
+      "comp_token_count": 8,
+      "comp_ratio": 0.6666666666666666,
+      "span_count": 2,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (66.7%)"
+      ],
+      "classification": "likely_ok",
+      "text": "ổn, chưa có lỗi gì, slow motion hơi giật, cam hơi đậm",
+      "spans": [
+        {
+          "start": 4,
+          "end": 18,
+          "text": "chưa có lỗi gì",
+          "label": "COMP",
+          "token_length": 4
+        },
+        {
+          "start": 20,
+          "end": 40,
+          "text": "slow motion hơi giật",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_004058",
+      "token_count": 17,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "lưng khá rộng mặc dù đã chọn  cỡ  sao với quần khá ngắn nhưng cũng không sao",
+      "spans": []
+    },
+    {
+      "id": "train_001508",
+      "token_count": 37,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "mình không để ý nên đặt sau ngày nhưng chả hiểu sao quá 2 ngày rồi vẫn còn để hiện combo trên aP, kết  quả  mình đặt combo mà chỉ nhận được một lọ kem chống nắng",
+      "spans": []
+    },
+    {
+      "id": "train_004050",
+      "token_count": 14,
+      "comp_token_count": 14,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 14,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "áo vừa quần chật không mặt vừa luôn 53  không vừa lấy đâu 55",
+      "spans": [
+        {
+          "start": 0,
+          "end": 60,
+          "text": "áo vừa quần chật không mặt vừa luôn 53  không vừa lấy đâu 55",
+          "label": "COMP",
+          "token_length": 14
+        }
+      ]
+    },
+    {
+      "id": "train_002082",
+      "token_count": 5,
+      "comp_token_count": 5,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 5,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": " cỡ  quần giao sai ạ",
+      "spans": [
+        {
+          "start": 1,
+          "end": 20,
+          "text": "cỡ  quần giao sai ạ",
+          "label": "COMP",
+          "token_length": 5
+        }
+      ]
+    },
+    {
+      "id": "train_003397",
+      "token_count": 7,
+      "comp_token_count": 7,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 7,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "cục sạc bị hỏng lazada qua te",
+      "spans": [
+        {
+          "start": 0,
+          "end": 29,
+          "text": "cục sạc bị hỏng lazada qua te",
+          "label": "COMP",
+          "token_length": 7
+        }
+      ]
+    },
+    {
+      "id": "train_001200",
+      "token_count": 6,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "tại sao phải trả tiền chứ!",
+      "spans": []
+    },
+    {
+      "id": "train_002700",
+      "token_count": 9,
+      "comp_token_count": 7,
+      "comp_ratio": 0.7777777777777778,
+      "span_count": 1,
+      "max_span_token_length": 7,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (77.8%)"
+      ],
+      "classification": "likely_ok",
+      "text": "giao hàng chậm nhưng sản phẩm ok, nguyên seal.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 32,
+          "text": "giao hàng chậm nhưng sản phẩm ok",
+          "label": "COMP",
+          "token_length": 7
+        }
+      ]
+    },
+    {
+      "id": "train_002343",
+      "token_count": 63,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "trước đây có tính năng ghim ra màn hình chính biểu tượng của người mình muốn liên lạc thường xuyên như bên zalo, giờ thì tìm mãi chẳng thấy, tìm kiếm trên gOgle cũng chẳng ra. giờ muốn ghim biểu tượng liên lạc ra màn hình như xưa mà đành bó tay. hy vọng nhà phát triển cập nhật lại tính năng này",
+      "spans": []
+    },
+    {
+      "id": "train_001179",
+      "token_count": 6,
+      "comp_token_count": 4,
+      "comp_ratio": 0.6666666666666666,
+      "span_count": 1,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (66.7%)"
+      ],
+      "classification": "likely_ok",
+      "text": "ổn, nhưng form không được chuẩn.",
+      "spans": [
+        {
+          "start": 10,
+          "end": 31,
+          "text": "form không được chuẩn",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_002790",
+      "token_count": 7,
+      "comp_token_count": 7,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 7,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "hàng chuẩn xài tốt giao hơi lâu",
+      "spans": [
+        {
+          "start": 0,
+          "end": 31,
+          "text": "hàng chuẩn xài tốt giao hơi lâu",
+          "label": "COMP",
+          "token_length": 7
+        }
+      ]
+    },
+    {
+      "id": "train_000391",
+      "token_count": 3,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "dù quá yếu",
+      "spans": []
+    },
+    {
+      "id": "train_003686",
+      "token_count": 11,
+      "comp_token_count": 7,
+      "comp_ratio": 0.6363636363636364,
+      "span_count": 1,
+      "max_span_token_length": 7,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (63.6%)"
+      ],
+      "classification": "likely_ok",
+      "text": "chưa nhận hàng ... đã thông báo giao hàng thành công",
+      "spans": [
+        {
+          "start": 19,
+          "end": 52,
+          "text": "đã thông báo giao hàng thành công",
+          "label": "COMP",
+          "token_length": 7
+        }
+      ]
+    },
+    {
+      "id": "train_000017",
+      "token_count": 72,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "mới dùng 2 ngày chưa thấy hiệu  quả  lắm.  được  cái nhìn da min và láng hơn. tinh chất thấm nhanh và không gây dầu nữa. mỗi tội lazada vận chuyển hàng tẹ quá, không hết vỏ hộp bung lọ tinh chất ra ngoài làm mình cứ lo hàng giả nhưng test lại với thuốc sát trùng thì vẫn đúng. hy vọng dùng một thời gian nữa da sẽ có cải thiện",
+      "spans": []
+    },
+    {
+      "id": "train_000545",
+      "token_count": 11,
+      "comp_token_count": 11,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 11,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "quần đẹp lắm nha mọi người chỉ là hơi ngắn xíu",
+      "spans": [
+        {
+          "start": 0,
+          "end": 46,
+          "text": "quần đẹp lắm nha mọi người chỉ là hơi ngắn xíu",
+          "label": "COMP",
+          "token_length": 11
+        }
+      ]
+    },
+    {
+      "id": "train_003307",
+      "token_count": 67,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "game chơi ăn gian như chó sự kiện giải nhất được 180.000 giải nhì 90.000 giải ba... trong game cày để dành tiền được 44.000 thấy sự kiện giải nhất được nhiều tiền tranh giành giải nhất sữ dụng hết 44.000 mua lượt thêm mua bom hết tiền cuối cùng cũng giành giải nhất. cứ nghĩ xài hết số tiền 44.000 dàn... bài đánh giá đầy đủ",
+      "spans": []
+    },
+    {
+      "id": "train_000061",
+      "token_count": 11,
+      "comp_token_count": 11,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 11,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": " cửa hàng  giao thiếu quà tặng là nước tẩy trang rồi!",
+      "spans": [
+        {
+          "start": 1,
+          "end": 52,
+          "text": "cửa hàng  giao thiếu quà tặng là nước tẩy trang rồi",
+          "label": "COMP",
+          "token_length": 11
+        }
+      ]
+    },
+    {
+      "id": "train_001077",
+      "token_count": 7,
+      "comp_token_count": 7,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 7,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "vải không đẹp lắm nhưng củng được",
+      "spans": [
+        {
+          "start": 0,
+          "end": 33,
+          "text": "vải không đẹp lắm nhưng củng được",
+          "label": "COMP",
+          "token_length": 7
+        }
+      ]
+    },
+    {
+      "id": "train_003352",
+      "token_count": 13,
+      "comp_token_count": 12,
+      "comp_ratio": 0.9230769230769231,
+      "span_count": 1,
+      "max_span_token_length": 12,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (92.3%)"
+      ],
+      "classification": "likely_ok",
+      "text": "sản phẩm như hình như tôi không được tặng kèm sản phẩm. ☹🙂",
+      "spans": [
+        {
+          "start": 0,
+          "end": 54,
+          "text": "sản phẩm như hình như tôi không được tặng kèm sản phẩm",
+          "label": "COMP",
+          "token_length": 12
+        }
+      ]
+    },
+    {
+      "id": "train_000809",
+      "token_count": 12,
+      "comp_token_count": 11,
+      "comp_ratio": 0.9166666666666666,
+      "span_count": 2,
+      "max_span_token_length": 8,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (91.7%)"
+      ],
+      "classification": "likely_ok",
+      "text": "quần quá mỏng , mặc vào chả biết bị rách lúc nào",
+      "spans": [
+        {
+          "start": 0,
+          "end": 13,
+          "text": "quần quá mỏng",
+          "label": "COMP",
+          "token_length": 3
+        },
+        {
+          "start": 16,
+          "end": 48,
+          "text": "mặc vào chả biết bị rách lúc nào",
+          "label": "COMP",
+          "token_length": 8
+        }
+      ]
+    },
+    {
+      "id": "train_001430",
+      "token_count": 8,
+      "comp_token_count": 8,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 8,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "đặt màu 125 mà lại giao màu 230",
+      "spans": [
+        {
+          "start": 0,
+          "end": 31,
+          "text": "đặt màu 125 mà lại giao màu 230",
+          "label": "COMP",
+          "token_length": 8
+        }
+      ]
+    },
+    {
+      "id": "train_003642",
+      "token_count": 33,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "săn  được  giá quá được cho chiếc điện thoại đẹp. mong lazada kích hoạt bảo hành điện tử giúp mình. sử dụng  được  vài hôm rồi vẫn chưa thấy bảo hành điện tử.",
+      "spans": []
+    },
+    {
+      "id": "train_001194",
+      "token_count": 46,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "cho trước 3star  vì lần đầu sử dụng. xài  được  vài ngày, aPly lên da thấy có sáng lên, lỗ chân lông có cải thiện nhẹ, nhưng cũng đi đôi với mụn. để tiếp tục theo dõi xem mụn do sản phẩm hay do nội tiết",
+      "spans": []
+    },
+    {
+      "id": "train_001072",
+      "token_count": 71,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "bạn nên cho thêm những bài hát kpop vì giới trẻ tuổi tEn hiện nay họ rất cô chuộng những dòng nhạc đó ví dụ như những nhóm nhạc twice  bình thường sao black pink exo mamamO những nhóm nhạc này thường được nhiều bạn tuổi tEn ưa chuộng vậy nên tôi nghĩ nên cho thêm những bài hát của những nhóm nhạc này sẽ khiến... bài đánh giá đầy đủ",
+      "spans": []
+    },
+    {
+      "id": "train_000129",
+      "token_count": 20,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "dùng 3 hôm mới thấy viền 2 bên không cảm ứng  được  . bấn 10 lần mới  được  một lần",
+      "spans": []
+    },
+    {
+      "id": "train_002780",
+      "token_count": 7,
+      "comp_token_count": 7,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 7,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "bôi thấy nóng không thấy tác dụng",
+      "spans": [
+        {
+          "start": 0,
+          "end": 33,
+          "text": "bôi thấy nóng không thấy tác dụng",
+          "label": "COMP",
+          "token_length": 7
+        }
+      ]
+    },
+    {
+      "id": "train_003912",
+      "token_count": 6,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "hàng giả gội không hết gàu",
+      "spans": []
+    },
+    {
+      "id": "train_001517",
+      "token_count": 9,
+      "comp_token_count": 6,
+      "comp_ratio": 0.6666666666666666,
+      "span_count": 1,
+      "max_span_token_length": 6,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (66.7%)"
+      ],
+      "classification": "likely_ok",
+      "text": "chất liệu ok, dép hơi nhỏ nhưng không sao",
+      "spans": [
+        {
+          "start": 14,
+          "end": 41,
+          "text": "dép hơi nhỏ nhưng không sao",
+          "label": "COMP",
+          "token_length": 6
+        }
+      ]
+    },
+    {
+      "id": "train_002437",
+      "token_count": 10,
+      "comp_token_count": 10,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 10,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "tại sao trong điện thoại không có gì hết vậy",
+      "spans": [
+        {
+          "start": 0,
+          "end": 44,
+          "text": "tại sao trong điện thoại không có gì hết vậy",
+          "label": "COMP",
+          "token_length": 10
+        }
+      ]
+    },
+    {
+      "id": "train_000791",
+      "token_count": 16,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "áo thì mặc vừa còn quần như cho con nít mặt làm ăn kì quá 👎👎👎",
+      "spans": []
+    },
+    {
+      "id": "train_002692",
+      "token_count": 32,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "mới nhận máy, tạm thời cứ cho  5star  đã. đóng gói sơ xài, vận chuyển 2 ngày mà không lót bất kỳ một lớp mút hay bao nào bảo vê máy cả.",
+      "spans": []
+    },
+    {
+      "id": "train_002335",
+      "token_count": 8,
+      "comp_token_count": 5,
+      "comp_ratio": 0.625,
+      "span_count": 1,
+      "max_span_token_length": 5,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (62.5%)"
+      ],
+      "classification": "likely_ok",
+      "text": "pin trâu , camera khá không chuẩn 48mp",
+      "spans": [
+        {
+          "start": 11,
+          "end": 38,
+          "text": "camera khá không chuẩn 48mp",
+          "label": "COMP",
+          "token_length": 5
+        }
+      ]
+    },
+    {
+      "id": "train_003410",
+      "token_count": 15,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "đường may không khéo lắm , nhưng với giá này thì quá được luôn 👍👍👍",
+      "spans": []
+    },
+    {
+      "id": "train_000005",
+      "token_count": 11,
+      "comp_token_count": 7,
+      "comp_ratio": 0.6363636363636364,
+      "span_count": 1,
+      "max_span_token_length": 7,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (63.6%)"
+      ],
+      "classification": "likely_ok",
+      "text": "đặc mẫu xanh mà sao giao mẫu này vậy  cửa hàng ",
+      "spans": [
+        {
+          "start": 16,
+          "end": 46,
+          "text": "sao giao mẫu này vậy  cửa hàng",
+          "label": "COMP",
+          "token_length": 7
+        }
+      ]
+    },
+    {
+      "id": "train_002887",
+      "token_count": 11,
+      "comp_token_count": 11,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 11,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "đặt 5 cái sao  cửa hàng  giao có 3 cái vậy",
+      "spans": [
+        {
+          "start": 0,
+          "end": 42,
+          "text": "đặt 5 cái sao  cửa hàng  giao có 3 cái vậy",
+          "label": "COMP",
+          "token_length": 11
+        }
+      ]
+    },
+    {
+      "id": "train_000860",
+      "token_count": 10,
+      "comp_token_count": 10,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 10,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "máy mới như gì vậy chơi game laG tệ hại.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 39,
+          "text": "máy mới như gì vậy chơi game laG tệ hại",
+          "label": "COMP",
+          "token_length": 10
+        }
+      ]
+    },
+    {
+      "id": "train_001321",
+      "token_count": 19,
+      "comp_token_count": 14,
+      "comp_ratio": 0.7368421052631579,
+      "span_count": 1,
+      "max_span_token_length": 14,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (73.7%)"
+      ],
+      "classification": "likely_ok",
+      "text": "ứng dụng rất hay. nhưng mỗi lần tôi đọc thì cứ bảo là không nhận diện  được  giọng nói.",
+      "spans": [
+        {
+          "start": 24,
+          "end": 86,
+          "text": "mỗi lần tôi đọc thì cứ bảo là không nhận diện  được  giọng nói",
+          "label": "COMP",
+          "token_length": 14
+        }
+      ]
+    },
+    {
+      "id": "train_001572",
+      "token_count": 12,
+      "comp_token_count": 8,
+      "comp_ratio": 0.6666666666666666,
+      "span_count": 1,
+      "max_span_token_length": 8,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (66.7%)"
+      ],
+      "classification": "likely_ok",
+      "text": " sản phẩm  tốt nhưng không  được  tặg quà như  quả g cáo",
+      "spans": [
+        {
+          "start": 21,
+          "end": 56,
+          "text": "không  được  tặg quà như  quả g cáo",
+          "label": "COMP",
+          "token_length": 8
+        }
+      ]
+    },
+    {
+      "id": "train_003783",
+      "token_count": 8,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "game hay lắm nhưng  quả nó cáo nhiều",
+      "spans": []
+    },
+    {
+      "id": "train_000838",
+      "token_count": 5,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "hàng giao không giống hình",
+      "spans": []
+    },
+    {
+      "id": "train_003658",
+      "token_count": 2,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "vãi mỏng",
+      "spans": []
+    },
+    {
+      "id": "train_000264",
+      "token_count": 19,
+      "comp_token_count": 15,
+      "comp_ratio": 0.7894736842105263,
+      "span_count": 2,
+      "max_span_token_length": 14,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (78.9%)"
+      ],
+      "classification": "likely_ok",
+      "text": "hàng chất lượng nhưng đóng gói hàng cần thêm lót để đảm bảo sản phẩm không bị nứt, bể.",
+      "spans": [
+        {
+          "start": 22,
+          "end": 81,
+          "text": "đóng gói hàng cần thêm lót để đảm bảo sản phẩm không bị nứt",
+          "label": "COMP",
+          "token_length": 14
+        },
+        {
+          "start": 83,
+          "end": 85,
+          "text": "bể",
+          "label": "COMP",
+          "token_length": 1
+        }
+      ]
+    },
+    {
+      "id": "train_001261",
+      "token_count": 6,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "ô không  gì ong với hình.",
+      "spans": []
+    },
+    {
+      "id": "train_001390",
+      "token_count": 25,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "tôi từng chơi cũng thấy vui nhưng từ chiều giờ vào game thì nó để tải tài nguyên long cốt tải hoài không vô  được ",
+      "spans": []
+    },
+    {
+      "id": "train_003825",
+      "token_count": 8,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "sao mà 2 cái màu trắng không Z",
+      "spans": []
+    },
+    {
+      "id": "train_004337",
+      "token_count": 4,
+      "comp_token_count": 4,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "đường máy quá xấu",
+      "spans": [
+        {
+          "start": 0,
+          "end": 17,
+          "text": "đường máy quá xấu",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_002508",
+      "token_count": 17,
+      "comp_token_count": 12,
+      "comp_ratio": 0.7058823529411765,
+      "span_count": 1,
+      "max_span_token_length": 12,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (70.6%)"
+      ],
+      "classification": "likely_ok",
+      "text": "sản phẩm đẹp nhưng mà bị rách một lỗ bên không nên chỉ cho 4 sao thôi",
+      "spans": [
+        {
+          "start": 22,
+          "end": 69,
+          "text": "bị rách một lỗ bên không nên chỉ cho 4 sao thôi",
+          "label": "COMP",
+          "token_length": 12
+        }
+      ]
+    },
+    {
+      "id": "train_001796",
+      "token_count": 13,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "màu lên hơi cam, thoa xong bặm môi lại trôi hầu hết son.",
+      "spans": []
+    },
+    {
+      "id": "train_000827",
+      "token_count": 4,
+      "comp_token_count": 4,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 4,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "dép đẹp hơi nhỏ",
+      "spans": [
+        {
+          "start": 0,
+          "end": 15,
+          "text": "dép đẹp hơi nhỏ",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_003416",
+      "token_count": 8,
+      "comp_token_count": 8,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 8,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "giao đúng màu có cái là hơi nho",
+      "spans": [
+        {
+          "start": 0,
+          "end": 31,
+          "text": "giao đúng màu có cái là hơi nho",
+          "label": "COMP",
+          "token_length": 8
+        }
+      ]
+    },
+    {
+      "id": "train_000434",
+      "token_count": 3,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "likely_ok",
+      "text": "chất lượng kém",
+      "spans": []
+    },
+    {
+      "id": "train_002394",
+      "token_count": 10,
+      "comp_token_count": 10,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 10,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "likely_ok",
+      "text": "đóng gói tệ không lót giấy làm camera bi trầy",
+      "spans": [
+        {
+          "start": 0,
+          "end": 45,
+          "text": "đóng gói tệ không lót giấy làm camera bi trầy",
+          "label": "COMP",
+          "token_length": 10
+        }
+      ]
+    }
+  ],
+  "needs_review": [
+    {
+      "id": "train_003601",
+      "token_count": 52,
+      "comp_token_count": 36,
+      "comp_ratio": 0.6923076923076923,
+      "span_count": 3,
+      "max_span_token_length": 19,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "span #1 dài >= 15 tokens (19)",
+        "COMP ratio > 60% (69.2%)"
+      ],
+      "classification": "needs_review",
+      "text": "kem nền có mùi cồn nhiều mà còn nồng nặc nữa, tets thử lên tay thì kem dạng lỏng và tets bị lộ vân kem và khô. nắp thì hờ hừng không khít nói chung là rất luồn không biết có phải hàng chính hãng k. thực sự là rất buồn 😥😥😢😢😢",
+      "spans": [
+        {
+          "start": 0,
+          "end": 44,
+          "text": "kem nền có mùi cồn nhiều mà còn nồng nặc nữa",
+          "label": "COMP",
+          "token_length": 11
+        },
+        {
+          "start": 111,
+          "end": 196,
+          "text": "nắp thì hờ hừng không khít nói chung là rất luồn không biết có phải hàng chính hãng k",
+          "label": "COMP",
+          "token_length": 19
+        },
+        {
+          "start": 198,
+          "end": 223,
+          "text": "thực sự là rất buồn 😥😥😢😢😢",
+          "label": "COMP",
+          "token_length": 6
+        }
+      ]
+    },
+    {
+      "id": "train_002332",
+      "token_count": 61,
+      "comp_token_count": 55,
+      "comp_ratio": 0.9016393442622951,
+      "span_count": 5,
+      "max_span_token_length": 16,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "span #2 dài >= 15 tokens (16)",
+        "nhiều hơn 4 spans (5)",
+        "COMP ratio > 60% (90.2%)"
+      ],
+      "classification": "needs_review",
+      "text": "gọi xe cứ bị huỷ chuyến rất mất thời gian.. có lần tài xế đi rồi.. lại gọi điện thoại bảo mình huỷ chuyến.. chưa kịp huỷ đang tìm grab để đi thì cứ gọi đến giục huỷ chuyến đi. rất mất thời gian và bất tiện. đang lúc gấp gáp cứ bị huỷ chuyến liên tục rất là bực mình..",
+      "spans": [
+        {
+          "start": 0,
+          "end": 41,
+          "text": "gọi xe cứ bị huỷ chuyến rất mất thời gian",
+          "label": "COMP",
+          "token_length": 10
+        },
+        {
+          "start": 67,
+          "end": 105,
+          "text": "lại gọi điện thoại bảo mình huỷ chuyến",
+          "label": "COMP",
+          "token_length": 8
+        },
+        {
+          "start": 108,
+          "end": 174,
+          "text": "chưa kịp huỷ đang tìm grab để đi thì cứ gọi đến giục huỷ chuyến đi",
+          "label": "COMP",
+          "token_length": 16
+        },
+        {
+          "start": 176,
+          "end": 205,
+          "text": "rất mất thời gian và bất tiện",
+          "label": "COMP",
+          "token_length": 7
+        },
+        {
+          "start": 207,
+          "end": 265,
+          "text": "đang lúc gấp gáp cứ bị huỷ chuyến liên tục rất là bực mình",
+          "label": "COMP",
+          "token_length": 14
+        }
+      ]
+    },
+    {
+      "id": "train_001369",
+      "token_count": 78,
+      "comp_token_count": 66,
+      "comp_ratio": 0.8461538461538461,
+      "span_count": 1,
+      "max_span_token_length": 66,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (66)",
+        "COMP ratio > 60% (84.6%)"
+      ],
+      "classification": "needs_review",
+      "text": "tôi rất thích tựa game này nhưng tôi không hài lòng với việc mỗi khi cập nhật oby mới thì hãy đặt chính xác số giờ hết bảo trì chứ cứ nói lúc 11h đến 6h30 sau đó lại nói là 12h đến 7h30 rồi tiếp đó thì lại nói là 12h đến 8h30 tôi cảm thấy khá bực mình về chuyện này mong admin giúp đỡ và tôi cũng nghỉ là nê... bài đánh giá đầy đủ",
+      "spans": [
+        {
+          "start": 33,
+          "end": 307,
+          "text": "tôi không hài lòng với việc mỗi khi cập nhật oby mới thì hãy đặt chính xác số giờ hết bảo trì chứ cứ nói lúc 11h đến 6h30 sau đó lại nói là 12h đến 7h30 rồi tiếp đó thì lại nói là 12h đến 8h30 tôi cảm thấy khá bực mình về chuyện này mong admin giúp đỡ và tôi cũng nghỉ là nê",
+          "label": "COMP",
+          "token_length": 66
+        }
+      ]
+    },
+    {
+      "id": "train_000561",
+      "token_count": 51,
+      "comp_token_count": 36,
+      "comp_ratio": 0.7058823529411765,
+      "span_count": 2,
+      "max_span_token_length": 24,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (24)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (70.6%)"
+      ],
+      "classification": "needs_review",
+      "text": "đây là từ điển nhật - việt chứ đâu phải từ điển nhật - anh đâu mà chỉ có tuếng anh khi tra vậy? tôi thấy rất tiếc khi cho   1star   nhưng thật sự mà nói điều này không phù hợp cho người không giỏi tiếng anh. rất mong khắc phục.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 94,
+          "text": "đây là từ điển nhật - việt chứ đâu phải từ điển nhật - anh đâu mà chỉ có tuếng anh khi tra vậy",
+          "label": "COMP",
+          "token_length": 24
+        },
+        {
+          "start": 149,
+          "end": 206,
+          "text": "nói điều này không phù hợp cho người không giỏi tiếng anh",
+          "label": "COMP",
+          "token_length": 12
+        }
+      ]
+    },
+    {
+      "id": "train_003574",
+      "token_count": 30,
+      "comp_token_count": 28,
+      "comp_ratio": 0.9333333333333333,
+      "span_count": 2,
+      "max_span_token_length": 16,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "span #1 dài >= 15 tokens (16)",
+        "COMP ratio > 60% (93.3%)"
+      ],
+      "classification": "needs_review",
+      "text": "hàng  được  nhưng dải hơi mỏng nhưng được lắm đẹp như hình... nhưng mà mình thất vọng về shiper của lazada quá kêu giao tận nhà mà không khi nào",
+      "spans": [
+        {
+          "start": 0,
+          "end": 58,
+          "text": "hàng  được  nhưng dải hơi mỏng nhưng được lắm đẹp như hình",
+          "label": "COMP",
+          "token_length": 12
+        },
+        {
+          "start": 71,
+          "end": 144,
+          "text": "mình thất vọng về shiper của lazada quá kêu giao tận nhà mà không khi nào",
+          "label": "COMP",
+          "token_length": 16
+        }
+      ]
+    },
+    {
+      "id": "train_002643",
+      "token_count": 74,
+      "comp_token_count": 21,
+      "comp_ratio": 0.28378378378378377,
+      "span_count": 1,
+      "max_span_token_length": 21,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (21)"
+      ],
+      "classification": "needs_review",
+      "text": "tôi sử dụng dịch vụ nạp tiền điện thoại qua ví điện tử grabpay. tôi có thao tác mua mã thẻ cào vieTel mệnh giá 30.000d và nhận  được  yêu cầu chờ xử lý trong vòng 1h. tôi vui vẻ chờ đợi nhưng 3h sau vẫn không nhận được mã thẻ nạp cũng không có hoàn trả vào ví điện tử grabpay của tôi. tôi có gửi email m... bài đánh giá đầy đủ",
+      "spans": [
+        {
+          "start": 192,
+          "end": 283,
+          "text": "3h sau vẫn không nhận được mã thẻ nạp cũng không có hoàn trả vào ví điện tử grabpay của tôi",
+          "label": "COMP",
+          "token_length": 21
+        }
+      ]
+    },
+    {
+      "id": "train_002068",
+      "token_count": 34,
+      "comp_token_count": 24,
+      "comp_ratio": 0.7058823529411765,
+      "span_count": 3,
+      "max_span_token_length": 11,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (70.6%)"
+      ],
+      "classification": "needs_review",
+      "text": "điện thoại mà bọc hàng chán không chịu  được , không có lót gì bên trong hộp, không đề hàng dễ rơi vớ. cạch lazada đến già  quả  mua hàng đắt tiền thế này.",
+      "spans": [
+        {
+          "start": 14,
+          "end": 44,
+          "text": "bọc hàng chán không chịu  được",
+          "label": "COMP",
+          "token_length": 6
+        },
+        {
+          "start": 47,
+          "end": 76,
+          "text": "không có lót gì bên trong hộp",
+          "label": "COMP",
+          "token_length": 7
+        },
+        {
+          "start": 103,
+          "end": 154,
+          "text": "cạch lazada đến già  quả  mua hàng đắt tiền thế này",
+          "label": "COMP",
+          "token_length": 11
+        }
+      ]
+    },
+    {
+      "id": "train_003691",
+      "token_count": 44,
+      "comp_token_count": 25,
+      "comp_ratio": 0.5681818181818182,
+      "span_count": 3,
+      "max_span_token_length": 11,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens"
+      ],
+      "classification": "needs_review",
+      "text": "tin tưởng phân phối chính hãng và mua hàng, mở hộp thì trên seal màn hình dính bụi, mặt sau 4 camera thì bị lệch hết 2 cam dưới. gia công tệ kinh khủng. có lẽ do mua đợt đèn flash sale nên vậy",
+      "spans": [
+        {
+          "start": 0,
+          "end": 42,
+          "text": "tin tưởng phân phối chính hãng và mua hàng",
+          "label": "COMP",
+          "token_length": 9
+        },
+        {
+          "start": 84,
+          "end": 127,
+          "text": "mặt sau 4 camera thì bị lệch hết 2 cam dưới",
+          "label": "COMP",
+          "token_length": 11
+        },
+        {
+          "start": 129,
+          "end": 151,
+          "text": "gia công tệ kinh khủng",
+          "label": "COMP",
+          "token_length": 5
+        }
+      ]
+    },
+    {
+      "id": "train_001961",
+      "token_count": 37,
+      "comp_token_count": 15,
+      "comp_ratio": 0.40540540540540543,
+      "span_count": 1,
+      "max_span_token_length": 15,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (15)"
+      ],
+      "classification": "needs_review",
+      "text": "màn hình có phần kim cương hoặc dấu cộng rất vướng víu khi tìm kiếm. nếu nhóm sáng chế có thể cài phím này dịch chuyển giống phím home của iphone thì sẽ tiện lợi hơn nhiều.",
+      "spans": [
+        {
+          "start": 2,
+          "end": 67,
+          "text": "n hình có phần kim cương hoặc dấu cộng rất vướng víu khi tìm kiếm",
+          "label": "COMP",
+          "token_length": 15
+        }
+      ]
+    },
+    {
+      "id": "train_002360",
+      "token_count": 26,
+      "comp_token_count": 18,
+      "comp_ratio": 0.6923076923076923,
+      "span_count": 2,
+      "max_span_token_length": 13,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (69.2%)"
+      ],
+      "classification": "needs_review",
+      "text": "nói khuyến mại sữa rửa mặt nhưng lại không hề có và cũng không hề thông báo cho khách hàng. thất vọng về  cửa hàng .",
+      "spans": [
+        {
+          "start": 33,
+          "end": 90,
+          "text": "lại không hề có và cũng không hề thông báo cho khách hàng",
+          "label": "COMP",
+          "token_length": 13
+        },
+        {
+          "start": 92,
+          "end": 114,
+          "text": "thất vọng về  cửa hàng",
+          "label": "COMP",
+          "token_length": 5
+        }
+      ]
+    },
+    {
+      "id": "train_001937",
+      "token_count": 73,
+      "comp_token_count": 39,
+      "comp_ratio": 0.5342465753424658,
+      "span_count": 3,
+      "max_span_token_length": 23,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #2 dài >= 15 tokens (23)"
+      ],
+      "classification": "needs_review",
+      "text": "những đoạn chuyện chêm voice bị thiếu rất nhiều lại còn thiếu những chỗ cần nghe để điền từ.ví dụ như unit 7 trang 71 của sách phiên bản cũ thì mất luôn cái dòng đối thoại thứ nhất , ở trang 79 của unit 8 cũng mất hẳng đoạn voice dài 3 dòng ở cuối đoạn chuyện chêm và còn nhiều nữa. thế thì biết cái ... bài đánh giá đầy đủ",
+      "spans": [
+        {
+          "start": 56,
+          "end": 91,
+          "text": "thiếu những chỗ cần nghe để điền từ",
+          "label": "COMP",
+          "token_length": 8
+        },
+        {
+          "start": 144,
+          "end": 180,
+          "text": "mất luôn cái dòng đối thoại thứ nhất",
+          "label": "COMP",
+          "token_length": 8
+        },
+        {
+          "start": 183,
+          "end": 281,
+          "text": "ở trang 79 của unit 8 cũng mất hẳng đoạn voice dài 3 dòng ở cuối đoạn chuyện chêm và còn nhiều nữa",
+          "label": "COMP",
+          "token_length": 23
+        }
+      ]
+    },
+    {
+      "id": "train_001530",
+      "token_count": 22,
+      "comp_token_count": 22,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 22,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (22)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "needs_review",
+      "text": "không thấy sản phẩm tặng kèm thật thất vọng với chất lượng dịch vụ như thế đóng gói sản phẩm rất tốt",
+      "spans": [
+        {
+          "start": 0,
+          "end": 100,
+          "text": "không thấy sản phẩm tặng kèm thật thất vọng với chất lượng dịch vụ như thế đóng gói sản phẩm rất tốt",
+          "label": "COMP",
+          "token_length": 22
+        }
+      ]
+    },
+    {
+      "id": "train_000020",
+      "token_count": 71,
+      "comp_token_count": 29,
+      "comp_ratio": 0.4084507042253521,
+      "span_count": 2,
+      "max_span_token_length": 19,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (19)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens"
+      ],
+      "classification": "needs_review",
+      "text": "em có một tài khoản lần đầu em bị mất xim nên em đã thêm số điện thoại mới. thế mà mới vừa rồi em đổi mật khẩu quên khuấy mất. nên em dùng số mới để quên mật khẩu mà nó cứ đòi gửi mã về số điện thoại cũ kia. bây giờ em không biết làm như thế này cả, tài khoản ấy em chơi mấy năm rồi .",
+      "spans": [
+        {
+          "start": 0,
+          "end": 74,
+          "text": "em có một tài khoản lần đầu em bị mất xim nên em đã thêm số điện thoại mới",
+          "label": "COMP",
+          "token_length": 19
+        },
+        {
+          "start": 83,
+          "end": 125,
+          "text": "mới vừa rồi em đổi mật khẩu quên khuấy mất",
+          "label": "COMP",
+          "token_length": 10
+        }
+      ]
+    },
+    {
+      "id": "train_002483",
+      "token_count": 19,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "needs_review",
+      "text": "tưởng mua được samsung mới mà ai dè máy đã bị kích hoạt 2 tháng bảo hành rồi 😭",
+      "spans": []
+    },
+    {
+      "id": "train_002047",
+      "token_count": 33,
+      "comp_token_count": 23,
+      "comp_ratio": 0.696969696969697,
+      "span_count": 2,
+      "max_span_token_length": 13,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (69.7%)"
+      ],
+      "classification": "needs_review",
+      "text": "dép nhẹ, đẹp được nhưng đặt  cỡ  37 mà giao  cỡ  38 mang rộng chân không  được  đẹp lắm. cửa hàng  rút kinh nghiệm lần sau đừng nhầm lẩn nha  cửa hàng .",
+      "spans": [
+        {
+          "start": 39,
+          "end": 87,
+          "text": "giao  cỡ  38 mang rộng chân không  được  đẹp lắm",
+          "label": "COMP",
+          "token_length": 10
+        },
+        {
+          "start": 89,
+          "end": 150,
+          "text": "cửa hàng  rút kinh nghiệm lần sau đừng nhầm lẩn nha  cửa hàng",
+          "label": "COMP",
+          "token_length": 13
+        }
+      ]
+    },
+    {
+      "id": "train_003969",
+      "token_count": 13,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "needs_review",
+      "text": "kaka, đồ mỏng le áo còn bị dơ, đúng tiền nào của nấy.",
+      "spans": []
+    },
+    {
+      "id": "train_003083",
+      "token_count": 23,
+      "comp_token_count": 23,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 23,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (23)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "needs_review",
+      "text": "điện thoại cảm ứng không được nhảy cho lắm đóng gói không chắc chắn còn lại đều rất ngon trong tầm giá này",
+      "spans": [
+        {
+          "start": 0,
+          "end": 106,
+          "text": "điện thoại cảm ứng không được nhảy cho lắm đóng gói không chắc chắn còn lại đều rất ngon trong tầm giá này",
+          "label": "COMP",
+          "token_length": 23
+        }
+      ]
+    },
+    {
+      "id": "train_003604",
+      "token_count": 77,
+      "comp_token_count": 50,
+      "comp_ratio": 0.6493506493506493,
+      "span_count": 4,
+      "max_span_token_length": 27,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #3 dài >= 15 tokens (27)",
+        "COMP ratio > 60% (64.9%)"
+      ],
+      "classification": "needs_review",
+      "text": "liên quân phiên bản 3.0 thật sự quá tệ. tôi chơi liên quân từ khi mới ra nhưng phiên bản hiện tại làm tôi rất thất vọng . bản đồ giao diện thật sự nhìn rất tệ . thật sự tôi phải xoá game bởi vì nó rất tệ khôg phải riêng tôi mà là tất cả mọi người đều quen với bản đồ cũ. mong lần cập nhật tiếp theo sẽ... bài đánh giá đầy đủ",
+      "spans": [
+        {
+          "start": 22,
+          "end": 38,
+          "text": "0 thật sự quá tệ",
+          "label": "COMP",
+          "token_length": 5
+        },
+        {
+          "start": 79,
+          "end": 119,
+          "text": "phiên bản hiện tại làm tôi rất thất vọng",
+          "label": "COMP",
+          "token_length": 9
+        },
+        {
+          "start": 122,
+          "end": 158,
+          "text": "bản đồ giao diện thật sự nhìn rất tệ",
+          "label": "COMP",
+          "token_length": 9
+        },
+        {
+          "start": 161,
+          "end": 269,
+          "text": "thật sự tôi phải xoá game bởi vì nó rất tệ khôg phải riêng tôi mà là tất cả mọi người đều quen với bản đồ cũ",
+          "label": "COMP",
+          "token_length": 27
+        }
+      ]
+    },
+    {
+      "id": "train_004137",
+      "token_count": 51,
+      "comp_token_count": 26,
+      "comp_ratio": 0.5098039215686274,
+      "span_count": 2,
+      "max_span_token_length": 18,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #1 dài >= 15 tokens (18)"
+      ],
+      "classification": "needs_review",
+      "text": "không hiểu vì sao điện thoại của mình là điện thoại mới. mình tải twiTer về trên dưới 20 lần rồi. và mỗi lần đăng kí đều không được. nhờ người khác  được  để mình đăng nhập nó cứ để là   rất tiếc lỗi đã xảy ra. mong thử lại sao ",
+      "spans": [
+        {
+          "start": 98,
+          "end": 131,
+          "text": "và mỗi lần đăng kí đều không được",
+          "label": "COMP",
+          "token_length": 8
+        },
+        {
+          "start": 133,
+          "end": 209,
+          "text": "nhờ người khác  được  để mình đăng nhập nó cứ để là   rất tiếc lỗi đã xảy ra",
+          "label": "COMP",
+          "token_length": 18
+        }
+      ]
+    },
+    {
+      "id": "train_004203",
+      "token_count": 74,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "needs_review",
+      "text": "mình không biết các bạn tải như thế nào nha chứ mình là có tải 3 trò ( 2 trò kia đã tải từ trước rồi nên mình không nghi ngờ)nhưng khi mới tải guNy, mình chơi mới có một ngày mà bị hack facebOk qua tiếng trung quốc rồi còn bị aD thêm mấy cái  quả người cáo bla...bla...bla vào những cái bài viết ở facebOk của mình... bài đánh giá đầy đủ",
+      "spans": []
+    },
+    {
+      "id": "train_003695",
+      "token_count": 65,
+      "comp_token_count": 57,
+      "comp_ratio": 0.8769230769230769,
+      "span_count": 3,
+      "max_span_token_length": 29,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (29)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "span #2 dài >= 15 tokens (24)",
+        "COMP ratio > 60% (87.7%)"
+      ],
+      "classification": "needs_review",
+      "text": "khôi phục lại tin nhắn cũ đã sao lưu thì bị mất hết những tin nhắn mới (mặc dù các tin nhắn mới này đều đã  được  sao lưu). và không cách nào lấy lại  được . rất không hài lòng. nếu khôi phục lại tin nhắn cũ để rồi mất hết những tin nhắn mới thì tính năng này thà không có còn hơn",
+      "spans": [
+        {
+          "start": 0,
+          "end": 122,
+          "text": "khôi phục lại tin nhắn cũ đã sao lưu thì bị mất hết những tin nhắn mới (mặc dù các tin nhắn mới này đều đã  được  sao lưu)",
+          "label": "COMP",
+          "token_length": 29
+        },
+        {
+          "start": 158,
+          "end": 176,
+          "text": "rất không hài lòng",
+          "label": "COMP",
+          "token_length": 4
+        },
+        {
+          "start": 178,
+          "end": 280,
+          "text": "nếu khôi phục lại tin nhắn cũ để rồi mất hết những tin nhắn mới thì tính năng này thà không có còn hơn",
+          "label": "COMP",
+          "token_length": 24
+        }
+      ]
+    },
+    {
+      "id": "train_003659",
+      "token_count": 29,
+      "comp_token_count": 20,
+      "comp_ratio": 0.6896551724137931,
+      "span_count": 2,
+      "max_span_token_length": 14,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (69.0%)"
+      ],
+      "classification": "needs_review",
+      "text": "giao hàng nhanh hàng đúng mẫu,có điều hơi chảy ,nóng chắc do giao giữa trưa(mà sao nhìn ảnh thấy có quà tặng kèm giờ nhận hàng rồi không thấy)",
+      "spans": [
+        {
+          "start": 0,
+          "end": 29,
+          "text": "giao hàng nhanh hàng đúng mẫu",
+          "label": "COMP",
+          "token_length": 6
+        },
+        {
+          "start": 79,
+          "end": 142,
+          "text": "sao nhìn ảnh thấy có quà tặng kèm giờ nhận hàng rồi không thấy)",
+          "label": "COMP",
+          "token_length": 14
+        }
+      ]
+    },
+    {
+      "id": "train_004035",
+      "token_count": 73,
+      "comp_token_count": 55,
+      "comp_ratio": 0.7534246575342466,
+      "span_count": 3,
+      "max_span_token_length": 29,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #1 dài >= 15 tokens (18)",
+        "span #2 dài >= 15 tokens (29)",
+        "COMP ratio > 60% (75.3%)"
+      ],
+      "classification": "needs_review",
+      "text": "sử dụng zing id đăng nhập không được , cứ báo mật khẩu hoặc tài khoảng không chính xác , tưởng mình nhập sai đi lên trang zing id lấy mật khẩu qua đăng nhập cũng không được , nghi là lỗi do mật khẩu lên trang chủ đổi lại vào đăng nhập game lại báo mật khẩu hoặc tài khoảng không chính xác bình chọn   1star   cho... bài đánh giá đầy đủ",
+      "spans": [
+        {
+          "start": 0,
+          "end": 36,
+          "text": "sử dụng zing id đăng nhập không được",
+          "label": "COMP",
+          "token_length": 8
+        },
+        {
+          "start": 89,
+          "end": 172,
+          "text": "tưởng mình nhập sai đi lên trang zing id lấy mật khẩu qua đăng nhập cũng không được",
+          "label": "COMP",
+          "token_length": 18
+        },
+        {
+          "start": 175,
+          "end": 312,
+          "text": "nghi là lỗi do mật khẩu lên trang chủ đổi lại vào đăng nhập game lại báo mật khẩu hoặc tài khoảng không chính xác bình chọn   1star   cho",
+          "label": "COMP",
+          "token_length": 29
+        }
+      ]
+    },
+    {
+      "id": "train_001278",
+      "token_count": 73,
+      "comp_token_count": 45,
+      "comp_ratio": 0.6164383561643836,
+      "span_count": 1,
+      "max_span_token_length": 45,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (45)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (61.6%)"
+      ],
+      "classification": "needs_review",
+      "text": "mọi người không nên đăng kí học online nhé tải sử dụng thôi chứ giáo viên hỗ trợ gần như không có tác dụng gì mấy đâu bài giảng xem cũng hết sức bình thường không hẳn là dễ hiểu lắm khi nên bài cao, mọi người có thể rất sánh với các video hướng dẫn khác trên mạng thì video giảng bài không hữu ích lắm, n... bài đánh giá đầy đủ",
+      "spans": [
+        {
+          "start": 0,
+          "end": 197,
+          "text": "mọi người không nên đăng kí học online nhé tải sử dụng thôi chứ giáo viên hỗ trợ gần như không có tác dụng gì mấy đâu bài giảng xem cũng hết sức bình thường không hẳn là dễ hiểu lắm khi nên bài cao",
+          "label": "COMP",
+          "token_length": 45
+        }
+      ]
+    },
+    {
+      "id": "train_001364",
+      "token_count": 74,
+      "comp_token_count": 46,
+      "comp_ratio": 0.6216216216216216,
+      "span_count": 3,
+      "max_span_token_length": 19,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (19)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "span #2 dài >= 15 tokens (19)",
+        "COMP ratio > 60% (62.2%)"
+      ],
+      "classification": "needs_review",
+      "text": "tôi không hiểu vì sao facebOk lại bắt xác nhận danh tính và không cho người dùng đổi tên, mà lại bắt buộc dùng đúng tên của mình, tôi thấy khá khó chịu về điều này, cứ cho là vì facebOk muốn  quả nó lý chặt hơn để tránh những tài khoản giả mạo đi, nhưng mà gần đây lại có vấn đề xảy ra làm tôi càng k... bài đánh giá đầy đủ",
+      "spans": [
+        {
+          "start": 0,
+          "end": 88,
+          "text": "tôi không hiểu vì sao facebOk lại bắt xác nhận danh tính và không cho người dùng đổi tên",
+          "label": "COMP",
+          "token_length": 19
+        },
+        {
+          "start": 130,
+          "end": 163,
+          "text": "tôi thấy khá khó chịu về điều này",
+          "label": "COMP",
+          "token_length": 8
+        },
+        {
+          "start": 165,
+          "end": 246,
+          "text": "cứ cho là vì facebOk muốn  quả nó lý chặt hơn để tránh những tài khoản giả mạo đi",
+          "label": "COMP",
+          "token_length": 19
+        }
+      ]
+    },
+    {
+      "id": "train_002866",
+      "token_count": 61,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "needs_review",
+      "text": "game trải nghiệm rất tuyệt vời. nhưng bị hack nhiều quá với lại có những người chơi dùng thiết bị hổ trợ còn giả lập nữa, chơi như vậy thì những người chơi bằng di động hay máy tính bảng thì chắc không địch lại nổi,,,, huy vọng nhà phát hành game xem lại... vì một cộng đồng game công bằng...",
+      "spans": []
+    },
+    {
+      "id": "train_000003",
+      "token_count": 46,
+      "comp_token_count": 31,
+      "comp_ratio": 0.6739130434782609,
+      "span_count": 1,
+      "max_span_token_length": 31,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (31)",
+        "COMP ratio > 60% (67.4%)"
+      ],
+      "classification": "needs_review",
+      "text": "máy khá đẹp,pin trâu vân tay nhạy nhận diện khuôn mặt nhanh nói chung ổn.tuy chơi game frE fire bị chậm khung hình không mượt lắm nhưng với giá giẫm ngày 1111 được aD mã giảm giá 200k còn hơn 2tr6 thì vậy là ngon rồi",
+      "spans": [
+        {
+          "start": 77,
+          "end": 216,
+          "text": "chơi game frE fire bị chậm khung hình không mượt lắm nhưng với giá giẫm ngày 1111 được aD mã giảm giá 200k còn hơn 2tr6 thì vậy là ngon rồi",
+          "label": "COMP",
+          "token_length": 31
+        }
+      ]
+    },
+    {
+      "id": "train_000457",
+      "token_count": 45,
+      "comp_token_count": 22,
+      "comp_ratio": 0.4888888888888889,
+      "span_count": 2,
+      "max_span_token_length": 17,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #1 dài >= 15 tokens (17)"
+      ],
+      "classification": "needs_review",
+      "text": "sản phẩm dùng rất tốt và hiệu  quả  . giao hàng cũng rất nhanh . nhưng sản phẩm có mùi không được thơm làm khi nhỏ giọt ra tay xài cũng khó chịu. sản phẩm hơi mắc chỉ đợi đến giảm giá mới mua .",
+      "spans": [
+        {
+          "start": 38,
+          "end": 62,
+          "text": "giao hàng cũng rất nhanh",
+          "label": "COMP",
+          "token_length": 5
+        },
+        {
+          "start": 71,
+          "end": 144,
+          "text": "sản phẩm có mùi không được thơm làm khi nhỏ giọt ra tay xài cũng khó chịu",
+          "label": "COMP",
+          "token_length": 17
+        }
+      ]
+    },
+    {
+      "id": "train_001130",
+      "token_count": 45,
+      "comp_token_count": 36,
+      "comp_ratio": 0.8,
+      "span_count": 2,
+      "max_span_token_length": 22,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (22)",
+        "COMP ratio > 60% (80.0%)"
+      ],
+      "classification": "needs_review",
+      "text": "hiện tại tôi dùng oPo a37 để chơi nhưng vào được khoảng 30s và làm vài thao tác là game bị đứng và không thể làm gì khác ngoài thoát game. dù tôi không chạy thêm ứng dụng ngầm nào của bên thứ ba nữa.",
+      "spans": [
+        {
+          "start": 40,
+          "end": 137,
+          "text": "vào được khoảng 30s và làm vài thao tác là game bị đứng và không thể làm gì khác ngoài thoát game",
+          "label": "COMP",
+          "token_length": 22
+        },
+        {
+          "start": 139,
+          "end": 198,
+          "text": "dù tôi không chạy thêm ứng dụng ngầm nào của bên thứ ba nữa",
+          "label": "COMP",
+          "token_length": 14
+        }
+      ]
+    },
+    {
+      "id": "train_003770",
+      "token_count": 63,
+      "comp_token_count": 37,
+      "comp_ratio": 0.5873015873015873,
+      "span_count": 4,
+      "max_span_token_length": 15,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (15)"
+      ],
+      "classification": "needs_review",
+      "text": "tôi dùng 2 tài khoản facebOk, cài meSenger. trong khi tài khoản cũ vẫn bình thường, tài khoản mới tôi vừa nhắn vài tin bỗng mất hết lịch sử tin nhắn, và người khác gửi tin nhắn có thông báo nhưng mở ra không thấy đâu cả. mỗi lần chuyển tài khoản đăng xuất mất 4-5 phút. đề nghị nC sớm sửa lỗi.",
+      "spans": [
+        {
+          "start": 84,
+          "end": 148,
+          "text": "tài khoản mới tôi vừa nhắn vài tin bỗng mất hết lịch sử tin nhắn",
+          "label": "COMP",
+          "token_length": 15
+        },
+        {
+          "start": 196,
+          "end": 219,
+          "text": "mở ra không thấy đâu cả",
+          "label": "COMP",
+          "token_length": 6
+        },
+        {
+          "start": 221,
+          "end": 268,
+          "text": "mỗi lần chuyển tài khoản đăng xuất mất 4-5 phút",
+          "label": "COMP",
+          "token_length": 10
+        },
+        {
+          "start": 270,
+          "end": 292,
+          "text": "đề nghị nC sớm sửa lỗi",
+          "label": "COMP",
+          "token_length": 6
+        }
+      ]
+    },
+    {
+      "id": "train_004087",
+      "token_count": 17,
+      "comp_token_count": 17,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 17,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (17)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "needs_review",
+      "text": "chất lượng sản phẩm tốt theo đơn hàng là có  sản phẩm  tặng kèm nhưng giao về",
+      "spans": [
+        {
+          "start": 0,
+          "end": 77,
+          "text": "chất lượng sản phẩm tốt theo đơn hàng là có  sản phẩm  tặng kèm nhưng giao về",
+          "label": "COMP",
+          "token_length": 17
+        }
+      ]
+    },
+    {
+      "id": "train_002079",
+      "token_count": 21,
+      "comp_token_count": 21,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 21,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (21)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "needs_review",
+      "text": "đồ đẹp như bi giờ lỗi ở cổ áo không  được  không lắm nhưng còn lại bộ này cũng đẹp (•‿•)(✷‿✷)",
+      "spans": [
+        {
+          "start": 0,
+          "end": 93,
+          "text": "đồ đẹp như bi giờ lỗi ở cổ áo không  được  không lắm nhưng còn lại bộ này cũng đẹp (•‿•)(✷‿✷)",
+          "label": "COMP",
+          "token_length": 21
+        }
+      ]
+    },
+    {
+      "id": "train_002536",
+      "token_count": 11,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "needs_review",
+      "text": "vận chuyển chậm hàng đã bị kích hoạt bảo hành trước",
+      "spans": []
+    },
+    {
+      "id": "train_001688",
+      "token_count": 88,
+      "comp_token_count": 41,
+      "comp_ratio": 0.4659090909090909,
+      "span_count": 3,
+      "max_span_token_length": 22,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #2 dài >= 15 tokens (22)"
+      ],
+      "classification": "needs_review",
+      "text": " cửa hàng  đăng hình là quần ống rộng và lai cuốn mà lại gửi cho mình quần 9 tất ống ôm nhẹ . quần thì đẹp nhưng mình không thích quần 9 tất tí nào cả , mặc cũng không được thoải mái ngồi xuống rất chật , đùi mình hơi to nên thích ống rộng cho thoải mái . quần không được ưng ý nhưng mặc đi làm ai cũng khen đẹp nên mình đánh giá lại cho  cửa hàng   5star  . lần sau lại ủng hộ",
+      "spans": [
+        {
+          "start": 113,
+          "end": 150,
+          "text": "mình không thích quần 9 tất tí nào cả",
+          "label": "COMP",
+          "token_length": 9
+        },
+        {
+          "start": 153,
+          "end": 202,
+          "text": "mặc cũng không được thoải mái ngồi xuống rất chật",
+          "label": "COMP",
+          "token_length": 10
+        },
+        {
+          "start": 256,
+          "end": 355,
+          "text": "quần không được ưng ý nhưng mặc đi làm ai cũng khen đẹp nên mình đánh giá lại cho  cửa hàng   5star",
+          "label": "COMP",
+          "token_length": 22
+        }
+      ]
+    },
+    {
+      "id": "train_001368",
+      "token_count": 37,
+      "comp_token_count": 16,
+      "comp_ratio": 0.43243243243243246,
+      "span_count": 1,
+      "max_span_token_length": 16,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (16)"
+      ],
+      "classification": "needs_review",
+      "text": "kem thì được nhưng quà tặng thì đã hết hạn sử dụng ... tặng thì nên tặng có tâm xíu còn không tặng cũng không sao chứ không nên tặng kèm chỉ để cho có thôi ạ",
+      "spans": [
+        {
+          "start": 88,
+          "end": 157,
+          "text": "không tặng cũng không sao chứ không nên tặng kèm chỉ để cho có thôi ạ",
+          "label": "COMP",
+          "token_length": 16
+        }
+      ]
+    },
+    {
+      "id": "train_002396",
+      "token_count": 201,
+      "comp_token_count": 142,
+      "comp_ratio": 0.7064676616915423,
+      "span_count": 5,
+      "max_span_token_length": 51,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (42)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "span #2 dài >= 15 tokens (34)",
+        "span #3 dài >= 15 tokens (51)",
+        "nhiều hơn 4 spans (5)",
+        "COMP ratio > 60% (70.6%)"
+      ],
+      "classification": "needs_review",
+      "text": "thiết kế đơn giản nhưng rất chắc chắn nhưng có một điểm trừ đối với cá nhân mình là phần thân son được phủ như tráng gương khi cầm vào hay môi chạm vào sẽ để lại vân môi hoặc vân tay. về chất son khi lên môi thì khá mịn mượt khi bặm môi thì tạo cảm giác hơi dính dính nhưng không hề làm nặng môi. màu hồng hơi hướng đỏ đất nên khi không trang điểm mà chỉ son thôi thì vẫn xinh chứ không dừ ( mình nghĩ nên tẩy da chết cho môi rồi thêm một lớp son dưỡng mỏng thôi rồi son em này lên là được  ). vì bản chất em này cũng là son có thành phần dưỡng rồi nên mình nghĩ không thể rất với các dòng khác về mặt lâu trôi được nhưng mình đã sử dụng qua và không dặm lại nhưng đến cuối ngày vẫn thấy còn lại trên môi màu hồng phớt. ai ít trang điểm chỉ thích đánh một ít son khi ra ngoài thì cân nhắc em này nha ! tổng quan mình cho  5star , giao hàng cũng nhanh nữa nên rất hài lòng 😊",
+      "spans": [
+        {
+          "start": 0,
+          "end": 182,
+          "text": "thiết kế đơn giản nhưng rất chắc chắn nhưng có một điểm trừ đối với cá nhân mình là phần thân son được phủ như tráng gương khi cầm vào hay môi chạm vào sẽ để lại vân môi hoặc vân tay",
+          "label": "COMP",
+          "token_length": 42
+        },
+        {
+          "start": 274,
+          "end": 295,
+          "text": "không hề làm nặng môi",
+          "label": "COMP",
+          "token_length": 5
+        },
+        {
+          "start": 351,
+          "end": 492,
+          "text": "chỉ son thôi thì vẫn xinh chứ không dừ ( mình nghĩ nên tẩy da chết cho môi rồi thêm một lớp son dưỡng mỏng thôi rồi son em này lên là được  )",
+          "label": "COMP",
+          "token_length": 34
+        },
+        {
+          "start": 494,
+          "end": 718,
+          "text": "vì bản chất em này cũng là son có thành phần dưỡng rồi nên mình nghĩ không thể rất với các dòng khác về mặt lâu trôi được nhưng mình đã sử dụng qua và không dặm lại nhưng đến cuối ngày vẫn thấy còn lại trên môi màu hồng phớt",
+          "label": "COMP",
+          "token_length": 51
+        },
+        {
+          "start": 830,
+          "end": 873,
+          "text": "giao hàng cũng nhanh nữa nên rất hài lòng 😊",
+          "label": "COMP",
+          "token_length": 10
+        }
+      ]
+    },
+    {
+      "id": "train_001423",
+      "token_count": 75,
+      "comp_token_count": 69,
+      "comp_ratio": 0.92,
+      "span_count": 2,
+      "max_span_token_length": 43,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (43)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "span #1 dài >= 15 tokens (26)",
+        "COMP ratio > 60% (92.0%)"
+      ],
+      "classification": "needs_review",
+      "text": "bài hát thì càng ngày càng ít và hạn chế đặc biệt là những ca khúc tiếng anh cùng theo đó thì lại bắt người tiêu dùng xem nhiều  quả người cáo trong một lần nghe những ca khúc tiếng anh  được  nghe . ứng dụng càng ngày càng tệ hại chỉ vì cái mà anh duy mạnh gọi là kiếm lợi nhuận càng nhiều càng tốt bất chấp ngườ... bài đánh giá đầy đủ",
+      "spans": [
+        {
+          "start": 0,
+          "end": 197,
+          "text": "bài hát thì càng ngày càng ít và hạn chế đặc biệt là những ca khúc tiếng anh cùng theo đó thì lại bắt người tiêu dùng xem nhiều  quả người cáo trong một lần nghe những ca khúc tiếng anh  được  nghe",
+          "label": "COMP",
+          "token_length": 43
+        },
+        {
+          "start": 200,
+          "end": 313,
+          "text": "ứng dụng càng ngày càng tệ hại chỉ vì cái mà anh duy mạnh gọi là kiếm lợi nhuận càng nhiều càng tốt bất chấp ngườ",
+          "label": "COMP",
+          "token_length": 26
+        }
+      ]
+    },
+    {
+      "id": "train_002531",
+      "token_count": 61,
+      "comp_token_count": 20,
+      "comp_ratio": 0.32786885245901637,
+      "span_count": 2,
+      "max_span_token_length": 16,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (16)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens"
+      ],
+      "classification": "needs_review",
+      "text": "mất một tháng để người chơi mới như tôi có thể đạt được 1m5 sức mạnh, và với một cuộc xâm lược của kẻ 30m sức mạnh, tôi mất tất cả.... tôi từng yêu game này, đến mức dùng rất nhiều thời gian và giờ đây tôi chẳng còn gì. tạm biệt, tôi từ bỏ cái trò chơi khốn nạn này.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 68,
+          "text": "mất một tháng để người chơi mới như tôi có thể đạt được 1m5 sức mạnh",
+          "label": "COMP",
+          "token_length": 16
+        },
+        {
+          "start": 116,
+          "end": 130,
+          "text": "tôi mất tất cả",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_002684",
+      "token_count": 31,
+      "comp_token_count": 11,
+      "comp_ratio": 0.3548387096774194,
+      "span_count": 1,
+      "max_span_token_length": 11,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens"
+      ],
+      "classification": "needs_review",
+      "text": "48 mỹ phẩm không chuẩn như các hãng điện thoại khác , nhìn như khoảng 32 mỹ phẩm là cùng , được bổ sung thêm xài mạng 5g còn được hơn",
+      "spans": [
+        {
+          "start": 0,
+          "end": 51,
+          "text": "48 mỹ phẩm không chuẩn như các hãng điện thoại khác",
+          "label": "COMP",
+          "token_length": 11
+        }
+      ]
+    },
+    {
+      "id": "train_004213",
+      "token_count": 74,
+      "comp_token_count": 26,
+      "comp_ratio": 0.35135135135135137,
+      "span_count": 2,
+      "max_span_token_length": 15,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #1 dài >= 15 tokens (15)"
+      ],
+      "classification": "needs_review",
+      "text": "là một ứng dụng tốt, nên cài đặt, nhưng mà mong sẽ thay đổi một chức năng hơi bất tiện tiện. ẩn trò chuyện chỉ có thể áp dụng đối với bạn có sẵn trong danh bạ, còn người lạ bật ẩn trò chuyện lên rồi tìm lại thì không thấy đâu cả. có những người mình chưa kịp kết bạn, phải ẩn vì lí do riêng, sau kiếm... bài đánh giá đầy đủ",
+      "spans": [
+        {
+          "start": 43,
+          "end": 91,
+          "text": "mong sẽ thay đổi một chức năng hơi bất tiện tiện",
+          "label": "COMP",
+          "token_length": 11
+        },
+        {
+          "start": 164,
+          "end": 228,
+          "text": "người lạ bật ẩn trò chuyện lên rồi tìm lại thì không thấy đâu cả",
+          "label": "COMP",
+          "token_length": 15
+        }
+      ]
+    },
+    {
+      "id": "train_004352",
+      "token_count": 75,
+      "comp_token_count": 24,
+      "comp_ratio": 0.32,
+      "span_count": 1,
+      "max_span_token_length": 24,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (24)"
+      ],
+      "classification": "needs_review",
+      "text": "về phần sao lưu tin nhắn, tôi muốn hỏi là tin nhắn trong smartphone sẽ tự động biến mất dần theo năm tháng lý do là giản lược bộ nhớ, điều này sẽ dẫn đến việc sao lưu tin nhắn hằng ngày. file mới sẽ ghi đè lên file cũ trên máy chủ zalo, và khi điều này xảy ra thì tin nhắn thực tế chỉ sao lưu lại nhữ... bài đánh giá đầy đủ",
+      "spans": [
+        {
+          "start": 26,
+          "end": 132,
+          "text": "tôi muốn hỏi là tin nhắn trong smartphone sẽ tự động biến mất dần theo năm tháng lý do là giản lược bộ nhớ",
+          "label": "COMP",
+          "token_length": 24
+        }
+      ]
+    },
+    {
+      "id": "train_001725",
+      "token_count": 87,
+      "comp_token_count": 31,
+      "comp_ratio": 0.3563218390804598,
+      "span_count": 3,
+      "max_span_token_length": 19,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (19)"
+      ],
+      "classification": "needs_review",
+      "text": "sữa rửa mặt ok, hàng chính hãng, nếu không tạo bọt kĩ thì khi rửa mấy bạn da thường sẽ khô một tí và rít rít, nhưng yên tâm chỉ khoảng 5p sau là sẽ không còn rít nữa. còn về nước tẩy trang thì có mùi trà xanh nhẹ, sạch sẽ và không phải sạch bong kin kít đâu, khi tẩy trang xong vẫn còn độ ẩm, chai 70ml xài cũng khoảng một tháng đối với những người dùng một lần một ngày như mình ❤",
+      "spans": [
+        {
+          "start": 33,
+          "end": 108,
+          "text": "nếu không tạo bọt kĩ thì khi rửa mấy bạn da thường sẽ khô một tí và rít rít",
+          "label": "COMP",
+          "token_length": 19
+        },
+        {
+          "start": 158,
+          "end": 165,
+          "text": "rít nữa",
+          "label": "COMP",
+          "token_length": 2
+        },
+        {
+          "start": 171,
+          "end": 212,
+          "text": "về nước tẩy trang thì có mùi trà xanh nhẹ",
+          "label": "COMP",
+          "token_length": 10
+        }
+      ]
+    },
+    {
+      "id": "train_000800",
+      "token_count": 157,
+      "comp_token_count": 102,
+      "comp_ratio": 0.6496815286624203,
+      "span_count": 7,
+      "max_span_token_length": 24,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (24)",
+        "span #5 dài >= 15 tokens (24)",
+        "nhiều hơn 4 spans (7)",
+        "COMP ratio > 60% (65.0%)"
+      ],
+      "classification": "needs_review",
+      "text": "tôi đặt 2 cái ngày 2409 nhưng lazada chỉ giao một cái ngày 279. một cái đến chiều 309 vẫn đang ở tình trạng đóng gói, tôi phải gọi lên tổng đài để hỏi và được giải thích rằng đơn hàng có thể bị huỷ và không giao đến được. quá hạn giao hàng đơn hàng sẽ tự động huỷ. và khuyến khích tôi huỷ đơn hàng đặt lại.tôi đã viết email phàn nàn và không một email phản hồi vào chiều hôm ấy. do tôi cần gấp nên khuya đó tôi đã phải đặt 01 đơn khác. sáng hôm sau tôi phát hiện 02 đơn đang giao hàng. một đơn giao trễ nhưng không tự động huỷ và 01 đơn đặt vào tối đó vì tôi sợ qua ngày mai sẽ không còn giá khuyến mãi tốt. kết  quả  dư bây giờ dư một cái máy. rất thất vọng về xử lý đơn hàng của lazada",
+      "spans": [
+        {
+          "start": 118,
+          "end": 220,
+          "text": "tôi phải gọi lên tổng đài để hỏi và được giải thích rằng đơn hàng có thể bị huỷ và không giao đến được",
+          "label": "COMP",
+          "token_length": 24
+        },
+        {
+          "start": 222,
+          "end": 263,
+          "text": "quá hạn giao hàng đơn hàng sẽ tự động huỷ",
+          "label": "COMP",
+          "token_length": 10
+        },
+        {
+          "start": 265,
+          "end": 305,
+          "text": "và khuyến khích tôi huỷ đơn hàng đặt lại",
+          "label": "COMP",
+          "token_length": 9
+        },
+        {
+          "start": 379,
+          "end": 434,
+          "text": "do tôi cần gấp nên khuya đó tôi đã phải đặt 01 đơn khác",
+          "label": "COMP",
+          "token_length": 14
+        },
+        {
+          "start": 436,
+          "end": 484,
+          "text": "sáng hôm sau tôi phát hiện 02 đơn đang giao hàng",
+          "label": "COMP",
+          "token_length": 11
+        },
+        {
+          "start": 509,
+          "end": 606,
+          "text": "không tự động huỷ và 01 đơn đặt vào tối đó vì tôi sợ qua ngày mai sẽ không còn giá khuyến mãi tốt",
+          "label": "COMP",
+          "token_length": 24
+        },
+        {
+          "start": 645,
+          "end": 687,
+          "text": "rất thất vọng về xử lý đơn hàng của lazada",
+          "label": "COMP",
+          "token_length": 10
+        }
+      ]
+    },
+    {
+      "id": "train_003368",
+      "token_count": 15,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "needs_review",
+      "text": "giáo hàng chậm, phải gọi lên tổng đài mới được lưu ý giao nhanh hơn",
+      "spans": []
+    },
+    {
+      "id": "train_001472",
+      "token_count": 48,
+      "comp_token_count": 29,
+      "comp_ratio": 0.6041666666666666,
+      "span_count": 2,
+      "max_span_token_length": 19,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (19)",
+        "COMP ratio > 60% (60.4%)"
+      ],
+      "classification": "needs_review",
+      "text": "hàng nguyên seal, nhưng  cửa hàng  chính hãng mà đóng gói thùng ngoài to hơn hộp điện thoại mà không có thêm gì chống sốc khi vận chuyển khiến hộp điện thoại không góc và cạnh rất nhiều, thất vọng hãng lớn mà đóng gói quá sơ sài",
+      "spans": [
+        {
+          "start": 95,
+          "end": 185,
+          "text": "không có thêm gì chống sốc khi vận chuyển khiến hộp điện thoại không góc và cạnh rất nhiều",
+          "label": "COMP",
+          "token_length": 19
+        },
+        {
+          "start": 187,
+          "end": 228,
+          "text": "thất vọng hãng lớn mà đóng gói quá sơ sài",
+          "label": "COMP",
+          "token_length": 10
+        }
+      ]
+    },
+    {
+      "id": "train_001640",
+      "token_count": 73,
+      "comp_token_count": 65,
+      "comp_ratio": 0.8904109589041096,
+      "span_count": 6,
+      "max_span_token_length": 19,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #1 dài >= 15 tokens (16)",
+        "span #3 dài >= 15 tokens (19)",
+        "span #4 dài >= 15 tokens (17)",
+        "nhiều hơn 4 spans (6)",
+        "COMP ratio > 60% (89.0%)"
+      ],
+      "classification": "needs_review",
+      "text": "đã  cỡ  không chuẩn rồi còn lươn lẹo, đã liên hệ đổi lại  cỡ  thì báo tự trả phí giao hàng mình vẫn ok, nhưng một tuần lễ không thấy hồi âm,  nhắn tin  hỏi thì báo sẽ hối giao hàng này nọ cuối cùng tới nay vẫn chưa nhận được, tôi mua hàng để đi du lịch mà đi về rồi còn chưa nhận được hàng đổi?  cửa hàng  tệ hại !",
+      "spans": [
+        {
+          "start": 28,
+          "end": 36,
+          "text": "lươn lẹo",
+          "label": "COMP",
+          "token_length": 2
+        },
+        {
+          "start": 38,
+          "end": 102,
+          "text": "đã liên hệ đổi lại  cỡ  thì báo tự trả phí giao hàng mình vẫn ok",
+          "label": "COMP",
+          "token_length": 16
+        },
+        {
+          "start": 110,
+          "end": 139,
+          "text": "một tuần lễ không thấy hồi âm",
+          "label": "COMP",
+          "token_length": 7
+        },
+        {
+          "start": 142,
+          "end": 224,
+          "text": "nhắn tin  hỏi thì báo sẽ hối giao hàng này nọ cuối cùng tới nay vẫn chưa nhận được",
+          "label": "COMP",
+          "token_length": 19
+        },
+        {
+          "start": 226,
+          "end": 293,
+          "text": "tôi mua hàng để đi du lịch mà đi về rồi còn chưa nhận được hàng đổi",
+          "label": "COMP",
+          "token_length": 17
+        },
+        {
+          "start": 296,
+          "end": 312,
+          "text": "cửa hàng  tệ hại",
+          "label": "COMP",
+          "token_length": 4
+        }
+      ]
+    },
+    {
+      "id": "train_001947",
+      "token_count": 45,
+      "comp_token_count": 34,
+      "comp_ratio": 0.7555555555555555,
+      "span_count": 3,
+      "max_span_token_length": 16,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #1 dài >= 15 tokens (16)",
+        "COMP ratio > 60% (75.6%)"
+      ],
+      "classification": "needs_review",
+      "text": "màu lên đẹp nhưng lúc mình ngửi có mùi như mùi cồn rất khó chịu. sản phẩm được bọc lại cẩn thận, có ghi bên ngoài là hàng dễ vỡ để mọi người giao hàng cẩn thận hơn. nhân viên giao hàng rất thân thiện.",
+      "spans": [
+        {
+          "start": 18,
+          "end": 63,
+          "text": "lúc mình ngửi có mùi như mùi cồn rất khó chịu",
+          "label": "COMP",
+          "token_length": 11
+        },
+        {
+          "start": 97,
+          "end": 163,
+          "text": "có ghi bên ngoài là hàng dễ vỡ để mọi người giao hàng cẩn thận hơn",
+          "label": "COMP",
+          "token_length": 16
+        },
+        {
+          "start": 165,
+          "end": 199,
+          "text": "nhân viên giao hàng rất thân thiện",
+          "label": "COMP",
+          "token_length": 7
+        }
+      ]
+    },
+    {
+      "id": "train_003594",
+      "token_count": 74,
+      "comp_token_count": 40,
+      "comp_ratio": 0.5405405405405406,
+      "span_count": 1,
+      "max_span_token_length": 40,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (40)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens"
+      ],
+      "classification": "needs_review",
+      "text": "tôi đã chơi game này 3 tháng rồi và giờ các phiên bản gần đây tôi không thể chơi game quá một phút bởi vì vào game chưa làm được gì đã đứng màn hình và game ngừng hoạt động, tôi đã yêu cầu trợ giúp arena từ facebOk và họ nói phiên bản mới này sẽ khắc phục được, nhưng mà khi cập nhật xong tôi chỉ thấy... bài đánh giá đầy đủ",
+      "spans": [
+        {
+          "start": 0,
+          "end": 172,
+          "text": "tôi đã chơi game này 3 tháng rồi và giờ các phiên bản gần đây tôi không thể chơi game quá một phút bởi vì vào game chưa làm được gì đã đứng màn hình và game ngừng hoạt động",
+          "label": "COMP",
+          "token_length": 40
+        }
+      ]
+    },
+    {
+      "id": "train_003957",
+      "token_count": 33,
+      "comp_token_count": 18,
+      "comp_ratio": 0.5454545454545454,
+      "span_count": 1,
+      "max_span_token_length": 18,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (18)"
+      ],
+      "classification": "needs_review",
+      "text": "giao hàng nhanh nhưng  cửa hàng  không đóng gói bưu kiện chuẩn không có lót  gì  may nhận hàng không bị sao.vấn đi này  cửa hàng  cần lưu ý nhé.oke về sản phẩm.",
+      "spans": [
+        {
+          "start": 23,
+          "end": 107,
+          "text": "cửa hàng  không đóng gói bưu kiện chuẩn không có lót  gì  may nhận hàng không bị sao",
+          "label": "COMP",
+          "token_length": 18
+        }
+      ]
+    },
+    {
+      "id": "train_002487",
+      "token_count": 83,
+      "comp_token_count": 17,
+      "comp_ratio": 0.20481927710843373,
+      "span_count": 1,
+      "max_span_token_length": 17,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (17)"
+      ],
+      "classification": "needs_review",
+      "text": "trò chơi này theo cảm nghĩ của tôi và những thứ tôi cảm nhận được dựa theo kiến thức của tôi và tôi đã áp dụng kiến thức của mình vào cái nhận xét lz này là trò chơi như C . chơi đeo hay  quả người cáo liên tục ngấy con mẹ nó rồi mong game sớm phá sản . tao tặng bọn làm game một câu cuối : game như C quảng cáo lz gì q... bài đánh giá đầy đủ",
+      "spans": [
+        {
+          "start": 254,
+          "end": 319,
+          "text": "tao tặng bọn làm game một câu cuối : game như C quảng cáo lz gì q",
+          "label": "COMP",
+          "token_length": 17
+        }
+      ]
+    },
+    {
+      "id": "train_000978",
+      "token_count": 76,
+      "comp_token_count": 0,
+      "comp_ratio": 0.0,
+      "span_count": 0,
+      "max_span_token_length": 0,
+      "has_empty_spans": true,
+      "warning_reasons": [
+        "spans=[] nhưng cls_label=1"
+      ],
+      "classification": "needs_review",
+      "text": "nhà phát hành nên làm lại tính năng bán nhân vật, hãy làm cho mọi nhân vật có thể bị bán đi để thu về vật phẩm chứ không giới hạn chỉ bán được nhân vật màu xanh lá. tính năng trên cần xem xét lại, phần còn lại của game thì rất hay, từ đồ hoạ đến hiệu ứng là rất tốt. tôi rất thích game này và chúc ga... bài đánh giá đầy đủ",
+      "spans": []
+    },
+    {
+      "id": "train_001163",
+      "token_count": 21,
+      "comp_token_count": 21,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 21,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (21)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "needs_review",
+      "text": "sao em đặt 2 lần đều không đung mau đung  cỡ  sao em mang mong  cửa hàng  phan hoi dùm em",
+      "spans": [
+        {
+          "start": 0,
+          "end": 89,
+          "text": "sao em đặt 2 lần đều không đung mau đung  cỡ  sao em mang mong  cửa hàng  phan hoi dùm em",
+          "label": "COMP",
+          "token_length": 21
+        }
+      ]
+    },
+    {
+      "id": "train_001308",
+      "token_count": 19,
+      "comp_token_count": 16,
+      "comp_ratio": 0.8421052631578947,
+      "span_count": 1,
+      "max_span_token_length": 16,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (16)",
+        "COMP ratio > 60% (84.2%)"
+      ],
+      "classification": "needs_review",
+      "text": "hàng giao nhanh, chất lượng thì không như mong muốn dùng 2 lần vẫn chưa thấy có hiểu  quả ",
+      "spans": [
+        {
+          "start": 17,
+          "end": 89,
+          "text": "chất lượng thì không như mong muốn dùng 2 lần vẫn chưa thấy có hiểu  quả",
+          "label": "COMP",
+          "token_length": 16
+        }
+      ]
+    },
+    {
+      "id": "train_002200",
+      "token_count": 35,
+      "comp_token_count": 23,
+      "comp_ratio": 0.6571428571428571,
+      "span_count": 2,
+      "max_span_token_length": 13,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "COMP ratio > 60% (65.7%)"
+      ],
+      "classification": "needs_review",
+      "text": "đóng gói cẩn thận, tuy nhiên hơi thất vọng xíu khi mua hàng ở khung giờ 0-2h 11.11 đưọc tặng kèm sản phẩm khác nhưng đặt xong hỏi hãng báo hết sản phẩm tặng kèm",
+      "spans": [
+        {
+          "start": 23,
+          "end": 79,
+          "text": "nhiên hơi thất vọng xíu khi mua hàng ở khung giờ 0-2h 11",
+          "label": "COMP",
+          "token_length": 13
+        },
+        {
+          "start": 117,
+          "end": 160,
+          "text": "đặt xong hỏi hãng báo hết sản phẩm tặng kèm",
+          "label": "COMP",
+          "token_length": 10
+        }
+      ]
+    },
+    {
+      "id": "train_003268",
+      "token_count": 24,
+      "comp_token_count": 22,
+      "comp_ratio": 0.9166666666666666,
+      "span_count": 2,
+      "max_span_token_length": 16,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (16)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (91.7%)"
+      ],
+      "classification": "needs_review",
+      "text": "thông tin đăng tải khi mua sẽ được tặng một lọ kem chống nắng mini  cỡ , tuy nhiên khi nhận hàng không có.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 70,
+          "text": "thông tin đăng tải khi mua sẽ được tặng một lọ kem chống nắng mini  cỡ",
+          "label": "COMP",
+          "token_length": 16
+        },
+        {
+          "start": 77,
+          "end": 105,
+          "text": "nhiên khi nhận hàng không có",
+          "label": "COMP",
+          "token_length": 6
+        }
+      ]
+    },
+    {
+      "id": "train_002036",
+      "token_count": 24,
+      "comp_token_count": 20,
+      "comp_ratio": 0.8333333333333334,
+      "span_count": 1,
+      "max_span_token_length": 20,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (20)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (83.3%)"
+      ],
+      "classification": "needs_review",
+      "text": "lừa đảo liên hệ fanpage không trả lời có dấu hiệu lừa tiền người chơi nếu đánh giá  được  0. 5star  là đánh rồi",
+      "spans": [
+        {
+          "start": 0,
+          "end": 91,
+          "text": "lừa đảo liên hệ fanpage không trả lời có dấu hiệu lừa tiền người chơi nếu đánh giá  được  0",
+          "label": "COMP",
+          "token_length": 20
+        }
+      ]
+    },
+    {
+      "id": "train_004334",
+      "token_count": 37,
+      "comp_token_count": 26,
+      "comp_ratio": 0.7027027027027027,
+      "span_count": 1,
+      "max_span_token_length": 26,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (26)",
+        "COMP ratio > 60% (70.3%)"
+      ],
+      "classification": "needs_review",
+      "text": "tôi đã nhận được tin nhắn kích hoạt bảo hành. nhưng tại sao kiểm tra trên trang chủ samsung + nhắn tin qua tổng đài 6060 lại báo là thông tin về điện thoại không đúng ạ",
+      "spans": [
+        {
+          "start": 52,
+          "end": 168,
+          "text": "tại sao kiểm tra trên trang chủ samsung + nhắn tin qua tổng đài 6060 lại báo là thông tin về điện thoại không đúng ạ",
+          "label": "COMP",
+          "token_length": 26
+        }
+      ]
+    },
+    {
+      "id": "train_003202",
+      "token_count": 38,
+      "comp_token_count": 38,
+      "comp_ratio": 1.0,
+      "span_count": 3,
+      "max_span_token_length": 24,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #1 dài >= 15 tokens (24)",
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "needs_review",
+      "text": "đặt giao hàng hoả tốc ngày hôm trước, đến mãi 20h ngày hôm sau mới gọi giao hàng trong khi địa chỉ giao hàng ghi rất rõ là cơ quan làm việc. chất lượng dịch vụ rất tệ",
+      "spans": [
+        {
+          "start": 0,
+          "end": 36,
+          "text": "đặt giao hàng hoả tốc ngày hôm trước",
+          "label": "COMP",
+          "token_length": 8
+        },
+        {
+          "start": 38,
+          "end": 139,
+          "text": "đến mãi 20h ngày hôm sau mới gọi giao hàng trong khi địa chỉ giao hàng ghi rất rõ là cơ quan làm việc",
+          "label": "COMP",
+          "token_length": 24
+        },
+        {
+          "start": 141,
+          "end": 166,
+          "text": "chất lượng dịch vụ rất tệ",
+          "label": "COMP",
+          "token_length": 6
+        }
+      ]
+    },
+    {
+      "id": "train_002466",
+      "token_count": 75,
+      "comp_token_count": 15,
+      "comp_ratio": 0.2,
+      "span_count": 1,
+      "max_span_token_length": 15,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (15)"
+      ],
+      "classification": "needs_review",
+      "text": "xung quanh tôi có nhiều tài xế đang chờ nhưng không hiểu sao lại chọn tài xế có vị trí cách tôi 10 dãy nhà. máy tôi không có chức năng  chất  với tài xế để nhắn vị trí đón. không hiện ảnh tài xế trong khi ứng dụng của tài xế thì có. nên có chức năng tích điểm như grab. chọn vị trí đón thì không hiện r... bài đánh giá đầy đủ",
+      "spans": [
+        {
+          "start": 108,
+          "end": 171,
+          "text": "máy tôi không có chức năng  chất  với tài xế để nhắn vị trí đón",
+          "label": "COMP",
+          "token_length": 15
+        }
+      ]
+    },
+    {
+      "id": "train_002543",
+      "token_count": 163,
+      "comp_token_count": 54,
+      "comp_ratio": 0.3312883435582822,
+      "span_count": 4,
+      "max_span_token_length": 26,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #2 dài >= 15 tokens (26)"
+      ],
+      "classification": "needs_review",
+      "text": "+ chất lượng, giá cả hợp lý phù hợp với nhu cầu cơ bản. + dung lượng pin lớn xài rất thoải mái. có kèm củ sạc nhanh 15w. - hàng đóng gói không có lót mút hay nilon đệm khí, may mà điện thoại bên trong không vấn đề gì. - hàng có logo cam kết giao đúng hẹn và tôi sử dụng loại giao hàng hoả tốc thế nhưng đến cuối ngày nhận thông báo hàng giao không thành công vì người nhận không nghe máy trong khi tôi chẳng nhận được cuộc gọi nào. ngày mua là ngày 10 nhưng tới ngày 12 mới nhận được cũng như giao hàng bình thường vậy hoả tốc chỗ nào mà còn đổ lỗi cho khách hàng không nghe máy nữa. tới giờ vẫn chưa thấy lazada phản hồi gì. - kiểm tra bảo hành trên website samsung thấy đã  được  kích hoạt từ ngày 510 trong khi tôi mua vào ngày 10.",
+      "spans": [
+        {
+          "start": 123,
+          "end": 171,
+          "text": "hàng đóng gói không có lót mút hay nilon đệm khí",
+          "label": "COMP",
+          "token_length": 11
+        },
+        {
+          "start": 180,
+          "end": 216,
+          "text": "điện thoại bên trong không vấn đề gì",
+          "label": "COMP",
+          "token_length": 8
+        },
+        {
+          "start": 303,
+          "end": 430,
+          "text": "đến cuối ngày nhận thông báo hàng giao không thành công vì người nhận không nghe máy trong khi tôi chẳng nhận được cuộc gọi nào",
+          "label": "COMP",
+          "token_length": 26
+        },
+        {
+          "start": 542,
+          "end": 582,
+          "text": "đổ lỗi cho khách hàng không nghe máy nữa",
+          "label": "COMP",
+          "token_length": 9
+        }
+      ]
+    },
+    {
+      "id": "train_002535",
+      "token_count": 40,
+      "comp_token_count": 18,
+      "comp_ratio": 0.45,
+      "span_count": 3,
+      "max_span_token_length": 9,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens"
+      ],
+      "classification": "needs_review",
+      "text": "không có quà tặng kèm như  quả người cáo. nhắn tin  cửa hàng  báo kiểm tra lại nhưng rồi im luôn. cách xử lý quá thiếu chuyên nghiệp! sản phẩm giao tới dính muối tôm, bốc mùi, kém vệ sinh.",
+      "spans": [
+        {
+          "start": 0,
+          "end": 40,
+          "text": "không có quà tặng kèm như  quả người cáo",
+          "label": "COMP",
+          "token_length": 9
+        },
+        {
+          "start": 98,
+          "end": 132,
+          "text": "cách xử lý quá thiếu chuyên nghiệp",
+          "label": "COMP",
+          "token_length": 7
+        },
+        {
+          "start": 167,
+          "end": 174,
+          "text": "bốc mùi",
+          "label": "COMP",
+          "token_length": 2
+        }
+      ]
+    },
+    {
+      "id": "train_004217",
+      "token_count": 16,
+      "comp_token_count": 16,
+      "comp_ratio": 1.0,
+      "span_count": 1,
+      "max_span_token_length": 16,
+      "has_empty_spans": false,
+      "warning_reasons": [
+        "span #0 dài >= 15 tokens (16)",
+        "span #0 bắt đầu từ đầu text và dài > 8 tokens",
+        "COMP ratio > 60% (100.0%)"
+      ],
+      "classification": "needs_review",
+      "text": "giao hang nhanh dung mẫu  cỡ  hơi rộng vẫn cho  5star  và sẽ ủng hộ tiếp",
+      "spans": [
+        {
+          "start": 0,
+          "end": 72,
+          "text": "giao hang nhanh dung mẫu  cỡ  hơi rộng vẫn cho  5star  và sẽ ủng hộ tiếp",
+          "label": "COMP",
+          "token_length": 16
+        }
+      ]
+    }
+  ]
+}

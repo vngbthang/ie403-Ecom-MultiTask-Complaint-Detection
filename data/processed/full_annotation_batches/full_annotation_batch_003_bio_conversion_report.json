@@ -1,0 +1,392 @@
+{
+  "summary": {
+    "records": 200,
+    "tokens_total": 10853,
+    "comp_tokens": 8447,
+    "records_with_spans": 195,
+    "records_without_spans": 5,
+    "warnings": 38
+  },
+  "warnings": [
+    {
+      "id": "train_001614",
+      "warning_type": "overlapping_spans",
+      "span_index": 2,
+      "span_text": "0 ra mắt",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        22
+      ]
+    },
+    {
+      "id": "train_001670",
+      "warning_type": "overlapping_spans",
+      "span_index": 1,
+      "span_text": "không có phương thức vận chuyển các kiểu",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        8
+      ]
+    },
+    {
+      "id": "train_001716",
+      "warning_type": "overlapping_spans",
+      "span_index": 1,
+      "span_text": "9 để trải nghiệm toàn màng hình",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        14
+      ]
+    },
+    {
+      "id": "train_001737",
+      "warning_type": "overlapping_spans",
+      "span_index": 1,
+      "span_text": "(( tải về cũng như không",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        24
+      ]
+    },
+    {
+      "id": "train_001737",
+      "warning_type": "overlapping_spans",
+      "span_index": 2,
+      "span_text": "tạo nhóm rồi nhắn một mình y như tự kỉ",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        29
+      ]
+    },
+    {
+      "id": "train_001761",
+      "warning_type": "overlapping_spans",
+      "span_index": 1,
+      "span_text": "công huân chiến công dùng nâng cấp khoa kỹ cứ đến 10k là tự reset về số lẻ",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        3
+      ]
+    },
+    {
+      "id": "train_001761",
+      "warning_type": "overlapping_spans",
+      "span_index": 3,
+      "span_text": "d mình công fam cả buổi",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        24
+      ]
+    },
+    {
+      "id": "train_001804",
+      "warning_type": "overlapping_spans",
+      "span_index": 1,
+      "span_text": "3",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        1
+      ]
+    },
+    {
+      "id": "train_001804",
+      "warning_type": "overlapping_spans",
+      "span_index": 2,
+      "span_text": "1 yêu cầu đăng ký tài khoản bằng 3 cách",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        1
+      ]
+    },
+    {
+      "id": "train_001871",
+      "warning_type": "overlapping_spans",
+      "span_index": 4,
+      "span_text": "😭😰😥😭😭",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        40
+      ]
+    },
+    {
+      "id": "train_001874",
+      "warning_type": "overlapping_spans",
+      "span_index": 2,
+      "span_text": "khiến tôi không thể nghe một cách chính xác  được",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        10
+      ]
+    },
+    {
+      "id": "train_001876",
+      "warning_type": "overlapping_spans",
+      "span_index": 6,
+      "span_text": "ae tải về chơi nha",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        61
+      ]
+    },
+    {
+      "id": "train_001912",
+      "warning_type": "overlapping_spans",
+      "span_index": 1,
+      "span_text": "sao tự làm đi",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        3
+      ]
+    },
+    {
+      "id": "train_001912",
+      "warning_type": "overlapping_spans",
+      "span_index": 2,
+      "span_text": "bắt người ta bấm vô ghế làm gì",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        6
+      ]
+    },
+    {
+      "id": "train_001912",
+      "warning_type": "overlapping_spans",
+      "span_index": 5,
+      "span_text": "tao nhắc trước rồi đấy nhá",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        27
+      ]
+    },
+    {
+      "id": "train_001912",
+      "warning_type": "overlapping_spans",
+      "span_index": 9,
+      "span_text": "mắt mớ chi phải ghi đến 500 chữ hả",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        58
+      ]
+    },
+    {
+      "id": "train_001917",
+      "warning_type": "overlapping_spans",
+      "span_index": 1,
+      "span_text": ")2019-apr-26",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        0
+      ]
+    },
+    {
+      "id": "train_001917",
+      "warning_type": "overlapping_spans",
+      "span_index": 3,
+      "span_text": "1",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        1
+      ]
+    },
+    {
+      "id": "train_001917",
+      "warning_type": "overlapping_spans",
+      "span_index": 4,
+      "span_text": "0",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        1
+      ]
+    },
+    {
+      "id": "train_001917",
+      "warning_type": "overlapping_spans",
+      "span_index": 5,
+      "span_text": "13",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        1
+      ]
+    },
+    {
+      "id": "train_001917",
+      "warning_type": "overlapping_spans",
+      "span_index": 6,
+      "span_text": "109",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        1
+      ]
+    },
+    {
+      "id": "train_001917",
+      "warning_type": "overlapping_spans",
+      "span_index": 10,
+      "span_text": ")2019-apr-18",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        9
+      ]
+    },
+    {
+      "id": "train_001948",
+      "warning_type": "overlapping_spans",
+      "span_index": 1,
+      "span_text": "một ứng dụng hàng đầu thế giới",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        8
+      ]
+    },
+    {
+      "id": "train_001948",
+      "warning_type": "overlapping_spans",
+      "span_index": 3,
+      "span_text": "tài khoản cũ của tôi sau khi đăng nhập lại thì bị vô hiệu hoá",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        21
+      ]
+    },
+    {
+      "id": "train_001948",
+      "warning_type": "overlapping_spans",
+      "span_index": 4,
+      "span_text": "lập thêm cái nữa để kiểm tra thì hiện tượng ấy vẫn bị lặp lại trong khi tôi không làm gì sai trái",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        35
+      ]
+    },
+    {
+      "id": "train_001991",
+      "warning_type": "overlapping_spans",
+      "span_index": 4,
+      "span_text": "chơi xong một bài  quả người cáo",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        30
+      ]
+    },
+    {
+      "id": "train_001991",
+      "warning_type": "overlapping_spans",
+      "span_index": 5,
+      "span_text": "chs không thấy mất lượt chơi nào chỉ toàn tăng 'chán'😔 game toàn lỗi",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        36
+      ]
+    },
+    {
+      "id": "train_002189",
+      "warning_type": "overlapping_spans",
+      "span_index": 4,
+      "span_text": "có những từ gOgle dịch ngoại tuyến dịch vô cùng ngon lành",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        41
+      ]
+    },
+    {
+      "id": "train_002215",
+      "warning_type": "overlapping_spans",
+      "span_index": 2,
+      "span_text": "xin nhà cung cấp mở khoá những chức năng chung cấp",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        8
+      ]
+    },
+    {
+      "id": "train_002215",
+      "warning_type": "overlapping_spans",
+      "span_index": 3,
+      "span_text": "cao cấp",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        18
+      ]
+    },
+    {
+      "id": "train_002222",
+      "warning_type": "overlapping_spans",
+      "span_index": 6,
+      "span_text": "000vnd vậy",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        41
+      ]
+    },
+    {
+      "id": "train_002226",
+      "warning_type": "overlapping_spans",
+      "span_index": 1,
+      "span_text": "2 kick nạp vàng giá đấu tướng lên quá nhiều",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        12
+      ]
+    },
+    {
+      "id": "train_002226",
+      "warning_type": "overlapping_spans",
+      "span_index": 2,
+      "span_text": "3 pug code vừa qua quá thiệt hại cho người chơi",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        21
+      ]
+    },
+    {
+      "id": "train_002248",
+      "warning_type": "overlapping_spans",
+      "span_index": 5,
+      "span_text": "người khác nhắn tin cho mình",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        45
+      ]
+    },
+    {
+      "id": "train_002248",
+      "warning_type": "overlapping_spans",
+      "span_index": 8,
+      "span_text": "mạng mở 247",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        64
+      ]
+    },
+    {
+      "id": "train_002274",
+      "warning_type": "overlapping_spans",
+      "span_index": 6,
+      "span_text": "cảm ơn",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        61
+      ]
+    },
+    {
+      "id": "train_002319",
+      "warning_type": "overlapping_spans",
+      "span_index": 4,
+      "span_text": "với cả lỗi không thể góp ý",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        47
+      ]
+    },
+    {
+      "id": "train_002319",
+      "warning_type": "overlapping_spans",
+      "span_index": 5,
+      "span_text": "lúc được lúc không làm tôi phải mất công bật cái laptop lên nếu muốn góp ý từ",
+      "message": "Span overlaps tokens already labeled by an earlier span; earlier span labels were kept.",
+      "overlapped_token_indices": [
+        53
+      ]
+    }
+  ]
+}

@@ -1,0 +1,408 @@
+{
+  "batch_id": "full_annotation_batch_012",
+  "records": 200,
+  "records_with_overlap_before": 12,
+  "spans_before": 835,
+  "spans_after": 819,
+  "merged_overlap_groups": 12,
+  "changed_record_ids": [
+    "val_000058",
+    "val_000121",
+    "val_000260",
+    "test_000028",
+    "test_000075",
+    "test_000114",
+    "test_000191",
+    "test_000242",
+    "test_000281",
+    "test_000288",
+    "test_000349",
+    "test_000461"
+  ],
+  "details": [
+    {
+      "id": "val_000058",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 35,
+              "text": "mua eu 35  cửa hàng  lai giao eu 37",
+              "label": "COMP"
+            },
+            {
+              "start": 36,
+              "end": 50,
+              "text": "mang không vua",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 50,
+            "text": "mua eu 35  cửa hàng  lai giao eu 37.mang không vua",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000121",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 9,
+              "text": "vải = giá",
+              "label": "COMP"
+            },
+            {
+              "start": 10,
+              "end": 22,
+              "text": "hơi kén dáng",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 22,
+            "text": "vải = giá,hơi kén dáng",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000260",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 25,
+              "text": "đặt màu hồng giao màu đen",
+              "label": "COMP"
+            },
+            {
+              "start": 26,
+              "end": 94,
+              "text": "đặt kiểu này giao kiểu khác không gọi xem khách hàng có đồng ý không",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 94,
+            "text": "đặt màu hồng giao màu đen,đặt kiểu này giao kiểu khác không gọi xem khách hàng có đồng ý không",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000028",
+      "changed": true,
+      "spans_before": 10,
+      "spans_after": 9,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 6,
+              "text": "quá tệ",
+              "label": "COMP"
+            },
+            {
+              "start": 7,
+              "end": 22,
+              "text": "hàng hay bị lỗi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 22,
+            "text": "quá tệ,hàng hay bị lỗi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000075",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 178,
+              "text": "khất khó chịu đổi điểm yến tiệc tự động re tươi  thì người chơi phải on thích mới  được  tính vào thời gian đó chả nhẽ lại xoá game  positive ) game thì hút máu  positive ) bản 1",
+              "label": "COMP"
+            },
+            {
+              "start": 179,
+              "end": 180,
+              "text": "0",
+              "label": "COMP"
+            },
+            {
+              "start": 181,
+              "end": 356,
+              "text": "1 đổi tài khoản gOgle khác thì cực kỳ khó khăn  positive ) đua top sk thằng nào giàu hiến máu nhiều thì cái top đó nó thuộc về người đó cái  positive ) xem lại nhận xét đó nha",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 356,
+            "text": "khất khó chịu đổi điểm yến tiệc tự động re tươi  thì người chơi phải on thích mới  được  tính vào thời gian đó chả nhẽ lại xoá game  positive ) game thì hút máu  positive ) bản 1.0.1 đổi tài khoản gOgle khác thì cực kỳ khó khăn  positive ) đua top sk thằng nào giàu hiến máu nhiều thì cái top đó nó thuộc về người đó cái  positive ) xem lại nhận xét đó nha",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000114",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 7,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 14,
+              "text": "dịch vụ quá tệ",
+              "label": "COMP"
+            },
+            {
+              "start": 15,
+              "end": 48,
+              "text": "chả trách bạn tôi thường mua hàng",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 48,
+            "text": "dịch vụ quá tệ!chả trách bạn tôi thường mua hàng",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000191",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 6,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 59,
+              "end": 93,
+              "text": "các bác định cho nó thành brutus 4",
+              "label": "COMP"
+            },
+            {
+              "start": 94,
+              "end": 97,
+              "text": "0 à",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 59,
+            "end": 97,
+            "text": "các bác định cho nó thành brutus 4.0 à",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000242",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 204,
+              "end": 274,
+              "text": "mở rộng cạnh tranh chiến đấu và tương tác giữa các người chơi với nhau",
+              "label": "COMP"
+            },
+            {
+              "start": 275,
+              "end": 283,
+              "text": "thân gửi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 204,
+            "end": 283,
+            "text": "mở rộng cạnh tranh chiến đấu và tương tác giữa các người chơi với nhau.thân gửi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000281",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 7,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 153,
+              "end": 188,
+              "text": "xác nhận thì lúc đó thời gian là 00",
+              "label": "COMP"
+            },
+            {
+              "start": 189,
+              "end": 191,
+              "text": "00",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 153,
+            "end": 191,
+            "text": "xác nhận thì lúc đó thời gian là 00:00",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000288",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 24,
+              "end": 44,
+              "text": "chỗ nào cũng thấy qc",
+              "label": "COMP"
+            },
+            {
+              "start": 45,
+              "end": 80,
+              "text": "qc để chôn mẹ chúng mày nhiều thế à",
+              "label": "COMP"
+            },
+            {
+              "start": 81,
+              "end": 114,
+              "text": "mn đừng có tải về mất công xoá đi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 24,
+            "end": 114,
+            "text": "chỗ nào cũng thấy qc.qc để chôn mẹ chúng mày nhiều thế à.mn đừng có tải về mất công xoá đi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000349",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 51,
+              "end": 56,
+              "text": "ví dụ",
+              "label": "COMP"
+            },
+            {
+              "start": 60,
+              "end": 85,
+              "text": "cho người học dễ hiểu hơn",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 51,
+            "end": 85,
+            "text": "ví dụ,...cho người học dễ hiểu hơn",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000461",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 48,
+              "text": "ban  quả nó trị xem lại xem mình nạp gói 500 gem",
+              "label": "COMP"
+            },
+            {
+              "start": 49,
+              "end": 54,
+              "text": "gói 1",
+              "label": "COMP"
+            },
+            {
+              "start": 55,
+              "end": 83,
+              "text": "99$ thông báo nạp thành công",
+              "label": "COMP"
+            },
+            {
+              "start": 84,
+              "end": 97,
+              "text": "tài khoải trừ",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 97,
+            "text": "ban  quả nó trị xem lại xem mình nạp gói 500 gem,gói 1,99$ thông báo nạp thành công,tài khoải trừ",
+            "label": "COMP"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,605 @@
+{
+  "batch_id": "full_annotation_batch_002",
+  "records": 200,
+  "records_with_overlap_before": 15,
+  "spans_before": 1023,
+  "spans_after": 1000,
+  "merged_overlap_groups": 20,
+  "changed_record_ids": [
+    "train_000806",
+    "train_000870",
+    "train_000893",
+    "train_000925",
+    "train_000931",
+    "train_001222",
+    "train_001245",
+    "train_001276",
+    "train_001353",
+    "train_001359",
+    "train_001365",
+    "train_001389",
+    "train_001453",
+    "train_001466",
+    "train_001497"
+  ],
+  "details": [
+    {
+      "id": "train_000806",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 57,
+              "end": 98,
+              "text": "rao dê bán chó vậy không có âm sao nhỉ😏😏😏",
+              "label": "COMP"
+            },
+            {
+              "start": 99,
+              "end": 113,
+              "text": "tạm cho  1star",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 57,
+            "end": 113,
+            "text": "rao dê bán chó vậy không có âm sao nhỉ😏😏😏.tạm cho  1star",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000870",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 7,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 185,
+              "end": 193,
+              "text": "buôn bán",
+              "label": "COMP"
+            },
+            {
+              "start": 194,
+              "end": 200,
+              "text": "mê tín",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 185,
+            "end": 200,
+            "text": "buôn bán,mê tín",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000893",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 8,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 125,
+              "end": 145,
+              "text": "máy mình màn hình 18",
+              "label": "COMP"
+            },
+            {
+              "start": 146,
+              "end": 195,
+              "text": "9 nên bị lộ phần phím điều hướng bên dưới rất xấu",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 125,
+            "end": 195,
+            "text": "máy mình màn hình 18:9 nên bị lộ phần phím điều hướng bên dưới rất xấu",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000925",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 8,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 83,
+              "end": 112,
+              "text": "vào game thì nó cứ bị như vậy",
+              "label": "COMP"
+            },
+            {
+              "start": 113,
+              "end": 146,
+              "text": "tui xoá tải lại nó vẫn bị như vậy",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 83,
+            "end": 146,
+            "text": "vào game thì nó cứ bị như vậy.tui xoá tải lại nó vẫn bị như vậy",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000931",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 11,
+              "text": "lag thật sự",
+              "label": "COMP"
+            },
+            {
+              "start": 12,
+              "end": 29,
+              "text": "wifi mạnh vẫn lag",
+              "label": "COMP"
+            },
+            {
+              "start": 30,
+              "end": 78,
+              "text": "vs điện thoại oPo a9 2020 game có dung lượng nhẹ",
+              "label": "COMP"
+            },
+            {
+              "start": 81,
+              "end": 107,
+              "text": "chạy không nổi lag thật sự",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 107,
+            "text": "lag thật sự.wifi mạnh vẫn lag.vs điện thoại oPo a9 2020 game có dung lượng nhẹ...chạy không nổi lag thật sự",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001222",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 6,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 40,
+              "end": 67,
+              "text": "không cho khách hàng thử đồ",
+              "label": "COMP"
+            },
+            {
+              "start": 68,
+              "end": 91,
+              "text": "xé bao bì khi nhận hàng",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 40,
+            "end": 91,
+            "text": "không cho khách hàng thử đồ.xé bao bì khi nhận hàng",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 130,
+              "end": 134,
+              "text": "nhận",
+              "label": "COMP"
+            },
+            {
+              "start": 137,
+              "end": 178,
+              "text": "ko vừa ý với mấy người shiPed lắm đâu nha",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 130,
+            "end": 178,
+            "text": "nhận...ko vừa ý với mấy người shiPed lắm đâu nha",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001245",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 53,
+              "end": 93,
+              "text": "đăng nhập lại lại chơi lại từ đầu là sao",
+              "label": "COMP"
+            },
+            {
+              "start": 95,
+              "end": 175,
+              "text": "( mình fomat lại điện thoại rồi tải lại đăng nhập lại gmail này thành ra như vậy",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 53,
+            "end": 175,
+            "text": "đăng nhập lại lại chơi lại từ đầu là sao..( mình fomat lại điện thoại rồi tải lại đăng nhập lại gmail này thành ra như vậy",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 184,
+              "end": 212,
+              "text": "đó mình vẫn chơi bình thường",
+              "label": "COMP"
+            },
+            {
+              "start": 214,
+              "end": 237,
+              "text": ") admin xem thế nào chứ",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 184,
+            "end": 237,
+            "text": "đó mình vẫn chơi bình thường..) admin xem thế nào chứ",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001276",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 20,
+              "text": "trò chơi gì  quá  tệ",
+              "label": "COMP"
+            },
+            {
+              "start": 23,
+              "end": 40,
+              "text": "cứu phải nạp tiền",
+              "label": "COMP"
+            },
+            {
+              "start": 41,
+              "end": 66,
+              "text": "ko nạp thì chơi trả  được",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 66,
+            "text": "trò chơi gì  quá  tệ...cứu phải nạp tiền,ko nạp thì chơi trả  được",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 69,
+              "end": 100,
+              "text": "cho có mấy tướng lập đi lập lại",
+              "label": "COMP"
+            },
+            {
+              "start": 101,
+              "end": 118,
+              "text": "toàn tướng tệ bắp",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 69,
+            "end": 118,
+            "text": "cho có mấy tướng lập đi lập lại.toàn tướng tệ bắp",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 123,
+              "end": 137,
+              "text": "tê hơn lúc xưa",
+              "label": "COMP"
+            },
+            {
+              "start": 138,
+              "end": 164,
+              "text": "3 cái máy mở tướng y trang",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 123,
+            "end": 164,
+            "text": "tê hơn lúc xưa.3 cái máy mở tướng y trang",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001353",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 25,
+              "text": "máy mình là nó được anh 5",
+              "label": "COMP"
+            },
+            {
+              "start": 26,
+              "end": 58,
+              "text": "1 sử dụng hệ điều hành android 9",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 58,
+            "text": "máy mình là nó được anh 5.1 sử dụng hệ điều hành android 9",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001359",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 139,
+              "end": 187,
+              "text": "đã được phản hồi lại phiếu mua hàng trong game 0",
+              "label": "COMP"
+            },
+            {
+              "start": 188,
+              "end": 195,
+              "text": "99$ vãi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 139,
+            "end": 195,
+            "text": "đã được phản hồi lại phiếu mua hàng trong game 0.99$ vãi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001365",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 7,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 100,
+              "end": 141,
+              "text": "đó nhận  được  tin nhắn là bạn phải mất 1",
+              "label": "COMP"
+            },
+            {
+              "start": 142,
+              "end": 179,
+              "text": "000đ cho yêu cầu gửi quá mã kích hoạt",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 100,
+            "end": 179,
+            "text": "đó nhận  được  tin nhắn là bạn phải mất 1.000đ cho yêu cầu gửi quá mã kích hoạt",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001389",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 6,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 14,
+              "end": 85,
+              "text": "đánh thắng trong tháp vua thì game hiện đề nghị mua quà tặng giới hạn 0",
+              "label": "COMP"
+            },
+            {
+              "start": 86,
+              "end": 90,
+              "text": "99đô",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 14,
+            "end": 90,
+            "text": "đánh thắng trong tháp vua thì game hiện đề nghị mua quà tặng giới hạn 0,99đô",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001453",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 8,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 104,
+              "end": 115,
+              "text": "có lúc bị 3",
+              "label": "COMP"
+            },
+            {
+              "start": 116,
+              "end": 126,
+              "text": "4 lần liền",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 104,
+            "end": 126,
+            "text": "có lúc bị 3,4 lần liền",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001466",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 8,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 261,
+              "end": 300,
+              "text": "dù sao cũng cho  5star  vì chơi rất vui",
+              "label": "COMP"
+            },
+            {
+              "start": 301,
+              "end": 302,
+              "text": "v",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 261,
+            "end": 302,
+            "text": "dù sao cũng cho  5star  vì chơi rất vui,v",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_001497",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 45,
+              "end": 86,
+              "text": "phần tải về khi không có mạng dzô rất lâu",
+              "label": "COMP"
+            },
+            {
+              "start": 89,
+              "end": 154,
+              "text": "tìm hết cũng không thấy phần tải về những bài hát trước đó đã tải",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 45,
+            "end": 154,
+            "text": "phần tải về khi không có mạng dzô rất lâu...tìm hết cũng không thấy phần tải về những bài hát trước đó đã tải",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 159,
+              "end": 205,
+              "text": "biết cập nhật tệ thế này thì đã không cập nhật",
+              "label": "COMP"
+            },
+            {
+              "start": 206,
+              "end": 232,
+              "text": "thà để nguyên phiên bản cũ",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 159,
+            "end": 232,
+            "text": "biết cập nhật tệ thế này thì đã không cập nhật,thà để nguyên phiên bản cũ",
+            "label": "COMP"
+          }
+        }
+      ]
+    }
+  ]
+}

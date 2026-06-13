@@ -1,0 +1,38 @@
+{
+  "dataset": "UIT-ViOCD",
+  "subset": "full_complaint_span_ner",
+  "total_records": 2854,
+  "source_counts": {
+    "pilot100": 100,
+    "batch200": 200,
+    "remaining_full_batches": 2554
+  },
+  "records_with_spans": 2773,
+  "records_without_spans": 81,
+  "total_tokens": 109783,
+  "O_count": 27286,
+  "B-COMP_count": 10195,
+  "I-COMP_count": 72302,
+  "COMP_token_count": 82497,
+  "COMP_token_ratio": 0.751455143328202,
+  "total_spans": 10195,
+  "average_spans_per_record": 3.5721793973370706,
+  "duplicate_ids_count": 0,
+  "validation_pass": true,
+  "domain_distribution": {
+    "app": 1510,
+    "cosmetic": 475,
+    "fashion": 732,
+    "mobile": 137
+  },
+  "split_distribution": {
+    "test": 279,
+    "train": 2292,
+    "val": 283
+  },
+  "notes": [
+    "Only UIT-ViOCD complaint candidates are included.",
+    "Shopee/rating mapping is not used.",
+    "Remaining full batches use no-overlap annotations."
+  ]
+}

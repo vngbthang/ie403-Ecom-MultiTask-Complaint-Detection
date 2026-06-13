@@ -1,0 +1,436 @@
+{
+  "batch_id": "full_annotation_batch_013",
+  "records": 154,
+  "records_with_overlap_before": 10,
+  "spans_before": 441,
+  "spans_after": 420,
+  "merged_overlap_groups": 13,
+  "changed_record_ids": [
+    "test_000296",
+    "test_000367",
+    "test_000432",
+    "test_000154",
+    "test_000286",
+    "test_000298",
+    "test_000260",
+    "test_000379",
+    "test_000441",
+    "test_000467"
+  ],
+  "details": [
+    {
+      "id": "test_000296",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 9,
+              "text": "hộp ọp ẹp",
+              "label": "COMP"
+            },
+            {
+              "start": 10,
+              "end": 18,
+              "text": "mất seal",
+              "label": "COMP"
+            },
+            {
+              "start": 19,
+              "end": 49,
+              "text": "nắp hộp như đã bị mở nhiều lần",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 49,
+            "text": "hộp ọp ẹp.mất seal.nắp hộp như đã bị mở nhiều lần",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000367",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 19,
+              "text": "hàng kém chất lương",
+              "label": "COMP"
+            },
+            {
+              "start": 20,
+              "end": 76,
+              "text": "mùi côn nhiều khác hoàn toàn va hàng trước đây mình dung",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 76,
+            "text": "hàng kém chất lương.mùi côn nhiều khác hoàn toàn va hàng trước đây mình dung",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 78,
+              "end": 139,
+              "text": "mỗi một lọ kem đựng trong túi bóng không hộp của hãng  gì  ca",
+              "label": "COMP"
+            },
+            {
+              "start": 140,
+              "end": 167,
+              "text": "bảo sao không cho kiểm hàng",
+              "label": "COMP"
+            },
+            {
+              "start": 168,
+              "end": 191,
+              "text": "vứt luôn không dám dùng",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 78,
+            "end": 191,
+            "text": "mỗi một lọ kem đựng trong túi bóng không hộp của hãng  gì  ca.bảo sao không cho kiểm hàng.vứt luôn không dám dùng",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000432",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 45,
+              "end": 100,
+              "text": "không thơm giống như loại creamy maTe trước đó mình đặt",
+              "label": "COMP"
+            },
+            {
+              "start": 102,
+              "end": 104,
+              "text": "((",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 45,
+            "end": 104,
+            "text": "không thơm giống như loại creamy maTe trước đó mình đặt.:((",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000154",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 115,
+              "end": 150,
+              "text": "thang nao con nao đống gối hàng vay",
+              "label": "COMP"
+            },
+            {
+              "start": 151,
+              "end": 153,
+              "text": "dm",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 115,
+            "end": 153,
+            "text": "thang nao con nao đống gối hàng vay.dm",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000286",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10,
+              "text": "mẫu y hình",
+              "label": "COMP"
+            },
+            {
+              "start": 11,
+              "end": 41,
+              "text": "khoang 40 đến 45ky mặt rat đẹp",
+              "label": "COMP"
+            },
+            {
+              "start": 42,
+              "end": 50,
+              "text": "mìn 50ky",
+              "label": "COMP"
+            },
+            {
+              "start": 51,
+              "end": 64,
+              "text": "mặt không vừa",
+              "label": "COMP"
+            },
+            {
+              "start": 65,
+              "end": 79,
+              "text": "quần ngắn ngủn",
+              "label": "COMP"
+            },
+            {
+              "start": 80,
+              "end": 99,
+              "text": "aoa thì ôm cái mông",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 99,
+            "text": "mẫu y hình.khoang 40 đến 45ky mặt rat đẹp.mìn 50ky.mặt không vừa.quần ngắn ngủn.aoa thì ôm cái mông",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000298",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 26,
+              "end": 56,
+              "text": "đặt màu trắng lại giao màu đen",
+              "label": "COMP"
+            },
+            {
+              "start": 57,
+              "end": 99,
+              "text": "vấn đề này đã nhận nhiều bình luận như vậy",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 26,
+            "end": 99,
+            "text": "đặt màu trắng lại giao màu đen.vấn đề này đã nhận nhiều bình luận như vậy",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 152,
+              "end": 159,
+              "text": "nào ngờ",
+              "label": "COMP"
+            },
+            {
+              "start": 165,
+              "end": 184,
+              "text": "có một tí thất vọng",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 152,
+            "end": 184,
+            "text": "nào ngờ......có một tí thất vọng",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000260",
+      "changed": true,
+      "spans_before": 12,
+      "spans_after": 11,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 323,
+              "end": 343,
+              "text": "thất vọng với lazada",
+              "label": "COMP"
+            },
+            {
+              "start": 344,
+              "end": 374,
+              "text": ") và nhà vận chuyển thì quá tệ",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 323,
+            "end": 374,
+            "text": "thất vọng với lazada!) và nhà vận chuyển thì quá tệ",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000379",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 15,
+              "end": 37,
+              "text": "không gói kỹ chống sốc",
+              "label": "COMP"
+            },
+            {
+              "start": 38,
+              "end": 64,
+              "text": "kích hoạt bảo hành quá sớm",
+              "label": "COMP"
+            },
+            {
+              "start": 65,
+              "end": 93,
+              "text": "chưa biết sử dụng lâu ra sao",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 15,
+            "end": 93,
+            "text": "không gói kỹ chống sốc.kích hoạt bảo hành quá sớm.chưa biết sử dụng lâu ra sao",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000441",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 54,
+              "end": 71,
+              "text": "ko  thích  tý nào",
+              "label": "COMP"
+            },
+            {
+              "start": 72,
+              "end": 88,
+              "text": "đực cái pin trâu",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 54,
+            "end": 88,
+            "text": "ko  thích  tý nào.đực cái pin trâu",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 94,
+              "end": 116,
+              "text": "không hổ trợ sạc nhanh",
+              "label": "COMP"
+            },
+            {
+              "start": 117,
+              "end": 145,
+              "text": "nhung sac tầm 3 tiếng là đầy",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 94,
+            "end": 145,
+            "text": "không hổ trợ sạc nhanh,nhung sac tầm 3 tiếng là đầy",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "test_000467",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 15,
+              "end": 108,
+              "text": "kiểm tra trong mục hình ảnh đã có người dùng Chup gì  ảnh trước đó từ 2018 rất nhiều hình ảnh",
+              "label": "COMP"
+            },
+            {
+              "start": 109,
+              "end": 139,
+              "text": "giải quyết vấn đề này giúp tôi",
+              "label": "COMP"
+            },
+            {
+              "start": 140,
+              "end": 188,
+              "text": "và mỗi lần liên lạc với lazađa thi cuc ki uc che",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 15,
+            "end": 188,
+            "text": "kiểm tra trong mục hình ảnh đã có người dùng Chup gì  ảnh trước đó từ 2018 rất nhiều hình ảnh.giải quyết vấn đề này giúp tôi.và mỗi lần liên lạc với lazađa thi cuc ki uc che",
+            "label": "COMP"
+          }
+        }
+      ]
+    }
+  ]
+}

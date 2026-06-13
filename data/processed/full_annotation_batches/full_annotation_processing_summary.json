@@ -1,0 +1,634 @@
+{
+  "summary": {
+    "manifest": "data\\processed\\full_annotation_batches",
+    "total_batches": 13,
+    "processed_batches": 13,
+    "missing_ai_output_batches": 0,
+    "validation_passed_batches": 13,
+    "validation_failed_batches": 0,
+    "total_records_processed": 2554,
+    "total_valid_records": 2554,
+    "total_invalid_records": 0,
+    "total_spans": 10085,
+    "total_repaired_spans": 0,
+    "total_unresolved_spans": 0,
+    "total_conversion_warnings": 334,
+    "overlapping_spans_count": 334,
+    "missing_ai_output_batch_ids": [],
+    "validation_failed_batch_ids": [],
+    "failed_batches": []
+  },
+  "batches": [
+    {
+      "batch_id": "full_annotation_batch_001",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_001.jsonl",
+      "ai_output": "data\\processed\\full_annotation_batches\\full_annotation_batch_001_ai.jsonl",
+      "record_count_expected": 200,
+      "status": "processed",
+      "validation_pass": true,
+      "converted": true,
+      "error": null,
+      "outputs": {
+        "repaired": "data\\processed\\full_annotation_batches\\full_annotation_batch_001_ai_repaired.jsonl",
+        "repair_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_001_repair_report.json",
+        "validation_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_001_validation_report.json",
+        "bio": "data\\processed\\full_annotation_batches\\full_annotation_batch_001_bio.jsonl",
+        "ner": "data\\processed\\full_annotation_batches\\full_annotation_batch_001_ner.json",
+        "bio_conversion_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_001_bio_conversion_report.json"
+      },
+      "repair_summary": {
+        "records": 200,
+        "spans_total": 977,
+        "spans_already_valid": 977,
+        "spans_repaired": 0,
+        "spans_unresolved": 0,
+        "ambiguous_matches": 0
+      },
+      "validation_summary": {
+        "total_input_candidates": 200,
+        "total_annotation_records": 200,
+        "valid_records": 200,
+        "invalid_records": 0,
+        "missing_ids": 0,
+        "duplicate_ids": 0,
+        "allow_missing": false,
+        "error_counts": {}
+      },
+      "conversion_summary": {
+        "records": 200,
+        "tokens_total": 11241,
+        "comp_tokens": 8559,
+        "records_with_spans": 197,
+        "records_without_spans": 3,
+        "warnings": 20
+      },
+      "conversion_warning_counts": {
+        "overlapping_spans": 20
+      }
+    },
+    {
+      "batch_id": "full_annotation_batch_002",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_002.jsonl",
+      "ai_output": "data\\processed\\full_annotation_batches\\full_annotation_batch_002_ai.jsonl",
+      "record_count_expected": 200,
+      "status": "processed",
+      "validation_pass": true,
+      "converted": true,
+      "error": null,
+      "outputs": {
+        "repaired": "data\\processed\\full_annotation_batches\\full_annotation_batch_002_ai_repaired.jsonl",
+        "repair_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_002_repair_report.json",
+        "validation_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_002_validation_report.json",
+        "bio": "data\\processed\\full_annotation_batches\\full_annotation_batch_002_bio.jsonl",
+        "ner": "data\\processed\\full_annotation_batches\\full_annotation_batch_002_ner.json",
+        "bio_conversion_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_002_bio_conversion_report.json"
+      },
+      "repair_summary": {
+        "records": 200,
+        "spans_total": 1023,
+        "spans_already_valid": 1023,
+        "spans_repaired": 0,
+        "spans_unresolved": 0,
+        "ambiguous_matches": 0
+      },
+      "validation_summary": {
+        "total_input_candidates": 200,
+        "total_annotation_records": 200,
+        "valid_records": 200,
+        "invalid_records": 0,
+        "missing_ids": 0,
+        "duplicate_ids": 0,
+        "allow_missing": false,
+        "error_counts": {}
+      },
+      "conversion_summary": {
+        "records": 200,
+        "tokens_total": 10800,
+        "comp_tokens": 8751,
+        "records_with_spans": 196,
+        "records_without_spans": 4,
+        "warnings": 23
+      },
+      "conversion_warning_counts": {
+        "overlapping_spans": 23
+      }
+    },
+    {
+      "batch_id": "full_annotation_batch_003",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_003.jsonl",
+      "ai_output": "data\\processed\\full_annotation_batches\\full_annotation_batch_003_ai.jsonl",
+      "record_count_expected": 200,
+      "status": "processed",
+      "validation_pass": true,
+      "converted": true,
+      "error": null,
+      "outputs": {
+        "repaired": "data\\processed\\full_annotation_batches\\full_annotation_batch_003_ai_repaired.jsonl",
+        "repair_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_003_repair_report.json",
+        "validation_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_003_validation_report.json",
+        "bio": "data\\processed\\full_annotation_batches\\full_annotation_batch_003_bio.jsonl",
+        "ner": "data\\processed\\full_annotation_batches\\full_annotation_batch_003_ner.json",
+        "bio_conversion_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_003_bio_conversion_report.json"
+      },
+      "repair_summary": {
+        "records": 200,
+        "spans_total": 999,
+        "spans_already_valid": 999,
+        "spans_repaired": 0,
+        "spans_unresolved": 0,
+        "ambiguous_matches": 0
+      },
+      "validation_summary": {
+        "total_input_candidates": 200,
+        "total_annotation_records": 200,
+        "valid_records": 200,
+        "invalid_records": 0,
+        "missing_ids": 0,
+        "duplicate_ids": 0,
+        "allow_missing": false,
+        "error_counts": {}
+      },
+      "conversion_summary": {
+        "records": 200,
+        "tokens_total": 10853,
+        "comp_tokens": 8447,
+        "records_with_spans": 195,
+        "records_without_spans": 5,
+        "warnings": 38
+      },
+      "conversion_warning_counts": {
+        "overlapping_spans": 38
+      }
+    },
+    {
+      "batch_id": "full_annotation_batch_004",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_004.jsonl",
+      "ai_output": "data\\processed\\full_annotation_batches\\full_annotation_batch_004_ai.jsonl",
+      "record_count_expected": 200,
+      "status": "processed",
+      "validation_pass": true,
+      "converted": true,
+      "error": null,
+      "outputs": {
+        "repaired": "data\\processed\\full_annotation_batches\\full_annotation_batch_004_ai_repaired.jsonl",
+        "repair_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_004_repair_report.json",
+        "validation_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_004_validation_report.json",
+        "bio": "data\\processed\\full_annotation_batches\\full_annotation_batch_004_bio.jsonl",
+        "ner": "data\\processed\\full_annotation_batches\\full_annotation_batch_004_ner.json",
+        "bio_conversion_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_004_bio_conversion_report.json"
+      },
+      "repair_summary": {
+        "records": 200,
+        "spans_total": 921,
+        "spans_already_valid": 921,
+        "spans_repaired": 0,
+        "spans_unresolved": 0,
+        "ambiguous_matches": 0
+      },
+      "validation_summary": {
+        "total_input_candidates": 200,
+        "total_annotation_records": 200,
+        "valid_records": 200,
+        "invalid_records": 0,
+        "missing_ids": 0,
+        "duplicate_ids": 0,
+        "allow_missing": false,
+        "error_counts": {}
+      },
+      "conversion_summary": {
+        "records": 200,
+        "tokens_total": 10650,
+        "comp_tokens": 8097,
+        "records_with_spans": 194,
+        "records_without_spans": 6,
+        "warnings": 33
+      },
+      "conversion_warning_counts": {
+        "overlapping_spans": 33
+      }
+    },
+    {
+      "batch_id": "full_annotation_batch_005",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_005.jsonl",
+      "ai_output": "data\\processed\\full_annotation_batches\\full_annotation_batch_005_ai.jsonl",
+      "record_count_expected": 200,
+      "status": "processed",
+      "validation_pass": true,
+      "converted": true,
+      "error": null,
+      "outputs": {
+        "repaired": "data\\processed\\full_annotation_batches\\full_annotation_batch_005_ai_repaired.jsonl",
+        "repair_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_005_repair_report.json",
+        "validation_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_005_validation_report.json",
+        "bio": "data\\processed\\full_annotation_batches\\full_annotation_batch_005_bio.jsonl",
+        "ner": "data\\processed\\full_annotation_batches\\full_annotation_batch_005_ner.json",
+        "bio_conversion_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_005_bio_conversion_report.json"
+      },
+      "repair_summary": {
+        "records": 200,
+        "spans_total": 947,
+        "spans_already_valid": 947,
+        "spans_repaired": 0,
+        "spans_unresolved": 0,
+        "ambiguous_matches": 0
+      },
+      "validation_summary": {
+        "total_input_candidates": 200,
+        "total_annotation_records": 200,
+        "valid_records": 200,
+        "invalid_records": 0,
+        "missing_ids": 0,
+        "duplicate_ids": 0,
+        "allow_missing": false,
+        "error_counts": {}
+      },
+      "conversion_summary": {
+        "records": 200,
+        "tokens_total": 10373,
+        "comp_tokens": 7906,
+        "records_with_spans": 196,
+        "records_without_spans": 4,
+        "warnings": 27
+      },
+      "conversion_warning_counts": {
+        "overlapping_spans": 27
+      }
+    },
+    {
+      "batch_id": "full_annotation_batch_006",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_006.jsonl",
+      "ai_output": "data\\processed\\full_annotation_batches\\full_annotation_batch_006_ai.jsonl",
+      "record_count_expected": 200,
+      "status": "processed",
+      "validation_pass": true,
+      "converted": true,
+      "error": null,
+      "outputs": {
+        "repaired": "data\\processed\\full_annotation_batches\\full_annotation_batch_006_ai_repaired.jsonl",
+        "repair_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_006_repair_report.json",
+        "validation_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_006_validation_report.json",
+        "bio": "data\\processed\\full_annotation_batches\\full_annotation_batch_006_bio.jsonl",
+        "ner": "data\\processed\\full_annotation_batches\\full_annotation_batch_006_ner.json",
+        "bio_conversion_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_006_bio_conversion_report.json"
+      },
+      "repair_summary": {
+        "records": 200,
+        "spans_total": 815,
+        "spans_already_valid": 815,
+        "spans_repaired": 0,
+        "spans_unresolved": 0,
+        "ambiguous_matches": 0
+      },
+      "validation_summary": {
+        "total_input_candidates": 200,
+        "total_annotation_records": 200,
+        "valid_records": 200,
+        "invalid_records": 0,
+        "missing_ids": 0,
+        "duplicate_ids": 0,
+        "allow_missing": false,
+        "error_counts": {}
+      },
+      "conversion_summary": {
+        "records": 200,
+        "tokens_total": 7831,
+        "comp_tokens": 6149,
+        "records_with_spans": 198,
+        "records_without_spans": 2,
+        "warnings": 26
+      },
+      "conversion_warning_counts": {
+        "overlapping_spans": 26
+      }
+    },
+    {
+      "batch_id": "full_annotation_batch_007",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_007.jsonl",
+      "ai_output": "data\\processed\\full_annotation_batches\\full_annotation_batch_007_ai.jsonl",
+      "record_count_expected": 200,
+      "status": "processed",
+      "validation_pass": true,
+      "converted": true,
+      "error": null,
+      "outputs": {
+        "repaired": "data\\processed\\full_annotation_batches\\full_annotation_batch_007_ai_repaired.jsonl",
+        "repair_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_007_repair_report.json",
+        "validation_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_007_validation_report.json",
+        "bio": "data\\processed\\full_annotation_batches\\full_annotation_batch_007_bio.jsonl",
+        "ner": "data\\processed\\full_annotation_batches\\full_annotation_batch_007_ner.json",
+        "bio_conversion_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_007_bio_conversion_report.json"
+      },
+      "repair_summary": {
+        "records": 200,
+        "spans_total": 583,
+        "spans_already_valid": 583,
+        "spans_repaired": 0,
+        "spans_unresolved": 0,
+        "ambiguous_matches": 0
+      },
+      "validation_summary": {
+        "total_input_candidates": 200,
+        "total_annotation_records": 200,
+        "valid_records": 200,
+        "invalid_records": 0,
+        "missing_ids": 0,
+        "duplicate_ids": 0,
+        "allow_missing": false,
+        "error_counts": {}
+      },
+      "conversion_summary": {
+        "records": 200,
+        "tokens_total": 5012,
+        "comp_tokens": 4120,
+        "records_with_spans": 196,
+        "records_without_spans": 4,
+        "warnings": 8
+      },
+      "conversion_warning_counts": {
+        "overlapping_spans": 8
+      }
+    },
+    {
+      "batch_id": "full_annotation_batch_008",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_008.jsonl",
+      "ai_output": "data\\processed\\full_annotation_batches\\full_annotation_batch_008_ai.jsonl",
+      "record_count_expected": 200,
+      "status": "processed",
+      "validation_pass": true,
+      "converted": true,
+      "error": null,
+      "outputs": {
+        "repaired": "data\\processed\\full_annotation_batches\\full_annotation_batch_008_ai_repaired.jsonl",
+        "repair_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_008_repair_report.json",
+        "validation_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_008_validation_report.json",
+        "bio": "data\\processed\\full_annotation_batches\\full_annotation_batch_008_bio.jsonl",
+        "ner": "data\\processed\\full_annotation_batches\\full_annotation_batch_008_ner.json",
+        "bio_conversion_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_008_bio_conversion_report.json"
+      },
+      "repair_summary": {
+        "records": 200,
+        "spans_total": 534,
+        "spans_already_valid": 534,
+        "spans_repaired": 0,
+        "spans_unresolved": 0,
+        "ambiguous_matches": 0
+      },
+      "validation_summary": {
+        "total_input_candidates": 200,
+        "total_annotation_records": 200,
+        "valid_records": 200,
+        "invalid_records": 0,
+        "missing_ids": 0,
+        "duplicate_ids": 0,
+        "allow_missing": false,
+        "error_counts": {}
+      },
+      "conversion_summary": {
+        "records": 200,
+        "tokens_total": 3601,
+        "comp_tokens": 2994,
+        "records_with_spans": 196,
+        "records_without_spans": 4,
+        "warnings": 28
+      },
+      "conversion_warning_counts": {
+        "overlapping_spans": 28
+      }
+    },
+    {
+      "batch_id": "full_annotation_batch_009",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_009.jsonl",
+      "ai_output": "data\\processed\\full_annotation_batches\\full_annotation_batch_009_ai.jsonl",
+      "record_count_expected": 200,
+      "status": "processed",
+      "validation_pass": true,
+      "converted": true,
+      "error": null,
+      "outputs": {
+        "repaired": "data\\processed\\full_annotation_batches\\full_annotation_batch_009_ai_repaired.jsonl",
+        "repair_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_009_repair_report.json",
+        "validation_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_009_validation_report.json",
+        "bio": "data\\processed\\full_annotation_batches\\full_annotation_batch_009_bio.jsonl",
+        "ner": "data\\processed\\full_annotation_batches\\full_annotation_batch_009_ner.json",
+        "bio_conversion_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_009_bio_conversion_report.json"
+      },
+      "repair_summary": {
+        "records": 200,
+        "spans_total": 480,
+        "spans_already_valid": 480,
+        "spans_repaired": 0,
+        "spans_unresolved": 0,
+        "ambiguous_matches": 0
+      },
+      "validation_summary": {
+        "total_input_candidates": 200,
+        "total_annotation_records": 200,
+        "valid_records": 200,
+        "invalid_records": 0,
+        "missing_ids": 0,
+        "duplicate_ids": 0,
+        "allow_missing": false,
+        "error_counts": {}
+      },
+      "conversion_summary": {
+        "records": 200,
+        "tokens_total": 3133,
+        "comp_tokens": 2639,
+        "records_with_spans": 198,
+        "records_without_spans": 2,
+        "warnings": 41
+      },
+      "conversion_warning_counts": {
+        "overlapping_spans": 41
+      }
+    },
+    {
+      "batch_id": "full_annotation_batch_010",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_010.jsonl",
+      "ai_output": "data\\processed\\full_annotation_batches\\full_annotation_batch_010_ai.jsonl",
+      "record_count_expected": 200,
+      "status": "processed",
+      "validation_pass": true,
+      "converted": true,
+      "error": null,
+      "outputs": {
+        "repaired": "data\\processed\\full_annotation_batches\\full_annotation_batch_010_ai_repaired.jsonl",
+        "repair_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_010_repair_report.json",
+        "validation_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_010_validation_report.json",
+        "bio": "data\\processed\\full_annotation_batches\\full_annotation_batch_010_bio.jsonl",
+        "ner": "data\\processed\\full_annotation_batches\\full_annotation_batch_010_ner.json",
+        "bio_conversion_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_010_bio_conversion_report.json"
+      },
+      "repair_summary": {
+        "records": 200,
+        "spans_total": 583,
+        "spans_already_valid": 583,
+        "spans_repaired": 0,
+        "spans_unresolved": 0,
+        "ambiguous_matches": 0
+      },
+      "validation_summary": {
+        "total_input_candidates": 200,
+        "total_annotation_records": 200,
+        "valid_records": 200,
+        "invalid_records": 0,
+        "missing_ids": 0,
+        "duplicate_ids": 0,
+        "allow_missing": false,
+        "error_counts": {}
+      },
+      "conversion_summary": {
+        "records": 200,
+        "tokens_total": 4447,
+        "comp_tokens": 3589,
+        "records_with_spans": 196,
+        "records_without_spans": 4,
+        "warnings": 29
+      },
+      "conversion_warning_counts": {
+        "overlapping_spans": 29
+      }
+    },
+    {
+      "batch_id": "full_annotation_batch_011",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_011.jsonl",
+      "ai_output": "data\\processed\\full_annotation_batches\\full_annotation_batch_011_ai.jsonl",
+      "record_count_expected": 200,
+      "status": "processed",
+      "validation_pass": true,
+      "converted": true,
+      "error": null,
+      "outputs": {
+        "repaired": "data\\processed\\full_annotation_batches\\full_annotation_batch_011_ai_repaired.jsonl",
+        "repair_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_011_repair_report.json",
+        "validation_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_011_validation_report.json",
+        "bio": "data\\processed\\full_annotation_batches\\full_annotation_batch_011_bio.jsonl",
+        "ner": "data\\processed\\full_annotation_batches\\full_annotation_batch_011_ner.json",
+        "bio_conversion_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_011_bio_conversion_report.json"
+      },
+      "repair_summary": {
+        "records": 200,
+        "spans_total": 947,
+        "spans_already_valid": 947,
+        "spans_repaired": 0,
+        "spans_unresolved": 0,
+        "ambiguous_matches": 0
+      },
+      "validation_summary": {
+        "total_input_candidates": 200,
+        "total_annotation_records": 200,
+        "valid_records": 200,
+        "invalid_records": 0,
+        "missing_ids": 0,
+        "duplicate_ids": 0,
+        "allow_missing": false,
+        "error_counts": {}
+      },
+      "conversion_summary": {
+        "records": 200,
+        "tokens_total": 9828,
+        "comp_tokens": 7820,
+        "records_with_spans": 200,
+        "records_without_spans": 0,
+        "warnings": 24
+      },
+      "conversion_warning_counts": {
+        "overlapping_spans": 24
+      }
+    },
+    {
+      "batch_id": "full_annotation_batch_012",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_012.jsonl",
+      "ai_output": "data\\processed\\full_annotation_batches\\full_annotation_batch_012_ai.jsonl",
+      "record_count_expected": 200,
+      "status": "processed",
+      "validation_pass": true,
+      "converted": true,
+      "error": null,
+      "outputs": {
+        "repaired": "data\\processed\\full_annotation_batches\\full_annotation_batch_012_ai_repaired.jsonl",
+        "repair_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_012_repair_report.json",
+        "validation_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_012_validation_report.json",
+        "bio": "data\\processed\\full_annotation_batches\\full_annotation_batch_012_bio.jsonl",
+        "ner": "data\\processed\\full_annotation_batches\\full_annotation_batch_012_ner.json",
+        "bio_conversion_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_012_bio_conversion_report.json"
+      },
+      "repair_summary": {
+        "records": 200,
+        "spans_total": 835,
+        "spans_already_valid": 835,
+        "spans_repaired": 0,
+        "spans_unresolved": 0,
+        "ambiguous_matches": 0
+      },
+      "validation_summary": {
+        "total_input_candidates": 200,
+        "total_annotation_records": 200,
+        "valid_records": 200,
+        "invalid_records": 0,
+        "missing_ids": 0,
+        "duplicate_ids": 0,
+        "allow_missing": false,
+        "error_counts": {}
+      },
+      "conversion_summary": {
+        "records": 200,
+        "tokens_total": 8197,
+        "comp_tokens": 6653,
+        "records_with_spans": 197,
+        "records_without_spans": 3,
+        "warnings": 16
+      },
+      "conversion_warning_counts": {
+        "overlapping_spans": 16
+      }
+    },
+    {
+      "batch_id": "full_annotation_batch_013",
+      "input_jsonl": "data\\processed\\full_annotation_batches\\full_annotation_batch_013.jsonl",
+      "ai_output": "data\\processed\\full_annotation_batches\\full_annotation_batch_013_ai.jsonl",
+      "record_count_expected": 154,
+      "status": "processed",
+      "validation_pass": true,
+      "converted": true,
+      "error": null,
+      "outputs": {
+        "repaired": "data\\processed\\full_annotation_batches\\full_annotation_batch_013_ai_repaired.jsonl",
+        "repair_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_013_repair_report.json",
+        "validation_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_013_validation_report.json",
+        "bio": "data\\processed\\full_annotation_batches\\full_annotation_batch_013_bio.jsonl",
+        "ner": "data\\processed\\full_annotation_batches\\full_annotation_batch_013_ner.json",
+        "bio_conversion_report": "data\\processed\\full_annotation_batches\\full_annotation_batch_013_bio_conversion_report.json"
+      },
+      "repair_summary": {
+        "records": 154,
+        "spans_total": 441,
+        "spans_already_valid": 441,
+        "spans_repaired": 0,
+        "spans_unresolved": 0,
+        "ambiguous_matches": 0
+      },
+      "validation_summary": {
+        "total_input_candidates": 154,
+        "total_annotation_records": 154,
+        "valid_records": 154,
+        "invalid_records": 0,
+        "missing_ids": 0,
+        "duplicate_ids": 0,
+        "allow_missing": false,
+        "error_counts": {}
+      },
+      "conversion_summary": {
+        "records": 154,
+        "tokens_total": 3689,
+        "comp_tokens": 3019,
+        "records_with_spans": 152,
+        "records_without_spans": 2,
+        "warnings": 21
+      },
+      "conversion_warning_counts": {
+        "overlapping_spans": 21
+      }
+    }
+  ]
+}

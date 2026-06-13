@@ -1,0 +1,791 @@
+{
+  "batch_id": "full_annotation_batch_010",
+  "records": 200,
+  "records_with_overlap_before": 21,
+  "spans_before": 583,
+  "spans_after": 554,
+  "merged_overlap_groups": 26,
+  "changed_record_ids": [
+    "train_003335",
+    "train_003461",
+    "train_003507",
+    "train_003646",
+    "train_003717",
+    "train_003738",
+    "train_003906",
+    "train_004069",
+    "train_004078",
+    "train_004088",
+    "train_004121",
+    "train_004235",
+    "train_004244",
+    "train_004294",
+    "train_000137",
+    "train_000158",
+    "train_000406",
+    "train_000466",
+    "train_002054",
+    "train_003881",
+    "val_000015"
+  ],
+  "details": [
+    {
+      "id": "train_003335",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 16,
+              "text": "không giống hình",
+              "label": "COMP"
+            },
+            {
+              "start": 17,
+              "end": 23,
+              "text": "dù yếu",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 23,
+            "text": "không giống hình.dù yếu",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003461",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 28,
+              "end": 67,
+              "text": "tới nay nữa tháng hơn chưa giao lại nữa",
+              "label": "COMP"
+            },
+            {
+              "start": 70,
+              "end": 86,
+              "text": "tiền thì tính đủ",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 28,
+            "end": 86,
+            "text": "tới nay nữa tháng hơn chưa giao lại nữa!!!tiền thì tính đủ",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 90,
+              "end": 107,
+              "text": "đồ thì giao thiếu",
+              "label": "COMP"
+            },
+            {
+              "start": 110,
+              "end": 139,
+              "text": "bái bai  cửa hàng  này từ đây",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 90,
+            "end": 139,
+            "text": "đồ thì giao thiếu!!!bái bai  cửa hàng  này từ đây",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003507",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 41,
+              "text": "không hề có chữ nào mang nhãn hiệu eroSka",
+              "label": "COMP"
+            },
+            {
+              "start": 42,
+              "end": 67,
+              "text": "quay rất mỏng manh dễ đứt",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 67,
+            "text": "không hề có chữ nào mang nhãn hiệu eroSka.quay rất mỏng manh dễ đứt",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003646",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 76,
+              "end": 99,
+              "text": "né  cửa hàng  này ra mn",
+              "label": "COMP"
+            },
+            {
+              "start": 100,
+              "end": 113,
+              "text": "đồ như đồ 35k",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 76,
+            "end": 113,
+            "text": "né  cửa hàng  này ra mn,đồ như đồ 35k",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003717",
+      "changed": true,
+      "spans_before": 10,
+      "spans_after": 9,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 392,
+              "end": 446,
+              "text": "vậy ma đến khi  cửa hàng  nhận hàng  cửa hàng  im luôn",
+              "label": "COMP"
+            },
+            {
+              "start": 447,
+              "end": 477,
+              "text": "toi gọi điện thoại không  được",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 392,
+            "end": 477,
+            "text": "vậy ma đến khi  cửa hàng  nhận hàng  cửa hàng  im luôn.toi gọi điện thoại không  được",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003738",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 41,
+              "text": "nguoi ta dat hang ma giao hang không dung",
+              "label": "COMP"
+            },
+            {
+              "start": 42,
+              "end": 55,
+              "text": "lam an ki cuc",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 55,
+            "text": "nguoi ta dat hang ma giao hang không dung.lam an ki cuc",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003906",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 22,
+              "end": 46,
+              "text": "nói  cửa hàng  vẫn xử lý",
+              "label": "COMP"
+            },
+            {
+              "start": 47,
+              "end": 58,
+              "text": "uy tính nhé",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 22,
+            "end": 58,
+            "text": "nói  cửa hàng  vẫn xử lý,uy tính nhé",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004069",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 7,
+              "text": "vải đẹp",
+              "label": "COMP"
+            },
+            {
+              "start": 8,
+              "end": 14,
+              "text": "mịn ok",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 14,
+            "text": "vải đẹp,mịn ok",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004078",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 24,
+              "text": "cả tiền giao hàng là 79k",
+              "label": "COMP"
+            },
+            {
+              "start": 25,
+              "end": 53,
+              "text": "cái dù nv không đáng giá 79k",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 53,
+            "text": "cả tiền giao hàng là 79k.cái dù nv không đáng giá 79k",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004088",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 28,
+              "text": "haZ đặt màu này giao màu kia",
+              "label": "COMP"
+            },
+            {
+              "start": 29,
+              "end": 54,
+              "text": "cho  cửa hàng  4star  nhé",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 54,
+            "text": "haZ đặt màu này giao màu kia.cho  cửa hàng  4star  nhé",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004121",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 49,
+              "end": 69,
+              "text": "mặc ở nhà với giá 50",
+              "label": "COMP"
+            },
+            {
+              "start": 70,
+              "end": 90,
+              "text": "000 thì cũng tốt rồi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 49,
+            "end": 90,
+            "text": "mặc ở nhà với giá 50.000 thì cũng tốt rồi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004235",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 80,
+              "end": 94,
+              "text": "giao rất nhanh",
+              "label": "COMP"
+            },
+            {
+              "start": 97,
+              "end": 133,
+              "text": "ai thích màu tươi sáng thì mua  được",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 80,
+            "end": 133,
+            "text": "giao rất nhanh...ai thích màu tươi sáng thì mua  được",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004244",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 21,
+              "end": 45,
+              "text": "đế và thân rất dễ rớt ra",
+              "label": "COMP"
+            },
+            {
+              "start": 46,
+              "end": 68,
+              "text": "lần đầu mua hàng ở đây",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 21,
+            "end": 68,
+            "text": "đế và thân rất dễ rớt ra.lần đầu mua hàng ở đây",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_004294",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 46,
+              "end": 67,
+              "text": "có điều vải hơi nhăng",
+              "label": "COMP"
+            },
+            {
+              "start": 68,
+              "end": 85,
+              "text": "nói chung là được",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 46,
+            "end": 85,
+            "text": "có điều vải hơi nhăng,nói chung là được",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000137",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 4,
+              "end": 40,
+              "text": "về ai tải sẵn tik tok với lazada rồi",
+              "label": "COMP"
+            },
+            {
+              "start": 41,
+              "end": 65,
+              "text": "chs game ổn lâu lâu giật",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 4,
+            "end": 65,
+            "text": "về ai tải sẵn tik tok với lazada rồi,chs game ổn lâu lâu giật",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000158",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 18,
+              "text": "máy sử dụng được ạ",
+              "label": "COMP"
+            },
+            {
+              "start": 20,
+              "end": 35,
+              "text": "giao hàng nhanh",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 35,
+            "text": "máy sử dụng được ạ..giao hàng nhanh",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000406",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 10,
+              "text": "máy xài ok",
+              "label": "COMP"
+            },
+            {
+              "start": 11,
+              "end": 23,
+              "text": "pin cực trâu",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 23,
+            "text": "máy xài ok,pin cực trâu",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 31,
+              "end": 42,
+              "text": "hộp móp méo",
+              "label": "COMP"
+            },
+            {
+              "start": 43,
+              "end": 76,
+              "text": "củ sạc bẩn bẩn như ai xài rồi vậy",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 31,
+            "end": 76,
+            "text": "hộp móp méo,củ sạc bẩn bẩn như ai xài rồi vậy",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_000466",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 18,
+              "text": "giao hàng quá chậm",
+              "label": "COMP"
+            },
+            {
+              "start": 19,
+              "end": 52,
+              "text": "vào ngày cuối cùng trong thời hạn",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 52,
+            "text": "giao hàng quá chậm,vào ngày cuối cùng trong thời hạn",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 87,
+              "end": 136,
+              "text": "hân được hàng vào ngày đầu tiên trong số ngày hẹn",
+              "label": "COMP"
+            },
+            {
+              "start": 137,
+              "end": 171,
+              "text": "đôi khi được nhận sớm hơn qui định",
+              "label": "COMP"
+            },
+            {
+              "start": 172,
+              "end": 217,
+              "text": "lazada cần cải thiện thời gian giao nhận hàng",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 87,
+            "end": 217,
+            "text": "hân được hàng vào ngày đầu tiên trong số ngày hẹn,đôi khi được nhận sớm hơn qui định.lazada cần cải thiện thời gian giao nhận hàng",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_002054",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 47,
+              "text": "giao hàng không có chống sốc làm sần hộp một tý",
+              "label": "COMP"
+            },
+            {
+              "start": 48,
+              "end": 54,
+              "text": "và lâu",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 54,
+            "text": "giao hàng không có chống sốc làm sần hộp một tý,và lâu",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003881",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 51,
+              "end": 80,
+              "text": "thử quay video thì mic vẫn ok",
+              "label": "COMP"
+            },
+            {
+              "start": 81,
+              "end": 101,
+              "text": "nghe gọi bình thường",
+              "label": "COMP"
+            },
+            {
+              "start": 102,
+              "end": 147,
+              "text": "gọi thoại ở zalo và meSenger cũng bình thường",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 51,
+            "end": 147,
+            "text": "thử quay video thì mic vẫn ok,nghe gọi bình thường,gọi thoại ở zalo và meSenger cũng bình thường",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 154,
+              "end": 223,
+              "text": "chuyển sang video thì chỉ nghe bên kia nói chứ mình nói họ không nghe",
+              "label": "COMP"
+            },
+            {
+              "start": 224,
+              "end": 256,
+              "text": "kiểm tra hai mic vẫn bình thường",
+              "label": "COMP"
+            },
+            {
+              "start": 257,
+              "end": 298,
+              "text": "kiểm tra các quyền truy cập zalo meSenger",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 154,
+            "end": 298,
+            "text": "chuyển sang video thì chỉ nghe bên kia nói chứ mình nói họ không nghe,kiểm tra hai mic vẫn bình thường,kiểm tra các quyền truy cập zalo meSenger",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 304,
+              "end": 317,
+              "text": "cấp hết quyền",
+              "label": "COMP"
+            },
+            {
+              "start": 318,
+              "end": 332,
+              "text": "ko hiểu luôn á",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 304,
+            "end": 332,
+            "text": "cấp hết quyền,ko hiểu luôn á",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "val_000015",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 127,
+              "end": 150,
+              "text": "nạp tiền vào mua gói 22",
+              "label": "COMP"
+            },
+            {
+              "start": 151,
+              "end": 194,
+              "text": "000vnd thì giá cũng được như gói quà rất tệ",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 127,
+            "end": 194,
+            "text": "nạp tiền vào mua gói 22.000vnd thì giá cũng được như gói quà rất tệ",
+            "label": "COMP"
+          }
+        }
+      ]
+    }
+  ]
+}

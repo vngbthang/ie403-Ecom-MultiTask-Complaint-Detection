@@ -1,0 +1,697 @@
+{
+  "batch_id": "full_annotation_batch_005",
+  "records": 200,
+  "records_with_overlap_before": 19,
+  "spans_before": 947,
+  "spans_after": 920,
+  "merged_overlap_groups": 22,
+  "changed_record_ids": [
+    "train_003217",
+    "train_003220",
+    "train_003264",
+    "train_003292",
+    "train_003326",
+    "train_003332",
+    "train_003366",
+    "train_003380",
+    "train_003382",
+    "train_003498",
+    "train_003512",
+    "train_003537",
+    "train_003585",
+    "train_003635",
+    "train_003654",
+    "train_003662",
+    "train_003725",
+    "train_003740",
+    "train_003747"
+  ],
+  "details": [
+    {
+      "id": "train_003217",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 24,
+              "text": "iphone 5 của mình ios 10",
+              "label": "COMP"
+            },
+            {
+              "start": 25,
+              "end": 54,
+              "text": "3 không cài được ứng dụng này",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 54,
+            "text": "iphone 5 của mình ios 10.3 không cài được ứng dụng này",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003220",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 8,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 188,
+              "end": 197,
+              "text": "ủa là sao",
+              "label": "COMP"
+            },
+            {
+              "start": 198,
+              "end": 258,
+              "text": "v không có mã là không  được  miễn hay giảm phí vận chuyển r",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 188,
+            "end": 258,
+            "text": "ủa là sao?v không có mã là không  được  miễn hay giảm phí vận chuyển r",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003264",
+      "changed": true,
+      "spans_before": 9,
+      "spans_after": 8,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 49,
+              "end": 75,
+              "text": "không phải bản xin lỗi đâu",
+              "label": "COMP"
+            },
+            {
+              "start": 76,
+              "end": 108,
+              "text": ") và cập nhật android 9 mới nhất",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 49,
+            "end": 108,
+            "text": "không phải bản xin lỗi đâu!) và cập nhật android 9 mới nhất",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003292",
+      "changed": true,
+      "spans_before": 8,
+      "spans_after": 6,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 8,
+              "text": "chơi gam",
+              "label": "COMP"
+            },
+            {
+              "start": 9,
+              "end": 13,
+              "text": "e gì",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 13,
+            "text": "chơi gam.e gì",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 35,
+              "end": 43,
+              "text": "chơi gam",
+              "label": "COMP"
+            },
+            {
+              "start": 44,
+              "end": 54,
+              "text": "e chơi vui",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 35,
+            "end": 54,
+            "text": "chơi gam.e chơi vui",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003326",
+      "changed": true,
+      "spans_before": 3,
+      "spans_after": 2,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 99,
+              "end": 179,
+              "text": "để khi tra từ trong v-a thì có thể nhấn vào để tiếp tục xem từ vựng đó trong a-v",
+              "label": "COMP"
+            },
+            {
+              "start": 180,
+              "end": 207,
+              "text": "hiểu hơn về cách dùng từ đó",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 99,
+            "end": 207,
+            "text": "để khi tra từ trong v-a thì có thể nhấn vào để tiếp tục xem từ vựng đó trong a-v,hiểu hơn về cách dùng từ đó",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003332",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 136,
+              "end": 186,
+              "text": "bạn không thể tìm thấy id tạm thời gây phiền nhiễu",
+              "label": "COMP"
+            },
+            {
+              "start": 187,
+              "end": 191,
+              "text": "😡😡😡😡",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 136,
+            "end": 191,
+            "text": "bạn không thể tìm thấy id tạm thời gây phiền nhiễu.😡😡😡😡",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003366",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 36,
+              "end": 46,
+              "text": "được anh 6",
+              "label": "COMP"
+            },
+            {
+              "start": 47,
+              "end": 53,
+              "text": "1 plus",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 36,
+            "end": 53,
+            "text": "được anh 6.1 plus",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 55,
+              "end": 77,
+              "text": "hệ điều hành android 9",
+              "label": "COMP"
+            },
+            {
+              "start": 78,
+              "end": 83,
+              "text": "0 pie",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 55,
+            "end": 83,
+            "text": "hệ điều hành android 9.0 pie",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003380",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 4,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 1,
+              "text": "1",
+              "label": "COMP"
+            },
+            {
+              "start": 2,
+              "end": 31,
+              "text": "độ hoạ mình thấy khá đơn giản",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 31,
+            "text": "1.độ hoạ mình thấy khá đơn giản",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003382",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 72,
+              "end": 84,
+              "text": "phê đừng hỏi",
+              "label": "COMP"
+            },
+            {
+              "start": 88,
+              "end": 112,
+              "text": "tự bạn thiết kế nhân vật",
+              "label": "COMP"
+            },
+            {
+              "start": 116,
+              "end": 153,
+              "text": "mỗi một bộ trang phục mặc vào là khác",
+              "label": "COMP"
+            },
+            {
+              "start": 161,
+              "end": 183,
+              "text": "chứ không như game này",
+              "label": "COMP"
+            },
+            {
+              "start": 190,
+              "end": 206,
+              "text": "nhìn đã chán rồi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 72,
+            "end": 206,
+            "text": "phê đừng hỏi....tự bạn thiết kế nhân vật....mỗi một bộ trang phục mặc vào là khác........chứ không như game này.......nhìn đã chán rồi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003498",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 18,
+              "text": "game toàn lỗi load",
+              "label": "COMP"
+            },
+            {
+              "start": 19,
+              "end": 121,
+              "text": "đăng nhập thì hơn một tiếng không vào được không nên tải game này chỉ thêm mất thời gian của mọi người",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 121,
+            "text": "game toàn lỗi load,đăng nhập thì hơn một tiếng không vào được không nên tải game này chỉ thêm mất thời gian của mọi người",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003512",
+      "changed": true,
+      "spans_before": 12,
+      "spans_after": 9,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 34,
+              "end": 50,
+              "text": "mạng là bốn vạch",
+              "label": "COMP"
+            },
+            {
+              "start": 51,
+              "end": 89,
+              "text": "không hiểu sao game không cho mình vào",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 34,
+            "end": 89,
+            "text": "mạng là bốn vạch.không hiểu sao game không cho mình vào",
+            "label": "COMP"
+          }
+        },
+        {
+          "source_spans": [
+            {
+              "start": 127,
+              "end": 137,
+              "text": "có mỗi hai",
+              "label": "COMP"
+            },
+            {
+              "start": 138,
+              "end": 151,
+              "text": "ba phần trăm😱",
+              "label": "COMP"
+            },
+            {
+              "start": 152,
+              "end": 158,
+              "text": "vào đi",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 127,
+            "end": 158,
+            "text": "có mỗi hai,ba phần trăm😱.vào đi",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003537",
+      "changed": true,
+      "spans_before": 10,
+      "spans_after": 9,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 233,
+              "end": 249,
+              "text": "hay bạn anh đã q",
+              "label": "COMP"
+            },
+            {
+              "start": 250,
+              "end": 263,
+              "text": "tâm sự kiện b",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 233,
+            "end": 263,
+            "text": "hay bạn anh đã q.tâm sự kiện b",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003585",
+      "changed": true,
+      "spans_before": 6,
+      "spans_after": 5,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 30,
+              "end": 72,
+              "text": "có một số lỗi cần cải thiện là hay bị văng",
+              "label": "COMP"
+            },
+            {
+              "start": 73,
+              "end": 172,
+              "text": "lag và cái cuối là cần giảm dung lượng lại vì có những người chơi muốn trải nghiệm một trò chơi hay",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 30,
+            "end": 172,
+            "text": "có một số lỗi cần cải thiện là hay bị văng,lag và cái cuối là cần giảm dung lượng lại vì có những người chơi muốn trải nghiệm một trò chơi hay",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003635",
+      "changed": true,
+      "spans_before": 2,
+      "spans_after": 1,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 0,
+              "end": 2,
+              "text": "ok",
+              "label": "COMP"
+            },
+            {
+              "start": 3,
+              "end": 76,
+              "text": "nhung không thích phần  quả người cáo ở bên dưới nó làm khuất đi tầm nhìn",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 0,
+            "end": 76,
+            "text": "ok.nhung không thích phần  quả người cáo ở bên dưới nó làm khuất đi tầm nhìn",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003654",
+      "changed": true,
+      "spans_before": 4,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 199,
+              "end": 214,
+              "text": "mọi việc đều ok",
+              "label": "COMP"
+            },
+            {
+              "start": 217,
+              "end": 233,
+              "text": "khu vườn tạm đẹp",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 199,
+            "end": 233,
+            "text": "mọi việc đều ok...khu vườn tạm đẹp",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003662",
+      "changed": true,
+      "spans_before": 5,
+      "spans_after": 3,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 72,
+              "end": 150,
+              "text": "tuỳ tiện các sản phẩm đồ chơi lắp ráp súng đạn như thật vì nó cực kỳ nguy hiểm",
+              "label": "COMP"
+            },
+            {
+              "start": 151,
+              "end": 204,
+              "text": "và kích thích bạo lực nhất là đối với con em chúng ta",
+              "label": "COMP"
+            },
+            {
+              "start": 205,
+              "end": 283,
+              "text": "các sản phẩm liên quan đến tình dục xét về góc độ nào đó có thể chấp nhận được",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 72,
+            "end": 283,
+            "text": "tuỳ tiện các sản phẩm đồ chơi lắp ráp súng đạn như thật vì nó cực kỳ nguy hiểm.và kích thích bạo lực nhất là đối với con em chúng ta.các sản phẩm liên quan đến tình dục xét về góc độ nào đó có thể chấp nhận được",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003725",
+      "changed": true,
+      "spans_before": 10,
+      "spans_after": 9,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 127,
+              "end": 182,
+              "text": "rớt vào nha thế la tốn 3 4 sao gì do để làm rồi sửa lại",
+              "label": "COMP"
+            },
+            {
+              "start": 183,
+              "end": 199,
+              "text": "r cai cầu đã say",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 127,
+            "end": 199,
+            "text": "rớt vào nha thế la tốn 3 4 sao gì do để làm rồi sửa lại.r cai cầu đã say",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003740",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 6,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 28,
+              "end": 40,
+              "text": "học  được  1",
+              "label": "COMP"
+            },
+            {
+              "start": 41,
+              "end": 86,
+              "text": "2bài là bắt đóng tiền thì mới  được  học tiếp",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 28,
+            "end": 86,
+            "text": "học  được  1,2bài là bắt đóng tiền thì mới  được  học tiếp",
+            "label": "COMP"
+          }
+        }
+      ]
+    },
+    {
+      "id": "train_003747",
+      "changed": true,
+      "spans_before": 7,
+      "spans_after": 6,
+      "overlap_groups": [
+        {
+          "source_spans": [
+            {
+              "start": 108,
+              "end": 151,
+              "text": "đặt hàng lại tính thêm phí vận chuyển là 15",
+              "label": "COMP"
+            },
+            {
+              "start": 152,
+              "end": 233,
+              "text": "500đ trong khi lúc xem hàng thì ngay chỗ vận chuyển lại để là miễn phí vận chuyển",
+              "label": "COMP"
+            }
+          ],
+          "merged_span": {
+            "start": 108,
+            "end": 233,
+            "text": "đặt hàng lại tính thêm phí vận chuyển là 15.500đ trong khi lúc xem hàng thì ngay chỗ vận chuyển lại để là miễn phí vận chuyển",
+            "label": "COMP"
+          }
+        }
+      ]
+    }
+  ]
+}
