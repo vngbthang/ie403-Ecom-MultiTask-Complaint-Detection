@@ -1,0 +1,116 @@
+{
+  "method": "Rule-based keyword span extractor",
+  "entity_precision": 0.013513513513513514,
+  "entity_recall": 0.0018365472910927456,
+  "entity_f1": 0.0032336297493936943,
+  "token_f1_macro": 0.14723886346613105,
+  "gold_label_distribution": {
+    "O": 2952,
+    "B-COMP": 1089,
+    "I-COMP": 7447
+  },
+  "pred_label_distribution": {
+    "O": 11294,
+    "B-COMP": 148,
+    "I-COMP": 46
+  },
+  "samples": 291,
+  "length_mismatch_count": 0,
+  "test_json": "data\\processed\\uit_viocd_full_complaint_ner_test.json",
+  "keywords": [
+    "bể",
+    "chậm",
+    "crash",
+    "dỏm",
+    "fake",
+    "giả",
+    "hỏng",
+    "kém",
+    "lag",
+    "lâu",
+    "lỗi",
+    "móp",
+    "nhầm",
+    "rách",
+    "sai",
+    "thiếu",
+    "thất vọng",
+    "trầy",
+    "tệ",
+    "vỡ",
+    "đứng"
+  ],
+  "phrase_patterns": [
+    [
+      "giao",
+      "chậm"
+    ],
+    [
+      "giao",
+      "lâu"
+    ],
+    [
+      "bị",
+      "lỗi"
+    ],
+    [
+      "không",
+      "dùng",
+      "được"
+    ],
+    [
+      "không",
+      "hoạt",
+      "động"
+    ],
+    [
+      "không",
+      "nhận",
+      "được"
+    ],
+    [
+      "chưa",
+      "nhận",
+      "được"
+    ],
+    [
+      "thiếu",
+      "hàng"
+    ],
+    [
+      "thiếu",
+      "phụ",
+      "kiện"
+    ],
+    [
+      "không",
+      "đúng"
+    ],
+    [
+      "sai",
+      "màu"
+    ],
+    [
+      "sai",
+      "size"
+    ],
+    [
+      "hoàn",
+      "tiền"
+    ],
+    [
+      "đổi",
+      "trả"
+    ],
+    [
+      "bảo",
+      "hành"
+    ],
+    [
+      "app",
+      "lỗi"
+    ]
+  ],
+  "token_precision_macro": 0.39623037470682626,
+  "token_recall_macro": 0.33671957698738825
+}

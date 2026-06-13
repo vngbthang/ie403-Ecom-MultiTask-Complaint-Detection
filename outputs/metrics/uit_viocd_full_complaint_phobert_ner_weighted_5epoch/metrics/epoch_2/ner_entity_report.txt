@@ -1,0 +1,9 @@
+=== ENTITY-LEVEL CLASSIFICATION REPORT (seqeval) ===
+
+              precision    recall  f1-score   support
+
+        COMP     0.7122    0.8430    0.7721      1089
+
+   micro avg     0.7122    0.8430    0.7721      1089
+   macro avg     0.7122    0.8430    0.7721      1089
+weighted avg     0.7122    0.8430    0.7721      1089

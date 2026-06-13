@@ -1,0 +1,20 @@
+=== ENTITY REPORT ===
+              precision    recall  f1-score   support
+
+        COMP     0.0135    0.0018    0.0032      1089
+
+   micro avg     0.0135    0.0018    0.0032      1089
+   macro avg     0.0135    0.0018    0.0032      1089
+weighted avg     0.0135    0.0018    0.0032      1089
+
+
+=== TOKEN REPORT ===
+              precision    recall  f1-score   support
+
+           O     0.2598    0.9939    0.4119      2952
+      B-COMP     0.0811    0.0110    0.0194      1089
+      I-COMP     0.8478    0.0052    0.0104      7447
+
+    accuracy                         0.2598     11488
+   macro avg     0.3962    0.3367    0.1472     11488
+weighted avg     0.6240    0.2598    0.1144     11488
