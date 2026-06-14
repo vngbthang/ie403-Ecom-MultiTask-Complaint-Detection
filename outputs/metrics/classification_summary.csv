@@ -1,4 +1,0 @@
-﻿model,dataset,accuracy,macro_f1,complaint_f1,precision_macro,recall_macro,num_samples,source_file
-LinearSVM,Shopee,0.9431,0.9428,0.947,0.9427,0.9429,1564,outputs\metrics\classical_baselines.csv
-LogisticRegression,Shopee,0.9393,0.939,0.9431,0.9386,0.9394,1564,outputs\metrics\classical_baselines.csv
-NaiveBayes,Shopee,0.9341,0.9339,0.9381,0.9334,0.9346,1564,outputs\metrics\classical_baselines.csv
