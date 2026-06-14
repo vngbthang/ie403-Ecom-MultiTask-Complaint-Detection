@@ -1,0 +1,42 @@
+{
+  "entity_precision": 0.827212020033389,
+  "entity_recall": 0.9100091827364555,
+  "entity_f1": 0.8666375163970268,
+  "token_precision_macro": 0.8855254151723355,
+  "token_recall_macro": 0.8543279721577014,
+  "token_f1_macro": 0.8643513226207947,
+  "num_samples": 291,
+  "total_tokens": 11467,
+  "epoch": 4,
+  "avg_loss": 0.23794610295117946,
+  "gold_label_distribution": {
+    "counts": {
+      "O": 2931,
+      "B-COMP": 1089,
+      "I-COMP": 7447
+    },
+    "samples_with_comp": 280,
+    "samples_total": 291
+  },
+  "pred_label_distribution": {
+    "counts": {
+      "O": 2225,
+      "B-COMP": 1140,
+      "I-COMP": 8102
+    },
+    "samples_with_comp": 287,
+    "samples_total": 291
+  },
+  "token_O_precision": 0.8853932584269663,
+  "token_O_recall": 0.6721255544182873,
+  "token_O_f1": 0.7641582622187743,
+  "token_O_support": 2931,
+  "token_B-COMP_precision": 0.8780701754385964,
+  "token_B-COMP_recall": 0.9191919191919192,
+  "token_B-COMP_f1": 0.8981606101390758,
+  "token_B-COMP_support": 1089,
+  "token_I-COMP_precision": 0.8931128116514441,
+  "token_I-COMP_recall": 0.9716664428628978,
+  "token_I-COMP_f1": 0.9307350955045339,
+  "token_I-COMP_support": 7447
+}

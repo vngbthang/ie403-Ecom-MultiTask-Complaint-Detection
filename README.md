@@ -127,6 +127,26 @@ performed best.
 - Informal Vietnamese, spelling variants, teencode, implicit complaints, and
   mixed-sentiment reviews remain challenging.
 
+## Demo
+
+The Streamlit demo uses the downloaded PhoBERT NER checkpoint:
+
+```text
+outputs/metrics/demo_full_unweighted_phobert_ner_5epoch/checkpoints/ner_single_task_epoch_5.pt
+```
+
+Run a quick CLI prediction:
+
+```bash
+python -m src.inference.predict_complaint_spans --checkpoint outputs/metrics/demo_full_unweighted_phobert_ner_5epoch/checkpoints/ner_single_task_epoch_5.pt --text "áo đẹp nhưng giao hàng chậm quá, shop đóng gói sơ sài"
+```
+
+Launch the Streamlit app:
+
+```bash
+streamlit run streamlit_app.py
+```
+
 ## How to Reproduce
 
 Run commands from the repository root.
