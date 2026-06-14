@@ -48,7 +48,7 @@ data/
   raw/UIT-ViOCD/                    Raw UIT-ViOCD train/val/test CSV files
   processed/                        Processed CSV, candidates, annotations, BIO, NER JSON
 
-docs/                               LaTeX report and project documentation
+docs/                               Project documentation
 figures/                            Figures used in the report
 outputs/metrics/                    Current experiment metrics and predictions
 
